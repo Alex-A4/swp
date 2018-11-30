@@ -1,0 +1,48 @@
+.main-row-container{
+	border-bottom: 1px solid #e6e6e6;
+	padding: 3px;
+	
+	max-width: 30rem;
+}
+
+.main-row-container:last-of-type{
+	border: 0px;
+}
+
+h2{
+	font-weight: bold;
+}
+
+.main-row-container:hover{
+	border-color: rgba(227,227,227,0);
+	background: #1d9fab;
+	color: #fff;
+}
+
+.main-row-container:last-child{
+	padding-bottom: 0;
+}
+
+.row{
+	padding: 3px;
+}
+
+.row div span{
+	margin-right: 5px;
+}
+
+.box{
+	display: inline-block;
+}
+
+.datetime{
+	float: right;
+}
+
+.time{
+	float: right;
+}
+
+.description{
+	padding-top: 1.5rem;
+}
