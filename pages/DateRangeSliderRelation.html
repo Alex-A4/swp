@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: DateRangeChoose</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <!--<script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>-->
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <!--<script type="text/javascript" data-pack-name="skip" src="/themes/online/fonts/webfonts.js" charset="utf-8"></script>-->
+   <style>
+      html, body {
+         font-family: Tahoma !important;
+         font-size: 13px;
+         background-color: #F7F6EE;
+      }
+      .mainContainer {
+         width: 900px;
+         margin: 0 auto;
+         padding: 0 20px;
+      }
+      /*@font-face {
+         font-family: 'TensorFont';
+         font-weight: normal;
+         src: url('/themes/online/fonts/TensorFont.eot'); *//* IE9 Compat Modes *//*
+         src: url('/themes/online/fonts/TensorFont.eot?#iefix') format('embedded-opentype'), *//* IE6-IE8 *//*
+         url('/themes/online/fonts/TensorFont.woff2') format('woff2'), *//* Super Modern Browsers *//*
+         url('/themes/online/fonts/TensorFont.woff') format('woff'), *//* Pretty Modern Browsers *//*
+         url('/themes/online/fonts/TensorFont.ttf')  format('truetype')
+      }
+      @font-face {
+         font-family: 'TensorFont';
+         font-weight: bold;
+         src: url('/themes/online/fonts/TensorFontBold.eot'); *//* IE9 Compat Modes *//*
+         src: url('/themes/online/fonts/TensorFontBold.eot?#iefix') format('embedded-opentype'), *//* IE6-IE8 *//*
+         url('/themes/online/fonts/TensorFontBold.woff2') format('woff2'), *//* Super Modern Browsers *//*
+         url('/themes/online/fonts/TensorFontBold.woff') format('woff'), *//* Pretty Modern Browsers *//*
+         url('/themes/online/fonts/TensorFontBold.ttf')  format('truetype')
+      }*/
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <!--<link rel="stylesheet" type="text/css" href="../fonts/index.css"/>-->
+   <!--<link rel="stylesheet" type="text/css" href="../icons/index.css"/>-->
+   <link rel="stylesheet" type="text/css" href="../sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+   <link rel="stylesheet" type="text/css" href="../sbis3-ws/ws/deprecated/Controls/TabButtons/TabButtons.css"/>
+</head>
+<body class="view-main">
+<div id="Back"></div>
+
+<br/>
+<br/>
+<div class="mainContainer">
+   <h3>SBIS3.CONTROLS/Date/RangeSlider</h3>
+   <div>
+      <div id="controls_DateRangeSlider1" ></div>
+      <div id="controls_DateRangeSlider2" ></div>
+      <div id="controls_DateRangeSlider3" ></div>
+      <div id="controls_DateRangeSlider4" ></div>
+      <div id="controls_DateRangeSlider5" ></div>
+   </div>
+   <h3>SBIS3.CONTROLS/Date/RangeSlider шаг 3 месяца</h3>
+   <div>
+      <div id="controls_DateRangeSlider2_1" ></div>
+      <div id="controls_DateRangeSlider2_2" ></div>
+      <div id="controls_DateRangeSlider2_3" ></div>
+      <div id="controls_DateRangeSlider2_4" ></div>
+      <div id="controls_DateRangeSlider2_5" ></div>
+   </div>
+
+   <h3>SBIS3.CONTROLS/Date/RangeSlider шаг 6 месяцев</h3>
+   <div>
+      <div id="controls_DateRangeSlider3_1" ></div>
+      <div id="controls_DateRangeSlider3_2" ></div>
+      <div id="controls_DateRangeSlider3_3" ></div>
+      <div id="controls_DateRangeSlider3_4" ></div>
+      <div id="controls_DateRangeSlider3_5" ></div>
+   </div>
+
+   <h3>SBIS3.CONTROLS/Date/RangeSlider шаг 1 год</h3>
+   <div>
+      <div id="controls_DateRangeSlider4_1" ></div>
+      <div id="controls_DateRangeSlider4_2" ></div>
+      <div id="controls_DateRangeSlider4_3" ></div>
+      <div id="controls_DateRangeSlider4_4" ></div>
+      <div id="controls_DateRangeSlider4_5" ></div>
+   </div>
+
+   <h3>SBIS3.CONTROLS/Date/RangeSlider Тип связи - Только по разрядности</h3>
+   <div>
+      <div id="controls_DateRangeSlider5_1" ></div>
+      <div id="controls_DateRangeSlider5_2" ></div>
+      <div id="controls_DateRangeSlider5_3" ></div>
+      <div id="controls_DateRangeSlider5_4" ></div>
+      <div id="controls_DateRangeSlider5_5" ></div>
+      <div id="controls_StateButton5" ></div>
+   </div>
+
+   <h3>SBIS3.CONTROLS/Date/RangeSlider Тип связи - Только по разрядности с выключенным замочком</h3>
+   <div>
+      <div id="controls_DateRangeSlider6_1" ></div>
+      <div id="controls_DateRangeSlider6_2" ></div>
+      <div id="controls_DateRangeSlider6_3" ></div>
+      <div id="controls_DateRangeSlider6_4" ></div>
+      <div id="controls_DateRangeSlider6_5" ></div>
+      <div id="controls_StateButton6" ></div>
+   </div>
+</div>
+
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+
+         require(["SBIS3.CONTROLS/Link"], function (r) {
+            new r({
+               element: "Back",
+               caption: 'Назад',
+               href: '../../',
+               icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+            });
+         });
+
+         require(['SBIS3.CONTROLS/Date/RangeSlider', 'SBIS3.CONTROLS/ComponentBinder', 'SBIS3.CONTROLS/Button/StateButton'], function(r, ComponentBinder, StateButton){
+            var controls = [],
+               controller = new ComponentBinder(),
+               i, button;
+            for (i = 1; i <= 5; i++) {
+               controls.push(new r({
+                  name: 'controls_DateRangeSlider' + i,
+                  element: 'controls_DateRangeSlider' + i,
+                  startValue: '2015-01-1',
+                  endValue: '2015-01-31',
+                  showLock: true
+               }));
+            }
+            controller.bindDateRanges(controls);
+
+            controls = [];
+            for (var i = 1; i <= 5; i++) {
+               controls.push(new r({
+                  name: 'controls_DateRangeSlider2_' + i,
+                  element: 'controls_DateRangeSlider2_' + i,
+                  startValue: '2015-01-1',
+                  endValue: '2015-01-31'
+               }));
+            }
+            controller = new ComponentBinder();
+            controller.bindDateRanges(controls, 3, true);
+
+            controls = [];
+            for (var i = 1; i <= 5; i++) {
+               controls.push(new r({
+                  name: 'controls_DateRangeSlider3_' + i,
+                  element: 'controls_DateRangeSlider3_' + i,
+                  startValue: '2015-01-1',
+                  endValue: '2015-01-31'
+               }));
+            }
+            controller = new ComponentBinder();
+            controller.bindDateRanges(controls, 6, true);
+
+            controls = [];
+            for (var i = 1; i <= 5; i++) {
+               controls.push(new r({
+                  name: 'controls_DateRangeSlider4_' + i,
+                  element: 'controls_DateRangeSlider4_' + i,
+                  startValue: '2015-01-1',
+                  endValue: '2015-01-31'
+               }));
+            }
+            controller = new ComponentBinder();
+            controller.bindDateRanges(controls, 12, true);
+
+            button = new StateButton({
+               name: 'controls_StateButton5',
+               element: 'controls_StateButton5',
+               icon: 'sprite:icon-24 icon-Author icon-primary',
+               checkedIcon: 'sprite:icon-24 icon-Save icon-primary'
+            });
+
+            controls = [];
+            for (var i = 1; i <= 5; i++) {
+               controls.push(new r({
+                  name: 'controls_DateRangeSlider5_' + i,
+                  element: 'controls_DateRangeSlider5_' + i,
+                  startValue: '2015-01-1',
+                  endValue: '2015-01-31'
+               }));
+            }
+            controller = new ComponentBinder();
+            controller.bindDateRanges(controls, null, true, true, button);
+
+            controls = [];
+            for (var i = 1; i <= 5; i++) {
+               controls.push(new r({
+                  name: 'controls_DateRangeSlider6_' + i,
+                  element: 'controls_DateRangeSlider6_' + i,
+                  startValue: '2015-01-1',
+                  endValue: '2015-01-31'
+               }));
+            }
+            button = new StateButton({
+               name: 'controls_StateButton6',
+               element: 'controls_StateButton6',
+               icon: 'sprite:icon-24 icon-Author icon-primary',
+               checkedIcon: 'sprite:icon-24 icon-Save icon-primary'
+            });
+
+            controller = new ComponentBinder();
+            controller.bindDateRanges(controls, null, null, true, button);
+         });
+
+      });
+   });
+</script>
+</body>
+</html>

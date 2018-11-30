@@ -1,0 +1,287 @@
+[{
+  "include": [
+    "Controls/Application",
+    "Controls/Application/*"
+  ],
+  "exclude": [
+    "wml!Controls/Application/CompatibleScripts",
+    "Controls/Application/HeadDataContext",
+    "Controls/Application/AppData",
+    "Controls/Application/DepsCollector/DepsCollector"
+  ],
+  "output": "controls-application.package.js"
+}, {
+  "include": [
+    "Controls/Application/HeadDataContext",
+    "Controls/Application/AppData",
+    "Controls/Context/*"
+  ],
+  "output": "controls-context.package.js"
+}, {
+  "include": [
+    "Controls/Button/*",
+    "Controls/Button"
+  ],
+  "output": "controls-button.package.js"
+}, {
+  "include": [
+    "Controls/Operations/*"
+  ],
+  "exclude": [
+    "Controls/Operations/ReportDialog",
+    "Controls/Operations/ReportDialog/*"
+  ],
+  "output": "controls-operations.package.js"
+}, {
+  "include": [
+    "Controls/Container/*",
+    "Controls/StickyHeader",
+    "Controls/StickyHeader/*"
+  ],
+  "exclude": [
+    "Controls/Container/Scroll/Context"
+  ],
+  "output": "controls-container.package.js"
+}, {
+  "include": [
+    "Controls/Controllers/*"
+  ],
+  "output": "controls-controllers.package.js"
+}, {
+  "include": [
+    "Controls/Dropdown/*"
+  ],
+  "output": "controls-dropdown.package.js"
+}, {
+  "include": [
+    "Controls/Event/*"
+  ],
+  "output": "controls-event.package.js"
+}, {
+  "include": [
+    "Controls/Filter/*"
+  ],
+  "exclude": [
+    "Controls/Filter/Button/_FilterCompatible",
+    "Controls/Filter/Button/OldPanelOpener",
+    "Controls/Filter/Button/Panel",
+    "Controls/Filter/Button/Panel/*"
+  ],
+  "output": "controls-filter.package.js"
+}, {
+  "include": [
+    "Controls/Filter/Button/Panel",
+    "Controls/Filter/Button/Panel/*"
+  ],
+  "output": "controls-filter-panel.package.js"
+}, {
+  "include": [
+    "Controls/Filter/Button/_FilterCompatible",
+    "Controls/Filter/Button/OldPanelOpener"
+  ],
+  "output": "controls-filter-compatible.package.js"
+}, {
+  "include": [
+    "Controls/Header/*",
+    "Controls/Header"
+  ],
+  "output": "controls-header.package.js"
+}, {
+  "include": [
+    "Controls/History/*"
+  ],
+  "output": "controls-history.package.js"
+}, {
+  "include": [
+    "Controls/Input/*"
+  ],
+  "exclude": [
+    "Controls/Input/RichArea",
+    "Controls/Input/RichArea/*"
+  ],
+  "output": "controls-input.package.js"
+}, {
+  "include": [
+    "Controls/Input/RichArea",
+    "Controls/Input/RichArea/*"
+  ],
+  "output": "controls-richarea.package.js"
+}, {
+  "include": [
+    "Controls/Label/*",
+    "Controls/Label"
+  ],
+  "output": "controls-label.package.js"
+}, {
+  "include": [
+    "Controls/List/*",
+    "Controls/List",
+    "Controls/Grid",
+    "Controls/List/ItemActions/Utils/Actions"
+  ],
+  "exclude": [
+    "Controls/List/interface/*",
+    "Controls/List/resources/utils/CSSGridLayoutUtils",
+    "wml!Controls/List/Grid/OldGridView",
+    "wml!Controls/List/Grid/NewGridView",
+    "Controls/List/ItemActions/resources/*",
+    "Controls/List/ItemActions/ItemActionsControl",
+    "Controls/List/Swipe/*",
+    "Controls/List/Mover",
+    "Controls/List/Remover",
+    "Controls/List/DialogMover/*",
+    "Controls/List/DialogMover",
+    "Controls/List/Paging/*",
+    "Controls/List/Paging"
+  ],
+  "output": "controls-list.package.js"
+}, {
+  "include": [
+    "Controls/List/Paging/*",
+    "Controls/List/Paging"
+  ],
+  "output": "controls-paging.package.js"
+}, {
+  "include": [
+    "Controls/List/ItemActions/*",
+    "Controls/List/Swipe/*"
+  ],
+  "exclude": [
+    "Controls/List/ItemActions/Utils/Actions"
+  ],
+  "output": "controls-itemactions.package.js"
+}, {
+  "include": [
+    "Controls/List/DialogMover/*",
+    "Controls/List/DialogMover"
+  ],
+  "output": "controls-dialogmover.package.js"
+}, {
+  "include": [
+    "Controls/Popup/*"
+  ],
+  "exclude": [
+    "Controls/Popup/Compatible/*",
+    "Controls/Popup/Opener/*",
+    "Controls/Popup/Manager/ManagerController"
+  ],
+  "output": "controls-popup.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Opener/Sticky/*"
+  ],
+  "output": "controls-popup-opener-sticky.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Opener/Stack/*"
+  ],
+  "output": "controls-popup-opener-stack.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Opener/Previewer/*"
+  ],
+  "output": "controls-popup-opener-previewer.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Opener/Notification/*"
+  ],
+  "output": "controls-popup-opener-notification.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Opener/Dialog/*"
+  ],
+  "output": "controls-popup-opener-dialog.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Opener/InfoBox/*"
+  ],
+  "output": "controls-popup-opener-infobox.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Opener/Confirmation/*"
+  ],
+  "output": "controls-popup-opener-confirmation.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Opener/*",
+    "Controls/Popup/Manager/ManagerController"
+  ],
+  "exclude": [
+    "Controls/Popup/Opener/Confirmation/*",
+    "Controls/Popup/Opener/Dialog/*",
+    "Controls/Popup/Opener/InfoBox/*",
+    "Controls/Popup/Opener/Notification/*",
+    "Controls/Popup/Opener/Previewer/*",
+    "Controls/Popup/Opener/Stack/*",
+    "Controls/Popup/Opener/Sticky/*"
+  ],
+  "output": "controls-popup-opener.package.js"
+}, {
+  "include": [
+    "Controls/Popup/Compatible/*"
+  ],
+  "exclude": [
+    "Controls/Popup/Compatible/Layer"
+  ],
+  "output": "controls-popup-compat.package.js"
+}, {
+  "include": [
+    "Controls/Render/*"
+  ],
+  "output": "controls-render.package.js"
+}, {
+  "include": [
+    "Controls/Tabs/*",
+    "Controls/Tabs"
+  ],
+  "output": "controls-tabs.package.js"
+}, {
+  "include": [
+    "Controls/Toggle/*"
+  ],
+  "output": "controls-toggle.package.js"
+}, {
+  "include": [
+    "Controls/Utils/*",
+    "Controls/Calendar/Utils"
+  ],
+  "exclude": [
+    "Controls/Utils/isVDOMTemplate"
+  ],
+  "output": "controls-utils.package.js"
+}, {
+  "include": [
+    "Controls/Validate/*"
+  ],
+  "output": "controls-validate.package.js"
+}, {
+  "include": [
+    "Controls/HighCharts",
+    "Controls/HighChartsLight",
+    "Controls/HighCharts/resources/ParseDataUtil"
+  ],
+  "output": "controls-highcharts.package.js"
+}, {
+  "include": [
+    "Controls/DragNDrop/*"
+  ],
+  "output": "controls-dragndrop.package.js"
+}, {
+  "include": [
+    "Controls/Calendar/*"
+  ],
+  "exclude": [
+    "Controls/Calendar/Utils"
+  ],
+  "output": "controls-calendar.package.js"
+},
+  {
+    "include": [
+      "Controls/Search/*"
+    ],
+    "exclude": [
+      "Controls/Search/Misspell",
+      "wml!Controls/Search/Misspell"
+    ],
+    "output": "controls-search.package.js"
+  }]

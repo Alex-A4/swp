@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+    <title>Demo: TextBox</title>
+    <script type="text/javascript">
+       window.wsConfig = {
+          WSRootPath: '/sbis3-ws/ws/',
+          wsRoot: '/sbis3-ws/ws/',
+          WSTheme: 'wi_scheme',
+          resourceRoot: '/',
+          nostyle: true,
+          globalConfigSupport: false
+       };
+       window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+       (function () {
+          window.wsConfig.nostyle = false;
+       })();
+    </script>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <script type="text/javascript" id="ws-include-css"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/glyphs.css"/>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/icons.css"/>
+    <link id="controlsThemeStyle" rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+    <style>
+        .large {
+            font-size: 28px;
+        }
+        .medium {
+            font-size: 21px;
+        }
+        .small {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="view-main controls-default-bg">
+<div id="area">
+    <div>
+        <h1>Обычное поле ввода</h1>
+        <div id="TextBox"></div>
+        <div id="EnabledTextBox"></div>
+        <div id="TextBoxInformationColor"></div>
+    </div>
+    <div>
+        <h1>Форматное</h1>
+        <div id="FormattedTextBox"></div>
+        <div id="EnabledFormattedTextBox"></div>
+    </div>
+    <div>
+        <h1>Денежное</h1>
+        <div id="MoneyTextBox"></div>
+        <div id="EnabledMoneyTextBox" style="width: 100px"></div>
+    </div>
+    <div>
+        <h1>Числовое</h1>
+        <div id="NumberTextBox"></div>
+        <div id="NumberTextBoxWithoutArrows" style="width: 50px;"></div>
+    </div>
+    <div>
+        <h1>Для ввода пароля/PIN</h1>
+        <div id="PasswordTextBox"></div>
+    </div>
+    <div>
+        <h1>Для ввода номера телефона</h1>
+        <div id="PhoneTextBox"></div>
+        <div id="EnabledPhoneTextBox"></div>
+    </div>
+    <div>
+        <h1>Поле с автодополнением</h1>
+        <div id="SuggestTextBox"></div>
+        <div id="SuggestTextBoxWithoutCross"></div>
+    </div>
+    <div>
+        <h1>TextArea</h1>
+        <div id="TextArea" style="width: 300px"></div>
+    </div>
+    <div>
+        <h1>DatePicker</h1>
+        <div id="DatePicker"></div>
+    </div>
+    <div>
+        <h1>SearchForm</h1>
+        <div id="SearchForm"></div>
+    </div>
+    <div>
+        <h1>FieldLink</h1>
+        <div id="FieldLink"></div>
+    </div>
+    <div>
+        <h1>Выпадающий список</h1>
+        <div id="ComboBox"></div>
+        <div id="ComboBoxNotEditable"></div>
+    </div>
+</div>
+<script type="text/javascript">
+   function setBodyModifiers(theme, scale) {
+      var $html = $('html'),
+         themeLinks = {
+            light: {
+               CONTROLS_THEME: '/themes/carrynew/carrynew'
+            },
+            dark: {
+               CONTROLS_THEME: '/themes/prestonew/prestonew'
+            },
+            online: {
+               CONTROLS_THEME: '/themes/online/online'
+            }
+         },
+         setCurrentThemeLinks = function (theme) {
+            var createCSSLink = function (id, href) {
+               var cssLink = document.createElement('link'),
+                  headDOMElement = document.getElementsByTagName('head')[0],
+                  element = document.getElementById(id),
+                  anchorLink = document.getElementById('carry_presto_links_anchor');
+               cssLink.id = id;
+               cssLink.href = href + '.css';
+               cssLink.rel='stylesheet';
+               cssLink.type='text/css';
+               if (element) {
+                  if (cssLink.href === element.href) {
+                      /*стиль актуальный, не обновляем*/
+                     return;
+                  } else {
+                     headDOMElement.removeChild(element);
+                  }
+               }
+               if(anchorLink) {
+                  headDOMElement.insertBefore(cssLink, anchorLink);
+               }
+               else {
+                  headDOMElement.appendChild(cssLink);
+               }
+            };
+            createCSSLink('controlsThemeStyle', theme.CONTROLS_THEME);
+         };
+      setCurrentThemeLinks(themeLinks[theme]);
+      $html.removeClass();
+      $html.addClass(theme);
+      $html.addClass(scale);
+   }
+</script>
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+         require(['SBIS3.CONTROLS/TextBox'], function(r) {
+            new r({
+               element: "TextBox",
+               placeholder: "123",
+               text: "456",
+               enabled: false
+            })
+         });
+
+         require(['SBIS3.CONTROLS/TextBox'], function(r) {
+            new r({
+               element: "EnabledTextBox",
+               placeholder: "123",
+               textAlign: "right"
+            })
+         });
+
+         require(['SBIS3.CONTROLS/TextBox'], function(r) {
+            new r({
+               element: "TextBoxInformationColor",
+               text: "abc",
+               informationIconColor: "error"
+            })
+         });
+
+         require(["SBIS3.CONTROLS/ComboBox"], function (r) {
+            new r({
+               element: "ComboBox",
+               items: [
+                  {
+                     key: 1,
+                     title: 'rc-3.7.3.100'
+                  },
+                  {
+                     key: 2,
+                     title: 'rc-3.7.3.140'
+                  },
+                  {
+                     key: 3,
+                     title: 'rc-3.7.3.150'
+                  },
+                  {
+                     key: 4,
+                     title: 'rc-3.7.4'
+                  },
+                  {
+                     key: 5,
+                     title: 'rc-3.8.qweqweqweqweqweqweqwewqeqweqweqweqweqw0'
+                  },
+                  {
+                     key: 6,
+                     title: 'development'
+                  }
+               ],
+                placeholder: '123',
+                emptyValue: true
+//               selectedKey: 1
+            });
+
+            new r({
+               element: "ComboBoxNotEditable",
+               editable: false,
+               items: [
+                  {
+                     key: 1,
+                     title: 'rc-3.7.3.100'
+                  },
+                  {
+                     key: 2,
+                     title: 'rc-3.7.3.140'
+                  },
+                  {
+                     key: 3,
+                     title: 'rc-3.7.3.150'
+                  },
+                  {
+                     key: 4,
+                     title: 'rc-3.7.4'
+                  },
+                  {
+                     key: 5,
+                     title: 'rc-3.8.qweqweqweqweqweqweqwewqeqweqweqweqweqw0'
+                  },
+                  {
+                     key: 6,
+                     title: 'development'
+                  }
+               ],
+                placeholder: '123',
+//               selectedKey: 1
+            });
+         });
+
+         require(['SBIS3.CONTROLS/FormattedTextBox'], function(r) {
+            new r({
+               element: 'FormattedTextBox',
+               enabled: false,
+               mask: '+d (ddd) ddd - dd - dd',
+               text: '+7 (800) 555 - 35 - 35'
+            })
+         });
+
+         require(['SBIS3.CONTROLS/FormattedTextBox'], function(r) {
+            new r({
+               element: 'EnabledFormattedTextBox',
+               mask: '+d (ddd) ddd - dd - dd',
+               text: '+7 (800) 555 - 35 - 35'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/MoneyTextBox"], function (r) {
+            new r({
+               element: "MoneyTextBox",
+               moneyValue: '123.456',
+               enabled: false,
+               placeholder: '100'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/MoneyTextBox"], function (r) {
+            new r({
+               element: "EnabledMoneyTextBox",
+               moneyValue: '123.456',
+               placeholder: '100'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/NumberTextBox"], function (r) {
+            new r({
+               element: "NumberTextBox",
+               text: '851.123',
+               numericValue: 123.00,
+               integers: 10,
+               onlyInteger: false,
+               onlyPositive: false,
+               delimiters: true,
+               enableArrows: true,
+               decimals: 5,
+               maxLength: 15
+            })
+         });
+
+         require(["SBIS3.CONTROLS/NumberTextBox"], function (r) {
+            new r({
+               element: "NumberTextBoxWithoutArrows",
+               text: '851.123',
+               numericValue: 123.00,
+               integers: 20,
+               onlyInteger: true,
+               onlyPositive: false,
+               delimiters: false,
+               enableArrows: false,
+               decimals: 5,
+               maxLength: 20
+            })
+         });
+
+         require(["SBIS3.CONTROLS/PasswordTextBox"], function (r) {
+            new r({
+               element: "PasswordTextBox",
+               text: 'password',
+               showPassword: true
+            })
+         });
+
+         require(["SBIS3.CONTROLS/PhoneTextBox"], function (r) {
+            new r({
+               element: "PhoneTextBox",
+               enabled: false,
+               srcText: '78005553535'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/PhoneTextBox"], function (r) {
+            new r({
+               element: "EnabledPhoneTextBox",
+               srcText: '78005553535'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/Suggest/SuggestTextBox"], function (r) {
+            new r({
+               element: "SuggestTextBox",
+               placeholder: 'С крестиком'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/Suggest/SuggestTextBox"], function (r) {
+            new r({
+               element: "SuggestTextBoxWithoutCross",
+               placeholder: 'Без крестика',
+               className: 'controls-SuggestTextBox__withoutCross'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/TextArea"], function (r) {
+            new r({
+               className: 'controls-TextArea__hiddenIfEmpty',
+               element: "TextArea",
+               text: '',
+               placeholder: '213123123',
+               parent: area,
+               minLinesCount: 2,
+               maxLinesCount: 4,
+               text: '<b>Лалала</b> httpqweqwe' +
+               'qweqwe' +
+               'qwe' +
+               'qwe' +
+               'qwe' +
+               'q' +
+               'we' +
+               'q' +
+               'qwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwqew' +
+               'eq' +
+               'e' +
+               'qw' +
+               'e' +
+               'qwe' +
+               '://google.com ret ert ert ert667657j ghj gh hg f fgh gh gh ',
+               enabled: false
+            });
+         });
+
+         require(["SBIS3.CONTROLS/Date/Picker"], function (r) {
+            new r({
+               element: "DatePicker"
+            })
+         });
+
+//         require(["SBIS3.CONTROLS/Date/Box"], function (r) {
+//            new r({
+//               element: "DateBox"
+//            })
+//         });
+
+         require(["SBIS3.CONTROLS/SearchForm"], function (r) {
+            new r({
+               element: "SearchForm",
+               placeholder: "подсказка"
+            });
+         });
+
+         require(["SBIS3.CONTROLS/FieldLink"], function (r) {
+            new r({
+               element: "FieldLink"
+            })
+         });
+      });
+   });
+</script>
+</body>
+</html>

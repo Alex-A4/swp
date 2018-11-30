@@ -1,0 +1,65 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-HistoryList__itemWrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  cursor: pointer;
+  height: 24px;
+  width: 100%;
+}
+.controls-HistoryList__itemWrapper:before {
+  content: "\200b";
+}
+.controls-HistoryList__itemWrapper:hover .controls-HistoryList__item {
+  text-decoration: underline;
+}
+.controls-HistoryList__itemWrapper:hover .controls-HistoryList__iconPin {
+  visibility: visible;
+}
+.controls-HistoryList__content {
+  margin-left: 22px;
+}
+.controls-HistoryList__item {
+  font-size: 14px;
+  color: #313E78;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-right: 12px;
+  width: 100%;
+}
+.controls-HistoryList__iconPin {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  font-family: 'cbuc-icons';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+}
+.controls-HistoryList__iconPin-default {
+  color: #CCC;
+  visibility: hidden;
+}
+.controls-HistoryList__iconPin:hover {
+  visibility: visible;
+  color: #313E78;
+}
+.controls-HistoryList__iconPin-active {
+  visibility: visible;
+  color: #313E78;
+}

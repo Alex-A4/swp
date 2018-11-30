@@ -1,0 +1,857 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: Buttons</title>
+   <meta http-equiv="X-UA-Compatible" content="IE=10"/>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+      html, body {
+         font-family: 'TensorFont Regular', 'TensorFont'!important;
+         font-size: 14px!important;
+      }
+      .menubutton{
+         margin-right: 50px;
+      }
+
+      .left, .right, .top, .bottom {
+         position: absolute !important;
+      }
+      .left {
+         left: 15px;
+      }
+      .right {
+         right: 15px;
+      }
+      .top {
+         top: 10px;
+      }
+      a:hover {
+         text-decoration: underline;
+      }
+      .bottom {
+         bottom: 10px;
+      }
+      .controls-Button::active {
+         background-color: black !important;
+      }
+      @font-face {
+         font-family: 'acordion-font';
+         src: url('../fonts/acordion-font.ttf') format('truetype');
+         font-weight: normal;
+         font-style: normal;
+      }
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../webfonts/fonts.css"/>
+   <link rel="stylesheet" type="text/css" href="../webfonts/glyphs.css"/>
+   <link rel="stylesheet" type="text/css" href="../webfonts/icons.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+<div id="Back"></div>
+
+<br/>
+<br/>
+
+<div>
+   Основные кнопки:
+   <div class="wrapper">
+      <div class="button-example">
+         <div id="baseButton"></div>
+      </div>
+      <div class="button-types">
+         <div id="controls-Button"></div>
+         <div id="controls-Link"></div>
+         <div id="controls-IconButton"></div>
+      </div>
+   </div>
+</div>
+
+<br/>
+<br/>
+
+
+<div>
+   <div id="Link" class="testBlock">0</div>
+   Тут
+   <div id="button" class="testBlock">1</div>
+   будет
+   <div id="ToggleButtonSquare" class="testBlock">2</div>
+   квадратная
+   <div id="ToggleButtonSquareBig" class="testBlock">2</div>
+   кнопка
+   <div id="ToggleButtonSquareBiggest" class="testBlock">2</div>
+   <div id="ToggleButtonRound" class="testBlock">2</div>
+   базовая
+   <div id="ToggleButton" class="testBlock">2.5</div>
+   ку
+   <div id="CheckBox" class="testBlock">3</div>
+   линия
+   <div id="RadioButton" class="testBlock">4</div>
+   с
+   <div id="MenuLink" class="testBlock controls-MenuLink__32px">5</div>
+   текстом
+   <div id="TabButton" class="testBlock">6</div>
+   который
+   <div id="MenuButton" class="testBlock">7</div>
+   не
+   <div id="MenuIcon" class="testBlock">8</div>
+   сбивается
+   <div id="big_button" class="testBlock"></div>
+   верно
+   <div id="AddButtonEnable" class="testBlock"></div>
+   верно
+   <div id="AddButtonDisable" class="testBlock"></div>
+</div>
+<p></p>
+<div>
+   <div id="AbuttonWithout" class="controls-Button__withoutCaption"></div>
+   <div id="Abutton"></div>
+   <div id="AbuttonFix" class="controls-Button__ellipsis" style="width: 85px"></div>
+   <div id="AbuttonIcon"></div>
+   <div id="AbuttonIcon24"></div>
+   <div id="AbuttonIconFix" style="width: 85px"></div>
+
+</div>
+<p></p>
+<div>
+   <div id="Alink"></div>
+   <div id="AlinkFix" class="controls-Button__ellipsis" style="width: 85px"></div>
+   <div id="AlinkIcon"></div>
+   <div id="AlinkIcon24"></div>
+   <div id="AlinkIconFix" class="controls-Button__ellipsis" style="width: 85px"></div>
+   <div id="element_MainLink__2"></div>
+   <div id="element_MainLink__3"></div>
+   <div id="element_AdditionalLink"></div>
+   <div id="element_AdditionalLink__2"></div>
+   <div id="element_AdditionalLink__3"></div>
+   <div id="element_AdditionalLink__4"></div>
+   <div id="element_AdditionalLink__5"></div>
+</div>
+<br/>
+<div>
+   <div id="Icon16"></div>
+   <div id="IconRound24"></div>
+   <div id="IconDone16"></div>
+   <div id="IconError16"></div>
+
+   <div id="IconDelete"></div>
+   <div id="Icon24"></div>
+
+</div>
+<div>
+   <br/>
+
+</div>
+<div id="progress" class="controls-ProgressBar_align-right" style="width:200px;"></div>
+<div id="operations"></div>
+<div  style="margin: 20px;">
+   <h1>А вот разные кнопки с меню</h1>
+   <div>
+      <div id="menuButtonD" class="menubutton"></div>
+      <div id="menubBttonMenuWithout"></div>
+   </div>
+   <br/>
+   <div>
+      <div id="menuLinkD_32" class="menubutton controls-MenuLink__32px"></div>
+      <div id="menuLinkD" class="menubutton"></div>
+      <div id="menuLinkD24_32" class="menubutton controls-MenuLink__32px wordBreakContent"></div>
+      <div id="menuLinkD24" class="menubutton"></div>
+   </div>
+   <br/>
+   <div>
+      <div id="menuIconD" class="menubutton"></div>
+      <div id="menuIconD24" class="menubutton"></div>
+      <div id="menuRoundD" class="menubutton"></div>
+      <div id="menuRoundD24" class="menubutton"></div>
+      <span class="menubutton">Без заголовка:</span>
+      <div id="menuIconWithoutHead" class="menubutton"></div>
+      <div id="menuIconWithoutHeadRound" class="menubutton"></div>
+   </div>
+</div>
+
+<div class = "MenuButton">
+   <div id="MenuButton2" class="menubutton left bottom"></div>
+   <div id="MenuButton3" class="menubutton right top"></div>
+   <div id="MenuButton4" class="menubutton right bottom"></div>
+</div>
+
+<h1>Звонилка</h1>
+<span id="phone"></span>
+<span id="phone2"></span>
+<br/>
+<br/>
+<h2>ListView Hover mode</h2>
+<div id="ListView" class="testBlock listView" style = "width: 300px; display: inline-block;"></div>
+<div id="DataGridClickMode" class="testBlock listView controls-ListView__bottomStyle" style = "width: 300px; display: inline-block;"></div>
+
+<div id="backButton" ></div>
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+
+
+
+
+         require(['SBIS3.CONTROLS/OperationsPanel'], function(OperationsPanel){
+            new OperationsPanel({
+               element: "operations",
+               linkedView : {},
+               items: [
+                  {
+                     name: 'name1',
+                     componentType: 'SBIS3.CONTROLS/Link',
+                     options: {
+                        caption: 'Первая кнопка'
+                     },
+                     type: {}
+                  },
+                  {
+                     name: 'name2',
+                     componentType: 'SBIS3.CONTROLS/Link',
+                     options: {
+                        caption: 'Вторая кнопка'
+                     },
+
+                     type: {}
+                  },
+                  {
+                     name: 'name3',
+                     componentType: 'SBIS3.CONTROLS/Menu/MenuLink',
+                     options: {
+                        caption: 'Кнопка с выпадающим списком',
+                        items: [
+                           {
+                              title:'123',
+                              id:1
+                           },
+                           {
+                              title:'123',
+                              id:2
+                           }
+                        ]
+                     },
+                     type: {}
+                  }
+               ]
+            });
+         });
+
+         require(['SBIS3.CONTROLS/Radio/Button'], function (r){
+            new r({
+               element: 'RadioButton',
+               caption: 'This is RadioButton'
+            })
+         });
+
+              var items16 = [
+                  {
+                      id : 1,
+                      title : 'Задача в разработку'
+                  },
+                  {
+                      id : 2,
+                      title : 'Ошибка в разработку',
+                      icon: 'icon-24 icon-Author icon-primary'
+                  },
+                  {
+                      id : 3,
+                      title : 'Поручение'
+                  },
+                  {
+                      id : 4,
+                      title : 'Выполнить на боевом',
+                      par: 2
+                  },
+                  {
+                      id : 5,
+                      title : 'Согласование',
+                      par: 2
+                  },
+                  {
+                      id : 6,
+                      title : 'Заявки'
+                  },
+                  {
+                      id : 7,
+                      title : 'Продажи'
+                  }
+                  ,
+                  {
+                      id : 8,
+                      title : 'Обучение'
+                  }
+                  ,
+                  {
+                      id : 9,
+                      title : 'Документация'
+                  }
+              ],
+
+                 items24 = [
+                    {
+                       id : 1,
+                       title : '<img src="12312"> fd,skfksdf',
+                       escapeCaptionHtml: true
+                    },
+                    {
+                       id : 2,
+                       title : 'Два'
+                    }
+                 ],
+                 itemsLongTitle = [
+                    {
+                       id : 1,
+                       title : 'Very long text with break word',
+                       icon : 'sprite:icon-24 icon-Author icon-primary'
+                    },
+                    {
+                       id : 2,
+                       title : 'Small text'
+                    }
+                 ],
+                 itemsWithAdditionalProperty = [
+                    {
+                       id : 1,
+                       title : 'Главный элемент 1',
+                       icon : 'sprite:icon-16 icon-Author icon-primary'
+                    },
+                    {
+                       id : 2,
+                       title : 'Скрытый элемент',
+                       additional: true
+                    },
+                    {
+                       id : 3,
+                       title : 'Главный элемент 2'
+                    },
+                    {
+                       id : 4,
+                       title : 'Скрытый элемент',
+                       additional: true
+                    },
+                    {
+                       id : 5,
+                       title : 'Скрытый элемент',
+                       icon : 'sprite:icon-16 icon-Author icon-primary',
+                       additional: true
+                    }
+                 ];
+
+         require(["SBIS3.CONTROLS/Menu/MenuLink"], function (r) {
+
+
+            new r({
+               element: "MenuLink",
+               caption: 'This is MenuLink',
+               icon : 'sprite:icon-16 icon-Author icon-primary',
+               hierField: 'par',
+               pickerClassName: 'myOwnClass',
+               items: items16
+            });
+
+            new r({
+               element: "menuLinkD_32",
+               caption: 'This is MenuLink',
+               hierField: 'par',
+               items: items16
+            });
+            new r({
+               element: "menuLinkD",
+               caption: 'This is MenuLink',
+               icon : 'sprite:icon-16 icon-Author icon-primary',
+               hierField: 'par',
+               additionalProperty: 'additional',
+               items: itemsWithAdditionalProperty,
+               pickerClassName: 'itsMyLink'
+            });
+            new r({
+               element: "menuLinkD24",
+               name: "menuLinkD24",
+               caption: 'This is MenuLink',
+               icon : 'sprite:icon-24 icon-Author icon-primary',
+               hierField: 'par',
+               items: itemsLongTitle,
+               pickerClassName: 'demo-MenuLink__wordBreakContent'
+            });
+            new r({
+               element: "menuLinkD24_32",
+               caption: 'This is MenuLink',
+               icon : 'sprite:icon-24 icon-Author icon-primary',
+               hierField: 'par',
+               name: 'aaaaaa',
+               items: items24
+            })
+         });
+
+         require(["SBIS3.CONTROLS/Menu/MenuButton", 'WS.Data/Collection/RecordSet'], function (r, RecordSet) {
+              //big data
+            // parentProperty: 'parent'
+//            var rD = JSON.parse('{"s":[{"n":"id","t":"Число целое"},{"n":"parent","t":"Число целое"},{"n":"parent@","t":"Логическое"},{"n":"title","t":"Строка"},{"n":"docType","t":"Строка"},{"n":"docSubType","t":"Строка"},{"n":"ruleId","t":"UUID"},{"n":"objectName","t":"Строка"},{"n":"dialogComponent","t":"Строка"},{"n":"componentOptions","t":"Запись"}],"f":0,"d":[[1,null,true,"Заказ поставщику","ЗаказИсх",null,null,"ЗаказСкИсх",null,null],[2,1,false,"Заказ поставщику","ЗаказИсх",null,"c2989d7a-7515-11e2-9123-53f3d5894a71","ЗаказСкИсх","Warehouse/Docs/OutOrder/Dialog",null],[3,1,false,"213","ЗаказИсх",null,"07feea61-ea53-4036-b282-8d105a38d406","ЗаказСкИсх","Warehouse/Docs/OutOrder/Dialog",null],[4,1,false,"Заказ поставщику(с договором)","ЗаказИсх",null,"db4966b8-4b18-4c72-83eb-40d697f9ba2f","ЗаказСкИсх","Warehouse/Docs/OutOrder/Dialog",null],[5,1,false,"Заказ поставщику(с согл.)","ЗаказИсх",null,"11e24dd6-f1db-4dcc-957b-036f6e9010e3","ЗаказСкИсх","Warehouse/Docs/OutOrder/Dialog",null],[6,null,true,"Заказ от покупателя","ЗаказВх",null,null,"ЗаказСкВх",null,null],[7,6,false,"Заказ от покупателя (на бумаге)","ЗаказВх",null,"0155b966-8ae3-11e2-9ae8-9b54ae43be97","ЗаказСкВх","Warehouse/Docs/InOrder/Dialog",null],[8,6,false,"Заказ от покупателя (на бумаге)(с договором)","ЗаказВх",null,"356cbded-c860-4ebe-9934-31dd82dc51de","ЗаказСкВх","Warehouse/Docs/InOrder/Dialog",null],[9,null,true,"Счет исходящий","СчетИсх",null,null,"СчетСкИсх",null,null],[10,9,false,"Счет","СчетИсх",null,"bccdc2e6-7fd6-11e2-aa7a-d79063093e8a","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[11,9,false,"TemplateEditor","СчетИсх",null,"85620949-e47c-43ff-a93d-a55f644b5494","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[12,9,false,"Тест фильтра по операциям","СчетИсх",null,"fabc9746-e720-4f64-a11f-0f689f98fac3","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[13,9,false,"Счет скидка","СчетИсх",null,"0773d9fb-e3ab-4d4d-876b-c8ee3780dcf3","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[14,9,false,"Счет(2)","СчетИсх",null,"e21fffb9-9b22-4adb-9cc5-41f554c83aa6","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[15,9,false,"Счет12","СчетИсх",null,"3c0c6340-a066-11e3-bc22-902b341b546e","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[16,9,false,"Счет(1)","СчетИсх",null,"1618b5e9-2e6b-41ef-9816-23674c7cc684","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[17,9,false,"Для теста","СчетИсх",null,"a1cda632-4563-4a70-be7e-591101e25c04","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[18,9,false,"TemplateEditor (проверка корзины)","СчетИсх",null,"8ffa1580-0074-4b31-846d-ed7440358c6b","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[19,9,false,"TemplateEditor (проверка скорости)","СчетИсх",null,"317bc839-08d7-4c92-bd5f-5277f3c236c7","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[20,9,false,"счет рс","СчетИсх",null,"bb215fef-2210-41a2-a8a6-7bb24962b7d4","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[21,9,false,"Тест заявки на оплату","СчетИсх",null,"3ba9d90b-9c2d-425f-bdac-f1e16405c710","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[22,9,false,"Тест заявки на оплату(1)","СчетИсх",null,"e351ba90-a958-4a6c-952c-db4e9009d63e","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[23,9,false,"1","СчетИсх",null,"0547001d-c50f-4983-863e-aa4fa6479af9","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[24,9,false,"Счет(3)","СчетИсх",null,"9bb365a8-2c04-4f20-a238-1d0f24c810ed","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[25,9,false,"Шумилов Тест","СчетИсх",null,"a4498c35-a007-426e-b6dc-a7fc0d693cd5","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[26,9,false,"карточка сотрудника","СчетИсх",null,"997cc54e-7209-4f0a-a183-e98929d41a75","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[27,9,false,"Счет с комплектацией","СчетИсх",null,"c85ebdc4-8734-4219-b6d7-47768d352fb3","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[28,9,false,"Счет с договором (обязательный)","СчетИсх",null,"ff294985-a2e2-49b4-be0b-157671dca760","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[29,9,false,"Счет с договором(не показывать)","СчетИсх",null,"96a09a17-67a4-4829-a704-f9d1d1d69765","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[30,9,false,"Счет(4)","СчетИсх",null,"03829dc1-071b-44f2-b65d-f8d1ada73651","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[31,9,false,"Счет(без подписи)","СчетИсх",null,"357a0b9d-5bee-4a35-9484-61f490a60825","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[32,9,false,"Счет(+задача, удалить 30.08)","СчетИсх",null,"31286e34-311e-4291-9e4d-97437660706d","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[33,9,false,"test","СчетИсх",null,"f7333aaf-a354-4998-9a7e-c6eb01b0508f","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[34,9,false,"11111111","СчетИсх",null,"54378fb3-f11c-450c-b5d2-88220bdb3c7b","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[35,9,false,"Тест2","СчетИсх",null,"c46c33f6-e3c7-4c70-957f-073acd78664a","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[36,9,false,"новая","СчетИсх",null,"36d29f3e-eac3-41fa-bd19-ff026b118db6","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[37,9,false,"Новая, проверяем квитанцию","СчетИсх",null,"c124ab96-424d-4f1d-bdd6-35576ea62b50","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[38,9,false,"Шаблон имени","СчетИсх",null,"9cec5047-e2f5-40cb-8a8b-bad32fb490ef","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[39,9,false,"Все форматы","СчетИсх",null,"0aaa51fd-a317-4a76-93b7-bb78420fa41d","СчетСкИсх","Warehouse/Docs/OutBill/Dialog",null],[40,null,true,"Счет входящий","СчетВх",null,null,"СчетСкВх",null,null],[41,40,false,"хватит трогать инсталляционные регламенты! создавайте свои","СчетВх",null,"15320e5a-0fda-448e-ade0-80fd8b2d7677","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[42,40,false,"Счет (на бумаге)","СчетВх",null,"1c9a9ec6-8ae3-11e2-87e4-270956217218","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[43,40,false,"Тест Заявки на оплату","СчетВх",null,"67f66f3e-9ebb-11e3-ab2c-005056b75cc6","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[44,40,false,"Тест Заявки на оплату(1)","СчетВх",null,"ed0e0063-d74a-4026-a60e-36989fef67c4","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[45,40,false,"фыв","СчетВх",null,"8ca0f7c6-66d6-4e64-8fff-a6bf3eae10a5","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[46,40,false,"фывфыв","СчетВх",null,"02c36d10-3933-44af-99ad-a278cb1a70a6","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[47,40,false,"фывфывфывфв","СчетВх",null,"f16e9400-3552-4e69-bbcb-beb563f60715","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[48,40,false,"1","СчетВх",null,"2d5ca2ea-965b-436b-b384-e8625f08d304","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[49,40,false,"Заявка на поставку","СчетВх",null,"ffa57a77-3168-43a5-8ecc-14d4ff97d8a9","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[50,40,false,"Заявка на поставку торгового оборудования","СчетВх",null,"9860578e-9357-4ee4-bf0f-e62bdbcd7720","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[51,40,false,"Счет (на бумаге)(договор не показывать)","СчетВх",null,"24451349-392e-44cb-b226-3026955edae3","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[52,40,false,"Счет (на бумаге)(договор обязателен)","СчетВх",null,"73842a79-e135-4635-8f6f-8c99bdd4c947","СчетСкВх","Warehouse/Docs/InBill/Dialog",null],[53,null,true,"Реализация","ДокОтгрИсх",null,null,"РеалИсх",null,null],[54,53,false,"ваиыаиываиваыи","ДокОтгрИсх",null,"77037d4e-5077-47a1-9018-7c83fbfbc0ea","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[55,53,false,"Реализация(3)","ДокОтгрИсх",null,"02fee4aa-da0d-4773-b6ab-096d9bc87a60","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[56,53,false,"Реализация(2)","ДокОтгрИсх",null,"f8d755b4-8865-42ab-b271-4121627ccbd6","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[57,53,false,"Реализация трудовых книжек сотрудникам","ДокОтгрИсх",null,"4f63d0cd-263a-47fc-8bcc-d4612f11e5a4","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[58,53,false,"Реализация__","ДокОтгрИсх",null,"03b5612e-0d7a-484d-b969-747620f6dc01","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[59,53,false,"Реализация (подпись клиента не требуется)","ДокОтгрИсх",null,"b3c98744-ba86-449d-860b-ac490d906227","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[60,53,false,"Реализация","ДокОтгрИсх",null,"8861254e-4354-11e1-9d64-005056a63fed","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[61,53,false,"Возврат поставщикуРРР","ДокОтгрИсх",null,"5f25c62a-5833-11e4-951a-00505691577e","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[62,53,false,"Реализация (с боевого)","ДокОтгрИсх",null,"62eddd55-bc55-483a-8ea3-dc5c7831302e","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[63,53,false,"Реализация(1)","ДокОтгрИсх",null,"129b691c-facb-407d-965a-a6117575f7c6","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[64,53,false,"Реализация с проводками","ДокОтгрИсх",null,"bd71a5c5-3add-472a-9b36-4e30cf4478f4","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[65,53,false,"Реализация услуг питания сотрудникам ","ДокОтгрИсх",null,"ed1c0a6b-1d07-4891-b70e-320bee3989e7","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[66,53,false,"123","ДокОтгрИсх",null,"fceb8838-d189-4947-8f2f-bdb13a8ffda9","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[67,53,false,"Возврат поставщику yt bycn","ДокОтгрИсх",null,"936749c7-9870-4666-ad23-6aa561ec23ba","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[68,53,false,"fgefgedfg1","ДокОтгрИсх",null,"603f8fa1-532b-448d-93d5-e6544ed23270","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[69,53,false,"Тест проводки по связанному документу (Гареева)","ДокОтгрИсх",null,"d380d2fa-5e8e-4781-b0e8-e690b94641d5","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[70,53,false,"&lt;script&gt;alert(&quot;Hello&quot;)&lt;|script&gt;","ДокОтгрИсх",null,"b1ccbcab-9800-4b77-a37a-b4d822030e8f","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[71,53,false,"РеализацияТест","ДокОтгрИсх",null,"fa3aaf97-34be-4282-8cf7-a72fce5847c2","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[72,53,false,"Реализация для Проверки ВКнигуУСН","ДокОтгрИсх",null,"c6abb526-ffb2-4146-a8a7-e33dc82ac03f","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[73,53,false,"Книга УСН","ДокОтгрИсх",null,"8adff07d-d9b0-4ca7-8389-030e8345550d","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[74,53,false,"Не ИСП","ДокОтгрИсх",null,"a9e9345a-352d-4387-8cf5-225768511a8f","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[75,53,false,"Реализация (тест)","ДокОтгрИсх",null,"38a13778-e075-47a1-841b-318e320dd4e5","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[76,53,false,"Реализация трудовых книжек сотрудникам1","ДокОтгрИсх",null,"49251ac2-6bf1-427d-8873-5c86ec058708","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[77,53,false,"Реализация с боя (тест чтобы выложить 28.12.2015)","ДокОтгрИсх",null,"cf13d67c-ecb7-4ce2-ab93-2bc510e62d84","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[78,53,false,"Реализация трудовых книжек сотрудникам(1)","ДокОтгрИсх",null,"fcb8a3c2-081a-4340-9cff-7aeadf656d41","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[79,53,false,"Отправка на согласование","ДокОтгрИсх",null,"31bf9b21-b5dd-4da0-8938-a08d1a2309b8","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[80,53,false,"Путевки 76","ДокОтгрИсх",null,"c0788248-c658-4a5e-8f27-ef2b19f5194e","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[81,53,false,"Новая рперация","ДокОтгрИсх",null,"b65831e1-de8d-4262-bd88-74450fc9d207","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[82,53,false,"Реализация(3 7)","ДокОтгрИсх",null,"e6bd14d8-0bf1-465f-80f6-5f16d80031bc","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[83,53,false,"Реализация для проверки справки о прохождении","ДокОтгрИсх",null,"1a742cd3-583c-44c9-b892-dd7b3a93e527","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[84,53,false,"TemplateEditor","ДокОтгрИсх",null,"fc81e039-a997-42e9-a67d-835ee9854c50","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[85,53,false,"Реализация (проверка проводок)","ДокОтгрИсх",null,"491b46dc-f229-4a5d-9543-075ee50ae67f","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[86,53,false,"новая розница","ДокОтгрИсх",null,"76834e8d-933b-4abf-aba1-22f8f58ad198","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[87,53,false,"Реализаци перепроведение 4 аналитика","ДокОтгрИсх",null,"af481ee4-feaf-487d-84d9-53738be28bed","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[88,53,false,"575","ДокОтгрИсх",null,"bf443e26-a233-48d9-80b3-91f0de66f669","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[89,53,false,"Реализация розницы","ДокОтгрИсх",null,"a8fb26d5-6355-456a-a759-6635ecc9b2c8","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[90,53,false,"Реализация ИП Гареева*( Не трогать!! тест Ханевич)","ДокОтгрИсх",null,"80bdd9c2-d573-4b11-954b-6346f2ef63e5","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[91,53,false,"Реализация_ОбъектыУчета","ДокОтгрИсх",null,"d09ff7b9-3330-4def-a8ba-472d915da690","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[92,53,false,"РеалТрудКнижки_ОбъектыУчета","ДокОтгрИсх",null,"eb959a5a-0288-44e3-a0c5-65ed39150fab","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[93,53,false,"Собственник","ДокОтгрИсх",null,"74890879-a234-4aa5-8a88-4671e984ccc7","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[94,53,false,"Реализация(4)","ДокОтгрИсх",null,"3b1b38f5-bd7f-4ffe-bf60-f62b70ae4830","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[95,53,false,"Реализация с договором (необязательно)","ДокОтгрИсх",null,"d0a5b480-603f-4a02-8ca4-0db318e9dd42","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[96,53,false,"Реализация с договором (обязательно)","ДокОтгрИсх",null,"1b584b6d-79f8-4ddb-a09e-f803bc32fd52","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[97,53,false,"Визуальный редактор","ДокОтгрИсх",null,"626a4ca8-4325-4126-bda8-15935b584d7c","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[98,53,false,"Доп поля (НЕ ТРОГАТЬ)","ДокОтгрИсх",null,"1950474f-db66-45a6-9979-da586113cf16","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[99,53,false,"AnotherTestOperation","ДокОтгрИсх",null,"eebfbab4-784c-4e1e-8f87-501543cc301c","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[100,53,false,"Реализация без проводок","ДокОтгрИсх",null,"354e2089-2e0e-4cb1-b690-aae5a1c5c5e8","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[101,53,false,"Реализация+Поступление(для ПК по взаимозачетам)","ДокОтгрИсх",null,"97958b26-3507-4503-a1af-e10b6e4d8869","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[102,53,false,"Реализация(5)","ДокОтгрИсх",null,"adfa6500-80a7-449b-8f54-6c8373eccede","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[103,53,false,"Реализация(6)","ДокОтгрИсх",null,"4ca57ae4-8f95-4552-917a-7ca8982e2c6c","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[104,53,false,"Реализация_по_Договору","ДокОтгрИсх",null,"cd01b24b-3d56-4c86-af83-0639dd2a772c","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[105,53,false,"Реализация(7)","ДокОтгрИсх",null,"c6f4bb0b-5a52-4a3d-85f3-b5c4ab55ead5","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[106,53,false,"ТестовыйСПК","ДокОтгрИсх",null,"dbb1ea2d-45e9-4fcd-b2ed-66444a72e138","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[107,53,false,"Реализация(10)","ДокОтгрИсх",null,"2da6694c-ee3e-477d-9c88-f3e0ddf8518f","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[108,53,false,"ТЕСТ СМЕНЫ РЕГЛАМЕНТА(1)","ДокОтгрИсх",null,"42e3592c-5e2d-4436-b8b6-60846483e313","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[109,53,false,"тестовое","ДокОтгрИсх",null,"bdc8f16c-eec8-4ab1-a5cf-548f0c59c762","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[110,53,false,"Реализация (с возможностью возврата)!","ДокОтгрИсх",null,"af157768-6f62-46fb-96da-e69b797c2f3f","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[111,53,false,"Мои поля","ДокОтгрИсх",null,"239feaa2-1378-4eec-8596-61a25fbb5e04","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[112,53,false,"Реализация(9)","ДокОтгрИсх",null,"99ccf6a7-0896-42a9-a08a-9b0b10ebe850","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[113,53,false,"ПроверкаВСПК","ДокОтгрИсх",null,"3ca7f60c-01a5-47c8-9327-21e0ecdd7045","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[114,53,false,"Мои поля_1","ДокОтгрИсх",null,"62bcf642-cf6c-4e4c-b186-8fbe03695eb2","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[115,53,false,"Мои поля_2","ДокОтгрИсх",null,"3960a18d-06d3-4e4f-a1ab-01f3aa031d91","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[116,53,false,"Мои поля_3","ДокОтгрИсх",null,"ad934993-f2e4-4795-8d79-3251b6655f53","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[117,53,false,"testPF","ДокОтгрИсх",null,"5bd44bbe-1288-4a5a-98e5-bdaa80d6d2fe","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[118,53,false,"11Возврат поставщику11","ДокОтгрИсх",null,"e569530a-ef07-499d-b07d-242b51b4885d","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[119,53,false,"Автотесты печатных форм","ДокОтгрИсх",null,"2674df64-79fb-4e44-a814-c04073af0d8d","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[120,53,false,"Реализация розницы(1)","ДокОтгрИсх",null,"3c13f6db-de00-4dc9-b6e6-28739704fef5","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[121,53,false,"Реализация с возвратом","ДокОтгрИсх",null,"5a625696-0eaf-4bcb-b592-eeb156eaccd7","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[122,53,false,"Доп поля тест","ДокОтгрИсх",null,"3c0c4e24-9626-41bc-81e3-7e09347353ad","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[123,53,false,"тест","ДокОтгрИсх",null,"382c16fa-7179-4916-b4d8-fd56e52df575","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[124,53,false,"Реализация ИП Гареева*( Не трогать!! тест Ханевич)(1)","ДокОтгрИсх",null,"91b9da19-7ee4-4b18-89d6-65955a3691a7","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[125,53,false,"11Возврат покупателю11","ДокОтгрИсх",null,"c8a26b1b-6dc8-4f7b-8633-a803af0e2649","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[126,53,false,"Реализация_договор не указывать","ДокОтгрИсх",null,"d54d441d-df5c-437a-9698-f41136831065","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[127,53,false,"Реализация_договор обязательно","ДокОтгрИсх",null,"255b66bd-7e3c-4f51-be83-8594cc0ab1aa","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[128,53,false,"Реализация00","ДокОтгрИсх",null,"7c1a8b08-4fb9-4bf7-a82a-3076ae24061f","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[129,53,false,"Связанный документ","ДокОтгрИсх",null,"9ed3154b-dd4a-430f-8cee-ca2573a8e42c","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[130,53,false,"Проверка печатных форм","ДокОтгрИсх",null,"8da732d5-33eb-40f3-8a42-0b2defac7472","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[131,53,false,"Продажи1","ДокОтгрИсх",null,"61c508d6-ad36-4669-b318-c31877bf7165","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[132,53,false,"Тест отображения регламента","ДокОтгрИсх",null,"0873c6f5-7b3e-4e43-9a23-f6d068a8c765","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[133,53,false,"тестовая проводка","ДокОтгрИсх",null,"40569133-3ffe-4160-a8f3-6d6b0511ae3d","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[134,53,false,"ТЕСТ СМЕНЫ РЕГЛАМЕНТА","ДокОтгрИсх",null,"9b55ad97-f623-4784-bd9f-33f984282d3e","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[135,53,false,"Реализация(8)","ДокОтгрИсх",null,"ca222d82-207d-4400-b864-531c3617522a","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[136,53,false,"ТЕСТ СМЕНЫ РЕГЛАМЕНТА(2)","ДокОтгрИсх",null,"0a48ad5e-ab9e-40c0-966a-001e3c950f88","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[137,53,false,"Допполя_1","ДокОтгрИсх",null,"a745e5b1-01f0-4f49-a60e-bb1c8fedcb02","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[138,53,false,"Реализация(11)","ДокОтгрИсх",null,"246f9112-e446-48b5-a857-c1ba0d7c9bb2","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[139,53,false,"Реализация(12)","ДокОтгрИсх",null,"b9913db1-457b-473e-bc52-92dd05255b5e","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[140,53,false,"Связаный док","ДокОтгрИсх",null,"b6dbc145-a9bb-44b5-b3df-6443cb08e80c","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[141,53,false,"Реализация123123","ДокОтгрИсх",null,"61b3519f-1085-4c92-a923-5a4f040b83a1","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[142,53,false,"Закрыть от изменений","ДокОтгрИсх",null,"79ece8c3-c1a5-4cb9-9d87-fcff2800bdb1","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[143,53,false,"Реализация(13)","ДокОтгрИсх",null,"0d8d973a-4078-429e-a725-459f6a4752ef","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[144,53,false,"й","ДокОтгрИсх",null,"328c9568-cceb-4fb7-9e82-e66894b66c48","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[145,53,false,"ц","ДокОтгрИсх",null,"e3dbbc12-25f4-449c-bffa-2ef454a23625","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[146,53,false,"qwe","ДокОтгрИсх",null,"4ebc4b4d-693c-4873-8bd9-e0d710caa9f3","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[147,53,false,"Реализация123123123","ДокОтгрИсх",null,"d46f0c5e-4734-40a0-878f-3825574fefd7","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[148,53,false,"Лена","ДокОтгрИсх",null,"b3715420-a5a5-4030-908f-f5a6cb516e3f","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[149,53,false,"Пустые проводки","ДокОтгрИсх",null,"2e32f007-b84b-4781-82c7-dd2672717098","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[150,53,false,"testAC","ДокОтгрИсх",null,"256a0074-13d9-4fbf-b5c1-e9da7723705c","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[151,53,false,"testAC2","ДокОтгрИсх",null,"2e9cf10d-7949-491a-867c-886130f95362","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[152,53,false,"Реализация 999","ДокОтгрИсх",null,"5b9307e6-2e6d-4e4c-94d2-a84499145a45","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[153,53,false,"test_reglament_autotest","ДокОтгрИсх",null,"a88bf271-727b-4905-8a79-136c839f96f6","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[154,53,false,"Реализация трудовых книжек сотрудникам(2)","ДокОтгрИсх",null,"5b291e44-b9ad-4b6b-89df-6c692317019a","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[155,53,false,"Новая операция","ДокОтгрИсх",null,"e3832e05-e29a-4e33-8a47-cb694df443aa","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[156,53,false,"Реализация(14)","ДокОтгрИсх",null,"f4da75de-0ed2-432e-90ee-45a8342182c2","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[157,53,false,"Реализация(15)","ДокОтгрИсх",null,"ea7a7393-6ec2-4479-b8bc-04beabe8ae44","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[158,53,false,"авыав","ДокОтгрИсх",null,"b6de5ff2-e309-4a4f-bbb5-2b5cbf55197b","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[159,53,false,"Новые дополнительные поля","ДокОтгрИсх",null,"3dd0a992-bb8f-49d1-9025-87d78e18aa47","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[160,53,false,"test-PT-Steps","ДокОтгрИсх",null,"a184d747-fb4e-46d9-8aba-3c4c8daecd93","РеалИсх","Warehouse/Docs/Outflow/Dialog",null],[161,null,true,"Поступление","ДокОтгрВх",null,null,"РеалВх",null,null],[162,161,false,"Поступление","ДокОтгрВх",null,"886174fe-4354-11e1-bc89-005056a63fed","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[163,161,false,"Поступление товаров и услуг (на бумаге)","ДокОтгрВх",null,"942a4650-8ae1-11e2-84ec-5fb98dbb4a86","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[164,161,false,"Поступление с боя","ДокОтгрВх",null,"f7edb3c6-5867-4a1f-9821-98c26a20c45a","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[165,161,false,"НЕ ТРОГАТЬ! Поступление (с боевого)","ДокОтгрВх",null,"bf9ed5ad-bbdc-4224-8475-bb2a57ed1f7a","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[166,161,false,"НЕ ТРОГАТЬ! Поступление (с боевого)(1)","ДокОтгрВх",null,"5032fdbd-e1aa-418a-8e54-bef3645602a2","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[167,161,false,"Поступление*","ДокОтгрВх",null,"a51b127a-44a1-49bf-97fc-f7eb7a3b7087","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[168,161,false,"ПоступлениеИП на НДФЛ (не трогать!! тест Гареева)","ДокОтгрВх",null,"374ea8cb-4534-4493-baf6-171947b9d7db","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[169,161,false,"Поступление (по нашему расчету)","ДокОтгрВх",null,"7bf24cc5-0eb5-404b-bbfa-d3dbbd7cd562","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[170,161,false,"Поступление Яндекс","ДокОтгрВх",null,"b974150c-5549-4b89-a9c3-d1532ac27039","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[171,161,false,"Поступление ТМЦ","ДокОтгрВх",null,"92f5da90-a233-11e4-a573-00505691577e","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[172,161,false,"Тест с проводками1","ДокОтгрВх",null,"7f025804-fac4-11e3-9881-005056b77928","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[173,161,false,"автотест с проводкой","ДокОтгрВх",null,"6fcc0dee-64c3-11e4-85f8-005056b77928","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[174,161,false,"Поступление ТМЦ","ДокОтгрВх",null,"1b02ab32-a092-11e4-89ce-00505691577e","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[175,161,false,"Поступление оборудования","ДокОтгрВх",null,"a1a0729e-a233-11e4-afb9-00505691577e","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[176,161,false,"123345","ДокОтгрВх",null,"7dde44f2-b781-426c-b16b-de0ee59817b6","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[177,161,false,"папка","ДокОтгрВх",null,"4be02538-e6dc-4e06-8941-3f8cbcc7b74d","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[178,161,false,"Поступление через подотчет","ДокОтгрВх",null,"7db84a46-a224-11e4-ae4b-00505691577e","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[179,161,false,"Поступление товаров и услуг (на бумаге) с реализацией","ДокОтгрВх",null,"a42e3346-e13f-46fe-a412-986d7c9b0fba","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[180,161,false,"2","ДокОтгрВх",null,"11833ea3-157f-4ceb-9f11-b9f987afe205","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[181,161,false,"куреен5енк","ДокОтгрВх",null,"45c4f7e8-57f0-4ad7-a3d2-d5955f8301d3","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[182,161,false,"test","ДокОтгрВх",null,"f2c7b309-48f4-45f6-b1fb-93f76c83dd83","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[183,161,false,"Поступление_","ДокОтгрВх",null,"9a70b8e8-8688-4b77-bc52-aec4a83c5b2e","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[184,161,false,"Моя","ДокОтгрВх",null,"9692f41d-de0d-48d7-ae3f-4dc9baa953e7","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[185,161,false,"Регламент с двумя ручными стартовыми переходами","ДокОтгрВх",null,"0232f4ec-3afa-4925-8252-323e41ad5f05","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[186,161,false,"Регламент_с_этапами","ДокОтгрВх",null,"abf27b0f-ca7d-4af3-abb6-2ddd84406c45","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[187,161,false,"Приобретение путевок 76","ДокОтгрВх",null,"bd77e767-dbee-4d5d-a366-8c82824ec1f0","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[188,161,false,"НЕ ТРОГАТЬ! Поступление (с боевого)(2)","ДокОтгрВх",null,"21e69bc8-e0f6-4fc2-9eef-f948a5f50fd9","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[189,161,false,"НЕ ТРОГАТЬ! Поступление (с боевого)(5)sdfhsdfhdshdsfh","ДокОтгрВх",null,"31cfbbe7-efce-405e-9d8f-1c9dd746c9e0","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[190,161,false,"Поступление(тест для ИП ХАНЕВИЧ)","ДокОтгрВх",null,"ce3079cb-7a53-42c7-86e9-ee71ebf4afa7","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[191,161,false,"НЕ ТРОГАТЬ! Поступление (с боевого)(3)1231312312312313123","ДокОтгрВх",null,"b16c1dde-7dbd-447f-8962-2f925312cbc7","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[192,161,false,"Расход","ДокОтгрВх",null,"a8cabe71-4a64-4b97-911e-cf795461a526","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[193,161,false,"Оприходование излишков товара","ДокОтгрВх",null,"d18fae98-53e4-4452-afa8-7d73852e9a15","РеалВх","Warehouse/Docs/Inflow/Receipt/Dialog",null],[194,161,false,"Поступление(тест для ИП ХАНЕВИЧ)(1)","ДокОтгрВх",null,"70d7f62d-1593-4c64-857b-0a7dc4eb8782","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[195,161,false,"УСН!!! То же, что инст. поступление","ДокОтгрВх",null,"c358a2a7-3791-4f06-b60c-cd01a155ada2","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[196,161,false,"TemplateEditor","ДокОтгрВх",null,"51b5dc1a-5d38-4d19-a6fb-ea6717af227a","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[197,161,false,"Жеглов","ДокОтгрВх",null,"063e6567-fb09-43e2-b787-023da59b517b","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[198,161,false,"Оприходование","ДокОтгрВх",null,"d54d1928-d92e-48a3-9e49-f917f08b23db","РеалВх","Warehouse/Docs/Inflow/Receipt/Dialog",null],[199,161,false,"Возврат от покупателя","ДокОтгрВх",null,"971e7dc2-3f09-4e42-aebf-8758b9c8b55f","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[200,161,false,"Возврат от покупателя вер2","ДокОтгрВх",null,"6348cabd-c8b6-4042-9200-71a4e5ea0af1","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[201,161,false,"jgjh","ДокОтгрВх",null,"beafc547-dcde-452c-9764-51c44f153c9f","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[202,161,false,"Возврат_ОбъектыУчета","ДокОтгрВх",null,"e27ffb70-da72-40a6-ac5e-720719caf821","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[203,161,false,"Оприходование","ДокОтгрВх",null,"3c9297b6-af5d-4144-ad84-be2f1252340a","РеалВх","Warehouse/Docs/Inflow/Receipt/Dialog",null],[204,161,false,"ТестПрикладнойКод","ДокОтгрВх",null,"34f98c5a-a590-4e5c-a6f6-1ea44ec5c9cf","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[205,161,false,"Поступление без проводок","ДокОтгрВх",null,"a6165fc0-bd25-4225-a3c4-e0a3c5a13083","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[206,161,false,"Поступление с договором (обязательно)","ДокОтгрВх",null,"539a09dc-dd20-40bb-b3e0-2a873d147f34","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[207,161,false,"123","ДокОтгрВх",null,"1bd0c0cc-e1db-42f6-bfb8-c6f91e8e7810","РеалВх","Warehouse/Docs/Inflow/Receipt/Dialog",null],[208,161,false,"НЕ ТРОГАТЬ! Поступление (с боевого)(6)","ДокОтгрВх",null,"e9efb565-068f-4e4d-ad5f-2308339f326c","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[209,161,false,"Поступление_договор_обязательно","ДокОтгрВх",null,"8fcaebe2-30f3-487f-a500-e730442c731b","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[210,161,false,"Тест_ПМО","ДокОтгрВх",null,"ebb5034a-93ad-4c28-9fe4-e9e5c7132f9e","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[211,161,false,"Поступление (НДС в распределяемые) - Гареева","ДокОтгрВх",null,"177b1ebe-83c2-4619-a8a5-88cf53103de0","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[212,161,false,"Поступление 1.3.5","ДокОтгрВх",null,"4664eebe-92ab-4ca2-9a10-5339ede820ef","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[213,161,false,"Поступление_договор не указывать 1.3.5","ДокОтгрВх",null,"7152ff91-7454-4274-bdf2-5b83a8111395","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[214,161,false,"Поступление_договор обязательно 1.3.5","ДокОтгрВх",null,"c71e8e97-f87a-4f30-b4ca-7e7d15dbd67a","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[215,161,false,"Поступление_договор_не_указывать","ДокОтгрВх",null,"2f7a2630-103c-4f04-b6c3-5563e2d88c21","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[216,161,false,"Возврат_ОбъектыУчета(1)","ДокОтгрВх",null,"12316b85-80b0-4746-841a-9a219e3c752f","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[217,161,false,"Расход_тест","ДокОтгрВх",null,"6ce37ad3-3d42-4e77-acc5-90476b67fe4e","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[218,161,false,"Расход_тестЕнотов","ДокОтгрВх",null,"1254f58e-8217-4bcc-bdfc-6ef117e6419a","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[219,161,false,"Поступление с возвратом","ДокОтгрВх",null,"39b1a505-5b67-4217-974d-e80e7138cd1d","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[220,161,false,"22Возврат поставщику22","ДокОтгрВх",null,"55134768-b48e-40c2-b3d6-711bd4db23f3","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[221,161,false,"Поступление ТМЦ(1)","ДокОтгрВх",null,"48cd357a-94e3-4526-a028-d9f0b8da0273","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[222,161,false,"ТестКод","ДокОтгрВх",null,"a10c93ae-977f-4afe-a72a-1882d93d0424","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[223,161,false,"Поступление договор не обязательно","ДокОтгрВх",null,"9afba709-adbc-4cf8-9709-b0ab25d1ba42","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[224,161,false,"Поступление договор обязательно","ДокОтгрВх",null,"b84525d8-627a-483e-9eab-9b7c12d6465f","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[225,161,false,"Поступление договр не указывать","ДокОтгрВх",null,"cb1e1676-49e5-4db7-8d71-ed5b1e648466","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[226,161,false,"Поступление(металлолома)","ДокОтгрВх",null,"a72b5d18-e905-44be-ae59-06c84f259339","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[227,161,false,"Тест_ПМО_1","ДокОтгрВх",null,"ce4d5293-6043-4e96-9500-fb1e336bda08","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[228,161,false,"апрваоаоававоаво","ДокОтгрВх",null,"92c5bc46-e0d3-4d70-848d-eba3196ecb30","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[229,161,false,"Поступление(с перемещением)","ДокОтгрВх",null,"e4f6b2d0-f6d1-4552-8a1a-005eba9a9342","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[230,161,false,"тест отображения регламента","ДокОтгрВх",null,"e6281fe7-8536-40e4-92de-4f957ddbc948","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[231,161,false,"Поступление(1)","ДокОтгрВх",null,"067a45bc-0bd5-4f29-b12b-91894d809fa8","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[232,161,false,"Поступление с боя(1)","ДокОтгрВх",null,"126b4407-5e28-4c55-9657-df5138234b8d","РеалВх","Warehouse/Docs/Inflow/Dialog",null],[233,null,true,"Возврат поставщику","ReturnOut",null,null,"ReturnWhOut",null,null],[234,233,false,"Возврат поставщику","ReturnOut",null,"7ac24725-5e7d-4aab-aed5-1124518b831f","ReturnWhOut","Warehouse/Docs/OutReturn/Dialog",null],[235,233,false,"Возврат поставщику(1)","ReturnOut",null,"9d2248f4-af9d-4149-82da-b97d73074888","ReturnWhOut","Warehouse/Docs/OutReturn/Dialog",null],[236,null,true,"Возврат от покупателя","ReturnIn",null,null,"ReturnWhIn",null,null],[237,236,false,"Возврат от покупателя","ReturnIn",null,"adcf30f2-40b4-4c5d-b81b-d3c386a7f8e6","ReturnWhIn","Warehouse/Docs/InReturn/Dialog",null],[238,236,false,"тест","ReturnIn",null,"dc73146d-b7f3-441c-95f9-e18bb030ac97","ReturnWhIn","Warehouse/Docs/InReturn/Dialog",null],[239,236,false,"Возврат от покупателя(1)","ReturnIn",null,"877408fb-329d-41ef-9d48-38ff75625a17","ReturnWhIn","Warehouse/Docs/InReturn/Dialog",null],[240,236,false,"Возврат от покупателя!","ReturnIn",null,"0f7bdd09-538e-4e3b-b148-bf2b9c42c373","ReturnWhIn","Warehouse/Docs/InReturn/Dialog",null],[241,236,false,"Возврат от покупателя(2)","ReturnIn",null,"ee446136-08b8-4b7a-9c1e-5af08e476c0f","ReturnWhIn","Warehouse/Docs/InReturn/Dialog",null],[242,236,false,"проверка создания регламента","ReturnIn",null,"a3f19067-e4c3-49f5-a6ee-d5969bf5ce7b","ReturnWhIn","Warehouse/Docs/InReturn/Dialog",null],[243,null,true,"Списание","АктСписания","АктСписания",null,"АктСписания",null,null],[244,243,false,"Списание на производственные затраты","АктСписания","АктСписания","1d307ef8-b12b-11e4-a55d-00505691577e","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[245,243,false,"Списание на общехозяйственные расходы","АктСписания","АктСписания","24bd2220-b12b-11e4-9f65-00505691577e","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[246,243,false,"Списание на прочие расходы","АктСписания","АктСписания","2cdc1d4e-b12b-11e4-8fac-00505691577e","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[247,243,false,"Списание на продажу","АктСписания","АктСписания","25562608-7732-4be1-b833-6710ee0d17c8","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[248,243,false,"списание на ОС тест","АктСписания","АктСписания","eba2d698-1d2c-11e4-ba71-005056b77928","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[249,243,false,"123","АктСписания","АктСписания","b351cf96-3c8b-11e4-85eb-005056b77928","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[250,243,false,"autotest","АктСписания","АктСписания","a65248f2-c0ee-432e-b22c-ff83624075a8","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[251,243,false,"Списание материалов, переданных на сторону","АктСписания","АктСписания","9128d9e0-b12b-11e4-a24a-00505691577e","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[252,243,false,"Передача оборудования в монтаж","АктСписания","АктСписания","522f6952-b12b-11e4-9324-00505691577e","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[253,243,false,"Списание на недостачи потери","АктСписания","АктСписания","e817511d-549f-4bef-9952-dd2ea62cceb2","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[254,243,false,"---2","АктСписания","АктСписания","eb02aedb-b7c4-4de2-b4c7-512b99a120b9","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[255,243,false,"Списание на продажу (проверка проводок)","АктСписания","АктСписания","7cecd782-9340-4106-a0b0-a1c611378d32","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[256,243,false,"TemplateEditor","АктСписания","АктСписания","4361c2a7-5433-4550-9ba3-9324d9e3afc0","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[257,243,false,"Акт списания от Снигерева","АктСписания","АктСписания","d2b06c44-314b-42ea-bc8f-13187a0dd684","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[258,243,false,"Списание на общехозяйственные расходы(тест ИП не трогать!)","АктСписания","АктСписания","2d03d5c3-a8ed-4da3-8c42-190b44c57047","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[259,243,false,"Списание на общехозяйственные расходы(тест Ип не трогать!)","АктСписания","АктСписания","f36ea060-8543-4154-bd60-48da3e97aac3","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[260,243,false,"Новая","АктСписания","АктСписания","4f2c3009-517c-42c6-88d3-30afd9038403","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[261,243,false,"Списание_ОбъектыУчета","АктСписания","АктСписания","1dff8efe-88af-4961-a5ea-d6f450c23247","АктСписания","Warehouse/Docs/WriteOff/Dialog",null],[262,null,true,"Перемещение","ВнутрПрм","ВнутрПрм",null,"ВнутрПрм",null,null],[263,262,false,"Внутреннее перемещение","ВнутрПрм","ВнутрПрм","65aa8862-1f9c-11e3-b311-005056b74103","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[264,262,false,"Внутреннее Перемещение (2)","ВнутрПрм","ВнутрПрм","ebed1808-44d9-40f4-b128-49778a56be87","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[265,262,false,"Перемещение между складами1","ВнутрПрм","ВнутрПрм","e32b91c0-b12a-11e4-be0f-00505691577e","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[266,262,false,"Внутреннее перемещение с переводом на ответственного","ВнутрПрм","ВнутрПрм","f648f311-5400-460e-a512-84c563954143","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[267,262,false,"Выдача / сдача брелока (тест)","ВнутрПрм","ВнутрПрм","a9648b1d-c88e-41ce-8999-cceda81c34ab","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[268,262,false,"Перемещение между складами_","ВнутрПрм","ВнутрПрм","ec2db7e2-f402-40b6-9db9-7462c1161176","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[269,262,false,"Передача материалов","ВнутрПрм","ВнутрПрм","ec657de3-1598-46fb-92e6-4b063252eebb","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[270,262,false,"Перемещение продуктов","ВнутрПрм","ВнутрПрм","4f26c2bb-e6d5-45fb-96de-72f45897fffc","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[271,262,false,"44444","ВнутрПрм","ВнутрПрм","04c1e2a7-a5f9-4f4d-87d4-6dfb2b0a2bd9","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[272,262,false,"9854565","ВнутрПрм","ВнутрПрм","84ca00a5-376b-4c90-a551-87ff8d4449c4","ВнутрПрм","Warehouse/Docs/Transfer/Dialog",null],[273,null,true,"Инвентаризация","АктИнв","АктИнв",null,"АктИнв",null,null],[274,273,false,"Инвентаризация по себестоимости","АктИнв","АктИнв","abb543d0-d6af-11e4-b5c4-00505691577e","АктИнв","Warehouse/Docs/Inventory/Dialog",null],[275,273,false,"Акт Инвентаризации","АктИнв","АктИнв","fd3d04c6-39ca-4409-bef2-e42b5716ca10","АктИнв","Warehouse/Docs/Inventory/Dialog",null],[276,273,false,"Начальные остатки","АктИнв","АктИнв","6ba056b6-ceed-4d4d-a0cb-dee7f0dc7154","АктИнв","Warehouse/Docs/Inventory/Dialog",null],[277,273,false,"Акт Инвентаризации (с изменениями)","АктИнв","АктИнв","35339233-7fa5-46d1-abb5-cb9f0a1de302","АктИнв","Warehouse/Docs/Inventory/Dialog",null],[278,273,false,"Регламент в папке","АктИнв","АктИнв","264ebf54-455a-4093-971e-f709ad09b974","АктИнв","Warehouse/Docs/Inventory/Dialog",null],[279,273,false,"Еще один регламент","АктИнв","АктИнв","b122e6bd-a96b-4bf6-8bfd-22462e21e20d","АктИнв","Warehouse/Docs/Inventory/Dialog",null],[280,273,false,"инвентаризация по себес","АктИнв","АктИнв","86877519-071d-4d39-a37a-8c98136d2781","АктИнв","Warehouse/Docs/Inventory/Dialog",null],[281,null,true,"Выпуск","АктВыпуска","АктВыпуска",null,"АктВыпуска",null,null],[282,281,false,"Акт выпуска с иерархией","АктВыпуска","АктВыпуска","a93d1b7e-adfa-11e4-9bb0-a36ffb479090","АктВыпуска","Warehouse/Docs/Output/Dialog",null],[283,281,false,"TemplateEditor","АктВыпуска","АктВыпуска","6eec6724-71e5-47f7-940a-92df9c554921","АктВыпуска","Warehouse/Docs/Output/Dialog",null],[284,281,false,"Акт выпуска (пользовательский)","АктВыпуска","АктВыпуска","2f96adf4-7185-45c3-b079-6797cc2a9d31","АктВыпуска","Warehouse/Docs/Output/Dialog",null],[285,281,false,"1","АктВыпуска","АктВыпуска","ecdaf65e-d1fe-4ece-b290-11b9f30972cb","АктВыпуска","Warehouse/Docs/Output/Dialog",null],[286,281,false,"Акт_ОбъектыУчета","АктВыпуска","АктВыпуска","abc10d9e-e339-4ca5-b390-1d949f43005d","АктВыпуска","Warehouse/Docs/Output/Dialog",null],[287,null,true,"Пересортица","Пересорт","Пересорт",null,"Пересорт",null,null],[288,287,false,"Пересортица","Пересорт","Пересорт","1386b2d6-740b-4f3b-9f71-2e7bae698053","Пересорт","Warehouse/Docs/Resorting/Dialog",null],[289,287,false,"6666","Пересорт","Пересорт","db2232a8-7518-4851-b94f-dd1d460eb7c0","Пересорт","Warehouse/Docs/Resorting/Dialog",null],[290,null,true,"ЕГАИС",null,null,null,null,null,null],[291,290,true,"Баланс",null,null,null,null,null,null],[292,291,false,"Постановка на баланс немаркированной продукции","АктПостановкиЕгаис","НеМарк",null,"АктПостановкиЕгаис","",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}],[293,291,false,"Постановка на баланс маркированной продукции","АктПостановкиЕгаис","Марк",null,"АктПостановкиЕгаис","",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}],[294,291,false,"Постановка на баланс в рознице","ПостБалансТорг",null,null,"ПостБалансТорг","Warehouse/Docs/Egais/Balance/Retail/Dialog",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}],[295,290,true,"Списание",null,null,null,null,null,null],[296,295,false,"Списание","АктСписания","АктСписания",null,"АктСписания","Warehouse/Docs/WriteOff/Dialog",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}],[297,295,false,"Списание в рознице","СписТоргЗал",null,null,"СписТоргЗал","Warehouse/Docs/Egais/WriteOff/Retail/Dialog",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}],[298,290,true,"Розница",null,null,null,null,null,null],[299,298,false,"Перемещение в торговый зал","ПеремещениеТоргЗал",null,null,"ПеремещениеТоргЗал","Warehouse/Docs/Egais/Retail/Transfer/Dialog",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}],[300,298,false,"Возврат из торгового зала","ПродИзТоргЗала",null,null,"ПродИзТоргЗала","Warehouse/Docs/Egais/Retail/Return/Dialog",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}],[301,290,true,"Расход",null,null,null,null,null,null],[302,301,false,"Реализация","ДокОтгрИсх",null,null,"РеалИсх","Warehouse/Docs/Outflow/Dialog",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}],[303,301,false,"Возврат поставщику","ВозвратИсхЕгаис",null,null,"ВозвратИсхЕгаис","Warehouse/Docs/Outflow/ReturnOut/Dialog",{"s":[{"n":"egaisView","t":"Логическое"}],"f":1,"d":[true],"_type":"record"}]],"_type":"recordset"}');
+//            var i = new RecordSet({
+//               idProperty: 'id',
+//               adapter: 'adapter.sbis',
+//               rawData: rD
+//            });
+            new r({
+               primary: true,
+               element: "MenuButton",
+               caption: 'Open menu',
+               items: items16,
+               hierField: 'par',
+               className: 'controls-Button__primary',
+               pickerClassName: 'controls-popup-revert-horizontal',
+               icon: 'sprite:icon-16 icon-ThumbUp icon-done'
+            }).subscribe('onMenuItemActivate', function(event, id){
+                       console.log(this.getItems().getItem(id).title);
+                    });
+
+            new r({
+               element: "menuButtonD",
+               caption: 'Open menu',
+               menuCaption: 'Opened menu',
+               items: items16,
+               pickerClassName: 'controls-MenuPicker__resetIconColor'
+            });
+
+            new r({
+               element: "menubBttonMenuWithout",
+               items: items16,
+               caption: 'MenuHeader',
+               icon: 'sprite:icon-24 icon-Author icon-primary',
+               className: 'controls-Button__withoutCaption controls-Button__default'
+            });
+
+
+            new r({
+               element: "MenuButton2",
+               caption: 'Left bottom',
+               items: items16,
+               icon: 'sprite:icon-16 icon-ThumbUp icon-done'
+            });
+
+            new r({
+               element: "MenuButton3",
+               caption: 'Right top',
+               items: items16,
+               icon: 'sprite:icon-16 icon-ThumbUp icon-done'
+            });
+
+            new r({
+               element: "MenuButton4",
+               caption: 'Right bottom',
+               items: items16,
+               icon: 'sprite:icon-16 icon-ThumbUp icon-done'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/Button/IconButton"], function (r) {
+            new r({
+               element: $("#Icon16"),
+               icon: 'sprite:icon-16 icon-ExpandDown icon-primary'
+            });
+
+            new r({
+               element: $("#IconRound24"),
+               icon: 'sprite:icon-16 icon-Author icon-primary',
+               className: 'controls-IconButton__round-border-24'
+            });
+
+            new r({
+               element: $("#IconDone16"),
+               icon: 'sprite:icon-16 icon-Author icon-done',
+               className: 'controls-IconButton__round-border'
+            });
+
+            new r({
+               element: $("#IconError16"),
+               icon: 'sprite:icon-16 icon-Author icon-error',
+               className: 'controls-IconButton__round-border'
+            });
+            new r({
+               element: $("#IconDelete"),
+               icon: 'sprite:icon-16 icon-Erase icon-error'
+            });
+
+            new r({
+               element: $("#Icon24"),
+               icon: 'sprite:icon-24 icon-Edit icon-primary'
+            });
+         });
+
+         require(["SBIS3.CONTROLS/Menu/MenuIcon"], function (r) {
+            new r({
+               element: "MenuIcon",
+               caption: 'Open menu',
+               items: items24,
+               primary: true,
+               icon: 'sprite:icon-24 icon-Author icon-primary'
+            });
+            new r({
+               element: "menuIconD",
+               caption: 'Open menu',
+               items: items16,
+               primary: true,
+               additionalProperty: 'additional',
+               icon: 'sprite:icon-16 icon-Author icon-primary'
+            });
+            new r({
+               element: "menuIconD24",
+               caption: 'Open menu',
+               items: items24,
+               primary: true,
+               icon: 'sprite:icon-24 icon-Author icon-primary'
+            });
+            new r({
+               element: "menuRoundD",
+               caption: 'Open menu',
+               items: items16,
+               primary: true,
+               name: 'menuRoundD',
+               className: 'controls-IconButton__round-border',
+               icon: 'sprite:icon-16 icon-ListView icon-primary'
+            });
+            new r({
+               element: "menuRoundD24",
+               caption: 'Open menu',
+               items: items24,
+               name: 'menuRoundD24',
+               primary: true,
+               className: 'controls-IconButton__round-border',
+               icon: 'sprite:icon-24 icon-Author icon-primary'
+            });
+            new r({
+               element: "menuIconWithoutHead",
+               caption: 'Open menu',
+               items: [
+                  {
+                     id : 1,
+                     title : 'Все документы на диск',
+                     icon : 'sprite:icon-24 icon-Save icon-primary'
+                  },
+                  {
+                     id : 2,
+                     title : 'Список в PDF'
+                  },
+                  {
+                     id : 3,
+                     title : 'Список в Exel'
+                  }
+               ],
+               className: 'controls-Menu__hide-menu-header',
+               primary: true,
+               icon: 'sprite:icon-24 icon-Save icon-primary'
+            });
+            new r({
+               element: "menuIconWithoutHeadRound",
+               caption: 'Open menu',
+               items: [
+                  {
+                     id : 1,
+                     title : 'Организацию',
+                     icon : 'sprite:icon-16 icon-Add icon-primary'
+                  },
+                  {
+                     id : 2,
+                     title : 'ИП'
+                  }
+               ],
+               className: 'controls-Menu__hide-menu-header controls-IconButton__round-border-24',
+               primary: true,
+               icon: 'sprite:icon-16 icon-Add icon-primary'
+            });
+
+         });
+
+      });
+
+      require(["SBIS3.CONTROLS/Link"], function (r) {
+         new r({
+            element: "Back",
+            caption: 'Назад',
+            href: '../../',
+            icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+         });
+
+         new r({
+            element: "Alink",
+            caption: 'This is Button'
+         });
+
+         new r({
+            element: "AlinkFix",
+            caption: 'This is Button',
+            tooltip :'Илья накосячил'
+         });
+
+         new r({
+            element: "AlinkIcon",
+            caption: 'This is Button',
+            icon : 'sprite:icon-16 icon-Author icon-primary'
+         });
+
+         new r({
+            element: "AlinkIcon24",
+            caption: 'This is Button',
+            icon : 'sprite:icon-24 icon-Author icon-primary'
+         });
+
+         new r({
+            element: "AlinkIconFix",
+            caption: 'This is Button',
+            icon : 'sprite:icon-16 icon-Author icon-primary'
+         });
+         new r({
+             element: "element_MainLink__2",
+             caption: 'Основная ссылка 2',
+             className: 'mainLink__2'
+         });
+          new r({
+              element: "element_MainLink__3",
+              caption: 'Основная ссылка 3',
+              className: 'mainLink__3'
+          });
+          new r({
+              element: "element_AdditionalLink",
+              caption: 'Дополнительная ссылка',
+              className: 'additionalLink'
+          });
+          new r({
+              element: "element_AdditionalLink__2",
+              caption: 'Дополнительная ссылка 2',
+              className: 'additionalLink__2'
+          });
+          new r({
+              element: "element_AdditionalLink__3",
+              caption: 'Дополнительная ссылка 3',
+              className: 'additionalLink__3'
+          });
+          new r({
+              element: "element_AdditionalLink__4",
+              caption: 'Дополнительная ссылка 4',
+              className: 'additionalLink__4'
+          });
+          new r({
+              element: "element_AdditionalLink__5",
+              caption: 'Дополнительная ссылка 5',
+              className: 'additionalLink__5'
+          });
+      });
+
+      require(["SBIS3.CONTROLS/Button", 'css!SBIS3.CONTROLS/Button'], function (r) {
+
+         new r({
+            element: $("#controls-Button"),
+            caption: 'This is Button',
+            _fix1175160840: true,
+            icon : 'sprite:icon-24 icon-Author icon-primary'
+         });
+
+         new r({
+            element: $("#button"),
+            caption: ''
+         });
+
+         new r({
+            element: $("#Abutton"),
+            caption: 'This is Button'
+         });
+
+         new r({
+            element: $("#AbuttonFix"),
+            caption: 'This is Button',
+            name: 'AbuttonFix'
+         });
+
+         new r({
+            element: $("#AbuttonIcon"),
+            href: 'http://yar.ru',
+            caption: 'This is Button',
+            icon : 'sprite:icon-16 icon-Author icon-primary'
+         });
+
+         new r({
+            element: $("#AbuttonIcon24"),
+            caption: 'This is Button',
+            icon : 'sprite:icon-24 icon-Author icon-primary'
+         });
+
+         new r({
+            element: $("#AbuttonIconFix"),
+            name : 'AbuttonIconFix',
+            caption: 'This is Button',
+            textOverflow: true,
+            icon : 'sprite:icon-16 icon-Author icon-primary'
+         });
+
+         new r({
+            element : $("#AbuttonWithout"),
+            caption: '',
+            icon : 'sprite:icon-16 icon-Author icon-primary'
+         });
+
+         new r({
+            element : $("#big_button"),
+            caption: 'Удалить',
+            className: 'controls-Button__big',
+            icon : 'sprite:icon-16 icon-Author icon-primary'
+         });
+      });
+
+      require(["SBIS3.CONTROLS/WSControls/Buttons/ToggleButton",
+               'css!SBIS3.CONTROLS/Button/ToggleButton/resources/ToggleButton__square'], function (r) {
+         new r({
+            element: "ToggleButtonSquare",
+            className: 'controls-ToggleButton__square',
+            icon: 'icon-16 icon-Author icon-primary',
+            caption: '&nbsp;'
+         });
+
+         new r({
+            element: "ToggleButtonSquareBig",
+            className: 'controls-ToggleButton__square controls-ToggleButton-square__medium',
+            icon: 'icon-24 icon-Author icon-primary',
+            caption: '&nbsp;'
+         });
+          new r({
+              element: "ToggleButtonSquareBiggest",
+              className: 'controls-ToggleButton__square controls-ToggleButton-square__big',
+              icon: 'icon-24 icon-Author icon-primary',
+              caption: '&nbsp;'
+          });
+      });
+
+      require(["SBIS3.CONTROLS/WSControls/Buttons/ToggleButton", 'css!SBIS3.CONTROLS/Button/ToggleButton/resources/ToggleButton__round'], function (r) {
+         new r({
+            element: "ToggleButtonRound",
+            className: 'controls-ToggleButton__round',
+            icon: 'icon-16 icon-Author icon-primary',
+            caption: '&nbsp;'
+         })
+      });
+
+      require(["SBIS3.CONTROLS/Button/ToggleButton", 'css!SBIS3.CONTROLS/Button/ToggleButton/ToggleButton'], function (r) {
+         new r({
+            element: "ToggleButton",
+            className: 'controls-Button controls-Button__default controls-ToggleButton__normal',
+            icon: 'icon-16 icon-Author icon-primary',
+            caption: 'Toggle'
+         })
+      });
+
+      require(["SBIS3.CONTROLS/PhoneTextBox"], function (r) {
+         new r({
+            element: "phone",
+            srcText: '89108247055'
+         })
+      });
+      require(["SBIS3.CONTROLS/PhoneTextBox"], function (r) {
+         new r({
+            element: "phone2",
+            srcText: '89108247055',
+            enabled: false
+         })
+      });
+
+      require(["SBIS3.CONTROLS/Button"], function (r) {
+         new r({
+            element: "button",
+            caption: 'This is Button',
+            style: 'primary'
+         })
+      });
+
+      require(["SBIS3.CONTROLS/CheckBox"], function (r) {
+         new r({
+            element: "CheckBox",
+            caption: 'This is CheckBox',
+            tooltip: '123123123'
+         })
+      });
+
+      require(["SBIS3.CONTROLS/Link"], function (r) {
+         new r({
+            element: "Link",
+            caption: 'Основная ссылка',
+            href: 'http://yar.ru',
+            inNewTab: true
+         })
+      });
+
+      require(['Examples/BackButton/MyBackButton/MyBackButton'], function (r) {
+         new r({
+            element: "backButton"
+         })
+      });
+
+      require(["SBIS3.CONTROLS/Tab/Button"], function (r) {
+         new r({
+            element: "TabButton",
+            caption: 'This is TabButton'
+         })
+      });
+
+      require(["SBIS3.CONTROLS/Button/ToggleButton"], function (r) {
+         new r({
+            element: "ToggleButton",
+            caption: 'This is ToggleButton'
+         })
+      });
+
+      require(["SBIS3.CONTROLS/ListView/resources/AddButton"], function(r){
+         new r({
+            element: "AddButtonEnable",
+            caption: 'AddButton',
+            enabled: true
+         })
+      });
+
+      require(["SBIS3.CONTROLS/ListView/resources/AddButton"], function(r){
+         new r({
+            element: "AddButtonDisable",
+            caption: 'AddButton',
+            enabled: false
+         })
+      });
+
+      require(['SBIS3.CONTROLS/ProgressBar'], function(r){
+         new r({
+            element : 'progress',
+            progress : '43',
+            minimum: 20,
+            maximum: 120
+         })
+      });
+
+
+   });
+</script>
+</body>
+</html>

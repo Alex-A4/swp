@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+    <title>Demo: ПМО и массовое выделение</title>
+    <script type="text/javascript">
+        window.wsConfig = {
+            WSRootPath: '/sbis3-ws/ws/',
+            wsRoot: '/sbis3-ws/ws/',
+            WSTheme: 'wi_scheme',
+            resourceRoot: '/',
+            nostyle: true,
+            globalConfigSupport: false,
+            themeName: 'presto'
+        };
+        window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+        (function () {
+            window.wsConfig.nostyle = false;
+        })();
+    </script>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <script type="text/javascript" src="themeSwitcher.js"></script>
+    <style>
+        html, body {
+            font-family: 'TensorFont', 'TensorFont'!important;
+        }
+        body {
+            padding: 10px;
+        }
+        ::-webkit-scrollbar {
+            width: 0;
+            height: 2em
+        }
+        .indicator_button {
+            color: #8991A9;
+            background-color: #405A77;
+            background-image: none !important;
+            text-align: center;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+            right: 10px;
+            width: 406px;
+            position: absolute;
+        }
+        .onlyMe {
+            box-shadow:0px 0px 70px rgb(48, 213, 200);
+            color: rgb(48, 213, 200);
+            text-shadow: 0px 0px 70px rgb(48, 213, 200), 0px 0px 70px rgb(48, 213, 200);
+            z-index: 99999;
+        }
+    </style>
+</head>
+<body class="view-main controls-default-bg">
+<div id="Back"></div>
+<div id="DemoDiv"></div>
+<script type="text/javascript">
+    require(['Core/core-init'],function () {
+        $(document).ready(function () {
+            require(["Examples/OperationsPanel/MyOperationsPanel/MyOperationsPanel", 'Lib/Control/LoadingIndicator/LoadingIndicator'], function (demo, LoadingIndicator) {
+                var
+                    indianaJones,
+                    renoJackson;
+                new demo({
+                    element: "DemoDiv"
+                });
+                $('<div class="indicator_button" style="top: 52px; ">show grid indicator</div>')
+                    .on('click',function(){
+                        $(' [name="DataGridView"] ' ).wsControl()._toggleIndicator(true);
+                        $('.indicator_hide').addClass('onlyMe');
+                    })
+                    .appendTo('body');
+                $('<div class="indicator_button indicator_hide" style="top: 92px; right: 10px; ">hide grid indicator</div>')
+                    .on('click',function(){
+                        $(' [name="DataGridView"] ' ).wsControl()._toggleIndicator(false);
+                        $('.indicator_hide').removeClass('onlyMe');
+                    })
+                    .appendTo('body');
+                $('<div class="indicator_button" style="top: 132px; ">show global indicator</div>')
+                    .on('click',function(){
+                        if( indianaJones) {
+                            indianaJones.show();
+                        } else {
+                            indianaJones = new LoadingIndicator({
+                                'message': rk('Пожалуйста, подождите...')
+                            });
+                        }
+                        $('.indicator_hide1').addClass('onlyMe');
+                    })
+                    .appendTo('body');
+                $('<div class="indicator_button indicator_hide1" style=" top: 172px; ">hide global indicator</div>')
+                    .on('click',function(){
+                        if( indianaJones) {
+                            indianaJones.hide();
+                        }
+                        $('.indicator_hide1').removeClass('onlyMe');
+                    })
+                    .appendTo('body');
+
+                $('<div class="indicator_button" style="top: 212px; ">show global indicator 2</div>')
+                    .on('click',function(){
+                        if( renoJackson) {
+                            renoJackson.show();
+                        } else {
+                            renoJackson = new LoadingIndicator({
+                                'message': rk('')
+                            });
+                        }
+                        $('.indicator_hide2').addClass('onlyMe');
+                    })
+                    .appendTo('body');
+                $('<div class="indicator_button indicator_hide2" style=" top: 252px;">hide global indicator 2</div>')
+                    .on('click',function(){
+                        if( renoJackson) {
+                            renoJackson.hide();
+                        }
+                        $('.indicator_hide2').removeClass('onlyMe');
+                    })
+                    .appendTo('body');
+
+                $('<div class="indicator_button" style="top: 292px; ">show scroll indicator</div>')
+                    .on('click',function(){
+                        $(' [name="DataGridView"] ' ).wsControl()._showLoadingIndicator(true);
+                        $('.indicator_hide3').addClass('onlyMe');
+                    })
+                    .appendTo('body');
+                $('<div class="indicator_button indicator_hide3" style=" top: 332px;">hide scroll indicator </div>')
+                    .on('click',function(){
+                        $(' [name="DataGridView"] ' ).wsControl()._hideLoadingIndicator();
+                        $('.indicator_hide3').removeClass('onlyMe');
+                    })
+                    .appendTo('body');
+            });
+        })
+    });
+</script>
+</body>
+</html>

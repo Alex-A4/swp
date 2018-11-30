@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+    <title>Demo: TreeDataGridView</title>
+    <script type="text/javascript">
+       window.wsConfig = {
+          WSRootPath: '/sbis3-ws/ws/',
+          wsRoot: '/sbis3-ws/ws/',
+          WSTheme: 'wi_scheme',
+          resourceRoot: '/',
+          nostyle: true,
+          globalConfigSupport: false
+       };
+       window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+       (function () {
+          window.wsConfig.nostyle = false;
+       })();
+    </script>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <style>
+        html, body {
+            font-family: Tahoma !important;
+            font-size: 13px;
+        }
+
+        .wrapper {
+            width: 50%;
+            margin: 20px auto;
+            padding: 50px;
+            border: 1px gray solid;
+        }
+
+        .view-main {
+            font-family: Arial, SANS-SERIF;
+            font-size: 13px;
+            padding: 0;
+            height: 100%;
+        }
+    </style>
+    <script type="text/javascript" id="ws-include-css"></script>
+
+    <link rel="stylesheet" type="text/css" href="../fonts/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../icons/index.css"/>
+
+    <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+<div id="Back"></div>
+
+<div class="wrapper">
+    <h2>TreeDataGridView</h2>
+    <div id="TreeGrid"></div>
+</div>
+
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+         require(['SBIS3.CONTROLS/Tree/DataGridView', 'WS.Data/Source/Memory'], function(TreeDataGridView, Memory){
+
+            var generate = function(parent, node, start, count) {
+                  var id;
+                  for (var i = 0; i < count; i++) {
+                     id = start + i;
+                     items.push({
+                        id: id,
+                        title: 'Item ' + (parent === undefined || parent === null ? '' : parent + '.') + id,
+                        parent: parent,
+                        node: node
+                     })
+                  }
+               },
+               items = [];
+
+            generate(null, true, 1, 100);
+            generate(1, null, 1000, 100);
+            generate(2, null, 2000, 85);
+            generate(3, null, 3000, 50);
+
+            var source = new Memory({
+               data: items,
+               idProperty: 'id'
+            });
+
+            var view = new TreeDataGridView ({
+               columns : [{
+                  title : 'Ид',
+                  field : 'id',
+                  width : 250
+               }, {
+                  title : 'Имя',
+                  field  : 'title'
+               }],
+               element: 'TreeGrid',
+               idProperty: 'id',
+               parentProperty: 'parent',
+               nodeProperty: 'node',
+               displayProperty: 'title',
+               root: null,
+               expand: false,
+               partialyReload: true,
+               infiniteScroll: 'down',
+               pageSize: 10,
+               allowEnterToFolder: false
+            });
+
+            view.setDataSource(source);
+         });
+      });
+   });
+</script>
+</body>
+</html>

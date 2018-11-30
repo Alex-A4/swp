@@ -1,0 +1,27 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-FilterText {
+  display: inline-block;
+}
+.controls-FilterText__wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  line-height: 24px;
+}
+.controls-FilterText__reset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  width: 16px;
+  height: 16px;
+  font-family: 'cbuc-icons' !important;
+  cursor: pointer;
+}

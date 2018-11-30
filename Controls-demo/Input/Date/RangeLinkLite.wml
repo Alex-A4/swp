@@ -1,0 +1,58 @@
+<div class="PageWrap">
+   <div class="PageBlock">
+      <div class="PageBlock__title"></div>
+      <div class="PageBlock__content">
+         <div class="PageBlock__componentWrap">
+            <Controls.Input.Date.RangeLinkLite 
+			   attr:test_name="default_range"/>
+         </div>
+         <div class="PageBlock__componentWrap ControlsDemo-RangeLinkLite_capture">
+            <Controls.Input.Date.RangeLinkLite
+               showPrevArrow="{{true}}"
+               showNextArrow="{{true}}"
+               startValue="{{_startValue}}"
+               endValue="{{_endValueHalfYear}}"
+			   attr:test_name="show_arrow_range"
+            />
+         </div>
+         <div class="PageBlock__componentWrap">
+            <Controls.Input.Date.RangeLinkLite
+               bind:startValue="_startValueBind"
+               bind:endValue="_endValueBind"
+               chooseHalfyears="{{false}}"
+               chooseQuarters="{{false}}"
+               style="linkMain"
+			   attr:test_name="months_range"
+            />
+         </div>
+         <div class="PageBlock__componentWrap">
+            <Controls.Input.Date.RangeLinkLite
+               startValue="{{_startValue}}"
+               endValue="{{_endValueQuarter}}"
+               chooseHalfyears="{{false}}"
+               chooseMonths="{{false}}"
+               style="linkMain2"
+			   attr:test_name="quarters_range"
+            />
+
+         </div>
+         <div class="PageBlock__componentWrap">
+            <Controls.Input.Date.RangeLinkLite
+               style="linkAdditional"
+               emptyCaption="не задан"
+			   attr:test_name="range_not_value"
+            />
+         </div>
+         <div class="PageBlock__componentWrap">
+            <Controls.Input.Date.RangeLinkLite
+               startValue="{{_startValue}}"
+               endValue="{{_endValueYear}}"
+               chooseHalfyears="{{false}}"
+               chooseMonths="{{false}}"
+               chooseQuarters="{{false}}"
+			   attr:test_name="range_years_only"
+            />
+         </div>
+      </div>
+   </div>
+</div>

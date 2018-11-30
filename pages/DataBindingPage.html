@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div id="Back"></div>
+</body>
+</html>a<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+    <title>Web-Genie</title>
+    <script type="text/javascript">
+        window.wsConfig = {
+            WSRootPath: '/sbis3-ws/ws/',
+            wsRoot: '/sbis3-ws/ws/',
+            WSTheme: 'wi_scheme',
+            resourceRoot: '/',
+            nostyle: true,
+            globalConfigSupport: false
+        };
+        window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+        (function () {
+            window.wsConfig.nostyle = false;
+        })();
+    </script>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <style>
+        .view-main {
+            font-family: Arial, SANS-SERIF;
+            font-size: 13px;
+            padding: 0;
+            margin: 0;
+            height: 100%;
+        }
+
+        #content {
+            padding: 20px;
+        }
+
+        #content table {
+            width: 100%;
+        }
+
+        #content table td {
+            width: 50%;
+            vertical-align: top;
+        }
+
+        #content ul li {
+            height: 27px;
+        }
+
+        #content a {
+            color: #000000;
+            font-size: 16px;
+            margin-bottom: 5px;
+            border-radius: 8px;
+            padding: 5px 10px;
+        }
+
+        #content a:hover {
+            background: #ececec;
+        }
+
+    </style>
+    <script type="text/javascript" id="ws-include-css"></script>
+</head>
+<body class="view-main">
+<div id="content">
+    <table>
+        <tr>
+            <td>
+                <h3>Просмотр контролов</h3>
+                <ul>
+                    <li>
+                        <div id="DataBinding"></div>
+                    </li>
+                    <li>
+                        <div id="DropdownList"></div>
+                    </li>
+                    <li>
+                        <div id="FilterButton"></div>
+                    </li>
+                    <li>
+                        <div id="FilterButtonFastDataFilter"></div>
+                    </li>
+                    <li>
+                        <div id="FilterButtonFastDataFilterDataSource"></div>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+
+</div>
+<script type="text/javascript">
+    require(['Core/core-init'],function () {
+        $(document).ready(function () {
+
+
+            require(["SBIS3.CONTROLS/Link"], function (r) {
+                new r({
+                    element: "DataBinding",
+                    caption: 'Data binding',
+                    href: 'data-bind.html'
+                })
+            });
+
+            require(["SBIS3.CONTROLS/Link"], function (r) {
+                new r({
+                    element: "FilterButton",
+                    caption: 'Filter Button binding',
+                    href: 'filterButtonBinding.html'
+                })
+            });
+            require(["SBIS3.CONTROLS/Link"], function (r) {
+                new r({
+                    element: "DropdownList",
+                    caption: 'DropdownList binding',
+                    href: 'DropdownList.html'
+                })
+            });
+
+            require(["SBIS3.CONTROLS/Link"], function (r) {
+                new r({
+                    element: "FilterButtonFastDataFilter",
+                    caption: 'FilterButton and FastDataFilter',
+                    href: 'filterButtonAndFast.html'
+                })
+            });
+
+            require(["SBIS3.CONTROLS/Link"], function (r) {
+                new r({
+                    element: "FilterButtonFastDataFilterDataSource",
+                    caption: 'FilterButton and FastDataFilter with DataSource',
+                    href: 'filterButtonAndFastDataSource.html'
+                })
+            });
+
+            require(["SBIS3.CONTROLS/Link"], function (r) {
+                new r({
+                    element: "Back",
+                    caption: 'Назад',
+                    href: '../../',
+                    icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+                })
+            });
+        })
+    });
+</script>
+</body>
+</html>

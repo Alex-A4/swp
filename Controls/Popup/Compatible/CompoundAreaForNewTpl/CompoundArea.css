@@ -1,0 +1,54 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-CompoundArea__new {
+  height: 100%;
+  /* Для совместимости, когда открывают новое меню на старой странице */
+}
+.controls-CompoundArea__new .controls-DialogTemplate {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.controls-CompoundArea__new .controls-DropdownList__content {
+  white-space: nowrap;
+}
+.controls-CompoundArea__new .controls-DropdownList__popup {
+  border: none;
+  max-height: 100vh;
+}
+.controls-CompoundArea__new .controls-ConfirmationTemplate {
+  margin: 0;
+}
+.controls-compoundAreaNew__floatArea .ws-float-area-nostack-panel-shadow-standart {
+  border: none;
+}
+.controls-DropdownList__subMenu .ws-float-area-nostack-panel-shadow {
+  max-height: 100vh;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border: none;
+}
+.controls-Popup-align-horizontal-left .controls-DropdownList__head {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.controls-Popup-align-horizontal-left .controls-DropdownList__head .controls-MenuButton-header {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.controls-Popup-align-horizontal-left .controls-DropdownList__head .controls-MenuButton-header .controls-Button__text_gap {
+  margin-right: 6px;
+}
+.controls-Popup-corner-vertical-bottom .controls-DropdownList__popup {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}

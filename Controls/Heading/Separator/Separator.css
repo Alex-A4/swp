@@ -1,0 +1,46 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-HeaderSeparator_size {
+  width: 6px;
+  height: 10px;
+  padding-left: 10px;
+}
+.controls-HeaderSeparator__svg_click {
+  pointer-events: none;
+}
+.controls-HeaderSeparator__wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-HeaderSeparator__wrapper:before {
+  content: '\200b';
+}
+.controls-HeaderSeparator {
+  display: inline-block;
+  cursor: pointer;
+}
+.controls-HeaderSeparator__icon_style-secondary {
+  fill: #729EE6;
+}
+.controls-HeaderSeparator__icon_style-primary {
+  fill: #729EE6;
+}
+.controls-HeaderSeparator__icon_style-secondary:active {
+  fill: #729EE6;
+}
+.controls-HeaderSeparator__icon_style-primary:active {
+  fill: #729EE6;
+}
+.ws-is-no-touch .controls-HeaderSeparator__icon_style-secondary:hover {
+  fill: #729EE6;
+}
+.ws-is-no-touch .controls-HeaderSeparator__icon_style-primary:hover {
+  fill: #729EE6;
+}

@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: New presto</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false, themeName: 'prestonew'
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <link rel="stylesheet" type="text/css" href="../fonts/index.css" />
+
+
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+
+   </style>
+   <style>
+
+      html, body {
+         font-family: 'TensorFont Regular', 'TensorFont'!important;
+         font-size: 28px;
+         color:#E4E4E4;
+         margin: 0;
+         position: absolute;
+display: block;
+
+background: #1d2834;
+width: 100%;
+      }
+      br {
+        min-height: 24px;
+      }
+
+       .rem-info {
+           position: fixed;
+           right: 5%;
+           top: 3%;
+       }
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../webfonts/fonts.css"/>
+   <link rel="stylesheet" type="text/css" href="../webfonts/glyphs.css"/>
+   <link rel="stylesheet" type="text/css" href="../webfonts/icons.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/prestonew/prestonew.css"/>
+</head>
+<body class="view-main">
+
+<div class="rem-info; controls-error-color">1Rem = 28px</div>
+<div style="margin:5%">
+
+</div>
+<div id="progbar"></div>
+
+   <div id="button" class="testBlock"></div>
+   <div id="button-prm" class="testBlock btnPrimary"></div>
+   <div id="button-bigprm" class="testBlock btnBigPrimary">Сохранить</div>
+   <div id="iconbutton"></div>
+   <div id="MenuButton"></div>
+
+<p></p>
+<div >
+
+</div>
+   <div id="cal" class="kek"></div>
+<div></div>
+
+   <div id="search" class="testBlock"></div>
+   <div >
+
+   </div>
+
+   <div >
+
+   </div>
+
+   <div >
+
+   </div>
+
+
+
+   <div></div>
+   <div id="combo1" class="testBlock"></div>
+   <div></div>
+   <div id="combo2" class="testBlock"></div>
+    <div>
+
+        <div id="Switcher" class="testBlock">1</div>
+
+        <div id="SwitcherDoubleOnline" class="testBlock">2</div>
+
+        <div id="SwitcherDoubleOnline2" class="testBlock">3</div>
+
+    </div>
+   <div id="area1"  style="display:inline-block;">
+      <div id="TextBox" class="testBlock">1</div>
+
+   </div>
+
+   <div id="area2" style="display:inline-block;">
+
+
+
+      <div id="ComboBox" class="testBlock" style="height: auto">5</div>
+      <br>
+
+   </div>
+   <br>
+
+   <div style="overflow-y: scroll; height: 200px" id="keklol">
+      <div id="datagridkek"></div>
+
+   </div>
+   <div id="daterange"></div>
+   <br>
+      <div id="datepicker"></div>
+
+   <br>
+   <div id="checkbox"></div>
+   <br>
+   <br>
+   <br>
+   <div id="backbutton"></div>
+   <br>
+   <br>
+   <br>
+   <div id="menulink"></div>
+   <br>
+   <div id="menuicon"></div>
+   <br>
+   <br>
+   <div id="breadcrumbs"></div>
+   <br>
+   <div id="DateRangeSlider"></div>
+   <br>
+   <div id="TabControl"></div>
+   <br>
+   <br>
+   <div id="FieldLink"></div>
+   <br>
+   <div id="filterButton"></div>
+   <br>
+   <br>
+   <div id="area"></div>
+
+   <div class="keklol">
+   <div id="bbb"></div>
+   </div>
+</div>
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+
+         require(["SBIS3.CONTROLS/Button"], function (r) {
+            new r({
+               element: "bbb",
+               caption: 'Отмена'
+            });
+          });
+         require(["SBIS3.CONTROLS/Button"], function (r) {
+            new r({
+               element: "button",
+               caption: 'Отмена',
+               icon: 'icon-16 icon-Admin icon-attention',
+               className: 'controls-Button__withoutCaption'
+            });
+          });
+            require(["SBIS3.CONTROLS/Button"], function (r) {
+               new r({
+                  element: "button-prm",
+                  caption: 'Исправить',
+                  primary: true
+               });
+             });
+               require(["SBIS3.CONTROLS/Button"], function (r) {
+                  new r({
+                     element: "button-bigprm",
+                     caption: 'Сохранить',
+                     className: 'controls-Button--prestogray'
+                  });});
+                require(["SBIS3.CONTROLS/Button/IconButton"], function (r) {
+                    new r({
+                        element: "iconbutton",
+                        icon: 'sprite:icon-16 icon-Vacation icon-primary'
+                    });
+                });
+
+
+                  require(["SBIS3.CONTROLS/SearchForm"], function (r) {
+                     new r({
+                        element: "search"
+                     });
+                   });
+
+
+                require(["SBIS3.CONTROLS/ComboBox"], function (r) {
+                     new r({
+                        element: "combo1",
+                        text: 'Не выбрано...',
+                        idProperty: 'key',
+                        displayProperty: 'title',
+                        items: [{id: 1, title: 'Название'}, {id: 2, title: 'Наименование'}, {id: 3, title: 'cheburek'}]
+                     });
+                   });
+       require(["SBIS3.CONTROLS/Switcher"], function (r) {
+           new r({
+               element: "Switcher",
+               caption: 'This is Switcher',
+               stateOn: 'On',
+               stateOff: 'Off'
+           })
+       });
+
+       require(["SBIS3.CONTROLS/Switcher/Double"], function (r) {
+           new r({
+               element: "SwitcherDoubleOnline",
+               caption: 'This is SwitcherDoubleOnline',
+               stateOn: 'On2',
+               stateOff: 'Off2'
+           })
+       });
+
+       require(["SBIS3.CONTROLS/CheckBox"], function (r) {
+           new r({
+               element: "checkbox",
+               caption: 'Это у нас чекбокс'
+           })
+       });
+       require(["SBIS3.CONTROLS/Filter/Button"], function (r) {
+           new r({
+               element: "filterButton",
+               caption: 'Это у нас чекбокс,',
+               resetLinkText: 'dadasdadasda'
+           })
+       });
+       require(["SBIS3.CONTROLS/Switcher/Double"], function (r) {
+           new r({
+               element: "SwitcherDoubleOnline2",
+               caption: 'This is SwitcherDoubleOnline2',
+               stateOn: 'On3',
+               stateOff: 'Off3',
+               'disposition':'vertical'
+           })
+       });
+       require(["SBIS3.CONTROLS/Button/BackButton"], function (r) {
+           new r({
+               element: "backbutton",
+               caption: 'go back back back'
+           })
+       });
+       require(['SBIS3.CONTROLS/ProgressBar'], function (r) {
+           new r({
+               element: "progbar"
+           })
+       });
+       require(["SBIS3.CONTROLS/TextBox"], function (r) {
+           new r({
+               element: "TextBox",
+               parent: area1,
+               text: 'This is TextBox',
+               trim: true,
+               inputRegExp: '[0-9]+',
+               handlers : {
+                   'onTextChange' : function(e, val) {
+                       console.log(val);
+                   }
+               }
+           });
+           require(["SBIS3.CONTROLS/BreadCrumbs"], function (r) {
+               new r({
+                   element: "breadcrumbs",
+                   idProperty: 'key',
+                   displayProperty: 'title',
+                   parentProperty: 'p',
+                   items: [{id: 1, title: 'Название', p: null}, {id: 2, title: 'Наименование', p: null}, {
+                       id: 3,
+                       title: 'cheburek',
+                       p: null
+                   }]
+
+               });
+           });
+           require(["SBIS3.CONTROLS/Menu/MenuButton"], function (r) {
+               new r({
+                   element: "MenuButton",
+                   caption: 'MenuButton',
+                   text: 'MenuButton',
+                   idProperty: 'key',
+                   displayProperty: 'title',
+                   parentProperty: 'p',
+                   items: [{id: 1, title: 'Название', p: null}, {id: 2, title: 'Наименование', p: null}, {
+                       id: 3,
+                       title: 'cheburek',
+                       p: null
+                   }]
+
+               });
+           });
+           $('#TextBox').wsControl().setValidators([
+               {
+                   validator: function (text) {
+                       return text !== '';
+                   },
+                   option: 'text',
+                   errorMessage: 'Поле не может быть пустым. Введите значение!'
+               }
+           ]);
+
+       });
+
+       require(["SBIS3.CONTROLS/Menu/MenuLink"], function (r) {
+           new r({
+               caption: 'MenuLink',
+               element: "menulink",
+               text: 'menulink',
+               idProperty: 'key',
+               displayProperty: 'title',
+               parentProperty: 'p',
+               items: [{id: 1, title: 'Название', p: null}, {id: 2, title: 'Наименование', p:null}, {id: 3, title: 'cheburek', p: null   }]
+           });
+       });
+       require(['SBIS3.CONTROLS/Date/RangeSlider'], function (r) {
+           new r({
+
+               element: "DateRangeSlider",
+               text: 'DateRangeSlider',
+               idProperty: 'key',
+               displayProperty: 'title',
+               parentProperty: 'p',
+               showHalfyears: false,
+               showQuarters: false,
+               startValue: '2015-01-1',
+               items: [{id: 1, title: 'Название', p: null}, {id: 2, title: 'Наименование', p:null}, {id: 3, title: 'cheburek', p: null   }]
+           });
+       });
+
+       require(["SBIS3.CONTROLS/Tab/Control"], function (r) {
+           new r({
+               caption: 'TabControl',
+               element: "TabControl",
+               className: 'controls-TabButtons__simple-view',
+               text: 'TabControl',
+               idProperty: 'key',
+               tabsDisplayProperty: 'title',
+               items: [{id: 1, title: 'Название', p: null}, {id: 2, title: 'Наименование', p:null}, {id: 3, title: 'cheburek', p: null   }]
+           });
+       });
+
+       require(["SBIS3.CONTROLS/Menu/MenuIcon"], function (r) {
+           new r({
+               caption: '',
+               icon: 'sprite:icon-16 icon-Vacation icon-primary',
+               element: "menuicon",
+               text: 'menuicon',
+               idProperty: 'key',
+               displayProperty: 'title',
+               parentProperty: 'p',
+               items: [{id: 1, title: 'Название', p: null}, {id: 2, title: 'Наименование', p:null}, {id: 3, title: 'cheburek', p: null   }]
+           });
+       });
+
+
+       require(['SBIS3.CONTROLS/Utils/InformationPopupManager'], function(a){ b = a
+
+           b.showMessageDialog({message: 'ergerger', status: 'error'});
+           b.showMessageDialog({message: 'ergerger', status: 'success'})
+
+
+       });
+
+
+
+
+
+       require(['SBIS3.CONTROLS/Date/Range'], function(a){
+         new a({
+              element: 'daterange'
+           });
+       });
+              require(['SBIS3.CONTROLS/Date/Picker'], function(a){
+         new a({
+              element: 'datepicker'
+           });
+       });
+                     require(['SBIS3.CONTROLS/Date/RangeSliderBig'], function(a){
+         new a({
+              element: 'cal'
+           });
+       });
+
+       require(["SBIS3.CONTROLS/DataGridView"], function (r) {
+                   new r({
+                      element: "datagridkek",
+                       infiniteScroll: 'down',
+                       infiniteScrollContainer: '#keklol',
+                       scrollPaging: true,
+                       items: [{
+                          id: 1, title: 'Название', desc: 'Наименование'
+                       },
+                           {
+                               id: 2, title: 'Название', desc: 'Наименование'
+                           },
+                           {
+                               id: 3, title: 'Название', desc: 'Наименование'
+                           },
+                           {
+                               id: 4, title: 'Название', desc: 'Наименование'
+                           },
+                           {
+                               id: 5, title: 'Название', desc: 'Наименование'
+                           },
+                           {
+                               id: 6, title: 'Название', desc: 'Наименование'
+                           },
+                           {
+                               id: 7, title: 'Название', desc: 'Наименование'
+                           }
+                       ],
+                       idProperty: 'id',
+                       columns: [
+                           {title: '№', field: 'id'},
+                           {title:'Name', field: 'title'},
+                           {title: 'Desc', field: 'desc'}
+                       ]
+                   });
+                 });
+    });
+
+</script>
+</body>
+</html>

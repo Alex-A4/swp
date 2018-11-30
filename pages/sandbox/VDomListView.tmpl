@@ -1,0 +1,21 @@
+<div class="123">
+   <style>
+      .ws-ListView__item {
+         margin: 200px auto;
+      }
+   </style>
+   <Controls.List
+         dataSource = "{{_viewSource}}"
+         selectedKey="{{3}}"
+         displayProperty="title"
+         allowEmptySelection="{{false}}"
+         multiSelect="{{true}}"
+         name="psina"
+         idProperty="id"
+         showPaging="{{true}}">
+      <ws:navigation source="page" view="page">
+         <ws:sourceConfig pageSize="{{3}}" page="{{0}}" mode="totalCount">
+         </ws:sourceConfig>
+      </ws:navigation>
+   </Controls.List>
+</div>

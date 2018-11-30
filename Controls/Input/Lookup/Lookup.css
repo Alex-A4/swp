@@ -1,0 +1,90 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Lookup {
+  max-width: 100%;
+  display: inline-block;
+}
+.controls-Lookup__suggest,
+.controls-Lookup__inputRender {
+  width: 100%;
+}
+.controls-Lookup__inputRender_fieldWrapper_hidden .controls-InputRender__fieldWrapper {
+  display: none;
+}
+.controls-Lookup__inputRender_multiLine .controls-InputRender__wrapper {
+  display: inline-block;
+  width: calc(100% - 16px);
+}
+.controls-Lookup__inputRender_content_width_custom .controls-InputRender__fieldWrapper {
+  width: auto;
+}
+.controls-Lookup__afterFieldWrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 100%;
+}
+.controls-Lookup__afterFieldWrapper_singleLine {
+  margin-left: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-Lookup__afterFieldWrapper_multiLine {
+  position: absolute;
+  top: 0;
+  right: -16px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+}
+.controls-Lookup__icon {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  font-family: 'cbuc-icons';
+  cursor: pointer;
+}
+.controls-Lookup__showSelector {
+  color: #587ab0;
+}
+.controls-Lookup__showSelector_multiLine {
+  margin-top: 2px;
+}
+.controls-Lookup__showSelector:hover {
+  color: #313E78;
+}
+.controls-Lookup__clearRecords {
+  color: #8991A9;
+}
+.controls-Lookup__clearRecords_singleLine {
+  padding-right: 4px;
+}
+.controls-Lookup__clearRecords_multiLine {
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+  margin-bottom: 2px;
+}
+.controls-SelectedCollection__collection.controls-Lookup__collection_hidden {
+  display: none;
+}
+.controls-Lookup__collection_single {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+.controls-Lookup__collection_multi {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.controls-Lookup-collection__measurer {
+  top: 0;
+  left: -9999px;
+  position: absolute;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}

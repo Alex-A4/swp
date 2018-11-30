@@ -1,0 +1,63 @@
+.controls-Toolbar__item_has-title-and-icon {
+  padding: @spacing_Toolbar-between-icon-text;
+}
+.controls-ToolBarV {
+  display: inline-block;
+}
+.controls-ToolbarV_item {
+  .inline-flexbox();
+  cursor: pointer;
+  margin-right: @controls-toolbar-default-margin;
+  .align-items(center);
+}
+.controls-ToolbarV_item:before {
+  content: "\200b";
+}
+.controls-ToolBarV_content {
+  height: 100%;
+  width: 100%;
+  .inline-flexbox();
+  .align-items(center);
+
+  &:before {
+    content: "\200b";
+  }
+}
+.controls-ToolBarV_content__resetMargin {
+  margin-right: -@controls-toolbar-default-margin;
+}
+.controls-ToolbarV__item_icon_m {
+  .icon(@default-icon-size-medium, 'cbuc-icons24');
+}
+.controls-ToolbarV__item_title {
+  white-space: nowrap;
+  color: @color_Toolbar__text;
+}
+.controls-ToolBarV__menuOpen {
+  .inline-flexbox();
+  cursor: pointer;
+}
+.controls-ToolbarV_item__styled {
+  color: @color_primary;
+}
+.controls-ToolbarV_item__styled:active {
+  color: @color_Link-text_active;
+}
+.controls-ToolbarV__item_title:active {
+  text-decoration: underline;
+}
+.controls-Toolbar_link_m {
+  margin-top: @margin-top_MenuButton_link_medium;
+  margin-left: @margin-left_MenuButton_link_medium;
+}
+.ws-is-no-touch {
+  .controls-ToolbarV_item__styled:hover {
+    color: @color_Link-text_active;
+  }
+
+  .controls-ToolbarV_item__styled:hover {
+    .controls-ToolbarV__item_title {
+      text-decoration: underline;
+    }
+  }
+}

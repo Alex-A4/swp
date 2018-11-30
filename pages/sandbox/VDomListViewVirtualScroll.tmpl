@@ -1,0 +1,47 @@
+<div class="123">
+
+   <div style="width: 300px; height: 400px; overflow-y: scroll; -webkit-overflow-scrolling: touch" class="ws-scrolling-content">
+      <Controls.List
+            dataSource="{{_viewSource}}"
+            items11="{{_items}}"
+            selectedKey="{{3}}"
+            displayProperty="title"
+            allowEmptySelection="{{false}}"
+            multiSelect="{{true}}"
+            name="list"
+            idProperty="id">
+         <ws:navigation>
+            <ws:Object source="page">
+               <ws:sourceConfig>
+                  <ws:Object pageSize="{{3}}" page="{{0}}" mode="totalCount"></ws:Object>
+               </ws:sourceConfig>
+            </ws:Object>
+         </ws:navigation>
+         <ws:virtualScrollConfig>
+            <ws:Object enable="{{true}}" maxVisibleItems="{{75}}"></ws:Object>
+         </ws:virtualScrollConfig>
+         <ws:itemTemplate>
+            <div attr:class="ws-ListView__item {{itemTemplate.itemData.isSelected ? 'ws-ListView__item__selected'}}"
+                 on:onclick="_onItemClick(itemTemplate.itemData.dispItem)"
+                 attr:key="{{itemTemplate.itemData.dispItem.getHash()}}">
+                    <div style="height: {{itemTemplate.itemData.item.height}}px; line-height: {{itemTemplate.itemData.item.height}}px;">
+                       {{itemTemplate.itemData.getPropValue(itemTemplate.itemData.item, itemTemplate.itemData.displayProperty)}}
+                    </div>
+            </div>
+         </ws:itemTemplate>
+      </Controls.List>
+   </div>
+
+   <a href="javascript: void(0)" on:click="_onMoreClick()" class="ws-hidden">Еще</a>
+
+   <div style="padding-top: 16px;">
+      <label ><input type="checkbox" name="isDynamicHeight" checked="true" on:change="_onChangeDynamicHeight()"/>Случайная высота строк</label> &nbsp;
+   </div>
+
+   <div>
+      Вставить &nbsp;
+      <input type="text" value="{{10}}" name="addCountInput"/> &nbsp;
+      <a href="javascript: void(0)" on:click="_onPrependClick()">в начало</a> &nbsp;
+      <a href="javascript: void(0)" on:click="_onAppendClick()">в конец</a>
+   </div>
+</div>

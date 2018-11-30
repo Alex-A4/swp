@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: TextBox</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../webfonts/fonts.css"/>
+   <link rel="stylesheet" type="text/css" href="../webfonts/glyphs.css"/>
+   <link rel="stylesheet" type="text/css" href="../webfonts/icons.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+   <style>
+      html {
+        // font-size: 28px;
+           font-size: 14px;
+      }
+   </style>
+</head>
+<body class="view-main controls-default-bg">
+<div id="Back"></div>
+
+<br/>
+<br/>
+
+<div>
+   Высота контролов:
+   <div id="NumberTextBoxHeight"></div>
+   <br/>
+   Ширина контролов:
+   <div id="NumberTextBoxWidth"></div>
+</div>
+
+<br/>
+<br/>
+
+<div id="area">
+   Тут
+   <div id="area1"  style="display:inline-block;">
+      <div id="TextBox" class="testBlock">1</div>
+      будет
+      <div id="NumberTextBox" class="testBlock">2</div>
+   </div>
+   базовая
+   <div id="area2" style="display:inline-block;">
+      <div id="PasswordTextBox" class="testBlock">3</div>
+      линия
+      <div id="ColorPicker" class="testBlock">4</div>
+      с текстом
+      <div id="ComboBox" class="testBlock" >5</div>
+      который
+   </div>
+   <div id="FormattedTextBox" class="testBlock">6</div>
+   не
+   <div id="TextArea" class="testBlock" style="width: 300px;">7</div>
+   <div id="TextArea2" class="testBlock" style="width: 300px;">7</div>
+   сбивается!
+   <div id="MyMoneyTextBox" class="testBlock">8</div>
+</div>
+<div id="textvalue" style="white-space: pre-wrap; word-break: break-word;"></div>
+
+<script type="text/javascript">
+    require(['Core/core-init'],function () {
+      $(document).ready(function () {
+
+         require(["Lib/Control/AreaAbstract/AreaAbstract"], function (AreaAbstract) {
+
+            var area = new AreaAbstract({
+               element: 'area'
+            });
+
+            var area1 = new AreaAbstract({
+               parent: area,
+               element: 'area1'
+            });
+
+            var area2 = new AreaAbstract({
+               parent: area,
+               element: 'area2'
+            });
+
+            require(["SBIS3.CONTROLS/TextBox", "Lib/Control/Infobox/Infobox"], function (r, CInfobox) {
+               new r({
+                  element: "TextBox",
+                  parent: area1,
+                  placeholder: 'igor\<script>alert(\'31337\')\<\/script>" onmouseover=alert(31337) "t',
+                  text: '',
+                  trim: true,
+                  name: 'ownTextBox',
+                  handlers : {
+                     'onTextChange' : function(e, val) {
+                       console.log(val);
+                     }
+                  },
+                  size: 'large',
+                  informationIconColor: 'done'
+               });
+               
+               var textBox = $('#TextBox').wsControl(),
+                   colors = ['done', 'error', 'warning', 'disabled', 'primary'],
+                   curColor = 0;
+
+                textBox.subscribe('onInformationIconActivated', function () {
+                    curColor = (curColor + 1) % colors.length;
+                    textBox.setInformationIconColor(colors[curColor]);
+                });
+
+                textBox.subscribe('onInformationIconMouseEnter', function () {
+                    CInfobox.show({
+                        control: textBox.getContainer(),
+                        message: "<p><span style='color: red;'>Внимание:</span> Текст всплывающей подсказки</p>",
+                        width: 400,
+                        delay: 1000,
+                        hideDelay: 2000
+                    });
+                });
+
+                textBox.setValidators([
+                  {
+                     validator: function (text) {
+                        return text !== '';
+                     },
+                     option: 'text',
+                     errorMessage: 'Поле не может быть пустым. Введите значение!'
+                  }
+               ]);
+
+            });
+
+            require(["SBIS3.CONTROLS/NumberTextBox"], function (r) {
+               new r({
+                  element: "NumberTextBox",
+                  parent: area1,
+                  text: '851.123',
+                  numericValue: 123.00,
+                  integers: 10,
+                  onlyInteger: false,
+                  onlyPositive: false,
+                  delimiters: true,
+                  enableArrows: true,
+                  tooltip: 'its my tooltip',
+                  decimals: 5,
+                  maxLength: 15
+               })
+            });
+
+            require(["SBIS3.CONTROLS/PasswordTextBox"], function (r) {
+               new r({
+                  element: "PasswordTextBox",
+                  parent: area2,
+                  text: 'password'
+               })
+            });
+
+            require(["SBIS3.CONTROLS/ColorPicker"], function (r) {
+               new r({
+                  element: "ColorPicker",
+                  parent: area2,
+                  text: '000000'
+               })
+            });
+
+            require(["SBIS3.CONTROLS/ComboBox"], function (r) {
+               new r({
+                  element: "ComboBox",
+                  autocomplete: true,
+                  items: [
+                     {
+                        key: 1,
+                        title: 'rc-3.7.3.100'
+                     },
+                     {
+                        key: 2,
+                        title: 'rc-3.7.3.140'
+                     },
+                     {
+                        key: 3,
+                        title: 'rc-3.7.3.150'
+                     },
+                     {
+                        key: 4,
+                        title: 'rc-3.7.4'
+                     },
+                     {
+                        key: 5,
+                        title: 'rc-3.8.qweqweqweqweqweqweqwewqeqweqweqweqweqw0'
+                     },
+                     {
+                        key: 6,
+                        title: 'development'
+                     }
+                  ],
+                  selectedKey : 1
+               });
+
+            });
+
+            require(["SBIS3.CONTROLS/TextArea"], function (r) {
+               var ta = new r({
+                  className: 'controls-TextArea__hiddenIfEmpty',
+                  element: "TextArea",
+                  text: '',
+                  placeholder: '<div onmouseover="alert(31337)">1231</div>',
+                  parent: area,
+                  minLinesCount: 2,
+                  maxLinesCount: 4,
+                  text: '',
+                  enabled: false
+               });
+
+               var ta2 = new r({
+                  element: "TextArea2",
+                  text: '<b>Лалала</b> http://google.com ret ert ert ert667657j ghj gh hg f fgh gh gh ',
+                  placeholder: '213123123',
+                  parent: area,
+                  minLinesCount: 2,
+                  maxLinesCount: 4,
+                  enabled: true
+               });
+
+               ta.subscribe('onTextChange', function(e, text){
+
+                  var newText = text.replace(/\r\n|\r|\n/g,"<br />");
+
+                  $("#textvalue").html($ws.helpers.htmlToText(text));
+               });
+            });
+
+            require(["Examples/MoneyTextBox/MyMoneyTextBox/MyMoneyTextBox"], function (r) {
+               new r({
+                  element: "MyMoneyTextBox",
+                  parent: area1,
+                  name: 'MyMoneyTextBox'
+               })
+            });
+
+            require(["SBIS3.CONTROLS/NumberTextBox"], function (r) {
+               new r({
+                  element: "NumberTextBoxHeight",
+                  text: '21',
+                  onlyInteger: true
+               });
+               $('#NumberTextBoxHeight').wsControl().subscribe('onChangeText', function (event, height) {
+                  $('.testBlock').css({height: parseInt(height)});
+               })
+            });
+
+            require(["SBIS3.CONTROLS/NumberTextBox"], function (r) {
+               new r({
+                  element: "NumberTextBoxWidth",
+                  text: '150',
+                  onlyInteger: true
+               });
+               $('#NumberTextBoxWidth').wsControl().subscribe('onChangeText', function (event, width) {
+                  $('.testBlock').css({width: parseInt(width)});
+               })
+            });
+
+            require(["SBIS3.CONTROLS/Date/Picker"], function (r) {
+               new r({
+                  element: "FormattedTextBox"
+
+               })
+            });
+
+            require(["SBIS3.CONTROLS/Link"], function (r) {
+               new r({
+                  element: "Back",
+                  caption: 'Назад',
+                  href: '../../',
+                  icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+               })
+            });
+         })
+      });
+   });
+</script>
+</body>
+</html>

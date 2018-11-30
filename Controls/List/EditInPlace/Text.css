@@ -1,0 +1,75 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.ws-is-no-touch .controls-ListView__itemV:hover .controls-EditingTemplateText_enabled {
+  background-color: #ffffff;
+  border-color: #eaeaea #eaeaea #ccc #eaeaea;
+  cursor: text;
+}
+.ws-is-no-touch .controls-ListView__itemV:hover .controls-EditingTemplateText_enabled:hover {
+  border-color: #eaeaea #eaeaea #AAB0C1 #eaeaea;
+}
+.controls-EditingTemplateText__editorWrapper {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  min-width: 0;
+  max-width: 100%;
+}
+.controls-EditingTemplateText__editorWrapper_align_left {
+  margin-left: -4px;
+}
+.controls-EditingTemplateText__editorWrapper_align_right {
+  margin-right: -4px;
+}
+.controls-EditingTemplateText {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-width: 1px;
+  border-style: solid;
+  border-color: transparent;
+  padding: 0 4px;
+  width: 100%;
+}
+.controls-EditingTemplateText:before {
+  content: '\200b';
+  width: 0;
+  display: inline-block;
+  visibility: hidden;
+}
+.controls-EditingTemplateText__editor {
+  width: 100%;
+}
+.controls-EditingTemplateText__inner {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: inline-block;
+}
+.controls-EditingTemplateText_size_default {
+  height: 24px;
+  font-size: 14px;
+}
+.controls-EditingTemplateText_size_m {
+  height: 24px;
+  font-size: 14px;
+}
+.controls-EditingTemplateText_size_l {
+  height: 24px;
+  font-size: 18px;
+}
+.controls-EditingTemplateText_size_s {
+  height: 24px;
+  font-size: 12px;
+}

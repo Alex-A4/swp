@@ -1,0 +1,10 @@
+
+<div class="custom_space_template">
+    <span class="custom_space_text">you are not prepared</span>
+    <div class="content_tab_margin">
+        textBox was here
+    </div>
+    <div class="content_tab_margin">
+        Button was here
+    </div>
+</div>

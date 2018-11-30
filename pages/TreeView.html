@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ws="ws-component">
+<head>
+   <title>Demo: Views</title>
+   <script type="text/javascript">
+      window.wsConfig = { WSRootPath: '/sbis3-ws/ws/', wsRoot: '/sbis3-ws/ws/', WSTheme: 'wi_scheme', resourceRoot: '/', nostyle: true, globalConfigSupport: false };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <link rel="stylesheet" type="text/css" href="../sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+      }
+      html, body {
+         font-family: 'TensorFont Regular', 'TensorFont'!important;
+         font-size: 14px!important;
+      }
+      table {
+         border-collapse: collapse;
+      }
+      .block {
+         display: block;
+         margin: 16px;
+      }
+      .block-description {
+         margin: 8px 0;
+         font-weight: bold;
+         text-align: center;
+      }
+      .block-content {
+         height: 400px;
+      }
+      .block-content > tbody > tr {
+         vertical-align: top;
+      }
+      .block-content > tbody > tr > td {
+         border: 1px dashed gray;
+         width: 311px;
+      }
+      .block-content.without-border-top > tbody > tr > td {
+         border-top: none;
+      }
+      .block-content.columns500 > tbody > tr > td {
+         width: 500px;
+      }
+      .block-content.columns372 > tbody > tr > td {
+         width: 372px;
+      }
+      .demo-photo-image {
+         content: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjxzdmcgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgNDAgNDAiIGlkPSLQodC70L7QuV8xIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PGc+PHBhdGggZD0iTTM4LjksMTNjMC41LDAsMS0wLjQsMS0xVjUuN2MwLTMuMS0yLjUtNS43LTUuNy01LjdINS42QzIuNCwwLTAuMSwyLjYtMC4xLDUuN3YyOC43YzAsMy4xLDIuNSw1LjcsNS43LDUuN2gyOC43ICAgYzMuMSwwLDUuNy0yLjUsNS43LTUuN1YyMC42YzAtMC42LTAuNS0xLTEtMXMtMSwwLjQtMSwxdjEyLjhoLTM2VjUuN2MwLTIsMS43LTMuNywzLjctMy43aDI4LjdjMiwwLDMuNywxLjYsMy43LDMuN1YxMiAgIEMzNy45LDEyLjYsMzguMywxMywzOC45LDEzeiBNMzcuNywzNS4zYy0wLjQsMS41LTEuOSwyLjctMy41LDIuN0g1LjZjLTEuNywwLTMuMS0xLjEtMy41LTIuN0gzNy43eiIvPjwvZz48Zz48cGF0aCBkPSJNMjQsMjguM2MtMC4zLDAtMC41LTAuMS0wLjctMC4zTDEwLjUsMTUuM2wtNSw0LjVjLTAuNCwwLjQtMSwwLjMtMS40LTAuMWMtMC40LTAuNC0wLjMtMSwwLjEtMS40bDUuNy01LjEgICBjMC40LTAuNCwxLTAuMywxLjQsMGwxMy41LDEzLjVjMC40LDAuNCwwLjQsMSwwLDEuNEMyNC42LDI4LjIsMjQuMywyOC4zLDI0LDI4LjN6Ii8+PC9nPjxnPjxwYXRoIGQ9Ik0zNSwyNS40Yy0wLjMsMC0wLjUtMC4xLTAuNy0wLjNMMjcuMiwxOGwtNCwzLjNjLTAuNCwwLjQtMS4xLDAuMy0xLjQtMC4xYy0wLjQtMC40LTAuMy0xLjEsMC4xLTEuNGw0LjctMy45ICAgYzAuNC0wLjMsMS0wLjMsMS40LDAuMWw3LjgsNy44YzAuNCwwLjQsMC40LDEsMCwxLjRDMzUuNSwyNS4zLDM1LjIsMjUuNCwzNSwyNS40eiIvPjwvZz48Zz48cGF0aCBkPSJNMjMsMTRjLTIuOCwwLTUtMi4yLTUtNXMyLjItNSw1LTVzNSwyLjIsNSw1UzI1LjgsMTQsMjMsMTR6IE0yMyw2Yy0xLjcsMC0zLDEuMy0zLDNzMS4zLDMsMywzczMtMS4zLDMtM1MyNC43LDYsMjMsNnoiLz48L2c+PC9zdmc+');
+      }
+      .demo-photo-NONE .demo-photo-image {
+         padding-right: 6px;
+         width: 40px;
+         height: 40px;
+      }
+      .demo-photo-S .demo-photo-image {
+         padding: 0 6px 0 4px;
+         width: 16px;
+         height: 16px;
+      }
+      .demo-photo-M .demo-photo-image {
+         padding-right: 6px;
+         width: 24px;
+         height: 24px;
+      }
+      .demo-photo-L .demo-photo-image {
+         padding-right: 6px;
+         width: 32px;
+         height: 32px;
+      }
+      .demoGroup .controls-GroupBy__separatorText {
+         margin-left: 30%;
+      }
+   </style>
+</head>
+<body class="view-main">
+<div id="Back" style="min-height: 24px;"></div>
+<div class="block">
+   <div class="block-description">TreeView left padding</div>
+   <table class="block-content">
+      <tr>
+         <td><div class="block-description">DEFAULT (8px)</div><div id="TreeViewNONE"></div></td>
+         <td><div class="block-description">XS (0px)</div><div id="TreeViewXS"></div></td>
+         <td><div class="block-description">S (12px)</div><div id="TreeViewS"></div></td>
+         <td><div class="block-description">M (16px)</div><div id="TreeViewM"></div></td>
+         <td><div class="block-description">L (20px)</div><div id="TreeViewL"></div></td>
+         <td><div class="block-description">XL (24px)</div><div id="TreeViewXL"></div></td>
+      </tr>
+   </table>
+</div>
+
+<div class="block">
+   <div class="block-description">TreeDataGridView left padding</div>
+   <table class="block-content">
+      <tr>
+         <td><div class="block-description">DEFAULT (8px)</div><div id="TreeDGVNONE"></div></td>
+         <td><div class="block-description">XS (0px)</div><div id="TreeDGVXS"></div></td>
+         <td><div class="block-description">S (12px)</div><div id="TreeDGVS"></div></td>
+         <td><div class="block-description">M (16px)</div><div id="TreeDGVM"></div></td>
+         <td><div class="block-description">L (20px)</div><div id="TreeDGVL"></div></td>
+         <td><div class="block-description">XL (24px)</div><div id="TreeDGVXL"></div></td>
+      </tr>
+   </table>
+</div>
+
+<div class="block">
+   <div class="block-description">Different modes left padding</div>
+   <table class="block-content columns372">
+      <tr>
+         <td><div class="block-description">TreeView 2-levels</div><div id="TreeView2Levels"></div></td>
+         <td><div class="block-description">TreeDataGridView 2-levels</div><div id="TreeDataGridView2Levels"></div></td>
+         <td><div class="block-description">TreeDataGridView with checkboxes</div><div id="TreeDGVWithCheckboxes"></div></td>
+         <td><div class="block-description">TreeView with search mode</div><div id="TreeViewWithSearchMode"></div></td>
+         <td><div class="block-description">TreeDataGridView with search mode</div><div id="TreeDGVWithSearchMode"></div></td>
+      </tr>
+   </table>
+   <table class="block-content columns372 without-border-top">
+      <tr>
+         <td><div class="block-description">TreeView group</div><div id="TreeViewGroup"></div></td>
+         <td><div class="block-description">TreeDataGridView group</div><div id="TreeDataGridViewGroup"></div></td>
+         <td><div class="block-description">TreeView group with nodes</div><div id="TreeViewGroupWithNodes"></div></td>
+         <td><div class="block-description">TreeDataGridView group with nodes</div><div id="TreeDataGridViewGroupWithNodes"></div></td>
+         <td><div class="block-description"></div><div id="free3"></div></td>
+      </tr>
+   </table>
+</div>
+
+<div class="block">
+   <div class="block-description">TreeDataGridView photo padding</div>
+   <table class="block-content columns500">
+      <tr>
+         <td><div class="block-description">DEFAULT (40px)</div><div id="TreeDGVPhotoNONE"></div></td>
+         <td><div class="block-description">S (16px)</div><div id="TreeDGVPhotoS"></div></td>
+         <td><div class="block-description">M (24px)</div><div id="TreeDGVPhotoM"></div></td>
+         <td><div class="block-description">L (32px)</div><div id="TreeDGVPhotoL"></div></td>
+      </tr>
+   </table>
+</div>
+
+<script type="text/javascript">
+require(['Core/core-init'],function () {
+   $(document).ready(function () {
+      require(["SBIS3.CONTROLS/Link", 'SBIS3.CONTROLS/Tree/View', 'SBIS3.CONTROLS/Tree/DataGridView', 'Core/core-merge', 'SBIS3.CONTROLS/TextBox'], function (Link, TreeView, TreeDataGridView, cMerge) {
+         var
+            photoCellTemplate = '<div>{{? !it.projItem.isNode()}}<img class="demo-photo-image demo-photo-image-{{=it.item.getId()}}"/>{{?}}{{=it.item.get("title")}}</div>',
+            TreeViewItems = [
+               {  id: 1,   title: 'Node',         parent: null, 'parent@': true,  'parent$': null  },
+               {  id: 11,  title: 'Node',         parent: 1,    'parent@': true,  'parent$': null  },
+               {  id: 111, title: 'Leaf',         parent: 11,   'parent@': null,  'parent$': null  },
+               {  id: 12,  title: 'Leaf',         parent: 1,    'parent@': null,  'parent$': null  },
+               {  id: 13,  title: 'Hidden node',  parent: 1,    'parent@': false, 'parent$': true  },
+               {  id: 2,   title: 'Empty node',   parent: null, 'parent@': true,  'parent$': null  },
+               {  id: 3,   title: 'Hidden node',  parent: null, 'parent@': false, 'parent$': true  },
+               {  id: 31,  title: 'Leaf',         parent: 3,    'parent@': null,  'parent$': null  },
+               {  id: 4,   title: 'Empty hidden', parent: null, 'parent@': false, 'parent$': false },
+               {  id: 5,   title: 'Leaf',         parent: null, 'parent@': null,  'parent$': null  }
+            ],
+            TreeViewGroupItems = [
+               {  id: 1,   title: 'Node',         parent: null, 'parent@': true,  group: "" },
+               {  id: 11,  title: 'Leaf',         parent: 1,    'parent@': null,  group: 1  },
+               {  id: 12,  title: 'Leaf',         parent: 1,    'parent@': null,  group: 2  },
+               {  id: 2,   title: 'Node',         parent: null, 'parent@': true,  group: "" },
+               {  id: 21,  title: 'Node',         parent: 2,    'parent@': true,  group: "" },
+               {  id: 211, title: 'Leaf',         parent: 21,   'parent@': null,  group: 1  },
+               {  id: 213, title: 'Leaf',         parent: 21,   'parent@': null,  group: 2  },
+               {  id: 22,  title: 'Leaf',         parent: 2,    'parent@': null,  group: 1  },
+               {  id: 23,  title: 'Leaf',         parent: 2,    'parent@': null,  group: 2  },
+               {  id: 3,   title: 'Leaf',         parent: null, 'parent@': null,  group: 1  },
+               {  id: 4,   title: 'Leaf',         parent: null, 'parent@': null,  group: 2  }
+            ],
+            TreeViewSearchItems = [
+               {  id: 1,    title: 'Node',        parent: null, 'parent@': true,  'parent$': null  },
+               {  id: 11,   title: 'Node',        parent: 1,    'parent@': true,  'parent$': null  },
+               {  id: 111,  title: 'Node',        parent: 11,   'parent@': true,  'parent$': null  },
+               {  id: 1111, title: 'Node',        parent: 111,  'parent@': true,  'parent$': null  },
+               {  id: 1112, title: 'Leaf',        parent: 111,  'parent@': null,  'parent$': null  },
+               {  id: 112,  title: 'Leaf',        parent: 11,   'parent@': null,  'parent$': null  },
+               {  id: 12,   title: 'Leaf',        parent: 1,    'parent@': null,  'parent$': null  },
+               {  id: 2,    title: 'Empty node',  parent: null, 'parent@': true,  'parent$': null  },
+               {  id: 3,    title: 'Leaf',        parent: null, 'parent@': null,  'parent$': null  }
+            ],
+            TreeView2LevelsItems = [
+               {  id: 1,    title: 'Node 1',      parent: null, 'parent@': true,  'parent$': null  },
+               {  id: 11,   title: 'Leaf 1-1',    parent: 1,    'parent@': null,  'parent$': null  },
+               {  id: 2,    title: 'Node 2',      parent: null, 'parent@': true,  'parent$': null  },
+               {  id: 21,   title: 'Leaf 2-1',    parent: 2,    'parent@': null,  'parent$': null  },
+               {  id: 22,   title: 'Leaf 2-2',    parent: 2,    'parent@': null,  'parent$': null  },
+               {  id: 3,    title: 'Node 3',      parent: null, 'parent@': true,  'parent$': null  },
+               {  id: 31,   title: 'Leaf 3-1',    parent: 3,    'parent@': null,  'parent$': null  },
+               {  id: 32,   title: 'Leaf 3-2',    parent: 3,    'parent@': null,  'parent$': null  },
+               {  id: 33,   title: 'Leaf 3-3',    parent: 3,    'parent@': null,  'parent$': null  }
+            ],
+            baseConfig = {
+               idProperty: 'id',
+               parentProperty: 'parent',
+               displayProperty: 'title',
+               nodeProperty: 'parent@',
+               itemsActions: []
+            },
+            baseViewConfig = cMerge({
+               editMode: 'click',
+               allowEnterToFolder: false,
+               items: TreeViewItems,
+               handlers: {
+                  onBeginEdit: function(event, item) {
+                     event.setResult(item.get(this._options.nodeProperty) === null);
+                  }
+               }
+            }, baseConfig),
+            defaultGridViewColumn = [
+               { title: 'id', field: 'id', editor: '<component data-component="SBIS3.CONTROLS/TextBox"><option name="text" bind="id"></option></component>' },
+               { title: 'title', field: 'title', editor: '<component data-component="SBIS3.CONTROLS/TextBox"><option name="text" bind="title"></option></component>' }
+            ],
+            photoGridViewColumn = [
+               { title: 'first column', field: 'title', cellTemplate: photoCellTemplate },
+               { title: 'next column', field: 'id' }
+            ],
+            defaultViewConfig = cMerge({
+               editingTemplate: '<component data-component="SBIS3.CONTROLS/TextBox"><option name="text" bind="title"></option></component>'
+            }, baseViewConfig),
+            defaultGridViewConfig = cMerge({
+               editingTemplate: '<component data-component="SBIS3.CONTROLS/TextBox"><option name="text" bind="id"></option></component>',
+               columns: defaultGridViewColumn
+            }, baseViewConfig),
+            defaultViewSearchConfig = cMerge({
+               items: TreeViewSearchItems,
+               hierarchyViewMode: true
+            }, baseConfig),
+            defaultGridViewSearchConfig = cMerge({
+               editMode: 'click',
+               editingTemplate: '<component data-component="SBIS3.CONTROLS/TextBox"><option name="text" bind="id"></option></component>',
+               columns: defaultGridViewColumn
+            }, defaultViewSearchConfig),
+            defaultViewGroupConfig = cMerge({
+               items: TreeViewGroupItems,
+               expand: true,
+               allowEnterToFolder: false,
+               groupBy: {
+                  field: 'group',
+                  contentTemplate: '{{?it.groupId!==""}}<div class="demoGroup controls-GroupBy__separator"><div class="controls-GroupBy__separatorText controls-GroupBy__separatorCollapse">Group "{{=it.groupId}}"</div></div>{{?}}'
+               },
+               easyGroup: true
+            }, baseConfig),
+            defaultDataGridViewGroupConfig = cMerge(defaultViewGroupConfig, {
+               columns: defaultGridViewColumn
+            }),
+            photoGridViewConfig = cMerge({
+               items: TreeViewSearchItems,
+               columns: photoGridViewColumn
+            }, baseConfig),
+            leftPaddingList = ['NONE', 'XS', 'S', 'M', 'L', 'XL'],
+            photoPaddingList = ['NONE', 'S', 'M', 'L'];
+
+         new Link({
+            element: "Back",
+            caption: 'Назад',
+            href: '../../',
+            icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+         });
+
+         // main padding
+         leftPaddingList.forEach(function(item, index) {
+            new TreeView(cMerge({
+               element: 'TreeView' + item,
+               className: 'controls-ListView__padding-' + item + (index === 0 ? ' controls-TreeView__emptyIconInEmptyNode' : '')
+            }, defaultViewConfig));
+
+            new TreeDataGridView(cMerge({
+               element: 'TreeDGV' + item,
+               className: 'controls-ListView__padding-' + item + (index === 0 ? ' controls-TreeView__emptyIconInEmptyNode' : '')
+            }, defaultGridViewConfig));
+         });
+
+         // padding 2-levels
+         new TreeDataGridView(cMerge({ element: 'TreeDataGridView2Levels', className: 'controls-TreeView__withoutLevelPadding', allowEnterToFolder: false, expand: true, items: TreeView2LevelsItems, columns: defaultGridViewColumn }, baseConfig));
+         new TreeDataGridView(cMerge({ element: 'TreeDGVWithCheckboxes', className: 'controls-ListView__padding-L', multiselect: true }, defaultGridViewConfig));
+
+         // padding with checkboxes
+         new TreeView(cMerge({ element: 'TreeView2Levels', className: 'controls-TreeView__withoutLevelPadding', allowEnterToFolder: false, expand: true, items: TreeView2LevelsItems }, baseConfig));
+
+         // padding with search mode
+         new TreeView(cMerge({ element: 'TreeViewWithSearchMode', className: 'controls-ListView__padding-L controls-GridView__searchMode' }, defaultViewSearchConfig));
+         new TreeDataGridView(cMerge({ element: 'TreeDGVWithSearchMode', className: 'controls-ListView__padding-L controls-GridView__searchMode' }, defaultGridViewSearchConfig));
+
+         // padding with group
+         new TreeView(cMerge({ element: 'TreeViewGroup' }, defaultViewGroupConfig));
+         new TreeDataGridView(cMerge({ element: 'TreeDataGridViewGroup' }, defaultDataGridViewGroupConfig));
+
+         // photo padding
+         photoPaddingList.forEach(function(item, index) {
+            new TreeDataGridView(cMerge({
+               element: 'TreeDGVPhoto' + item,
+               allowEnterToFolder: false,
+               expand: true,
+               className: 'controls-TreeDataGridView__withPhoto' + (index === 0 ? '' : '-' + item) + ' demo-photo-' + item
+            }, photoGridViewConfig));
+         });
+      });
+   })
+});
+</script>
+</body>
+</html>

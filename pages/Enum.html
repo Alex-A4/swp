@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: Views</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+      html, body {
+         font-family: 'TensorFont Regular', 'TensorFont'!important;
+         font-size: 14px!important;
+      }
+   </style>
+   <style>
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../fonts/index.css"/>
+   <link rel="stylesheet" type="text/css" href="../icons/index.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+<div id="Back"></div>
+
+<div style="margin: 16px; width:500px;">
+   <p class="ComponentDescr">DataGridView</p>
+   <div id="DataGridView" class="ComponentBlock"></div>
+   <div id="combo" class="ComponentBlock"></div>
+</div>
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+         require(["WS.Data/Type/Enum", 'SBIS3.CONTROLS/Radio/Group', 'SBIS3.CONTROLS/ComboBox'], function (Enum, RadioGroup, ComboBox) {
+            var
+                  viewItems = [
+                     {
+
+                        id: null,
+                        title: 'Пустое значение',
+                        flag: false
+                     },
+                     {
+
+                        id: 1,
+                        title: 'Item 1',
+                        flag: false
+                     },
+                     {
+                        id: 2,
+                        title: 'Item 2',
+                        flag: false
+                     },
+                     {
+                        id: 3,
+                        title: "Item 3",
+                        flag: true
+                     },
+                     {
+                        id: 4,
+                        title: 'Item 4',
+                        flag: true
+                     }
+                  ];
+            var myEnum = new Enum({
+               dictionary: ['Item 1', 'Item 2', 'Item 3', 'Item 4'],
+               index: 2
+            });
+            var rg = new RadioGroup({
+               element: "DataGridView",
+               items: myEnum,
+               keyField: 'id',
+               displayField: 'title'
+            });
+            var cmbx = new ComboBox({
+               element: "combo",
+               items: myEnum,
+               keyField: 'id',
+               displayField: 'title',
+               editable: true,
+               autocomplete: true
+            });
+            cmbx.subscribe('onSelectedItemChange', function(e, key, id){
+               console.log('id = ' + id + ' key = ' + key);
+            })
+         });
+      })
+   });
+</script>
+</body>
+</html>

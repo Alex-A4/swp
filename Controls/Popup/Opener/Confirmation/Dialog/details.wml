@@ -1,0 +1,5 @@
+<div class="controls-SubmitPopup__details">
+   <div class="controls-SubmitPopup__message-centered">
+      <ws:partial template="{{content}}"/>
+   </div>
+</div>

@@ -1,0 +1,79 @@
+@min-width_BackButton_short: @min-width_BreadCrumbs-text + @width-BackButton__icon_size-m + @spacing-BackButton-between-icon-text;
+
+.controls-BreadCrumbsPath {
+   height: @height_BreadCrumbs-items;
+}
+
+.controls-BreadCrumbsPath__wrapper {
+   display: flex;
+   align-items: baseline;
+   white-space: nowrap;
+}
+
+.controls-BreadCrumbsPath__backButton {
+   white-space: nowrap;
+   position: relative;
+   padding-right: @spacing_Path-between-home-and-backButton;
+}
+
+.controls-BreadCrumbsPath__backButton__wrapper {
+   position: relative;
+   display: inline-flex;
+   align-items: baseline;
+}
+
+.controls-BreadCrumbsPath__backButtonArrow {
+   .icon(@font-size_Path-backButtonArrow);
+   position: absolute;
+   align-self: center;
+   background-color: @background-color_Path-backButtonArrow;
+   right: 0;
+   display: none;
+}
+
+.controls-BreadCrumbsPath__backButtonArrow_outsideBackButton {
+   margin-right: -@font-size_Path-backButtonArrow;
+}
+
+.controls-BreadCrumbsPath__breadCrumbs {
+   flex-grow: 1;
+   overflow: hidden;
+}
+
+.controls-BreadCrumbsPath__backButton_short {
+   flex-shrink: 1;
+   min-width: @min-width_BackButton_short;
+   overflow: hidden;
+}
+
+.controls-BreadCrumbsPath__backButton_half,
+.controls-BreadCrumbsPath__breadCrumbs_half {
+   width: 50%;
+   flex-shrink: 1;
+   overflow: hidden;
+}
+
+.ws-is-no-touch {
+   .controls-BreadCrumbsPath__backButtonArrow:hover {
+      color: @color_Path-backButtonArrow_hovered;
+      display: inline-block;
+   }
+   .controls-BreadCrumbsPath__backButton:hover ~ .controls-BreadCrumbsPath__backButtonArrow {
+      display: inline-block;
+   }
+}
+
+//Класс сделан только для удобства замеров
+.controls-BreadCrumbsPath__backButtonMeasurer {
+   font-family: @font-family_BreadCrumbs, "Courier New";
+   font-weight: @font-weight_Back;
+}
+
+.ws-is-ie {
+   .controls-BreadCrumbsPath__backButtonArrow {
+      //IE can't correctly align absolutely-positioned flex children: https://codepen.io/anon/pen/MqazJv
+      top: 50%;
+      bottom: 50%;
+      transform: translateY(-50%);
+   }
+}

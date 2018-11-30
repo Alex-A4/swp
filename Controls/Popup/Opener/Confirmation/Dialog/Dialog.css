@@ -1,0 +1,46 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-SubmitPopup__message {
+  font-size: 18px;
+  line-height: normal;
+  font-weight: normal;
+  color: #000;
+}
+.controls-SubmitPopup__message_withDetails {
+  margin-bottom: 8px;
+}
+.controls-SubmitPopup__details {
+  font-size: 14px;
+  line-height: normal;
+  color: inherit;
+}
+.controls-SubmitPopup__message,
+.controls-SubmitPopup__details {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.controls-SubmitPopup__message-centered,
+.controls-SubmitPopup__details-centered {
+  text-align: center;
+}
+.controls-SubmitPopup__buttonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.controls-SubmitPopup__button {
+  margin: 0 4px;
+  height: 24px;
+}
+.controls-SubmitPopup__button.controls-SubmitPopup__button-standard {
+  min-width: 86px;
+}
+.controls-SubmitPopup__button.controls-SubmitPopup__button-mini {
+  min-width: 80px;
+}

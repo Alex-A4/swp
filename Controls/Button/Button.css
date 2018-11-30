@@ -1,0 +1,376 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Button_style-danger_viewMode-button {
+  border-color: #EF463A;
+}
+.controls-Button_style-info_viewMode-button {
+  border-color: #CCC;
+}
+.controls-Button_style-primary_viewMode-button {
+  color: #000;
+  border-color: #ff7033;
+  background: transparent;
+}
+.controls-Button_style-warning_viewMode-button {
+  border-color: #FEC63F;
+}
+.controls-Button_style-success_viewMode-button {
+  border-color: #72BE44;
+}
+.controls-Button_style-primary_viewMode-button:active {
+  border-color: #ff7033;
+  background: #fdd2c0;
+}
+.controls-Button_style-primary_viewMode-button_readOnly {
+  background: transparent;
+}
+.controls-Button_style-secondary_viewMode-button {
+  color: #000;
+  border-color: #587AB0;
+  background: transparent;
+}
+.controls-Button_style-secondary_viewMode-button:active {
+  border-color: #587AB0;
+  background: #E1ECF6;
+}
+.controls-Button_style-secondary_viewMode-button_readOnly {
+  background: transparent;
+}
+.controls-Button_viewMode-button_readOnly {
+  min-width: 48px;
+  cursor: default;
+  color: #CCC;
+  border-color: #CCC;
+}
+.controls-Button_viewMode-button_size-m {
+  height: 24px;
+  font-size: 14px;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 12px;
+}
+.controls-Button_viewMode-button_size-l {
+  font-size: 18px;
+  border-style: solid;
+  height: 48px;
+  border-width: 1px;
+  border-radius: 24px;
+}
+.controls-Button__wrapper_viewMode-button_size-m {
+  padding: 0 11px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.controls-Button__wrapper_viewMode-button_size-l {
+  padding: 0 23px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.controls-Button__icon-default_iconStyle-default,
+.controls-Button__icon-default-big_iconStyle-default {
+  color: #587AB0;
+}
+.controls-Button__icon-primary_iconStyle-default,
+.controls-Button__icon-primary-big_iconStyle-default {
+  color: #FF7033;
+}
+.controls-Button__icon-secondary_iconStyle-default_viewMode-button {
+  color: #587AB0;
+}
+.controls-Button__icon-primary_iconStyle-default_viewMode-button {
+  color: #FF7033;
+}
+.controls-Button_viewMode-link_readOnly {
+  color: #ccc;
+}
+.ws-is-no-touch .controls-BaseButton:hover {
+  text-decoration: none;
+}
+.ws-is-no-touch .controls-Button_style-primary_viewMode-button:hover {
+  border-color: #ff7033;
+  background: #fdecd9;
+}
+.ws-is-no-touch .controls-Button_style-secondary_viewMode-button:hover {
+  border-color: #587AB0;
+  background: #F0F5FB;
+}
+.ws-is-no-touch .controls-Button_style-secondary_viewMode-button:active {
+  border-color: #587AB0;
+  background: #E1ECF6;
+}
+.ws-is-no-touch .controls-Button_style-primary_viewMode-button:active {
+  border-color: #ff7033;
+  background: #fdd2c0;
+}
+.ws-is-no-touch .controls-Button_style-danger_viewMode-toolButton:hover {
+  border-color: #EF463A;
+}
+.ws-is-no-touch .controls-Button_style-warning_viewMode-toolButton:hover {
+  border-color: #FEC63F;
+}
+.ws-is-no-touch .controls-Button_style-success_viewMode-toolButton:hover {
+  border-color: #72BE44;
+}
+.ws-is-no-touch .controls-Button_style-info_viewMode-toolButton:hover {
+  border-color: #CCC;
+}
+.ws-is-no-touch .controls-Button_style-primary_viewMode-toolButton:hover {
+  border-color: #FF7033;
+}
+.ws-is-no-touch .controls-Button_style-secondary_viewMode-toolButton:hover {
+  border-color: #CCC;
+}
+.ws-is-no-touch .controls-Button_style-secondary_viewMode-toolButton:hover .controls-Button__icon-secondary {
+  color: #313E78;
+}
+.ws-is-no-touch .controls-Button_style-secondary_viewMode-link:hover .controls-Button__icon-secondary {
+  color: #313E78;
+}
+.controls-Button__icon-info {
+  color: #CCC;
+}
+.controls-Button__icon-success {
+  color: #72BE44;
+}
+.controls-Button__icon-danger {
+  color: #EF463A;
+}
+.controls-Button__icon-warning {
+  color: #FEC63F;
+}
+.controls-Button__icon-secondary {
+  color: #587AB0;
+}
+.controls-Button__icon-primary {
+  color: #FF7033;
+}
+.controls-Button__icon-default {
+  color: #000;
+}
+.controls-BaseButton {
+  max-width: 100%;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  text-decoration: none;
+}
+.controls-BaseButton:active {
+  text-decoration: none;
+}
+.controls-BaseButton__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.controls-Button__wrapper_viewMode-toolButton_size-m,
+.controls-Button__wrapper_viewMode-toolButton_size-l {
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.controls-Button_viewMode-toolButton_withBackground {
+  background-color: #F8F8F8;
+}
+.controls-Button_viewMode-toolButton_transparent {
+  background-color: transparent;
+}
+.controls-Button_viewMode-toolButton,
+.controls-Button_viewMode-toolButton_readOnly {
+  border-radius: 2px;
+  border-style: solid;
+  border-width: 1px;
+  -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.05);
+}
+.controls-Button_viewMode-toolButton {
+  cursor: pointer;
+}
+.controls-Button_viewMode-toolButton_style-common {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+.controls-Button_viewMode-toolButton_size-m {
+  height: 24px;
+  min-width: 24px;
+}
+.controls-Button_viewMode-toolButton_size-l {
+  height: 28px;
+  min-width: 28px;
+}
+.controls-Button_viewMode-toolButton_readOnly {
+  color: #CCC;
+  border-color: rgba(0, 0, 0, 0.08);
+}
+.ws-is-no-touch .controls-Button_viewMode-toolButton:hover {
+  background-color: #F8F8F8;
+}
+.ws-is-no-touch .controls-Button_viewMode-toolButton_transparent:hover {
+  background-color: transparent;
+}
+.controls-Button_viewMode-toolButton:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.controls-Button_viewMode-toolButton_withBackground:active {
+  background-color: #F8F8F8;
+}
+.controls-Button_viewMode-toolButton_transparent:active {
+  background-color: transparent;
+}
+.controls-Button_viewMode-link {
+  cursor: pointer;
+}
+.controls-Button__wrapper_viewMode-link_size-s {
+  font-size: 12px;
+}
+.controls-Button__wrapper_viewMode-link_size-m {
+  font-size: 14px;
+}
+.controls-Button__wrapper_viewMode-link_size-l {
+  font-size: 15px;
+}
+.controls-Button__wrapper_viewMode-link_size-xl {
+  font-size: 18px;
+}
+.controls-Button_style-secondary_viewMode-link {
+  color: #0055BB;
+}
+.controls-Button_style-success_viewMode-link {
+  color: #72BE44;
+}
+.controls-Button_style-danger_viewMode-link {
+  color: #EF463A;
+}
+.controls-Button_style-info_viewMode-link {
+  color: #999;
+}
+.controls-Button_style-warning_viewMode-link {
+  color: #FEC63F;
+}
+.controls-Button_style-primary_viewMode-link {
+  color: #FF7033;
+}
+.controls-Button_style-default_viewMode-link {
+  color: #000;
+}
+.controls-Button_style-magic_viewMode-link {
+  color: #9122BF;
+}
+.ws-is-no-touch .controls-Button_style-secondary_viewMode-link:hover {
+  color: #313E78;
+}
+.ws-is-no-touch .controls-Button_style-secondary_viewMode-link:hover .controls-Button__icon-secondary_viewMode-link_iconStyle-default {
+  color: #313E78;
+}
+.controls-Button_type-link_readOnly {
+  color: #CCC;
+}
+.controls-Button_viewMode-button {
+  cursor: pointer;
+  min-width: 48px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.controls-Button_viewMode-button:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.controls-Button_viewMode-button_readOnly {
+  min-width: 48px;
+  cursor: default;
+  color: #CCC;
+  border-color: #CCC;
+}
+.controls-Button_style-secondary_viewMode-Button_readOnly {
+  background: transparent;
+}
+.controls-Button_style-primary_viewMode-Button_readOnly {
+  background: transparent;
+}
+.controls-Button__wrapper_viewMode-button_size-m {
+  height: 24px;
+  font-size: 14px;
+  border-radius: 12px;
+}
+.controls-Button__wrapper_viewMode-button_size-l {
+  font-size: 18px;
+  height: 48px;
+  border-radius: 24px;
+}
+.controls-Button__icon-default_iconStyle-default,
+.controls-Button__icon-default-big_iconStyle-default {
+  color: #587AB0;
+}
+.controls-Button__icon-primary_iconStyle-default,
+.controls-Button__icon-primary-big_iconStyle-default {
+  color: #FF7033;
+}
+.controls-Button_style-secondary_viewMode-link:active {
+  color: #313E78;
+}
+.controls-Button_style-secondary_viewMode-link:active .controls-Button__icon-secondary_viewMode_iconStyle-default {
+  color: #313E78;
+}
+.controls-Button_viewMode-link:active .controls-BaseButton__text {
+  text-decoration: underline;
+}
+.controls-Button__wrapper_type-button_size-m {
+  padding: 0 11px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.controls-Button__wrapper_type-button_size-l {
+  padding: 0 23px;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.controls-Button__text_gap {
+  margin-left: 6px;
+}
+.ws-is-no-touch .controls-Label_underline-hovered:hover {
+  text-decoration: underline;
+}
+.ws-is-no-touch .controls-Label_underline_color-hovered:hover {
+  color: #313E78;
+}
+.controls-Label_underline-hovered:active {
+  text-decoration: underline;
+}
+.controls-Label_underline_color-hovered:active {
+  color: #313E78;
+}
+.controls-Label_underline_color-hovered {
+  text-decoration: underline;
+}
+.controls-BaseButton__content {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-BaseButton__content:before {
+  content: "\200b";
+}
+.ws-is-no-touch .controls-Button_viewMode-link:hover .controls-BaseButton__text {
+  text-decoration: underline;
+}
+.ws-is-ie10 .controls-Button__text {
+  display: inline-block;
+  -ms-flex-negative: 1;
+}

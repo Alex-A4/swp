@@ -1,0 +1,16 @@
+<div>
+   <ws:Controls.Validate.FormController name="Form">
+      <ws:content>
+         <ws:Controls.Validate.Input name="validate">
+            <ws:validators>
+               <ws:Function value="{{ myText }}">ControlsSandbox/Validators/IsEmail</ws:Function>
+            </ws:validators>
+            <ws:content>
+               <ControlsSandbox.Validation.TextBox.TextBox bind:text="myText" name="textBox"/>
+            </ws:content>
+         </ws:Controls.Validate.Input>
+      </ws:content>
+   </ws:Controls.Validate.FormController>
+
+   <button name="button" type="button" on:click="onclick()" value="submit">submit</button>
+</div>

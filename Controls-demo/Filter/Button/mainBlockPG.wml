@@ -1,0 +1,41 @@
+<ws:template name="kind">
+   <Controls.Filter.Button.Panel.Dropdown
+           keyProperty="key"
+           displayProperty="title"
+           bind:textValue="item.textValue"
+           bind:selectedKeys="item.value"
+           source="{{item.source}}"/>
+</ws:template>
+
+<ws:template name="type">
+<Controls.Filter.Button.Panel.Dropdown
+        keyProperty="key"
+        displayProperty="title"
+        bind:textValue="item.textValue"
+        bind:selectedKeys="item.value"
+        source="{{item.source}}"/>
+</ws:template>
+
+<ws:template name="own">
+<Controls.Filter.Button.Panel.Dropdown
+        keyProperty="key"
+        displayProperty="title"
+        bind:textValue="item.textValue"
+        bind:selectedKeys="item.value"
+        source="{{item.source}}"/>
+</ws:template>
+
+<ws:template name="used">
+<Controls.Filter.Button.Panel.Dropdown
+        keyProperty="key"
+        displayProperty="title"
+        bind:textValue="item.textValue"
+        bind:selectedKeys="item.value"
+        source="{{item.source}}"/>
+</ws:template>
+
+<ws:template name="deleted">
+<Controls.Toggle.Checkbox bind:value="item.value" caption="Show deleted" attr:style="margin-left: -5px;"/>
+</ws:template>
+
+<ws:partial template="{{item.id}}" item="{{item}}"/>

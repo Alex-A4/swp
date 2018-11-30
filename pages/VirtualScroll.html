@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>VIRTUAL SCROLL</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+      html, body{
+         height: 100%;
+         width: 100%;
+         padding: 0;
+         margin: 0;
+      }
+      body {
+         padding-top: 1%;
+         box-sizing: border-box;
+      }
+      .scrollable {
+         display: inline-block;
+         -webkit-overflow-scrolling: touch;
+         width: 50%;
+         height: 96%;
+         border: 1px solid black;
+         overflow-y: auto;
+      }
+      .view-main{
+         margin-left: 35%;
+         width: 65%;
+      }
+      #listview{
+         height: auto;
+      }
+      #listview table {
+         table-layout: auto;
+      }
+      .panel {
+         display: inline-block;
+         vertical-align: top;
+      }
+      .textbox {
+         display: inline-block;
+         width: 100px;
+         margin: 10px;
+      }
+
+      .win {
+         position: relative;
+         left: 10px;
+      }
+
+      .win span {
+         font-weight: 700;
+      }
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+   <div class="scrollable">
+      <div id="listview"></div>
+   </div>
+   <div class="panel">
+      <div class="win">Displayed from
+         <span class="from">0</span>
+         to
+         <span class="to">99</span>
+      </div>
+      <div id="timeout" class="textbox"></div>
+      <div id="startChat" class="btn"></div><br>
+      <div id="remove" class="btn"></div>
+      <div id="add" class="btn"></div>
+   </div>
+   <script type="text/javascript">
+       require(['Core/core-init'],function () {
+         $(function () {
+            require(['SBIS3.CONTROLS/DataGridView', 'WS.Data/Source/Memory', 'SBIS3.CONTROLS/Button', 'SBIS3.CONTROLS/Button/ToggleButton', 'WS.Data/Entity/Model', 'SBIS3.CONTROLS/NumberTextBox'], function (DataGridView, MemorySource, Button, ToggleButton, Record, NumberTextBox) {
+            
+               N = 1000;
+               GOOSE_CHANCE = 0.07;
+               MAX_WORDS_IN_MESSAGE = 15;
+               MIN_WORDS_IN_MESSAGE = 2;
+
+               var WORDS = [
+                  'lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur',
+                  'adipiscing', 'elit', 'curabitur', 'vel', 'hendrerit', 'libero',
+                  'eleifend', 'blandit', 'nunc', 'ornare', 'odio', 'ut',
+                  'orci', 'gravida', 'imperdiet', 'nullam', 'purus', 'lacinia',
+                  'a', 'pretium', 'quis', 'congue', 'praesent', 'sagittis', 
+                  'laoreet', 'auctor', 'mauris', 'non', 'velit', 'eros',
+                  'dictum', 'proin', 'accumsan', 'sapien', 'nec', 'massa',
+                  'volutpat', 'venenatis', 'sed', 'eu', 'molestie', 'lacus',
+                  'quisque', 'porttitor', 'ligula', 'dui', 'mollis', 'tempus',
+                  'at', 'magna', 'vestibulum', 'turpis', 'ac', 'diam',
+                  'tincidunt', 'id', 'condimentum', 'enim', 'sodales', 'in',
+                  'hac', 'habitasse', 'platea', 'dictumst', 'aenean', 'neque',
+                  'fusce', 'augue', 'leo', 'eget', 'semper', 'mattis', 
+                  'tortor', 'scelerisque', 'nulla', 'interdum', 'tellus', 'malesuada',
+                  'rhoncus', 'porta', 'sem', 'aliquet', 'et', 'nam',
+                  'suspendisse', 'potenti', 'vivamus', 'luctus', 'fringilla', 'erat',
+                  'donec', 'justo', 'vehicula', 'ultricies', 'varius', 'ante',
+                  'primis', 'faucibus', 'ultrices', 'posuere', 'cubilia', 'curae',
+                  'etiam', 'cursus', 'quam', 'dapibus', 'nisl',
+                  'feugiat', 'egestas', 'class', 'aptent', 'taciti', 'sociosqu',
+                  'ad', 'litora', 'torquent', 'per', 'conubia', 'nostra',
+                  'inceptos', 'himenaeos', 'phasellus', 'nibh', 'pulvinar', 'vitae',
+                  'urna', 'iaculis', 'lobortis', 'nisi', 'viverra', 'arcu',
+                  'morbi', 'pellentesque', 'metus', 'commodo', 'ut', 'facilisis',
+                  'felis', 'tristique', 'ullamcorper', 'placerat', 'aenean', 'convallis',
+                  'sollicitudin', 'integer', 'rutrum', 'duis', 'est',
+                  'bibendum', 'donec', 'pharetra', 'vulputate', 'maecenas', 'mi',
+                  'fermentum', 'consequat', 'suscipit', 'aliquam', 'habitant', 'senectus',
+                  'netus', 'fames', 'quisque', 'euismod', 'curabitur', 'lectus',
+                  'elementum', 'tempor', 'risus', 'cras'
+               ];
+
+               function generateItem(id, randomHeight=true){
+                  var numWords = Math.floor(Math.random() * (MAX_WORDS_IN_MESSAGE - MIN_WORDS_IN_MESSAGE)) + MIN_WORDS_IN_MESSAGE;   
+                     word = ''
+                  if (Math.random() > GOOSE_CHANCE) {
+                     for (var j = 0; j < numWords; j++){
+                        word += (WORDS[Math.floor(Math.random() * WORDS.length - 1)]) + ' ';
+                     }
+                  } else {
+                     
+                     word = 'ЗАПУСКАЕМ░░\
+                           ░░░░░░\
+                           ░ГУСЯ░▄▀▀▀▄░ГИДРУ░░\
+                           ▄███▀░◐░▄▀▀▀▄░░░░░░\
+                           ░░▄███▀░◐░░░░▌░░░\
+                           ░░░▐░▄▀▀▀▄░░░▌░░░░\
+                           ▄███▀░◐░░░▌░░▌░░░░\
+                           ░░░░▌░░░░░▐▄▄▌░░░░░\
+                           ░░░░▌░░░░▄▀▒▒▀▀▀▀▄\
+                           ░░░▐░░░░▐▒▒▒▒▒▒▒▒▀▀▄\
+                           ░░░▐░░░░▐▄▒▒▒▒▒▒▒▒▒▒▀▄\
+                           ░░░░▀▄░░░░▀▄▒▒▒▒▒▒▒▒▒▒▀▄\
+                           ░░░░░░▀▄▄▄▄▄█▄▄▄▄▄▄▄▄▄▄▄▀▄\
+                           ░░░░░░░░░░░▌▌░▌▌░░░░░\
+                           ░░░░░░░░░░░▌▌░▌▌░░░░░\
+                           ░░░░░░░░░▄▄▌▌▄▌▌░░░░░'
+                  }
+                  return {
+                     name: word,
+                     id: id,
+                     count: Math.floor(Math.random() * 1000),
+                     height: randomHeight ? Math.floor(Math.random() * 100) + 30 : 30
+                  }
+               };
+
+               function generateData(num){
+                  var lorem = []
+                  var word = '';
+
+                  for (var i = 0; i < num; i++){
+                     lorem.push(generateItem(i));
+                  }
+                  return lorem;
+               }
+
+               if (!localStorage.virtualScrollLorem) {
+                  localStorage.setItem('virtualScrollLorem', JSON.stringify(generateData(N)));
+               }
+               
+               var lorem = JSON.parse(localStorage.virtualScrollLorem);
+
+               var memory = new MemorySource({
+                     data: lorem,
+                     idProperty: 'id'
+                  });
+
+               function sort(itemA, itemB){
+                  return itemA.index < itemB.index ? 1 : -1;
+               }
+
+               var dataGrid = new DataGridView({
+                     element: 'listview',
+                     dataSource: memory,
+                     idProperty: 'id',
+                     displayField: 'name',
+                     itemsActions: [],
+                     pageSize: 20,
+                     scrollPaging: false,
+                     itemsDragNDrop: false,
+                     autoHeight: false,
+                     virtualScrolling: true, // let the magic begins
+                     infiniteScroll: 'both',
+                     //itemsSortMethod: sort,
+                     multiselect: true,
+                     infiniteScrollContainer: '.scrollable',
+                     columns: [
+                        {
+                           title: 'id',
+                           field: 'id'
+                        },
+                        {
+                           title: 'name',
+                           field: 'name',
+                           width: '100%'
+                        },
+                        {
+                           title: 'height',
+                           field: 'height',
+                           cellTemplate: '<div style="height: {{=it.item.get(\'height\')/ 2}}px;"></div>'
+                        },
+                        {
+                           title: 'time',
+                           field: 'count',
+                           cellTemplate: function(){ return new Date().toTimeString().split(' ')[0] }
+                        },
+                        {
+                           title: 'button',
+                           cellTemplate: '<component data-component="SBIS3.CONTROLS/Button/IconButton" style="width: 100px;"><option name="icon">icon-16 icon-Publish2 icon-primary</option>'
+                        }
+                     ]
+               });
+
+               //dataGrid.setPage(49);
+               //$('.scrollable').scrollTop(10000);
+
+               var startChat = new ToggleButton({
+                  element: 'startChat',
+                  caption: 'chatting',
+                  enabled: true
+               });
+
+               var remove = new Button({
+                  element: $('#remove'),
+                  caption: 'delete'
+               }); 
+
+               var add = new Button({
+                  element: $('#add'),
+                  caption: 'add'
+               });
+
+               var timeout = new NumberTextBox({
+                  element: 'timeout',
+                  onlyInteger: true,
+                  numericValue: 50,
+                  enableArrows: true,
+                  onlyPositive: true
+               });
+
+               function sendRandomMessage(at) {
+                  msg = generateItem(N + dataGrid.getItems().getCount());
+                  rec = new Record({
+                     idProperty: 'id',
+                     rawData: msg
+                  });
+                  dataGrid.getItems().add(rec, at);
+                  if (dataGrid.isScrollOnBottom()){
+                     dataGrid._getScrollWatcher().scrollTo('bottom');
+                  }
+               }
+
+               var timer;
+               var messagesCount = 0;
+
+               remove.subscribe('onActivated', function(event){
+                  dataGrid.getItems().removeAt(10);
+               });
+
+               add.subscribe('onActivated', function(event){
+                  sendRandomMessage(10);
+               });
+
+               startChat.subscribe('onCheckedChange', function(event, checked){
+                  if (checked) {
+                     timer = setInterval(function(){
+                        sendRandomMessage(dataGrid.getItems().getCount());
+                        messagesCount += 1;
+                     }, timeout.getNumericValue());
+                  } else {
+                     clearInterval(timer);
+                  }
+               });
+
+
+            });
+         });
+      });
+   </script>
+</body>
+</html>

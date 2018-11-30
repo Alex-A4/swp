@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+
+<head>
+   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+   <title>Demo: WaitIndicator</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+
+      html, body {
+         background-color: rgb(255, 255, 255);
+         font-size: 14px;
+      }
+
+      .mainContainer {
+         min-width: 800px;
+         width: 70%;
+         margin: 0 auto;
+      }
+
+      h1, h2, h3, h4 {
+         font-size: 16px;
+      }
+
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+
+
+<body class="view-main">
+<div id="Back"></div>
+
+<div class="mainContainer">
+   <div id="controls_MyWaitIndicator"></div>
+</div>
+
+<script type="text/javascript">
+    require(['Core/core-init'],function () {
+
+      require(['SBIS3.CONTROLS/Link'], function (Link) {
+         new Link({
+            element: "Back",
+            caption: 'Назад',
+            href: '../../',
+            icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+         });
+      });
+
+      require(['Examples/WaitIndicator/MyWaitIndicator/MyWaitIndicator'], function (MyWaitIndicator) {
+         var myWaitIndicatorComponent = new MyWaitIndicator({
+            element: 'controls_MyWaitIndicator'
+         });
+
+         // Посмотреть защищённые свойства компонента
+         console.log('DBG: myWaitIndicatorComponent.MY_PROTECTED=', myWaitIndicatorComponent.MY_PROTECTED, ';');
+         console.log('DBG: myWaitIndicatorComponent.myProtected=', myWaitIndicatorComponent.myProtected, ';');
+         console.log('DBG: myWaitIndicatorComponent._options.MY_PROTECTED_OPTION=', myWaitIndicatorComponent._options.MY_PROTECTED_OPTION, ';');
+         console.log('DBG: myWaitIndicatorComponent._options.myProtectedOption=', myWaitIndicatorComponent._options.myProtectedOption, ';');
+      });
+
+      require(['SBIS3.CONTROLS/WaitIndicator'], function (WaitIndicator) {
+         // Посмотреть свойства индикатора
+         //var indicator = new WaitIndicator();
+         //console.log('DBG: indicator=', indicator, ';');
+      });
+
+   });
+</script>
+</body>
+
+
+</html>

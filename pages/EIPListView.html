@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ws="ws-component">
+<head>
+   <title>Demo: Views</title>
+   <script type="text/javascript">
+      window.wsConfig = { WSRootPath: '/sbis3-ws/ws/', wsRoot: '/sbis3-ws/ws/', WSTheme: 'wi_scheme', resourceRoot: '/', nostyle: true, globalConfigSupport: false };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <link rel="stylesheet" type="text/css" href="../sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+
+   <style>
+      * {
+         margin: 0;
+         padding: 0;
+      }
+      html, body {
+         font-family: 'TensorFont Regular', 'TensorFont'!important;
+         font-size: 14px!important;
+      }
+      .EIPListView {
+         margin: 16px;
+         width: 500px;
+      }
+      .myEditorInPlace {
+         background-color: #afcadc;
+      }
+      .EIPListView > .controls-ListView__itemsContainer > .controls-ListView__item {
+         width: 200px;
+         height: 30px;
+         display: inline-block;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="Back"></div>
+   <div id="ListView" class="EIPListView"></div>
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+         var
+            listViewItems = [
+               {
+                  id : 1,
+                  title : 'Title 1',
+                  flag: true,
+                  par : null,
+                  'par@': true
+               },
+               {
+                  id : 2,
+                  title : 'Title 2',
+                  flag: false,
+                  par : null
+               },
+               {
+                  id : 3,
+                  title : 'Title 3',
+                  flag: true,
+                  par : 1,
+                  'par@': true
+               },
+               {
+                  id : 4,
+                  title : 'Title 4',
+                  flag: true,
+                  par : 3
+               }];
+         require(['SBIS3.CONTROLS/ListView', 'SBIS3.CONTROLS/TextBox'], function (ListView) {
+            new ListView({
+               element: 'ListView',
+               items: listViewItems,
+               displayProperty: 'title',
+               editMode: 'click|toolbar',
+               editingTemplate: '<div class="myEditorInPlace"><component data-component="SBIS3.CONTROLS/TextBox"><option name="text" bind="title"></option></component></div>'
+            });
+         });
+         require(["SBIS3.CONTROLS/Link"], function (Link) {
+            new Link({
+               element: "Back",
+               caption: 'Назад',
+               href: '../../',
+               icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+            });
+         });
+      })
+   });
+</script>
+</body>
+</html>

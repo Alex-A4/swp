@@ -1,0 +1,64 @@
+//--------------- constants ---------------
+@width_Grid-cell-checkbox: 24px;
+@width_Grid-selection-marker: 3px;
+@color_Grid-selection-marker: #FF7033;
+//--------------- styles ---------------
+.ws-is-not-full-grid-support {
+  .controls-Grid__row-cell_withSelectionMarker {
+    box-shadow: inset @width_Grid-selection-marker 0 0 @color_Grid-selection-marker;
+  }
+  .controls-Grid {
+    display: table;
+    table-layout: fixed;
+    width: 100%;
+  }
+  .controls-Grid__colgroup-columnMultiselect {
+    width: @width_Grid-cell-checkbox;
+  }
+  .controls-Grid__row-cell__contentWrapper {
+    display: inline-flex;
+    width: 100%;
+  }
+  .controls-Grid__header {
+    display: table-header-group;
+  }
+  .controls-Grid__header-cell {
+    position: static;
+    top: 0;
+    display: table-cell;
+  }
+  .controls-Grid__header-cell_valign_top {
+    vertical-align: top;
+  }
+  .controls-Grid__header-cell_valign_middle {
+    vertical-align: middle;
+  }
+  .controls-Grid__header-cell_valign_bottom {
+    vertical-align: bottom;
+  }
+  .controls-Grid__results {
+    display: table-row-group;
+  }
+  .controls-Grid__results-cell {
+    display: table-cell;
+    position: static;
+  }
+  .controls-Grid__row {
+    display: table-row;
+  }
+  .controls-Grid__row-cell {
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: top;
+  }
+  .controls-Grid__row-cell-checkbox {
+    width: @width_Grid-cell-checkbox;
+  }
+
+  .controls-Grid__colgroup {
+    display: table-column-group;
+  }
+  .controls-Grid__colgroup-column {
+    display: table-column;
+  }
+}

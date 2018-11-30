@@ -1,0 +1,5 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Lookup__link {
+  pointer-events: auto;
+}

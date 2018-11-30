@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: Header and Separator</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <link id="actualTheme" rel="stylesheet" type="text/css" href="/components/themes/online/online.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/transport/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <style>
+      table {
+         margin: 50px 0;
+         border-collapse: collapse;
+         border: 1px solid #2ed532;
+      }
+      caption {
+         font-size: 2rem;
+      }
+      .myHeader {
+         text-align: center;
+         font-size: 1.5rem;
+      }
+      .mySubHeader {
+         text-align: center;
+         font-size: 1rem;
+      }
+      .text {
+         display: inline-block;
+         margin: 10px;
+      }
+      .control {
+         margin: 20px !important;
+      }
+   </style>
+</head>
+<body class="ws-hidden">
+<span class="text">Активная тема: </span>
+<div id="selectTheme"></div>
+<div id="selectSize"></div>
+<table border="1" cellpadding="5">
+   <tr class="myHeader">
+      <td colspan="4"><div class="text">SBIS3.CONTROLS/CheckBox</div></td>
+   </tr>
+   <tr>
+      <td>
+         <div class="control" id="checkBox"></div><span>baseline</span>
+      </td>
+      <td>
+         <div class="control" id="checkBoxDisabled"></div><span>baseline</span>
+      </td>
+      <td>
+         <div class="control" id="checkBoxCheckedDisabled"></div><span>baseline</span>
+      </td>
+      <td>
+         <div class="control" id="checkBoxCheckedNullDisabled"></div><span>baseline</span>
+      </td>
+   </tr>
+</table>
+<table border="1" cellpadding="5">
+   <tr class="myHeader">
+      <td colspan="4"><div class="text">SBIS3.CONTROLS/Radio/Button</div></td>
+   </tr>
+   <tr>
+      <td>
+         <div id="radioButton" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="radioButtonChecked" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="radioButtonDisabled" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="radioButtonCheckedDisabled" class="control"></div><span>baseline</span>
+      </td>
+   </tr>
+</table>
+<table border="1" cellpadding="5">
+   <tr class="myHeader">
+      <td colspan="4"><div class="text">SBIS3.CONTROLS/Switcher</div></td>
+   </tr>
+   <tr>
+      <td>
+         <div id="switcher" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherChecked" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherDisabled" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherCheckedDisabled" class="control"></div><span>baseline</span>
+      </td>
+   </tr>
+</table>
+<table border="1" cellpadding="5">
+   <tr class="myHeader">
+      <td colspan="4">
+         <div class="text">SBIS3.CONTROLS/Switcher/Double</div>
+      </td>
+   </tr>
+   <tr class="mySubHeader">
+      <td colspan="4">Horizontal</td>
+   </tr>
+   <tr>
+      <td>
+         <div id="switcherDoubleH" class="control"></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherDoubleCheckedH" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherDoubleDisabledH" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherDoubleCheckedDisabledH" class="control"></div></div><span>baseline</span>
+      </td>
+   </tr>
+   <tr class="mySubHeader">
+      <td colspan="4">Vertical</td>
+   </tr>
+   <tr>
+      <td>
+         <div id="switcherDoubleV" class="control"></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherDoubleCheckedV" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherDoubleDisabledV" class="control"></div></div><span>baseline</span>
+      </td>
+      <td>
+         <div id="switcherDoubleCheckedDisabledV" class="control"></div></div><span>baseline</span>
+      </td>
+   </tr>
+</table>
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      require(['SBIS3.CONTROLS/DropdownList', 'SBIS3.CONTROLS/CheckBox', 'SBIS3.CONTROLS/Switcher', 'SBIS3.CONTROLS/Switcher/Double', 'SBIS3.CONTROLS/Radio/Button'],
+         function(DropdownList, CheckBox, Switcher, SwitcherDouble, RadioButton) {
+            var
+               selectTheme = new DropdownList({
+                  element: $('#selectTheme'),
+                  items: [
+                     {
+                        key: 'online',
+                        theme: 'online'
+                     },
+                     {
+                        key: 'carry',
+                        theme: 'carry'
+                     },
+                     {
+                        key: 'presto',
+                        theme: 'presto'
+                     },
+                     {
+                        key: 'carrynew',
+                        theme: 'carrynew'
+                     },
+                     {
+                        key: 'prestonew',
+                        theme: 'prestonew'
+                     },
+                     {
+                        key: 'genie',
+                        theme: 'genie'
+                     }
+                  ],
+                  idProperty: 'key',
+                  displayProperty: 'theme',
+                  multiselect: false
+               }),
+               selectSize = new DropdownList({
+                  element: $('#selectSize'),
+                  items: [
+                     {
+                        key: '21',
+                        caption: 'средняя'
+                     },
+                     {
+                        key: '28',
+                        caption: 'крупная'
+                     }
+                  ],
+                  idProperty: 'key',
+                  displayProperty: 'caption',
+                  multiselect: false
+               }),
+               styleTheme = document.getElementById('actualTheme'),
+               htmlTag = document.getElementsByTagName('html')[0];
+
+            //Создаем CheckBox
+            new CheckBox({
+               element: $('#checkBox'),
+               caption: 'checkbox',
+               threeState: true
+            });
+            new CheckBox({
+               element: $('#checkBoxDisabled'),
+               caption: 'checkbox',
+               enabled: false
+            });
+            new CheckBox({
+               element: $('#checkBoxCheckedDisabled'),
+               caption: 'checkbox',
+               checked: true,
+               enabled: false
+            });
+            new CheckBox({
+               element: $('#checkBoxCheckedNullDisabled'),
+               caption: 'checkbox',
+               checked: null,
+               enabled: false,
+               threeState: true
+            });
+
+            //Создаем Switcher
+            new Switcher({
+               element: $('#switcher')
+            });
+            new Switcher({
+               element: $('#switcherChecked'),
+               checked: true
+            });
+            new Switcher({
+               element: $('#switcherDisabled'),
+               enabled: false
+            });
+            new Switcher({
+               element: $('#switcherCheckedDisabled'),
+               checked: true,
+               enabled: false
+            });
+
+            //Создаем RadioButton
+            new RadioButton({
+               element: $('#radioButton'),
+               caption: 'Radio'
+            });
+            new RadioButton({
+               element: $('#radioButtonChecked'),
+               checked: true,
+               caption: 'Radio'
+            });
+            new RadioButton({
+               element: $('#radioButtonDisabled'),
+               enabled: false,
+               caption: 'Radio'
+            });
+            new RadioButton({
+               element: $('#radioButtonCheckedDisabled'),
+               checked: true,
+               enabled: false,
+               caption: 'Radio'
+            });
+
+            //Создаем SwitcherDouble horizontal
+            new SwitcherDouble({
+               element: $('#switcherDoubleH'),
+               stateOn: 'On',
+               stateOff: 'Off'
+            });
+            new SwitcherDouble({
+               element: $('#switcherDoubleCheckedH'),
+               state: 'on',
+               stateOn: 'On',
+               stateOff: 'Off'
+            });
+            new SwitcherDouble({
+               element: $('#switcherDoubleDisabledH'),
+               enabled: false,
+               stateOn: 'On',
+               stateOff: 'Off'
+            });
+            new SwitcherDouble({
+               element: $('#switcherDoubleCheckedDisabledH'),
+               state: 'on',
+               enabled: false,
+               stateOn: 'On',
+               stateOff: 'Off'
+            });
+
+            //Создаем SwitcherDouble vertical
+            new SwitcherDouble({
+               element: $('#switcherDoubleV'),
+               disposition: 'vertical',
+               stateOn: 'On',
+               stateOff: 'Off'
+            });
+            new SwitcherDouble({
+               element: $('#switcherDoubleCheckedV'),
+               state: 'on',
+               disposition: 'vertical',
+               stateOn: 'On',
+               stateOff: 'Off'
+            });
+            new SwitcherDouble({
+               element: $('#switcherDoubleDisabledV'),
+               enabled: false,
+               disposition: 'vertical',
+               stateOn: 'On',
+               stateOff: 'Off'
+            });
+            new SwitcherDouble({
+               element: $('#switcherDoubleCheckedDisabledV'),
+               state: 'on',
+               enabled: false,
+               disposition: 'vertical',
+               stateOn: 'On',
+               stateOff: 'Off'
+            });
+
+            //Подписки
+            selectTheme.subscribe('onSelectedItemsChange', function(event, items) {
+               var themeName = items[0], execResult;
+               styleTheme.href = '/themes/' + themeName + '/' + themeName + '.css';
+               if (execResult = /carrynew|(prestonew)/.exec(themeName)) {
+                  htmlTag.style.fontSize = '21px';
+                  if (execResult[1]) {
+                     document.body.style.backgroundColor = "#1D2834";
+                  } else {
+                     document.body.style.backgroundColor = "#FFF";
+                  }
+               } else {
+                  htmlTag.style.fontSize = '16px';
+                  document.body.style.backgroundColor = "#FFF";
+               }
+            });
+            selectSize.subscribe('onSelectedItemsChange', function(event, items) {
+               htmlTag.style.fontSize = items[0] + 'px';
+            });
+
+            document.body.classList.remove('ws-hidden');
+         });
+   });
+</script>
+</body>
+</html>

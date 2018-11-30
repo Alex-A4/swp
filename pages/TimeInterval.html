@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: FieldFormat</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+      html, body {
+         font-family: Tahoma !important;
+         font-size: 13px;
+      }
+
+		.wrapper {
+			width: 800px;
+			margin: 20px auto;
+			padding: 50px;
+			border: 1px gray solid;
+		}
+
+       .txt{
+           height: 24px;
+           padding-top:4px;
+           vertical-align: middle;
+           display: inline-block;
+           float: left;
+       }
+      .view-main {
+          font-family: Arial, SANS-SERIF;
+          font-size: 13px;
+          padding: 0;
+          height: 100%;
+      }
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+<div id="Back"></div>
+
+<div class="wrapper">
+    <div id="Area">
+        <br><br>
+        <div class="txt">DD:HH:MM</div>
+        <div id="TimeInterval1" class="testBlock"></div>
+        <br><br>
+
+        <div class="txt">DD:HH</div>
+        <div id="TimeInterval2" class="testBlock"></div>
+        <div id="TextBoxSetDay2" style="width: 50px"></div>
+        <div id="button2"></div>
+        <div id="TextBoxSetHour2" style="width: 50px"></div>
+        <div id="button3"></div>
+        <br><br>
+
+        <div class="txt">HH:MM</div>
+        <div id="TimeInterval3" class="testBlock"></div>
+        <br><br>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+       $(document).ready(function () {
+           //var globalMask = "dd:dd:dddd";
+           var globalMask = "+++LLLlll///ddd---ddddddd===xxx";
+           //var globalMask = "dd:dd:dddd";
+           require(['Lib/Control/AreaAbstract/AreaAbstract'], function (Area) {
+               var area = new Area({
+                   element: 'Area'
+               });
+
+
+               require(["SBIS3.CONTROLS/Date/TimeInterval"], function (r) {
+                   new r({
+                       element: "TimeInterval1",
+                       name: "TimeInterval1",
+                       parent: area,
+//                       interval: "P99DT21H28M",
+                       mask: "DD:HH:II"
+                   })
+               });
+
+               require(["SBIS3.CONTROLS/Date/TimeInterval"], function (r) {
+                   new r({
+                       element: "TimeInterval2",
+                       name: "TimeInterval2",
+//                       interval: "P11DT1H",
+                       parent: area,
+                       mask: "DD:HH"
+                   })
+               });
+
+               require(["SBIS3.CONTROLS/Date/TimeInterval"], function (r) {
+                   new r({
+                       element: "TimeInterval3",
+                       name: "TimeInterval3",
+                       parent: area,
+                       interval: "P11DT1H",
+                       mask: "HH:II"
+                   })
+               });
+
+               require(["SBIS3.CONTROLS/Link"], function (r) {
+                   new r({
+                       element: "Back",
+                       caption: 'Назад',
+                       href: '../../',
+                       icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+                   })
+               });
+               require(["SBIS3.CONTROLS/Button"], function (r) {
+                   new r({
+                       element: "button2",
+                       name: "button2",
+                       caption: 'Установить дни',
+                       handlers: {
+                           'onActivated': function (e) {
+                               var TextBoxIncValue2 = $ws.single.ControlStorage.getByName('TextBoxSetDay2'),
+                                       incValue = TextBoxIncValue2.getText().replace(/[^\d-]/g, ''),
+                                       TimeInterval2 = $ws.single.ControlStorage.getByName('TimeInterval2');
+                               TextBoxIncValue2.setValue(incValue);
+                               TimeInterval2.setDays(incValue);
+                           }
+                       }
+                   });
+               });
+
+               require(["SBIS3.CONTROLS/TextBox"], function (r) {
+                   new r({
+                       element: "TextBoxSetHour2",
+                       parent: area,
+                       name: "TextBoxSetHour2"
+                   })
+               });
+
+               require(["SBIS3.CONTROLS/TextBox"], function (r) {
+                   new r({
+                       element: "TextBoxSetDay2",
+                       parent: area,
+                       name: "TextBoxSetDay2"
+                   })
+               });
+
+               require(["SBIS3.CONTROLS/Button"], function (r) {
+                   new r({
+                       element: "button3",
+                       name: "button3",
+                       parent: area,
+                       caption: 'Установить часы',
+                       handlers: {
+                           'onActivated': function (e) {
+                               var TextBoxIncValue2 = $ws.single.ControlStorage.getByName('TextBoxSetHour2'),
+                                       incValue = TextBoxIncValue2.getText().replace(/[^\d-]/g, ''),
+                                       TimeInterval2 = $ws.single.ControlStorage.getByName('TimeInterval2');
+                               TextBoxIncValue2.setValue(incValue);
+                               TimeInterval2.setHours(incValue);
+                           }
+                       }
+                   });
+               });
+           });
+      })
+   });
+</script>
+</body>
+</html>

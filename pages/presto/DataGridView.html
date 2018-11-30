@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'
+      xmlns:ws='ws-component'>
+<head>
+    <title>Demo: DataGridView</title>
+    <script type='text/javascript'>
+       window.wsConfig = {
+          WSRootPath: '/sbis3-ws/ws/',
+          wsRoot: '/sbis3-ws/ws/',
+          WSTheme: 'wi_scheme',
+          resourceRoot: '/',
+          nostyle: true,
+          globalConfigSupport: false,
+          themeName: 'presto'
+       };
+       window.WSTheme = 'wi_scheme';
+    </script>
+    <script type='text/javascript' id='dev-style-enable'>
+       (function () {
+          window.wsConfig.nostyle = false;
+       })();
+    </script>
+    <script type='text/javascript' data-pack-name='contents' src='/contents'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/ext/jquery-min.js'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/ext/jquery-cookie-min.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/ext/requirejs/require.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/ext/requirejs/config.js'></script>
+    <link rel='stylesheet' type='text/css' href='/sbis3-ws/ws/css/core.css'/>
+    <script type='text/javascript' src='/sbis3-ws/ws/lib/core.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/lib/Source.js'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/res/js/bootup.js'></script>
+    <script type="text/javascript" src="themeSwitcher.js"></script>
+    <style>
+        html, body {
+            font-family: 'TensorFont', 'TensorFont'!important;
+        }
+    </style>
+    <script type='text/javascript' id='ws-include-css'></script>
+    <link rel='stylesheet' type='text/css' href='../../demo/TextBox/PrestoTextBox/PrestoTextBox.css'>
+</head>
+<body class='view-main controls-default-bg'>
+<div class="prestoExample">
+    <div class="leftPanel controls-block-bg">
+        <div id='MyDataGridView'></div>
+    </div>
+</div>
+
+<script type='text/javascript'>
+   require(['Core/core-init'],function () {
+      require(['Examples/DataGridView/MyDataGridView/MyDataGridView'], function (MyListView) {
+         new MyListView({
+            element: "MyDataGridView"
+         });
+      });
+   });
+</script>
+</body>
+</html>

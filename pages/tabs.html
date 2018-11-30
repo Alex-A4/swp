@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: TabButtons</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <!--<script type="text/javascript" data-pack-name="skip" src="/themes/online/fonts/webfonts.js" charset="utf-8"></script>-->
+   <style>
+      html, body {
+         font-family: Tahoma !important;
+         font-size: 13px;
+         background-color: #F7F6EE;
+      }
+      @font-face {
+         font-family: 'TensorFont';
+         font-weight: normal;
+         src: url('/components/themes/online/fonts/TensorFont.eot'); /* IE9 Compat Modes */
+         src: url('/components/themes/online/fonts/TensorFont.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/components/themes/online/fonts/TensorFont.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/components/themes/online/fonts/TensorFont.woff') format('woff'), /* Pretty Modern Browsers */
+         url('/components/themes/online/fonts/TensorFont.ttf')  format('truetype')
+      }
+      @font-face {
+         font-family: 'TensorFont';
+         font-weight: bold;
+         src: url('/components/themes/online/fonts/TensorFontBold.eot'); /* IE9 Compat Modes */
+         src: url('/components/themes/online/fonts/TensorFontBold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('/components/themes/online/fonts/TensorFontBold.woff2') format('woff2'), /* Super Modern Browsers */
+         url('/components/themes/online/fonts/TensorFontBold.woff') format('woff'), /* Pretty Modern Browsers */
+         url('/components/themes/online/fonts/TensorFontBold.ttf')  format('truetype')
+      }
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../fonts/index.css"/>
+   <link rel="stylesheet" type="text/css" href="../icons/index.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+   <link rel="stylesheet" type="text/css" href="../sbis3-ws/ws/deprecated/Controls/TabButtons/TabButtons.css"/>
+</head>
+<body class="view-main">
+<div id="Back"></div>
+
+<br/>
+<br/>
+<h3>SBIS3.CONTROLS/Tab/Buttons</h3>
+<p style="color:#ccc;">Стиль по умолчанию:</p>
+<div id="controls_tabs_myTabButton" style="width: 900px;"></div>
+<p style="color:#ccc;">MenuLink внутри главной вкладки</p>
+<div id="controls_tabs_menuLink" style="width: 900px;"></div>
+<p style="color:#ccc;">Стиль по controls-TabButtons__tabs2:</p>
+<div id="controls_tabs2" style="width: 900px;" class="ws-TabButtons__tabs2"></div>
+<br/>
+
+<h3>Deprecated/Controls/TabButtons/TabButtons</h3>
+<p style="color:#ccc;">Стиль по умолчанию:</p>
+<div id="core_tabs" style="width: 900px;"></div>
+<p style="color:#ccc;">Стиль ws-TabButtons__tabs2:</p>
+<div id="core_tabs2" style="width: 900px;" class="ws-TabButtons__tabs2"></div>
+<br/>
+<h3>Deprecated/Controls/Tabs/Tabs (старые)</h3>
+<div id="core_tabs_old" style="width: 900px;"></div>
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+
+         require(["SBIS3.CONTROLS/Link"], function (r) {
+            new r({
+               element: "Back",
+               caption: 'Назад',
+               href: '../../',
+               icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+            });
+         });
+
+
+         require(['Examples/TabButtons/MyTabButtons/MyTabButtons'], function(mtb) {
+            new mtb({
+               element: 'controls_tabs_myTabButton'
+            });
+         });
+
+         require(['SBIS3.CONTROLS/Tab/Buttons','SBIS3.CONTROLS/Button','SBIS3.CONTROLS/Menu/MenuLink'], function(r, Button, MenuLink){
+            var items16 = [
+                       {
+                          id : 1,
+                          title : 123,
+                          icon : 'sprite:icon-16 icon-Author icon-primary'
+                       },
+                       {
+                          id : 2,
+                          title : 121323
+                       },
+                       {
+                          id : 3,
+                          title : 'три',
+                          enabled: false,
+                          icon : 'sprite:icon-16 icon-Author icon-primary'
+                       }
+                    ];
+
+            var comp = "<div id='MenuLink' class='controls-TabButton__mainText'></div>";//"<component data-component='SBIS3.CONTROLS/Menu/MenuLink'><option name='caption'>Задача</option></component>";
+            new r({
+               element : 'controls_tabs_menuLink',
+               displayField: 'title',
+               selectedKey: 'someId',
+               keyField: 'id',
+               items: [
+                  {
+                     id: 'someId',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     title: 'Вложения',          // имя таба, которое отображается на кнопке
+                     icon: 'sprite: icon-16 icon-Author',
+                     enabled: true
+                  },
+                  {
+                     title: 'Лента событий',          // имя таба, которое отображается на кнопке
+                     id: 'id2',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true
+                  },
+                  {
+                     id: 'id3',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     title: 'Выполненные',          // имя таба, которое отображается на кнопке
+                     enabled: true
+                  },
+                  {
+                     title: "<component data-component='SBIS3.CONTROLS/Button'><option name='caption' value='ter'></option></component>",
+                     id: 'id4',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true
+                  },
+                  {
+                     title: comp + " текст <span class='controls-TabButton__additionalText1'>01.02.15</span> <span class='controls-TabButton__additionalText2'>№1010010</span>",
+                     id: 'anotherId',            // айди для внутреннего использования - к этой вкладке можно обращаться по нему
+                     align: 'left',
+                     className: 'controls-TabButton__main-item'
+                  }
+               ]
+            });
+            new MenuLink({
+               element: "MenuLink",
+               caption: 'Задача',
+               //icon : 'sprite:icon-16 icon-Author icon-primary',
+               hierField: 'par',
+               items: items16
+            });
+         });
+
+         require(['Deprecated/Controls/TabButtons/TabButtons'], function(r){
+            new r({
+               element : 'core_tabs',
+               tabs: [
+                  {
+                     title: 'Вложения',          // имя таба, которое отображается на кнопке
+                     id: 'someId',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     //editable: true,
+                     icon: 'sprite:icon-16 icon-Author',
+                     cssClass: 'my-class'
+                  },
+                  {
+                     title: '',          // имя таба, которое отображается на кнопке
+                     id: 'id5',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     //editable: true,
+                     icon: 'sprite:icon-16 icon-Author',
+                     cssClass: 'my-class'
+                  },
+                  {
+                     title: 'Лента событий',          // имя таба, которое отображается на кнопке
+                     id: 'id2',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     cssClass: 'my-class'
+                  },
+                  {
+                     title: 'Выполненные',          // имя таба, которое отображается на кнопке
+                     id: 'id3',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     cssClass: 'my-class'
+                  },
+                  {
+                     title: 'Список',          // имя таба, которое отображается на кнопке
+                     id: 'id4',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     cssClass: 'my-class'
+                  },
+                  {
+                     visible: true,
+                     title: 'Задача в разработку <span class="additionalText1">01.02.15</span> <span class="additionalText2">№1010010</span>',        // имя таба, которое отображается на кнопке
+                     id: 'anotherId',            // айди для внутреннего использования - к этой вкладке можно обращаться по нему
+                     align: 'left',
+                     cssClass: 'ws-caption'
+                  }
+               ]
+            });
+
+            new r({
+               element : 'core_tabs2',
+               tabs: [
+                  {
+                     visible: true,
+                     title: 'Задача в разработку <span class="additionalText1">01.02.15</span> <span class="additionalText2">№1010010</span>',        // имя таба, которое отображается на кнопке
+                     id: 'id1',            // айди для внутреннего использования - к этой вкладке можно обращаться по нему
+                     align: 'left',
+                     cssClass: 'ws-caption'
+                  },
+                  {
+                     title: 'Вложения',          // имя таба, которое отображается на кнопке
+                     id: 'id2',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     //editable: true,
+                     //icon: 'sprite:icon-16 icon-Admin icon-disabled',
+                     cssClass: 'my-class'
+                  },
+                  {
+                     title: 'Лента событий',          // имя таба, которое отображается на кнопке
+                     id: 'id3',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     cssClass: 'my-class'
+                  },
+                  {
+                     title: 'Выполненные',          // имя таба, которое отображается на кнопке
+                     id: 'id4',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     cssClass: 'my-class'
+                  },
+                  {
+                     title: 'Список',          // имя таба, которое отображается на кнопке
+                     id: 'id5',               // айди для внутреннего использования - к этой вкладке можно обращаться по нему,
+                     enabled: true,
+                     cssClass: 'my-class'
+                  }
+
+               ]
+            });
+         });
+
+
+         require(['Deprecated/Controls/Tabs/Tabs'], function(r) {
+            new r({
+               element: 'core_tabs_old',
+               tabs: [
+                  {
+                     title: 'Задача в разработку',   //имя таба, которое отображается на ярлыке вкладки
+                     id: 'id1',        //идентификатор для внутреннего использования, по нему можно обратиться к этой вкладке
+                     text: 'some text',          // текст для отображения внутри вкладки
+                     template: '',       // путь к шаблону, который загрузится
+                     align: 'left'               // корешок закладки слева
+                  },
+                  {
+                     title: 'Вложения', //имя таба, которое отображается на кнопке ярлыке вкладки
+                     id: 'id2',     //идентификатор для внутреннего использования, по нему можно обратиться к этой вкладке
+                     text: 'some text',          // текст для отображения внутри вкладки
+                     template: '',       // путь к шаблону, который загрузится
+                     icon: 'sprite:icon-16 icon-Author',       // указываем иконку
+                     align: 'right'              //корешок закладки справа
+                  },
+                  {
+                     title: 'Лента событий', //имя таба, которое отображается на кнопке ярлыке вкладки
+                     id: 'id3',     //идентификатор для внутреннего использования, по нему можно обратиться к этой вкладке
+                     text: 'some text',          // текст для отображения внутри вкладки
+                     template: '',       // путь к шаблону, который загрузится
+                     align: 'right'              //корешок закладки справа
+                  },
+                  {
+                     title: 'Выполненные', //имя таба, которое отображается на кнопке ярлыке вкладки
+                     id: 'id4',     //идентификатор для внутреннего использования, по нему можно обратиться к этой вкладке
+                     text: 'some text',          // текст для отображения внутри вкладки
+                     template: '',       // путь к шаблону, который загрузится
+                     align: 'right'              //корешок закладки справа
+                  },
+                  {
+                     title: 'Список', //имя таба, которое отображается на кнопке ярлыке вкладки
+                     id: 'id5',     //идентификатор для внутреннего использования, по нему можно обратиться к этой вкладке
+                     text: 'some text',          // текст для отображения внутри вкладки
+                     template: '',       // путь к шаблону, который загрузится
+                     align: 'right'              //корешок закладки справа
+                  }
+               ]
+            });
+         });
+
+      });
+   });
+</script>
+</body>
+</html>

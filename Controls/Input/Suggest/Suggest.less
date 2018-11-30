@@ -1,0 +1,36 @@
+.controls-SuggestV__inputRender {
+	width: 100%;
+}
+
+.controls-SuggestV {
+	display: inline-block;
+	max-width: 100%;
+	position: relative;
+}
+
+.controls-SuggestV__loader {
+	.flex-shrink(0);
+	background: @background_Suggest-loader;
+	background-size: contain;
+	background-position: center;
+	height: @height_Suggest-loader;
+	width: @width_Suggest-loader;
+	margin-right: @spacing_Suggest-loader;
+}
+
+.controls-SuggestV__clear {
+	.icon-size-without-important();
+	margin: auto;
+	color: @color_Suggest-clear;
+	cursor: pointer;
+}
+
+.controls-SuggestV__afterFieldWrapper {
+	.inline-flexbox();
+}
+
+//TODO Пока зададим ширину для новой стековой панели явно. Нужно для Матильды. https://online.sbis.ru/opendoc.html?guid=23717d3b-cb27-4a7e-a7ae-b4d06eb6aa25
+.controls-SuggestV__showAllPopup {
+	max-width: 700px;
+	width: calc(~"100% - 64px");
+}

@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'
+      xmlns:ws='ws-component'>
+<head>
+    <title>Demo: Информационные окна</title>
+    <script type='text/javascript'>
+        window.wsConfig = {
+            WSRootPath: '/sbis3-ws/ws/',
+            wsRoot: '/sbis3-ws/ws/',
+            WSTheme: 'wi_scheme',
+            resourceRoot: '/',
+            nostyle: true,
+            globalConfigSupport: false,
+            themeName: 'presto'
+        };
+        window.WSTheme = 'wi_scheme';
+    </script>
+    <script type='text/javascript' id='dev-style-enable'>
+        (function () {
+            window.wsConfig.nostyle = false;
+        })();
+    </script>
+    <script type='text/javascript' data-pack-name='contents' src='/contents'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/ext/jquery-min.js'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/ext/jquery-cookie-min.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/ext/requirejs/require.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/ext/requirejs/config.js'></script>
+    <link rel='stylesheet' type='text/css' href='/sbis3-ws/ws/css/core.css'/>
+    <script type='text/javascript' src='/sbis3-ws/ws/lib/core.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/lib/Source.js'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/res/js/bootup.js'></script>
+    <script type="text/javascript" src="themeSwitcher.js"></script>
+    <style>
+        html, body {
+            font-family: 'TensorFont', 'TensorFont'!important;
+        }
+        .butt {
+            color: #8991A9;
+            font-size: 56px;
+            line-height: 56px;
+            width: 380px;
+            height: 62px;
+            background-color: #405A77;
+            background-image: none !important;
+            padding:5px;
+            text-align: center;
+            margin: 10px;
+            box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.5);
+            cursor: pointer;
+        }
+
+        .butt :hover {
+             background: none;
+             background-color: #3D5571;
+         }
+        .butt :active {
+             background: none;
+             box-shadow: none !important;
+             background-color: #3D5571;
+        }
+    </style>
+</head>
+<body class='view-main controls-default-bg'>
+<div class="prestoExample">
+    <div class="butt butt1">Success</div>
+    <div class="butt butt2">Error</div>
+    <div class="butt butt3">Warning</div>
+    <div class="butt butt2_cust">Custom icon</div>
+    <br>
+    <div class="butt butt5">Yes No</div>
+    <div class="butt butt6">Yes No Cancel</div>
+    <div class="butt butt7">Ok green</div>
+    <div class="butt butt8">Ok red</div>
+    <div class="butt butt9">Ok red 2</div>
+</div>
+
+<script type='text/javascript'>
+    require(['Core/core-init'],function () {
+        require(['SBIS3.CONTROLS/Utils/InformationPopupManager'], function (InformationPopupManager) {
+            $('.butt').on('click', function() {
+                var $elf = $(this);
+                if ($elf.hasClass('butt1')) {
+                    InformationPopupManager.showNotification({
+                        status: 'success',
+                        caption: 'Скопировано в буфер обмена',
+                        closeButton: false
+                    });
+                } else if ($elf.hasClass('butt2')) {
+                    InformationPopupManager.showNotification({
+                        status: 'error',
+                        caption: 'Не удалось выполнить',
+                        closeButton: false
+                    });
+                } else if ($elf.hasClass('butt2_cust')) {
+                    InformationPopupManager.showNotification({
+                        caption: "Информационное уведомление",
+                        icon: "icon-24 icon-Flag icon-primary"
+                    });
+                } else if ($elf.hasClass('butt3')) {
+                    InformationPopupManager.showNotification({
+                        status: 'warning',
+                        caption: "Обратите внимание, случилась дичь"
+                    });
+                } /*else if ($elf.hasClass('butt3')) {
+                    InformationPopupManager.showNotification({
+                        template: MessageTpl
+                    });
+                } else if ($elf.hasClass('butt4')) {
+                    var popup = new NotificationPopup({
+                        element: $('<div></div>'),
+                        template: LongOpsTpl
+                    });
+                    NotificationStackManager.showNotification(popup, true);
+                } */else if ($elf.hasClass('butt5')) {
+                    InformationPopupManager.showConfirmDialog({
+                            message: 'Сохранить изменения?',
+                            hasCancelButton: false
+                        },
+                        function() {
+                            InformationPopupManager.showNotification({
+                                caption: 'Выбрали "Да"'
+                            })
+                        },
+                        function() {
+                            InformationPopupManager.showNotification({
+                                caption: 'Выбрали "Нет"'
+                            })
+                        }
+                    );
+                } else if ($elf.hasClass('butt6')) {
+                    InformationPopupManager.showConfirmDialog({
+                            message: 'Сохранить изменения?',
+                            details: 'Чтобы продолжить редактирование нажмите, «Отмена».',
+                            hasCancelButton: true
+                        },
+                        function() {
+                            InformationPopupManager.showNotification({
+                                caption: 'Выбрали "Да"'
+                            })
+                        },
+                        function() {
+                            InformationPopupManager.showNotification({
+                                caption: 'Выбрали "Нет"'
+                            })
+                        },
+                        function() {
+                            InformationPopupManager.showNotification({
+                                caption: 'Выбрали "Отмена"'
+                            })
+                        }
+                    );
+                } else if ($elf.hasClass('butt7')) {
+                    InformationPopupManager.showMessageDialog({
+                            status: 'success',
+                            message: 'Текст уведомления',
+                            details: 'Дополнительный текст'
+                        },
+                        function() {
+                            InformationPopupManager.showNotification({
+                                caption: 'Выбрали "ОК"'
+                            })
+                        });
+                } else if ($elf.hasClass('butt8')) {
+                    InformationPopupManager.showMessageDialog({
+                            status: 'error',
+                            message: 'Текущая наша организация не связана ни с одной организацией из общего справочника контрагентов'
+                        },
+                        function() {
+                            InformationPopupManager.showNotification({
+                                caption: 'Выбрали "ОК"'
+                            })
+                        });
+                } else if ($elf.hasClass('butt9')) {
+                    InformationPopupManager.showMessageDialog({
+                            status: 'error',
+                            message: 'Текущая наша организация не связана ни с одной организацией из общего справочника контрагентов и их собственных партнеров'
+                        },
+                        function() {
+                            InformationPopupManager.showNotification({
+                                caption: 'Выбрали "ОК"'
+                            })
+                        });
+                }
+            });
+        });
+    });
+</script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-SelectButton {
+  display: inline;
+}
+.controls-SelectorButton_button-more {
+  margin-right: 8px;
+}

@@ -1,0 +1,515 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-PeriodDialog-Years {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 44px;
+}
+.controls-PeriodDialog-Years__prevNextBtn {
+  width: 33px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.controls-PeriodDialog-Years__yearsRange {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.controls-PeriodDialog-Years__rangeBtn {
+  cursor: pointer;
+  height: 30px;
+  line-height: 30px;
+  width: 14%;
+  font-size: 14px;
+  text-align: center;
+  position: relative;
+}
+.controls-PeriodDialog-Years__rangeBtn-current {
+  color: #313E78;
+}
+.controls-PeriodDialog-Years__item-displayed {
+  color: #D94700;
+  font-size: 15px;
+  font-weight: bold;
+}
+.controls-PeriodDialog-Years__rangeBtn-regular {
+  color: #999999;
+}
+.controls-PeriodDialog-MonthsRange {
+  height: 446px;
+}
+.controls-PeriodDialog-MonthsRange__header {
+  height: 32px;
+  line-height: 32px;
+  text-align: center;
+  color: #D94700;
+  font-size: 15px;
+  font-weight: bold;
+  border-top: 3px solid #eaeaea;
+  border-bottom: 4px solid #eaeaea;
+}
+.controls-PeriodDialog-MonthsRange__body {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.controls-PeriodDialog-MonthsRange__halfYears {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.controls-PeriodDialog-MonthsRange__halfYear {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+}
+.controls-PeriodDialog-MonthsRange__quarter {
+  position: relative;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.controls-PeriodDialog-MonthsRange__halfYearsPanel-button,
+.controls-PeriodDialog-MonthsRange__quarterButton {
+  width: 30px;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-bottom: 1px solid #eaeaea;
+  color: #313E78;
+}
+.controls-PeriodDialog-MonthsRange__quarterButton {
+  background-color: #FFFFFF;
+}
+.controls-PeriodDialog-MonthsRange__quarter-hovered .controls-PeriodDialog-MonthsRange__quarterButton {
+  background-color: transparent;
+  border-right-color: transparent;
+}
+.controls-PeriodDialog-MonthsRange__halfYear-hovered .controls-PeriodDialog-MonthsRange__halfYearsPanel-button {
+  border-left-color: transparent;
+}
+.controls-PeriodDialog-MonthsRange__halfYearsPanel-button {
+  font-size: 18px;
+  border-left: 2px solid #eaeaea;
+}
+.controls-PeriodDialog-MonthsRange__quarterButton {
+  font-size: 15px;
+  border-right: 3px solid #eaeaea;
+}
+.controls-PeriodDialog-MonthsRange__hovered {
+  outline: #8991A9 solid 1px;
+  background-color: #E6ECFA;
+}
+.controls-PeriodDialog-MonthsRange__halfYear-hovered,
+.controls-PeriodDialog-MonthsRange__quarter-hovered {
+  background-color: #E6ECFA;
+}
+.controls-PeriodDialog-MonthsRange__item,
+.controls-PeriodDialog-MonthsRange__item-selected {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  z-index: 2;
+  padding: 0 4px;
+}
+.controls-PeriodDialog-MonthsRange__item {
+  border-right: 1px solid #eaeaea;
+  border-bottom: 1px solid #eaeaea;
+  height: 100px;
+  width: 100px;
+}
+.controls-PeriodDialog-MonthsRange__item-selected {
+  width: 99px;
+  margin-right: 1px;
+  height: 99px;
+  margin-bottom: 1px;
+}
+.controls-PeriodDialog-MonthsRange__month_title {
+  text-align: center;
+  color: #313e78;
+  font-size: 14px;
+  height: auto;
+}
+.controls-PeriodDialog-MonthsRange__halfYear-hovered .controls-PeriodDialog-MonthsRange__item-selected,
+.controls-PeriodDialog-MonthsRange__quarter-hovered .controls-PeriodDialog-MonthsRange__item-selected,
+.controls-PeriodDialog-MonthsRange__halfYear-hovered .controls-PeriodDialog-MonthsRange__item,
+.controls-PeriodDialog-MonthsRange__quarter-hovered .controls-PeriodDialog-MonthsRange__item {
+  background-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+}
+.controls-PeriodDialog-MonthsRange__halfYear-hovered:before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  bottom: 0;
+  left: 32px;
+  right: -1px;
+  border: solid 1px #bdbdbd;
+  z-index: 3;
+}
+.controls-PeriodDialog-MonthsRange__halfYear-hovered .controls-PeriodDialog-MonthsRange__halfYearsPanel-button {
+  z-index: 3;
+  border-bottom-color: transparent;
+}
+.controls-PeriodDialog-MonthsRange__quarter-hovered:before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  bottom: 0;
+  right: 0;
+  left: -1px;
+  border: solid 1px #bdbdbd;
+  z-index: 3;
+}
+.controls-PeriodDialog-MonthsRange__quarter-hovered .controls-PeriodDialog-MonthsRange__quarterButton {
+  z-index: 3;
+  border-bottom-color: transparent;
+}
+.controls-PeriodDialog-MonthsRange__month {
+  cursor: pointer;
+  border: 1px dotted transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.controls-PeriodDialog-MonthsRange__month.controls-MonthViewVDOM {
+  width: 100%;
+  background-color: transparent;
+}
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__tableRow {
+  -ms-flex-preferred-size: 13px;
+      flex-basis: 13px;
+}
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item {
+  font-size: 8px;
+}
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__backgroundColor-currentMonthDay-unselected {
+  background-color: transparent;
+}
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item-selectedStart,
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item-selectedEnd,
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item-selectedInner {
+  outline: none;
+  font-weight: normal;
+}
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item-selectedStart:before,
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item-selectedEnd:after {
+  width: 1px;
+}
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item-selectedStart:before {
+  left: 0;
+}
+.controls-PeriodDialog-MonthsRange__halfYear-hovered .controls-MonthViewVDOM__backgroundColor-currentMonthDay-selected,
+.controls-PeriodDialog-MonthsRange__quarter-hovered .controls-MonthViewVDOM__backgroundColor-currentMonthDay-selected,
+.controls-PeriodDialog-MonthsRange__hovered .controls-MonthViewVDOM__backgroundColor-currentMonthDay-selected,
+.controls-PeriodDialog-MonthsRange__halfYear-hovered .controls-MonthViewVDOM__backgroundColor-currentMonthDay-selected,
+.controls-PeriodDialog-MonthsRange__quarter-hovered .controls-MonthViewVDOM__backgroundColor-currentMonthDay-selected,
+.controls-PeriodDialog-MonthsRange__hovered .controls-MonthViewVDOM__backgroundColor-currentMonthDay-selected {
+  background-color: transparent;
+}
+.controls-PeriodDialog-MonthsRange__halfYear-hovered .controls-MonthView__item-selectedStart:before,
+.controls-PeriodDialog-MonthsRange__quarter-hovered .controls-MonthView__item-selectedStart:before,
+.controls-PeriodDialog-MonthsRange__hovered .controls-MonthView__item-selectedStart:before,
+.controls-PeriodDialog-MonthsRange__halfYear-hovered .controls-MonthView__item-selectedEnd:after,
+.controls-PeriodDialog-MonthsRange__quarter-hovered .controls-MonthView__item-selectedEnd:after,
+.controls-PeriodDialog-MonthsRange__hovered .controls-MonthView__item-selectedEnd:after {
+  height: 0;
+}
+.ws-is-no-touch .controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item:hover {
+  outline: none;
+}
+.ws-is-no-touch .controls-PeriodDialog-MonthsRange__month_clickable:hover {
+  border-color: #8991A9;
+}
+.controls-PeriodDialog-MonthsRange__month .controls-MonthViewVDOM__item:active {
+  outline: none;
+}
+.controls-PeriodDialog-MonthsRange__month_clickable:active {
+  border-color: #8991A9;
+}
+.controls-PeriodDialog-DateRange {
+  height: 446px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  position: relative;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.controls-PeriodDialog-DateRange__header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  height: 44px;
+  border-bottom: 1px solid #bdbdbd;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 15px;
+}
+.controls-PeriodDialog-DateRange__year {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 82px;
+  padding-left: 11px;
+  color: #D94700;
+  font-weight: bold;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.controls-PeriodDialog-DateRange-header-weekdays {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.controls-PeriodDialog-DateRange-header-weekdays-workday,
+.controls-PeriodDialog-DateRange-header-weekdays-weekend {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  text-align: center;
+}
+.controls-PeriodDialog-DateRange-header-weekdays-workday {
+  color: #8991A9;
+}
+.controls-PeriodDialog-DateRange-header-weekdays-weekend {
+  color: #D94700;
+}
+.controls-PeriodDialog-DateRange-dates-wrapper {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.controls-PeriodDialog-DateRangeItem {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 41px !important;
+  position: relative;
+}
+.controls-PeriodDialog-DateRangeItem:after {
+  content: '';
+  position: absolute;
+  bottom: -20.5px;
+  left: 102.07142857px;
+  right: 20.07142857px;
+  border-top: 1px solid #eaeaea;
+}
+.controls-PeriodDialog-DateRangeItem__months {
+  height: 401px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  margin-bottom: -41px;
+}
+.controls-PeriodDialog-DateRangeItem__months-btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #000;
+  font-size: 14px;
+  padding-left: 11px;
+  width: 82px;
+  height: 30px;
+  border: 1px solid transparent;
+  border-right-color: #eaeaea;
+  border-bottom-color: #eaeaea;
+  cursor: pointer;
+  background-color: transparent;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.controls-PeriodDialog-DateRangeItem__months-btn:hover {
+  border-color: #8991A9;
+  background-color: transparent;
+}
+.controls-PeriodDialog-DateRangeItem__months-nextyearBtn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 11px;
+  color: #D94700;
+  font-size: 15px;
+  border: 1px solid transparent;
+  border-right-color: #eaeaea;
+  border-bottom-color: #eaeaea;
+  cursor: pointer;
+  height: auto;
+  background-color: transparent;
+}
+.controls-PeriodDialog-DateRangeItem__months-nextyearBtn:hover {
+  border-color: #D94700;
+  background-color: transparent;
+}
+.controls-PeriodDialog-DateRangeItem__monthList {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  padding-left: 1px;
+}
+.controls-PeriodDialog-DateRangeItem__monthList_title {
+  height: 36px;
+  line-height: 34px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #313E78;
+  text-align: center;
+  border: 1px solid transparent;
+  background-color: transparent;
+}
+.controls-PeriodDialog-DateRangeItem__monthList_title_selectable {
+  cursor: pointer;
+}
+.controls-PeriodDialog-DateRangeItem__monthList_title_selectable:hover {
+  border: 1px solid #8991A9;
+  background-color: transparent;
+}
+.controls-PeriodDialog-DateRangeItem__item {
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+  will-change: transform;
+}
+.controls-PeriodDialog .controls-ListView__itemContent {
+  margin: 0;
+  padding: 0;
+}
+.controls-PeriodDialog .controls-ListView__itemV {
+  border-left: none;
+  cursor: auto;
+}
+.controls-PeriodDialog .controls-ListView__itemV:hover {
+  background-color: transparent !important;
+}
+.controls-PeriodDialog__header-datePickerStart,
+.controls-PeriodDialog__header-datePickerEnd {
+  width: 63px;
+}
+.controls-PeriodDialog__picker {
+  margin: -11px 0 0 -39px;
+}
+.controls-PeriodDialog__picker-withoutModeBtn {
+  margin: -11px 0 0 -11px;
+}
+.controls-PeriodDialog {
+  background-color: #ffffff;
+  width: 364px;
+  border: 1px solid #bdbdbd;
+  -webkit-box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 12px rgba(0, 0, 0, 0.4);
+}
+.controls-PeriodDialog__header {
+  background-color: #F4F4F4;
+  padding-left: 10px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 44px;
+}
+.controls-PeriodDialog__stateButton {
+  padding-right: 12px;
+}
+.controls-PeriodDialog__header-period {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+}
+.controls-PeriodDialog__dateInputEnd-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-PeriodDialog__header-rangeDash {
+  width: 2px;
+  border-bottom: 1px solid black;
+  margin: 0 3px;
+}
+.controls-PeriodDialog__applyButton {
+  margin: 0 12px;
+}
+.controls-PeriodDialog__cursor-pointer {
+  cursor: pointer;
+}

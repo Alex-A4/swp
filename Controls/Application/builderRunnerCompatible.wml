@@ -1,0 +1,27 @@
+<div>
+   <script>
+      window.wsConfig.compatible = true;
+      require(['Core/patchRequireJS',
+         'Core/load-contents',
+         'Core/app-init',
+         'Core/constants',
+         'Core/vdom/Synchronizer/resources/DirtyCheckingCompatible',
+         'Lib/Control/BaseCompatible/BaseCompatible',
+         'Core/nativeExtensions',
+         'is!browser?jquery'
+      ], function(path, lc, appinit, constants) {
+         constants.$body = body;
+         constants.$window = window;
+         appinit();
+         require(['Controls/Application/AppData', 'Controls/Application/HeadDataContext', 'Core/app-start', 'Controls/Application/Core', 'View/Runner/tclosure', {{_options.dependencies | unescape}}], function(AppData, HeadDataContext, AppStart, Core, tclosure) {
+            window.startContextData = {AppData: new AppData({}), headData: new HeadDataContext({})};
+            var templateFn = {{_options.builder | unescape}};
+            var cnt = Core.extend({
+               _template: templateFn
+            });
+            AppStart._shouldStart = false;
+            AppStart.createControl(cnt, {}, document.getElementById('root'));
+         });
+      });
+   </script>
+</div>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ru" xml:lang="ru" xmlns="http://www.w3.org/1999/xhtml" key="_" id="root" component="ControlsSandbox/TestApp/Page">
+<head>
+</head>
+<body>
+
+<script key="ws-config">
+   window.wsConfig = {
+      wsRoot: '/sbis3-ws/ws/',
+      resourceRoot: '/components'
+   };
+</script>
+
+
+<script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+<script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+<script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+
+<script key="config" type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/bundles.js"></script>
+<script key="require" type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+<script key="contents" type="text/javascript" src="/contents.js"></script>
+<script key="config" type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+<script>
+   require(['Core/app'], function(app) { app(); });
+</script>
+
+</body>
+</html>

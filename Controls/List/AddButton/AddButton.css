@@ -1,0 +1,47 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-AddButton-wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.controls-AddButton_state-enable {
+  color: #8991A9;
+  stroke: #8991A9;
+  cursor: pointer;
+}
+.controls-AddButton_state-enable:active .controls-AddButtonText {
+  text-decoration: underline;
+}
+.ws-is-desktop-platform .controls-AddButton_state-enable:hover .controls-AddButtonText {
+  text-decoration: underline;
+}
+.controls-AddButton_state-disable {
+  color: #ccc;
+  stroke: #ccc;
+}
+.controls-AddButton__icon {
+  height: 8px;
+  width: 8px;
+}
+.controls-AddButton__svgWrapper {
+  width: 16px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+.controls-AddButton {
+  font-size: 12px;
+}
+.controls-AddButton__line {
+  stroke-width: 2;
+}

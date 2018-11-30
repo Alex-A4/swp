@@ -1,0 +1,24 @@
+<ws:if data="{{itemData.dragTargetPosition === 'before'}}">
+   <ws:partial multiSelectTpl="{{multiSelectTpl}}" template="{{itemTemplate}}" itemData="{{itemData.draggingItemData}}" itemActionsTemplate="{{itemActionsTemplate}}"/>
+</ws:if>
+<ws:if data="{{itemData.isVisible !== false}}">
+   <ws:partial
+      on:click="_onItemClick(itemData.dispItem)"
+      on:contextmenu="_onItemContextMenu(itemData)"
+      on:swipe="_onItemSwipe(itemData)"
+      on:mousedown="_onItemMouseDown(itemData)"
+      on:mouseenter="_onItemMouseEnter(itemData)"
+      on:mouseleave="_onItemMouseLeave(itemData)"
+      on:mousemove="_onItemMouseMove(itemData)"
+      on:wheel="_onItemWheel(itemData)"
+      itemActionsTemplate="{{itemActionsTemplate}}"
+      swipeTemplate="{{swipeTemplate}}"
+      multiSelectTpl="{{multiSelectTpl}}"
+      itemTemplate="{{itemTemplate}}"
+      template="wml!Controls/List/ItemTemplateWrapper"
+      itemData="{{itemData}}"
+      actionsType="{{itemActionsPosition}}"/>
+</ws:if>
+<ws:if data="{{itemData.dragTargetPosition === 'after'}}">
+   <ws:partial multiSelectTpl="{{multiSelectTpl}}" template="{{itemTemplate}}" itemData="{{itemData.draggingItemData}}" itemActionsTemplate="{{itemActionsTemplate}}"/>
+</ws:if>

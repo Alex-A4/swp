@@ -1,0 +1,51 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Paging__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.controls-Paging__btn {
+  height: 32px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  margin: 0;
+}
+.controls-Paging__digitButons {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.controls-Paging__arrow {
+  width: 32px;
+  background-color: #ffffff;
+}
+.controls-Paging__arrow__state-normal {
+  color: #587AB0;
+  cursor: pointer;
+}
+.ws-is-no-touch .controls-Paging__arrow__state-normal:hover {
+  background-color: #F0F5FB;
+}
+.controls-Paging__arrow__state-disabled {
+  color: #ccc;
+}
+.controls-Paging__icon {
+  font-family: 'cbuc-icons';
+  font-size: 18px;
+  font-style: normal;
+}

@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+    <title>Demo: Header and Separator</title>
+    <script type="text/javascript">
+        window.wsConfig = {
+            WSRootPath: '/sbis3-ws/ws/',
+            wsRoot: '/sbis3-ws/ws/',
+            WSTheme: 'wi_scheme',
+            resourceRoot: '/',
+            nostyle: true,
+            globalConfigSupport: false
+        };
+        window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+        (function () {
+            window.wsConfig.nostyle = false;
+        })();
+    </script>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/transport/Source.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <script type="text/javascript" src="themeSwitcher.js"></script>
+    <style>
+        .area{
+            height: 50px;
+        }
+        .Separator {
+            background-color: #000 !important;
+        }
+    </style>
+</head>
+<body>
+<div class="ws-bigHeader">Большой загоовок</div>
+<div class="area"></div>
+<div class="ws-header">Маленький заголовок</div>
+<div class="area"></div>
+<div id="linkHeader" class="ws-header"></div>
+<div class="area"></div>
+<div class="ws-bigSubheader">Большой подзаголовок</div>
+<div class="area"></div>
+<div id="linksubheader" class="ws-bigSubheader"></div>
+<div class="area"></div>
+<div class="ws-subheader">Маленький подзаголовок</div>
+<div class="area"></div>
+<div id="linkbigSubheader" class="ws-subheader"></div>
+<div class="area"></div>
+<div id="link" class="ws-linkHeader"></div>
+<div class="area"></div>
+<div style="display: inline-block">
+    <div id="link1" class="ws-linkHeader ws-separator"></div>
+    <div id="link2" class="ws-linkHeader" style="float: right"></div>
+</div>
+<div class="area"></div>
+<div id="backButton1"></div>
+<div class="area"></div>
+<div id="backButton2"></div>
+<div class="area"></div>
+<div id="toggleHeader1" class="ws-toggleHeader"></div>
+<div class="area"></div>
+<div id="toggleHeader2" class="ws-toggleHeader"></div>
+<div class="area"></div>
+<div id="toggleHeader3"></div>
+<div class="area"></div>
+<div id="toggleHeader4"></div>
+<div class="area"></div>
+<div id="MyToggleHeader"></div>
+<script type="text/javascript">
+    require(['Core/core-init'],function () {
+        require(['js!SBIS3.CONTROLS.Link', 'js!SBIS3.CONTROLS.ToggleButton', 'js!SBIS3.CONTROLS.BackButton',
+                'WS3Header/Toggle'],
+            function(myLink, myToggleHeader, backButton, ToggleHeader) {
+                new myLink({
+                    element: 'link',
+                    caption: 'wi.sbis',
+                    inNewTab: true,
+                    href: 'https://wi.sbis.ru/doc/platform/'
+                });
+                new myLink({
+                    element: 'link1',
+                    caption: 'Заголовок 1',
+                    inNewTab: true,
+                    href: 'https://wi.sbis.ru/doc/platform/'
+                });
+                new myLink({
+                    element: 'link2',
+                    caption: 'Заголовок 1',
+                    inNewTab: true,
+                    href: 'https://wi.sbis.ru/doc/platform/'
+                });
+                new myLink({
+                    element: 'linkHeader',
+                    caption: 'Кликабельный маленький заголовок'
+                });
+                new myLink({
+                    element: 'linksubheader',
+                    caption: 'Кликабельный большой подзаголовок'
+                });
+                new myLink({
+                    element: 'linkbigSubheader',
+                    caption: 'Кликабельный маленький подзаголовок'
+                });
+                new backButton({
+                    element: 'backButton1',
+                    caption: 'Кнопка назад'
+                });
+                new backButton({
+                    element: 'backButton2',
+                    caption: 'Кнопка назад',
+                    className: 'controls-BackButton__orange'
+                });
+
+                var button1 = new myToggleHeader({
+                    element: 'toggleHeader1',
+                    caption: 'Разделитель'
+                });
+
+                var button2 = new myToggleHeader({
+                    element: 'toggleHeader2',
+                    caption: '<span class="ws-headerCounter">123</span>Разделитель'
+                });
+
+                var button3 = new ToggleHeader({
+                    element: 'toggleHeader3',
+                    caption: 'Разделитель'
+                });
+
+                var button4 = new ToggleHeader({
+                    element: 'toggleHeader4',
+                    caption: 'Разделитель',
+                    count: 123
+                });
+            });
+    });
+</script>
+</body>

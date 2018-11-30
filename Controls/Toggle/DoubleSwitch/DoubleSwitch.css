@@ -1,0 +1,105 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-DoubleSwitch__toggle {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-width: 1px;
+  border-color: #E4E4E4;
+  border-radius: 12px;
+  border-style: solid;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.controls-DoubleSwitch__toggle:before {
+  content: '\200b';
+  width: 0;
+  display: inline-block;
+  visibility: hidden;
+}
+.controls-DoubleSwitch__toggle_enabled {
+  cursor: pointer;
+}
+.controls-DoubleSwitch__toggle_horizontal {
+  margin: 0 6px;
+  width: 46px;
+  height: 24px;
+}
+.controls-DoubleSwitch__toggle_vertical {
+  width: 24px;
+  height: 46px;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 0;
+}
+.controls-DoubleSwitch__toggle_vertical:before {
+  height: 0;
+  line-height: 14px;
+}
+.controls-DoubleSwitch__toggle_horizontal_checked {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.controls-DoubleSwitch__textBlock {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin-left: 6px;
+}
+.controls-DoubleSwitch__line_horizontal {
+  height: 2px;
+  width: 22px;
+}
+.controls-DoubleSwitch__line_vertical {
+  height: 22px;
+  width: 2px;
+}
+.controls-DoubleSwitch__line_vertical_checked {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+.controls-DoubleSwitch__line_enabled {
+  background-color: #CCC;
+  display: inline-block;
+}
+.controls-DoubleSwitch__line_disabled {
+  background-color: #E4E4E4;
+  display: inline-block;
+}
+.controls-DoubleSwitch__text_vertical {
+  display: block;
+  height: 22px;
+  line-height: 23px;
+}
+.controls-DoubleSwitch__text_enabled_unselected {
+  color: #999;
+  cursor: pointer;
+}
+.controls-DoubleSwitch__text_disabled_unselected {
+  color: #CCC;
+}
+.ws-is-no-touch .controls-DoubleSwitch__text_enabled_unselected:hover {
+  text-decoration: underline;
+}
+.ws-is-no-touch .controls-DoubleSwitcher__toggle_hover .controls-SwitchCircle__borderCircle_enabled,
+.ws-is-no-touch .controls-DoubleSwitch__toggle:hover .controls-SwitchCircle__borderCircle_enabled {
+  fill: #FF7033;
+}

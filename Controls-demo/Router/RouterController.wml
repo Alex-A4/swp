@@ -1,0 +1,5 @@
+<div>
+   <Router.Route mask="/Controls-demo/demo.html">
+      <Controls-demo.Router.Router/>
+   </Router.Route>
+</div>

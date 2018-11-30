@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+    <title>Demo: TextArea</title>
+    <script type="text/javascript">
+       window.wsConfig = {
+          WSRootPath: '/sbis3-ws/ws/',
+          wsRoot: '/sbis3-ws/ws/',
+          WSTheme: 'wi_scheme',
+          resourceRoot: '/',
+          nostyle: true,
+          globalConfigSupport: false
+       };
+       window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+       (function () {
+          window.wsConfig.nostyle = false;
+       })();
+    </script>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <script type="text/javascript" id="ws-include-css"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/glyphs.css"/>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/icons.css"/>
+    <link id="controlsThemeStyle" rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+    <style>
+        .large {
+            font-size: 28px;
+        }
+        .medium {
+            font-size: 21px;
+        }
+        .small {
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body class="view-main controls-default-bg">
+<div id="area">
+</div>
+<script type="text/javascript">
+   function setBodyModifiers(theme, scale) {
+      var $html = $('html'),
+         themeLinks = {
+            light: {
+               CONTROLS_THEME: '/themes/carrynew/carrynew'
+            },
+            dark: {
+               CONTROLS_THEME: '/themes/prestonew/prestonew'
+            },
+            online: {
+               CONTROLS_THEME: '/themes/online/online'
+            }
+         },
+         setCurrentThemeLinks = function (theme) {
+            var createCSSLink = function (id, href) {
+               var cssLink = document.createElement('link'),
+                  headDOMElement = document.getElementsByTagName('head')[0],
+                  element = document.getElementById(id),
+                  anchorLink = document.getElementById('carry_presto_links_anchor');
+               cssLink.id = id;
+               cssLink.href = href + '.css';
+               cssLink.rel='stylesheet';
+               cssLink.type='text/css';
+               if (element) {
+                  if (cssLink.href === element.href) {
+                      /*стиль актуальный, не обновляем*/
+                     return;
+                  } else {
+                     headDOMElement.removeChild(element);
+                  }
+               }
+               if(anchorLink) {
+                  headDOMElement.insertBefore(cssLink, anchorLink);
+               }
+               else {
+                  headDOMElement.appendChild(cssLink);
+               }
+            };
+            createCSSLink('controlsThemeStyle', theme.CONTROLS_THEME);
+         };
+      setCurrentThemeLinks(themeLinks[theme]);
+      $html.removeClass();
+      $html.addClass(theme);
+      $html.addClass(scale);
+   }
+</script>
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+         require(['Examples/TextArea/PageTextArea/PageTextArea'], function(r) {
+            new r({
+               element: "area"
+            })
+         });
+      });
+   });
+</script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<div class="controls-Grid__results">
+   <ws:if data="{{userTemplate}}">
+      <ws:partial template="{{userTemplate}}" model="{{model}}" />
+   </ws:if>
+   <ws:else>
+      <ws:for data="listModel.resetResultsColumns(); listModel.isEndResultsColumn(); listModel.goToNextResultsColumn();">
+         <div class="{{listModel.getCurrentResultsColumn().cellClasses}}{{listModel.getCurrentResultsColumn().column.align ? ' controls-Grid__row-cell__content_halign_' + listModel.getCurrentResultsColumn().column.align : ''}}">
+            <ws:if data="{{listModel.getMultiSelectVisibility() === 'hidden' || listModel.getCurrentResultsColumn().index !== 0}}">
+               <ws:partial template="{{listModel.getCurrentResultsColumn().column.resultTemplate}}"
+                           listModel="{{listModel}}"
+                           column="{{listModel.getCurrentResultsColumn().column}}" />
+            </ws:if>
+         </div>
+      </ws:for>
+   </ws:else>
+</div>

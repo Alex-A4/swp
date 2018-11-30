@@ -1,0 +1,13 @@
+<div attr:class="controls-itemActionsV__action controls-itemActionsV__action_padding
+            {{'controls-itemActionsV__action_style_' + (action.style ? action.style : 'default')}}
+            {{action.iconStyle ? ' action_icon_style_' + action.iconStyle  : 'action_icon_style_default'}}"
+      attr:title="{{!!action.title ? action.title}}"
+      on:click="_onItemActionsClick(action, itemData)">
+    <ws:if data="{{!!action.icon}}">
+        <i attr:class="{{action.icon}}"/>
+    </ws:if>
+    <ws:if data="{{!action.icon && action.title}}">
+        <span class="controls-itemActionsV__action_title
+         {{'controls-itemActionsV__action_title_style_' + (action.style ? action.style : 'default')}}">{{action.title}}</span>
+    </ws:if>
+</div>

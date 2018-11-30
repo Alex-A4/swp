@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: ScrollContainer</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <style>
+      html, body {
+         font-family: 'TensorFont', 'TensorFont'!important;
+      }
+      .prestoScrollContainer {
+         height: 824px;
+         width: 1854px;
+         margin-top: 40px;
+         border: 6px solid rgba(109,141,176, .4);
+      }
+      .prestoScrollContainer .controls-ScrollContainer {
+         display: inline-block;
+         height: 100%;
+      }
+      .MyContent__block {
+         width: 200px;
+         height: 200px;
+         box-sizing: border-box;
+         display: inline-flex;
+         align-items: center;
+         justify-content: center;
+         border: 3px solid rgba(109,141,176, .4);
+         margin:3px;
+      }
+      .MyContent__person {
+         display: inline-block;
+         font-size: 30px;
+      }
+   </style>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/transport/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <script type="text/javascript" src="themeSwitcher.js"></script>
+</head>
+<body>
+<div id="MyScrollContainerAll"></div>
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      require(['Examples/ScrollContainer/PrestoScrollContainer/PrestoScrollContainer'],
+         function(MyScrollContainerAll) {
+            new MyScrollContainerAll({
+               element: $('#MyScrollContainerAll')
+            });
+         });
+   });
+</script>
+</body>

@@ -1,0 +1,121 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-StackTemplate {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  height: 100%;
+  background-color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+.controls-StackTemplate__top-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  min-height: 38px;
+  background: #F8F8F8;
+  border-bottom: 1px solid #F0F0F0;
+}
+.controls-StackTemplate__content-area {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  background: #FFFFFF;
+  overflow: hidden;
+}
+.controls-StackTemplate__top-area-content {
+  width: 100%;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  overflow: hidden;
+}
+.controls-StackTemplate__top-area-margin-default {
+  margin: 0 52px 0 12px;
+}
+.controls-StackTemplate__top-area-margin-maximized {
+  margin: 0 84px 0 12px;
+}
+.controls-StackTemplate__close_button {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  z-index: 2;
+}
+.controls-StackTemplate__maximized_button {
+  position: absolute;
+  right: 44px;
+  top: 7px;
+  background-image: url('resources/images/resize.svg');
+  width: 24px;
+  height: 24px;
+  z-index: 100;
+  cursor: pointer;
+}
+.controls-StackTemplate__caption {
+  cursor: default;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 38px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  overflow: hidden;
+}
+.controls-StackTemplate__caption_text {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.controls-StackTemplate__caption_style_default {
+  color: #313E78;
+  font-size: 18px;
+  font-weight: 700;
+}
+.controls-StackTemplate__caption_style_accent {
+  color: #D94700;
+  font-size: 18px;
+  font-weight: 700;
+}
+.controls-StackTemplate__caption_style_small {
+  color: #8991A9;
+  font-size: 14px;
+  font-weight: normal;
+}
+.controls-StackTemplate__bottomArea {
+  background: #F8F8F8;
+  border-top: 1px solid #F0F0F0;
+}

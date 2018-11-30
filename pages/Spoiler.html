@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: Spoiler</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+      html, body {
+         font-family: 'TensorFont Regular', 'TensorFont'!important;
+         font-size: 14px!important;
+      }
+   </style>
+   <style>
+      .ComponentDescr {
+         font-weight: bold;
+      }
+      .ComponentBlock {
+         width: 150px;
+      }
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+<div id="Back"></div>
+
+<div style="margin: 16px; width:500px;">
+   <p class="ComponentDescr">Spoiler</p>
+   <div id="Spoiler" class="ComponentBlock"></div>
+</div>
+
+<script type="text/javascript">
+require(['Core/core-init'],function () {
+   $(document).ready(function () {
+      require(["SBIS3.CONTROLS/Link", 'Examples/Spoiler/MySpoiler/MySpoiler'], function (Link, Spoiler) {
+         new Spoiler({
+            element: 'Spoiler'
+         });
+         
+         new Link({
+            element: "Back",
+            caption: 'Назад',
+            href: '../../',
+            icon: 'sprite:icon-16 icon-DayBackward icon-primary'
+         });
+      });
+   })
+});
+</script>
+</body>
+</html>

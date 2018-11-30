@@ -1,0 +1,26 @@
+<div>
+    <div>
+        <h3>Suggest New</h3>
+        <Controls.Input.Suggest
+                       value:bind="_suggest2Value"
+                       displayProperty="title"
+        >
+            <ws:suggestTemplate>
+                <Controls.Container.List searchParam="title" source="{{_suggestSource}}">
+                    <ws:navigation source="page" view="page">
+                        <ws:sourceConfig pageSize="{{2}}" page="{{0}}" mode="totalCount"/>
+                    </ws:navigation>
+                    <ws:content>
+                        <Controls.List
+                                displayProperty="title"
+                                idProperty="id">
+                            <ws:emptyTemplate>
+                                Нет данных
+                            </ws:emptyTemplate>
+                        </Controls.List>
+                    </ws:content>
+                </Controls.Container.List>
+            </ws:suggestTemplate>
+        </Controls.Input.Suggest>
+    </div>
+</div>

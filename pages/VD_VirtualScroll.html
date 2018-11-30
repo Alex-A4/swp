@@ -1,0 +1,905 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+    <title>Demo: Views</title>
+    <script type="text/javascript">
+       window.wsConfig = {
+          WSRootPath: '/sbis3-ws/ws/',
+          wsRoot: '/sbis3-ws/ws/',
+          WSTheme: 'wi_scheme',
+          resourceRoot: '/',
+          nostyle: true,
+          globalConfigSupport: false
+       };
+       window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+       (function () {
+          window.wsConfig.nostyle = false;
+       })();
+    </script>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <style>
+        html, body {
+            font-family: 'TensorFont Regular', 'TensorFont'!important;
+            font-size: 14px!important;
+        }
+    </style>
+    <style>
+        p {
+            font-weight: bold;
+        }
+        #Menu, #MenuBar {
+            width: 200px;
+        }
+        #MenuBar {
+            width: 400px;
+            overflow: hidden;
+        }
+        #MenuBar .controls-MenuItem {
+            float: left;
+            width: 200px;
+        }
+        .controls-ListView__bottomStyle .controls-ListView__item__selected{
+            background: pink;
+        }
+        .controls-ListView__item__selected {
+            color: red;
+        }
+
+        .controls-ListView__item__multiSelected {
+            background: lightskyblue;
+        }
+
+        .controls-ListView__item__hovered {
+            background: green;
+        }
+
+        .ws-hidden {
+            display: none !important;
+        }
+
+        .color-1 *{
+            background: #f8fab5;
+        }
+
+        .controls-ListView__item {
+            padding: 1rem;
+        }
+
+        #scroll {
+            height: 600px;
+            overflow-y: scroll;
+        }
+
+        .controls-ListView__virtualScrollTopPlaceholder, .controls-ListView__virtualScrollBottomPlaceholder {
+            background: red;
+        }
+
+    </style>
+    <script type="text/javascript" id="ws-include-css"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+<div id="Back"></div>
+
+<div id="area" style="margin: 16px; width:600px; float: left">
+
+
+    <div id="scroll">
+        <div id="newListView"></div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+         require(['Lib/Control/AreaAbstract/AreaAbstract', 'SBIS3.CONTROLS/ListView', 'WS.Data/Source/Memory', 'WS.Data/Query/Query',
+            "SBIS3.CONTROLS/DataGridView", 'SBIS3.CONTROLS/ListView', 'SBIS3.CONTROLS/Radio/Group',
+            'SBIS3.CONTROLS/WSControls/Lists/ListView2', 'Core/vdom/Synchronizer/Synchronizer'], function (AreaAbstract, ListView, Memory, Query, DGV, LV, RadioGroup,
+                                                                                               ListView2, Sync) {
+            var
+
+
+               coll = [
+                  {
+                     id: 1,
+                     title: 'Настолько длинное название папки что оно не влезет в максимальный размер',
+                     'par@': true,
+                     groupField : 1
+                  },
+                  {
+                     id: 2,
+                     title: 'Notebooks',
+                     'par@': true,
+                     groupField : 1
+                  },
+                  {
+                     id: 3,
+                     title: 'Smartphones',
+                     'par@': true,
+                     groupField : 1
+                  },
+                  {
+                     id: 4,
+                     title: 'Notebook Lenovo G505 59426068',
+                     flag: true,
+                     img: 'img/4.png',
+                     par: 9,
+                     'par@': false,
+                     price: '11 490',
+                     count: 2,
+                     groupField : 1
+                  },
+                  {
+                     id: 5,
+                     title: 'Notebook Packard Bell EasyNote TE69HW-29572G32',
+                     flag: true,
+                     img: 'img/5.png',
+                     par: 1,
+                     'par@': false,
+                     price: '15 990',
+                     count: 12,
+                     groupField : 2
+                  },
+                  {
+                     id: 6,
+                     title: 'Notebook ASUS X550LC-XO228H',
+                     flag: true,
+                     img: 'img/6.png',
+                     par: 10,
+                     'par@': false,
+                     price: '19 990',
+                     count: 22,
+                     groupField : 2
+                  },
+                  {
+                     id: 7,
+                     title: 'Notebook Lenovo IdeaPad G5030 (80G0001FRK)',
+                     flag: true,
+                     img: 'img/7.png',
+                     price: '22 590',
+                     par: 9,
+                     'par@': false,
+                     count: 13,
+                     groupField : 2
+                  },
+                  {
+                     id: 8,
+                     title: 'Notebook Lenovo G505 59426068',
+                     flag: true,
+                     img: 'img/8.png',
+                     price: '25 100',
+                     par: 9,
+                     'par@': false,
+                     count: 5,
+                     groupField : 2
+                  },
+                  {
+                     id: 9,
+                     title: 'Lenovo',
+                     par: 1,
+                     'par@': true,
+                     groupField : 3
+                  },
+                  {
+                     id: 10,
+                     title: 'ASUS',
+                     par: 1,
+                     'par@': true,
+                     groupField : 3
+                  },
+                  {
+                     id: 11,
+                     title: 'Samsung',
+                     par: 2,
+                     'par@': true,
+                     groupField : 4
+                  },
+                  {
+                     id: 12,
+                     title: 'SONY',
+                     par: 2,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 13,
+                     title: 'ASUS',
+                     par: 2,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 14,
+                     title: 'Sony Xperia Z3 Compact',
+                     flag: true,
+                     par: 12,
+                     'par@': false,
+                     price: '20 290',
+                     count: 7,
+                     groupField : 5
+                  },
+                  {
+                     id: 15,
+                     title: 'Samsung Galaxy S6 SM-G920F 32Gb',
+                     flag: true,
+                     par: 11,
+                     'par@': false,
+                     price: '31 700',
+                     count: 9,
+                     groupField : 5
+                  },
+                  {
+                     id: 16,
+                     title: 'ASUS ZenFone 2 ZE550ML',
+                     flag: true,
+                     par: 13,
+                     'par@': false,
+                     price: '12 890',
+                     count: 6,
+                     groupField : 5
+                  },
+                  {
+                     id: 17,
+                     title: 'Sony Xperia Z3 (D6603)',
+                     flag: true,
+                     par: 12,
+                     'par@': false,
+                     price: '24 750',
+                     count: 3,
+                     groupField : 5
+                  },
+                  {
+                     id: 18,
+                     title: 'Samsung Galaxy Note 4 SM-N910C',
+                     flag: true,
+                     par: 11,
+                     'par@': false,
+                     price: '29 320',
+                     count: 2,
+                     groupField : 5
+                  },
+                  {
+                     id: 19,
+                     title: 'Вложенные папки',
+                     par: 3,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 20,
+                     title: 'Для проверки',
+                     par: 19,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 21,
+                     title: 'Хлебных крошек',
+                     par: 20,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 22,
+                     title: 'Ооооооооочень',
+                     par: 21,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 23,
+                     title: 'Многооооооооо',
+                     par: 22,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 24,
+                     title: 'Папоооооооооок',
+                     par: 23,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 25,
+                     title: 'Есть даже папки с длинными названиями',
+                     par: 24,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 26,
+                     title: 'И не очень длинными',
+                     par: 25,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 27,
+                     title: 'И чуть более длинными',
+                     par: 26,
+                     'par@': true,
+                     groupField : 5
+                  },
+                  {
+                     id: 28,
+                     title: 'А тут',
+                     par: 27,
+                     groupField : 5
+                  },
+                  {
+                     id: 29,
+                     title: 'Даже',
+                     par: 27,
+                     groupField : 5
+                  },
+                  {
+                     id: 30,
+                     title: 'что то есть',
+                     par: 27,
+                     groupField : 5
+                  },
+                  {
+                     id: 31,
+                     title: 'Row 31',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 32,
+                     title: 'Row 32',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 33,
+                     title: 'Row 33',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 34,
+                     title: 'Row 34',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 35,
+                     title: 'Row 35',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 36,
+                     title: 'Row 36',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 37,
+                     title: 'Row 37',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 38,
+                     title: 'Row 38',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 39,
+                     title: 'Row 39',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 40,
+                     title: 'Row 40',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 41,
+                     title: 'Row 41',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 42,
+                     title: 'Row 42',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 43,
+                     title: 'Row 43',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 44,
+                     title: 'Row 44',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 45,
+                     title: 'Row 45',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 46,
+                     title: 'Row 46',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 47,
+                     title: 'Row 47',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 48,
+                     title: 'Row 48',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 49,
+                     title: 'Row 49',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 50,
+                     title: 'Row 50',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 51,
+                     title: 'Row 51',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 52,
+                     title: 'Row 52',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 53,
+                     title: 'Row 53',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 54,
+                     title: 'Row 54',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 55,
+                     title: 'Row 55',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 56,
+                     title: 'Row 56',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 57,
+                     title: 'Row 57',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 58,
+                     title: 'Row 58',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 59,
+                     title: 'Row 59',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 60,
+                     title: 'Row 60',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 61,
+                     title: 'Row 61',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 62,
+                     title: 'Row 62',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 63,
+                     title: 'Row 63',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 64,
+                     title: 'Row 64',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 65,
+                     title: 'Row 65',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 66,
+                     title: 'Row 66',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 67,
+                     title: 'Row 67',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 68,
+                     title: 'Row 68',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 69,
+                     title: 'Row 69',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 70,
+                     title: 'Row 70',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 71,
+                     title: 'Row 71',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 72,
+                     title: 'Row 72',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 73,
+                     title: 'Row 73',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 74,
+                     title: 'Row 74',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 75,
+                     title: 'Row 75',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 76,
+                     title: 'Row 76',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 77,
+                     title: 'Row 77',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 78,
+                     title: 'Row 78',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 79,
+                     title: 'Row 79',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 80,
+                     title: 'Row 80',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 81,
+                     title: 'Row 81',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 82,
+                     title: 'Row 82',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 83,
+                     title: 'Row 83',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 84,
+                     title: 'Row 84',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 85,
+                     title: 'Row 85',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 86,
+                     title: 'Row 86',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 87,
+                     title: 'Row 87',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 88,
+                     title: 'Row 88',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 89,
+                     title: 'Row 89',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 90,
+                     title: 'Row 90',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 91,
+                     title: 'Row 91',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 92,
+                     title: 'Row 92',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 93,
+                     title: 'Row 93',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 94,
+                     title: 'Row 94',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 95,
+                     title: 'Row 95',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 96,
+                     title: 'Row 96',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 97,
+                     title: 'Row 97',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 98,
+                     title: 'Row 98',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 99,
+                     title: 'Row 99',
+                     par: 27,
+                     groupField: 5
+                  },
+                  {
+                     id: 100,
+                     title: 'Row 100',
+                     par: 27,
+                     groupField: 5
+                  }
+               ];
+
+            var itemsActions = [
+               {
+                  name: 'delete2',
+                  icon: 'icon-16 icon-Erase icon-error',
+                  tooltip: rk('Удалить'),
+                  caption: rk('Удалить'),
+                  isMainAction: true,
+                  onActivated: function () {
+                     alert('Clicked');
+                  }
+               },
+               {
+                  name: 'delete1',
+                  icon: 'icon-16 icon-Erase icon-error',
+                  tooltip: rk('Удалить'),
+                  caption: rk('Удалить'),
+                  isMainAction: true,
+                  onActivated: function (item) {
+                     alert('Clicked');
+                  }
+               }
+            ];
+
+            var source = new Memory({
+               data: coll,
+               idProperty: 'id'
+            });
+
+            var query = new Query();
+            source.query(query).addCallback(function(list){
+               var rs = list.getAll();
+
+               require(['SBIS3.CONTROLS/Button'], function(btn){
+                  var myBtn = new btn ({
+                     caption : 'Data',
+                     element: 'btn'
+                  });
+
+                  var myBtn2 = new btn ({
+                     caption : 'Data remove',
+                     element: 'btn2',
+                     visible: false
+                  });
+
+                  myBtn2.subscribe('onActivated', function(){
+                     var psina = $ws.single.ControlStorage.getByName('psina');
+                     var rec = psina.getItems().getRecordById(31);
+                     psina.getItems().remove(rec);
+                     this.hide();
+                  });
+
+                  myBtn.subscribe('onActivated', function(){
+                     var col2 = [
+                        {
+                           id: 31,
+                           title: '((((((((((((((((((((',
+                           par: 27,
+                           groupField : 1,
+                           color: 1
+                        },
+                        {
+                           id: 32,
+                           title: '))))))))))))))))))))',
+                           par: 27,
+                           groupField : 2,
+                           color: 1
+                        }
+                     ];
+                     var source = new Memory({
+                        data: col2,
+                        idProperty: 'id'
+                     });
+
+                     var query = new Query();
+                     source.query(query).addCallback(function(list) {
+                        var rs = list.getAll();
+                        var psina = $ws.single.ControlStorage.getByName('psina');
+                        psina.getItems().append(rs);
+                        myBtn2.show();
+                     });
+                  });
+
+
+               });
+
+
+               var cfg = {
+                  selectedIndex: 2,
+                  //items: coll,
+                  //itemsActions: itemsActions, не работает @Зуев Дима
+                  dataSource: source,
+                  displayProperty : 'title',
+                  allowEmptySelection: false,
+                  multiSelect: true,
+                  name: 'psina',
+                  idProperty: 'id',
+                  navigation: {
+                     type: 'page',
+                     config : {
+                        pageSize : 100
+                     }
+                  }
+                  //itemTpl : '{{it.className="color-"+it.item.get("color");it.attributes={myKOKO : "koko"+it.projItem.getHash(), xxx : 1};}}{{=it.defaultItemTpl(it)}}',
+                  //itemContentTpl : '<div>{{item.id + " --- " + item.title + " UserTemplate WoW!!!!"}} {{hoveredItem == projItem.getHash() ? " I can listen hovered in user template!"}}</div>'
+                   /*groupBy: {
+                    field : 'groupField',
+                    contentTemplate : '<div class="controls-GroupBy__separator"><span class="controls-GroupBy__separatorText">группа</span></div>'
+                    }*/
+//               easyGroup: true,
+//               itemTpl : '<span>123</span>'
+               };
+
+               var xxx3 = new ListView2(cfg);
+
+               //Sync.mountControlToDOM(xxx3, cfg, $("#newListView"));
+               xxx3.mountToDom( $("#newListView"), cfg );
+            });
+
+
+
+
+         });
+      })
+   });
+</script>
+</body>
+</html>

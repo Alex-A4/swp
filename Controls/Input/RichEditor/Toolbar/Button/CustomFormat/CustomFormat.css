@@ -1,0 +1,23 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls_ToolbarButton_FormatPick-item-header,
+.controls_ToolbarButton_FormatPick-item-subheader {
+  color: #313E78;
+  font-weight: bold;
+}
+.controls_ToolbarButton_FormatPick-item-header {
+  font-size: 18px;
+  line-height: 23px;
+}
+.controls_ToolbarButton_FormatPick-item-subheader {
+  font-size: 15px;
+  line-height: 19px;
+}
+.controls_ToolbarButton_FormatPick-item-additional {
+  font-size: 12px;
+  line-height: 15px;
+  color: #999;
+}

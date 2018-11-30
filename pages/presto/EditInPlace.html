@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'
+      xmlns:ws='ws-component'>
+<head>
+    <title>Demo: ListView</title>
+    <script type='text/javascript'>
+       window.wsConfig = {
+          WSRootPath: '/sbis3-ws/ws/',
+          wsRoot: '/sbis3-ws/ws/',
+          WSTheme: 'wi_scheme',
+          resourceRoot: '/',
+          nostyle: true,
+          globalConfigSupport: false,
+          themeName: 'presto'
+       };
+       window.WSTheme = 'wi_scheme';
+    </script>
+    <script type='text/javascript' id='dev-style-enable'>
+       (function () {
+          window.wsConfig.nostyle = false;
+       })();
+    </script>
+    <script type='text/javascript' data-pack-name='contents' src='/contents'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/ext/jquery-min.js'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/ext/jquery-cookie-min.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/ext/requirejs/require.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/ext/requirejs/config.js'></script>
+    <link rel='stylesheet' type='text/css' href='/sbis3-ws/ws/css/core.css'/>
+    <script type='text/javascript' src='/sbis3-ws/ws/lib/core.js'></script>
+    <script type='text/javascript' src='/sbis3-ws/ws/lib/Source.js'></script>
+    <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/res/js/bootup.js'></script>
+    <script type="text/javascript" src="themeSwitcher.js"></script>
+    <style>
+        html, body {
+            font-family: 'TensorFont', 'TensorFont'!important;
+        }
+        .myList {
+            max-width: 500px;
+        }
+        .row {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            justify-content: space-around;
+        }
+    </style>
+    <script type='text/javascript' id='ws-include-css'></script>
+    <link rel='stylesheet' type='text/css' href='../../demo/TextBox/PrestoTextBox/PrestoTextBox.css'>
+</head>
+<body class='view-main controls-default-bg'>
+<div class="row">
+    <div id="DataGridClickMode" class="myList"></div>
+    <div id="DataGridHoverMode" class="myList"></div>
+</div>
+<script type='text/javascript'>
+   require(['Core/core-init'],function () {
+       var
+           dataGridItems = [],
+           dataGridColumns = [
+               {
+                   title : 'Имя',
+                   field  : 'title',
+                   allowChangeEnable: false
+               },
+               {
+                   title : 'Текст',
+                   field  : 'text'
+               }
+           ];
+       for (var i = 1; i < 10; i++) {
+           dataGridItems.push({
+               id : i,
+               title : 'Title ' + (i === 1 ? i + '\nline2\nline3' : i),
+               text : 'Item ' + i
+           });
+       }
+       require(["SBIS3.CONTROLS/DataGridView", 'SBIS3.CONTROLS/CheckBox', 'SBIS3.CONTROLS/TextBox', 'Lib/CoreValidators/CoreValidators', 'SBIS3.CONTROLS/TextArea'], function (DataGridView) {
+           var
+               dataGrid = new DataGridView({
+                   element: "DataGridClickMode",
+                   className: 'controls-ListView__bottomStyle controls-DataGridView__sidePadding-24',
+                   enabled: true,
+                   contextMenu: false,
+                   itemsActions: [
+                       {
+                           name: 'delete',
+                           icon: 'sprite:icon-16 icon-Erase icon-error',
+                           tooltip: 'Удалить',
+                           caption: 'Удалить',
+                           cssClass: 'controls-IconButton__round-border-24',
+                           isMainAction: true,
+                           onActivated: function (item) {
+                               this.deleteRecords(item.data('id'));
+                           }
+                       },{
+                           name: 'move',
+                           icon: 'sprite:icon-16 icon-Move icon-primary action-hover',
+                           tooltip: 'Перенести',
+                           caption: 'Перенести',
+                           cssClass: 'controls-IconButton__round-border-24',
+                           isMainAction: true,
+                           onActivated: function (item) {
+                               this.selectedMoveTo(item.data('id'));
+                           }
+                       }
+                   ],
+                   items: dataGridItems,
+                   ignoreLocalPageSize : true,
+                   multiselect: false,
+                   editMode: 'click|toolbar',
+                   editingTemplate: '<div style="margin-left: 0px; padding-top: 0px;">\
+                      <component data-component="SBIS3.CONTROLS/TextBox" style="display: inline-block; margin-top: 0px; width: 150px;">\
+                         <option name="text" bind="title"></option>\
+                         <option name="size" value="m"></option>\
+                      </component>\
+                   </div>',
+                   columns : dataGridColumns,
+                   elemClickHandler: function() {
+                       console.log('elemClickHandler->', arguments);
+                   }
+               });
+           new DataGridView({
+               element: "DataGridHoverMode",
+               items: dataGridItems,
+               ignoreLocalPageSize : true,
+               contextMenu: false,
+               multiselect: true,
+               editMode: 'click|toolbar',
+               itemsActions: [],
+               editingTemplate: '<div style="margin-left: 37px; padding-top: 0px;">\
+                      <component data-component="SBIS3.CONTROLS/TextBox" style="display: inline-block; margin-top: 0px; width: 150px;">\
+                         <option name="text" bind="title"></option>\
+                         <option name="size" value="m"></option>\
+                      </component>\
+                   </div>',
+               columns : dataGridColumns,
+               elemClickHandler: function() {
+                   console.log('elemClickHandler->', arguments);
+               },
+               handlers: {
+                   onItemValueChanged: function(e) {
+                       var def = new $ws.proto.Deferred();
+                       setTimeout(function() {
+                           def.callback();
+                       }, 2000);
+                       e.setResult(def);
+                   }
+               }
+           });
+       });
+   });
+</script>
+</body>
+</html>

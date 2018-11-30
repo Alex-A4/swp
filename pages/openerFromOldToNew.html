@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: Combobox</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function() {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+      html, body {
+         font-family: 'TensorFont Regular', 'TensorFont' !important;
+         font-size: 14px !important;
+      }
+
+      .container {
+         display: block;
+         margin: 5px;
+      }
+
+      .ws-hidden {
+         display: none;
+      }
+      .ws-absolute {
+         position:absolute !important;
+      }
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <link rel="stylesheet" type="text/css" href="../fonts/index.css"/>
+   <link rel="stylesheet" type="text/css" href="../icons/index.css"/>
+   <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+<div class="container">
+   <div id="btnFloat"></div>
+</div>
+<div class="container">
+   <div id="btnDialog"></div>
+</div>
+<div class="container">
+   <div id="btnSticky"></div>
+</div>
+<div class="container">
+   <div id="cbModal"></div>
+</div>
+<div class="container">
+   <div id="cbAutoHide"></div>
+</div>
+
+<div class='container'>
+   Set Width
+   <div id="nbWidth"></div>
+</div>
+<div class='container'>
+   <div id="textBox1"></div>
+   <div id="textBox2"></div>
+</div>
+<div class="container">
+   <div id="btnClear"></div>
+</div>
+<div style="position: absolute; top: 45%; left: 45%">
+   <div id="target">
+</div>
+</div>
+<script type="text/javascript">
+   require(['Core/core-init'], function() {
+      $(document).ready(function() {
+
+         requirejs([
+               'SBIS3.CONTROLS/CheckBox',
+               'SBIS3.CONTROLS/Button',
+               'SBIS3.CONTROLS/ComboBox',
+               'SBIS3.CONTROLS/NumberTextBox',
+               'SBIS3.CONTROLS/TextBox'
+            ],
+            function(CheckBox, Button, ComboBox, NumBox, TextBox) {
+            var cmbItems = {
+               verticalItems: [
+                  {title: 'top'},
+                  {title: 'bottom'}
+               ],
+               sideItems: [
+                  {title: 'left'},
+                  {title: 'right'}
+               ],
+               directionItems: [
+                  {title: 'left'},
+                  {title: 'top'},
+                  {title: 'bottom'},
+                  {title: 'right'}
+               ]
+            };
+            var modal = false,
+                autoHide = false,
+                width = 400;
+            var cbModal = new CheckBox({
+                  element: $('#cbModal'),
+                  caption: 'modal'
+               }),
+
+               cbAutoHide = new CheckBox({
+                  element: $('#cbAutoHide'),
+                  caption: 'autoHide'
+               }),
+
+               btnDialog = new Button({
+                  element: $('#btnDialog'),
+                  caption: 'openDialog'
+               }),
+               btnClear = new Button({
+                  element: $('#btnClear'),
+                  caption: 'clear text'
+               }),
+               btnFloat = new Button({
+                  element: $('#btnFloat'),
+                  caption: 'openFloat'
+               }),
+               btnSticky = new Button({
+                  element: $('#btnSticky'),
+                  caption: 'openSticky'
+               }),
+               nbWidth = new NumBox({
+                  element: $('#nbWidth'),
+                  placeholder: 'width',
+                  integers: 3,
+                  onlyPositive: true,
+                  onlyInteger: true
+               }),
+               textBox1 = new TextBox({
+                  element: $('#textBox1')
+               }),
+               textBox2 = new TextBox({
+                  element: $('#textBox2')
+               });
+               target = new TextBox({
+                  element: $('#target')
+               });
+            cbAutoHide.subscribe('onCheckedChange', function() {
+               autoHide = cbAutoHide.isChecked();
+            });
+            cbModal.subscribe('onCheckedChange', function() {
+               modal = cbModal.isChecked();
+            });
+            btnFloat.subscribe('onActivated', function() {
+               openPanel()
+            });
+            btnDialog.subscribe('onActivated', function() {
+               openDialog()
+            });
+            btnSticky.subscribe('onActivated', function() {
+               openSticky()
+            });
+            nbWidth.subscribe('onTextChange', function() {
+               width = nbWidth.getText();
+            });
+            btnClear.subscribe('onActivated', function() {
+                textBox1.setText('');
+                textBox2.setText('');
+            });
+            openPanel = function() {
+               requirejs(['Controls/Popup/Compatible/Layer'],
+                  function(CompatiblePopup) {
+                     CompatiblePopup.load().addCallback(function() {
+                        requirejs(['SBIS3.CONTROLS/Action/List/OpenEditDialog'], function(OpenDialog) {
+                           var dialog = new OpenDialog({
+                              mode: 'floatArea',
+                              template: "Controls-demo/Popup/Opener/Compatible/resources/dimensionNewPanel"
+                           });
+                           var dialogOptions = {
+                              width: width,
+                              onResultHandler: function(arg1, arg2, arg3) {
+                                 textBox1.setText(arg1 + ' ' + arg2 + ' ' + arg3);
+                              },
+                              onCloseHandler: function() {
+                                 textBox2.setText('onCloseHandler triggered')
+                              },
+                              isStack: true,
+                              showOnControlsReady: true,
+                              autoHide: autoHide,
+                              modal: modal
+                           };
+                           dialog.execute({
+                              dialogOptions: dialogOptions,
+                              componentOptions: {}
+                           });
+                        });
+                     });
+                  }
+               );
+            };
+            openDialog = function() {
+               requirejs(['Controls/Popup/Compatible/Layer'],
+                  function(CompatiblePopup) {
+                     CompatiblePopup.load().addCallback(function() {
+                        requirejs(['SBIS3.CONTROLS/Action/List/OpenEditDialog'], function(OpenDialog) {
+                           var dialog = new OpenDialog({
+                              mode: 'dialog',
+                              template: "Controls-demo/Popup/Opener/Compatible/resources/dimensionNewPanel"
+                           });
+                           var dialogOptions = {
+                              width: width,
+                              onResultHandler: function(arg1, arg2, arg3) {
+                                 textBox1.setText(arg1 + ' ' + arg2 + ' ' + arg3);
+                              },
+                              onCloseHandler: function() {
+                                 textBox2.setText('onCloseHandler triggered')
+                              },
+                              isStack: true,
+                              showOnControlsReady: true,
+                              autoHide: autoHide,
+                              modal: modal
+                           };
+                           dialog.execute({
+                              dialogOptions: dialogOptions,
+                              componentOptions: {}
+                           });
+                        });
+                     });
+                  }
+               );
+            };
+            openSticky = function() {
+               requirejs(['Controls/Popup/Compatible/Layer'],
+                  function(CompatiblePopup) {
+                     CompatiblePopup.load().addCallback(function() {
+                        requirejs(['SBIS3.CONTROLS/Action/List/OpenEditDialog'], function(OpenDialog) {
+                           var dialog = new OpenDialog({
+                              mode: 'floatArea',
+                              template: "Controls-demo/Popup/Opener/Compatible/resources/dimensionNewPanel"
+                           });
+                           var dialogOptions = {
+                              width: width,
+                              onResultHandler: function(arg1, arg2, arg3) {
+                                 textBox1.setText(arg1 + ' ' + arg2 + ' ' + arg3);
+                              },
+                              onCloseHandler: function() {
+                                 textBox2.setText('onCloseHandler triggered')
+                              },
+                              target: target.getContainer(),
+                              isStack: false,
+                              showOnControlsReady: true,
+                              autoHide: autoHide,
+                              modal: modal
+                           };
+                           dialog.execute({
+                              dialogOptions: dialogOptions,
+                              componentOptions: {}
+                           });
+                        });
+                     });
+                  }
+               );
+            };
+         });
+      })
+   });
+</script>
+</body>
+</html>

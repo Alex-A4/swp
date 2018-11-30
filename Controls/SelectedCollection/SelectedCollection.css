@@ -1,0 +1,156 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-SelectedCollection__item {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  padding-right: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 100%;
+}
+.controls-SelectedCollection__InfoBox {
+  display: inline-block;
+}
+.controls-SelectedCollection__InfoBox_fixed {
+  height: 100%;
+  position: absolute;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #ffffff;
+}
+.controls-SelectedCollection__InfoBox_fixed:after {
+  content: '';
+  position: absolute;
+  right: -20px;
+  width: 20px;
+  top: 0;
+  bottom: 0;
+  background-color: #ffffff;
+  background-image: -webkit-gradient(linear, left top, right top, from(#ffffff), to(rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(left, #ffffff, rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(left, #ffffff, rgba(255, 255, 255, 0));
+  background-image: -ms-linear-gradient(left, #ffffff, rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(left, #ffffff, rgba(255, 255, 255, 0));
+  background-color: transparent;
+}
+.controls-SelectedCollection__counterItems {
+  color: #8991A9;
+  padding-right: 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: pointer;
+  padding-left: 4px;
+}
+.controls-SelectedCollection__counter {
+  margin-right: 4px;
+}
+.controls-SelectedCollection__item-single {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  max-width: 100%;
+}
+.controls-SelectedCollection__item-multi {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.controls-SelectedCollection__item__cross {
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  font-family: 'cbuc-icons';
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  color: #CCC;
+  cursor: pointer;
+}
+.controls-SelectedCollection__item__caption {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: inline-block;
+  max-width: 100%;
+}
+.controls-SelectedCollection__item__caption-size-default,
+.controls-SelectedCollection__item__caption-size-m {
+  font-size: 14px;
+}
+.controls-SelectedCollection__item__caption-size-l {
+  font-size: 15px;
+}
+.controls-SelectedCollection__item__caption-size-h {
+  font-size: 17px;
+  /* line-height тут нужен, из-за того, что 18 шрифт не влезает в поле ввода и ломает базовую линию */
+  line-height: 18px;
+}
+.controls-SelectedCollection__item__caption-style-bold,
+.controls-SelectedCollection__item__caption-style-accent,
+.controls-SelectedCollection__item__caption-style-primary {
+  font-weight: bold;
+}
+.controls-SelectedCollection__item__caption-clickable:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.controls-SelectedCollection__item__caption-style-accent {
+  color: #313E78;
+}
+.controls-SelectedCollection__item__caption-style-primary {
+  color: #D94700;
+}
+.controls-SelectedCollection__collection {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+  overflow: hidden;
+  max-width: 100%;
+}
+.controls-SelectedCollection__collectionItem_layout_twoColumns {
+  width: 50%;
+}
+/* Необходим :before с line-height, т.к. в поле связи может не быть поля ввода (input),
+   который образует боазовую линию */
+.controls-SelectedCollection__collection:before {
+  content: '\200b';
+  width: 0;
+  display: inline-block;
+  visibility: hidden;
+  line-height: 22px;
+}
+.controls-SelectedCollection__collection_singleLine {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+.controls-SelectedCollection__collection_multiLine {
+  display: inline;
+}
+.controls-SelectedCollection__collectionItem_layout_twoColumns {
+  width: 50%;
+}
+.controls-SelectedCollection__popup-margins {
+  margin-top: -4px;
+  margin-left: -4px;
+}
+.controls-SelectedCollection__popup {
+  border: 1px solid #CCC;
+  -webkit-box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 12px 0px rgba(0, 0, 0, 0.25);
+  background-color: #FFFFFF;
+  padding: 4px;
+}

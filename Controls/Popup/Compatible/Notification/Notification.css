@@ -1,0 +1,11 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Compatible.controls-NotificationPopup {
+  border: none;
+}
+.controls-Compatible_template {
+  max-width: 450px;
+}

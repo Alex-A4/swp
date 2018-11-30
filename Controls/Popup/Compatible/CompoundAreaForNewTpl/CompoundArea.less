@@ -1,0 +1,47 @@
+.controls-CompoundArea__new {
+   height: 100%;
+
+   .controls-DialogTemplate {
+      box-shadow: none;
+   }
+
+   /* Для совместимости, когда открывают новое меню на старой странице */
+   .controls-DropdownList__content {
+      white-space: nowrap;
+   }
+
+   .controls-DropdownList__popup {
+      border: none;
+      max-height: 100vh;
+   }
+
+   .controls-ConfirmationTemplate {
+      margin: 0;
+   }
+}
+.controls-compoundAreaNew__floatArea{
+   .ws-float-area-nostack-panel-shadow-standart{
+      border: none;
+   }
+}
+
+//В старой панели высота контента не должна быть больше высоты экрана
+.controls-DropdownList__subMenu .ws-float-area-nostack-panel-shadow {
+   max-height: 100vh;
+   overflow: hidden;
+   box-sizing: border-box;
+   border: none;
+}
+.controls-Popup-align-horizontal-left .controls-DropdownList__head {
+   flex-direction: row-reverse;
+   .controls-MenuButton-header {
+      flex-direction: row-reverse;
+      .controls-Button__text_gap {
+         margin-right: @spacing_Button-between-icon-text;
+      }
+   }
+}
+
+.controls-Popup-corner-vertical-bottom .controls-DropdownList__popup {
+   flex-direction: column-reverse;
+}

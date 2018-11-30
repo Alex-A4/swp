@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html xmlns:ws="ws-component" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Demo: всплывающая подсказка</title>
+    <script type="text/javascript">
+        window.wsConfig = {
+            WSRootPath: '/sbis3-ws/ws/',
+            wsRoot: '/sbis3-ws/ws/',
+            WSTheme: 'wi_scheme',
+            resourceRoot: '/',
+            nostyle: true,
+            globalConfigSupport: false
+        };
+        window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+        (function () {
+            window.wsConfig.nostyle = false;
+        })();
+    </script>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+    <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <script type="text/javascript" id="ws-include-components"></script>
+    <script type="text/javascript" src="themeSwitcher.js"></script>
+    <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+            padding: 0;
+            margin: 0;
+        }
+        html, body {
+            font-family: 'TensorFont', 'TensorFont'!important;
+        }
+        .infobox_demo {
+           display: flex;
+           flex-wrap: wrap;
+           width: 800px;
+           overflow: hidden;
+           margin-left: calc(50% - 400px);
+        }
+        .infobox_demo_item {
+           width: 33%;
+           height: 200px;
+           flex-shrink: 0;
+           padding: 20px 0 0 40px;
+           box-sizing: border-box;
+        }
+        .controls-TextBox.h150 {
+          height: 150px
+       }
+        .controls-TextBox {
+           /*background: #FFFDC5!important;*/
+        }
+        #kek {
+           width: 100%;
+           display: flex;
+           justify-content: center;
+        }
+    </style>
+    <script type="text/javascript" id="ws-include-css"></script>
+</head>
+<body class="controls-default-bg">
+<div class="infobox_demo">
+   <div class="infobox_demo_item">
+      <div id="tb_l_1"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_r_1"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_l_2"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_r_2"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_l_3"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_r_3"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_l_4" class="h150"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_r_4" class="h150"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_l_5" class="h150"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_r_5" class="h150"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_l_6" class="h150"></div>
+   </div>
+   <div class="infobox_demo_item">
+      <div id="tb_r_6" class="h150"></div>
+   </div>
+   <div id="kek">
+      <div class="kekkek" style="width: 50px;text-align:center"><div class="icon-16 icon-Question2 icon-primary"></div></div>
+   </div>
+</div>
+
+<div id="tb_center" class="tb center"></div>
+<script type="text/javascript">
+    require(['Core/core-init'],function () {
+      require(['SBIS3.CONTROLS/TextBox', 'Lib/Control/Infobox/Infobox'], function(TextBox, Infobox) {
+         var textBox1 = new TextBox({
+            element: 'tb_l_1',
+            validators: [{
+            validator: function(){
+               return false;
+            },
+            errorMessage: 'это типо валидация не прошла'
+         }
+         ],
+            text: 'Низ лево'
+         });
+         var textBox2 = new TextBox({
+            element: 'tb_r_1',
+            text: 'Низ центр'
+         });
+         var textBox3 = new TextBox({
+            element: 'tb_l_2',
+            text: 'Низ право'
+         });
+         var textBox4 = new TextBox({
+            element: 'tb_r_2',
+            text: 'Верх лево'
+         });
+         var textBox5 = new TextBox({
+            element: 'tb_l_3',
+            text: 'Верх центр'
+         });
+         var textBox6 = new TextBox({
+            element: 'tb_r_3',
+            text: 'Верх право'
+         });
+         var textBox7 = new TextBox({
+            element: 'tb_l_4',
+            text: 'Право верх'
+         });
+         var textBox8 = new TextBox({
+            element: 'tb_r_4',
+            text: 'Право центр'
+         });
+         var textBox9 = new TextBox({
+            element: 'tb_l_5',
+            text: 'Право низ'
+         });
+         var textBox10 = new TextBox({
+            element: 'tb_r_5',
+            text: 'Лево верх'
+         });
+         var textBox11 = new TextBox({
+            element: 'tb_l_6',
+            text: 'Лево центр'
+         });
+         var textBox12 = new TextBox({
+            element: 'tb_r_6',
+            text: 'Лево низ'
+         });
+         textBox1.getContainer().on('mouseover', showInfobox.bind(textBox1, Infobox, 'bl', 'ws-infobox-type-error', 'Заголовок'));
+         textBox2.getContainer().on('mouseover', showInfobox.bind(textBox2, Infobox, 'bc', 'ws-infobox-type-lite', 'Заголовок'));
+         textBox3.getContainer().on('mouseover', showInfobox.bind(textBox3, Infobox, 'br', 'ws-infobox-type-help', 'Заголовок'));
+         textBox4.getContainer().on('mouseover', showInfobox.bind(textBox4, Infobox, 'tl', '', 'Заголовок'));
+         textBox5.getContainer().on('mouseover', showInfobox.bind(textBox5, Infobox, 'tc', 'ws-infobox-type-error', 'Заголовок'));
+         textBox6.getContainer().on('mouseover', showInfobox.bind(textBox6, Infobox, 'tr', 'ws-infobox-type-lite', 'Заголовок'));
+         textBox7.getContainer().on('mouseover', showInfobox.bind(textBox7, Infobox, 'rt', 'ws-infobox-type-help', ''));
+         textBox8.getContainer().on('mouseover', showInfobox.bind(textBox8, Infobox, 'rc', '', ''));
+         textBox9.getContainer().on('mouseover', showInfobox.bind(textBox9, Infobox, 'rb', 'ws-infobox-type-error', ''));
+         textBox10.getContainer().on('mouseover', showInfobox.bind(textBox10, Infobox, 'lt', 'ws-infobox-type-lite', ''));
+         textBox11.getContainer().on('mouseover', showInfobox.bind(textBox11, Infobox, 'lc', 'ws-infobox-type-help', ''));
+         textBox12.getContainer().on('mouseover', showInfobox.bind(textBox12, Infobox, 'lb', '', ''));
+         var kek = $('.kekkek');
+         kek.on('click', showInfobox.bind({getContainer: function() {return kek}}, Infobox, 'tc', '', ''));
+      });
+   });
+
+   function showInfobox(Infobox, position, modifiers, title){
+      var data = {
+//         message: 'Текст Текст Текст ',
+//         message: 'html!SBIS3.CONTROLS/TextBox',
+//         message: 'Всплывающая <component data-component="SBIS3.CONTROLS/Link"><opt name="href">#</opt><opt name="caption">ссылка</opt></component> для демонстрации Infobox.module.js',
+         message: 'Всплывающая <a href="#">подсказка</a> для демонстрации Infobox.module.js',
+//         message: '<p>Всплывающая <a href="#">подсказка</a> для демонстрации Infobox.module.js\nkekekekekekekekekekekekekkekekeekekekekkekekkekekkekekekkeekekkekekekekeekkekekk</p>',
+         control: this.getContainer(),
+         title: title || '',
+         position: position,
+         templateOptions: {text: 'kek'},
+         modifiers: modifiers
+      };
+      Infobox.show(data);
+   }
+</script>
+</body>
+</html>

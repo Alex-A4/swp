@@ -1,0 +1,26 @@
+<div class="123">
+
+   <div style="width: 300px; height: 400px; overflow-y: scroll; -webkit-overflow-scrolling: touch" class="ws-scrolling-content">
+      <Controls.List.ListControl
+            dataSource="{{_viewSource}}"
+            selectedKey="{{3}}"
+            displayProperty="title"
+            allowEmptySelection="{{false}}"
+            multiSelect="{{true}}"
+            name="list"
+            idProperty="id">
+         <ws:itemTemplate>
+            <ws:partial template="wml!Controls/List/ListControl/ItemTemplate">
+               <ws:contentTemplate>
+                  <ws:partial template="wml!Controls/Calendar/MonthTableBody"></ws:partial>
+               </ws:contentTemplate>
+            </ws:partial>
+         </ws:itemTemplate>
+         <ws:virtualScroll>
+            <ws:Object enable="{{true}}"></ws:Object>
+         </ws:virtualScroll>
+      </Controls.List.ListControl>
+   </div>
+
+   <a href="javascript: void(0)" on:click="_onMoreClick()" class="ws-hidden">Еще</a>
+</div>

@@ -1,0 +1,82 @@
+/*
+   Templates
+ */
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Toolbar__item_has-title-and-icon {
+  padding: 6px;
+}
+.controls-ToolBarV {
+  display: inline-block;
+}
+.controls-ToolbarV_item {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: pointer;
+  margin-right: 12px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-ToolbarV_item:before {
+  content: "\200b";
+}
+.controls-ToolBarV_content {
+  height: 100%;
+  width: 100%;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-ToolBarV_content:before {
+  content: "\200b";
+}
+.controls-ToolBarV_content__resetMargin {
+  margin-right: -12px;
+}
+.controls-ToolbarV__item_icon_m {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  font-family: 'cbuc-icons24';
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+}
+.controls-ToolbarV__item_title {
+  white-space: nowrap;
+  color: #0055BB;
+}
+.controls-ToolBarV__menuOpen {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  cursor: pointer;
+}
+.controls-ToolbarV_item__styled {
+  color: #587ab0;
+}
+.controls-ToolbarV_item__styled:active {
+  color: #313E78;
+}
+.controls-ToolbarV__item_title:active {
+  text-decoration: underline;
+}
+.controls-Toolbar_link_m {
+  margin-top: -5px;
+  margin-left: -13px;
+}
+.ws-is-no-touch .controls-ToolbarV_item__styled:hover {
+  color: #313E78;
+}
+.ws-is-no-touch .controls-ToolbarV_item__styled:hover .controls-ToolbarV__item_title {
+  text-decoration: underline;
+}

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns='http://www.w3.org/1999/xhtml'
+      xmlns:ws='ws-component'>
+<head>
+   <title>Demo: Buttons</title>
+   <script type='text/javascript'>
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type='text/javascript' id='dev-style-enable'>
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type='text/javascript' data-pack-name='contents' src='/contents'></script>
+   <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/ext/jquery-min.js'></script>
+   <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/ext/jquery-cookie-min.js'></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type='text/javascript' src='/sbis3-ws/ws/ext/requirejs/require.js'></script>
+   <script type='text/javascript' src='/sbis3-ws/ws/ext/requirejs/config.js'></script>
+   <link rel='stylesheet' type='text/css' href='/sbis3-ws/ws/css/core.css'/>
+   <script type='text/javascript' src='/sbis3-ws/ws/lib/core.js'></script>
+   <script type='text/javascript' src='/sbis3-ws/ws/lib/Source.js'></script>
+   <script type='text/javascript' data-pack-name='ws' src='/sbis3-ws/ws/res/js/bootup.js'></script>
+   <style>
+      html, body {
+         font-family: 'TensorFont Regular', 'TensorFont'!important;
+         font-size: 14px!important;
+      }
+      :root {
+         --margin-top: 25px;
+      }
+      .myList {
+         margin-top: var(--margin-top);
+         max-width: 300px;
+      }
+      .wrapper {
+         margin-top: var(--margin-top);
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         flex-direction: column;
+      }
+      .back-wrapper {
+         width: 100%;
+         display: flex;
+         align-items: center;
+         justify-content: center;
+         margin-top: 25px;
+      }
+   </style>
+   <script type='text/javascript' id='ws-include-css'></script>
+   <link rel='stylesheet' type='text/css' href='../webfonts/fonts.css'/>
+   <link rel='stylesheet' type='text/css' href='../webfonts/glyphs.css'/>
+   <link rel='stylesheet' type='text/css' href='../webfonts/icons.css'/>
+   <link rel='stylesheet' type='text/css' href='../components/themes/online/online.css'/>
+</head>
+<body class='view-main controls-default-bg' style="margin: 10px">
+<div class="wrapper">
+   <div>
+      <div id="Icon16"></div>
+      <div id="IconRound24"></div>
+
+      <div id="IconDelete"></div>
+      <div id="Icon24"></div>
+   </div>
+   <div>
+      <div id="DataGridClickMode" class="myList"></div>
+   </div>
+   <div class="back-wrapper">
+      <div class="myBackground">
+         <div id="IconDone16" class="btn-podlozhka1"></div>
+         <div id="IconError16" class="btn-podlozhka2"></div>
+      </div>
+   </div>
+</div>
+
+<script type='text/javascript'>
+    require(['Core/core-init'], function () {
+        var
+            dataGridItems = [],
+            dataGridColumns = [
+                {
+                    title : 'Имя',
+                    field  : 'title',
+                    allowChangeEnable: false
+                },
+                {
+                    title : 'Текст',
+                    field  : 'text'
+                }
+            ];
+
+        for (var i = 1; i < 10; i++) {
+            dataGridItems.push({
+                id : i,
+                title : 'Title ' + (i === 1 ? i + '\nline2\nline3' : i),
+                text : 'Item ' + i
+            });
+        }
+        require(["SBIS3.CONTROLS/Button/IconButton"], function (r) {
+            new r({
+                element: $("#Icon16"),
+                icon: 'sprite:icon-16 icon-ExpandDown icon-primary'
+            });
+
+            new r({
+                element: $("#IconRound24"),
+                icon: 'sprite:icon-16 icon-Author icon-primary',
+                className: 'controls-IconButton__round-border-24'
+            });
+
+            new r({
+                element: $("#IconDone16"),
+                icon: 'icon-16 icon-Birthday icon-primary',
+                className: 'controls-IconButton__round-border'
+            });
+
+            new r({
+                element: $("#IconError16"),
+                icon: 'icon-16 icon-AddNote icon-primary',
+                className: 'controls-IconButton__round-border'
+            });
+            new r({
+                element: $("#IconDelete"),
+                icon: 'sprite:icon-16 icon-Erase icon-error'
+            });
+
+            new r({
+                element: $("#Icon24"),
+                icon: 'sprite:icon-24 icon-Edit icon-primary'
+            });
+        });
+
+        require(["SBIS3.CONTROLS/DataGridView", 'SBIS3.CONTROLS/CheckBox', 'SBIS3.CONTROLS/TextBox', 'Lib/CoreValidators/CoreValidators', 'SBIS3.CONTROLS/TextArea'], function (DataGridView) {
+            var
+                dataGrid = new DataGridView({
+                    element: "DataGridClickMode",
+                    className: 'controls-ListView__bottomStyle',
+                    enabled: true,
+                    contextMenu: false,
+                    itemsActions: [
+                        {
+                            name: 'delete',
+                            icon: 'sprite:icon-16 icon-Erase icon-error',
+                            tooltip: 'Удалить',
+                            caption: 'Удалить',
+                            cssClass: 'controls-IconButton__round-border-24',
+                            isMainAction: true
+                        },{
+                            name: 'move',
+                            icon: 'sprite:icon-16 icon-Move icon-primary',
+                            tooltip: 'Перенести',
+                            caption: 'Перенести',
+                            cssClass: 'controls-IconButton__round-border-24',
+                            isMainAction: true
+                        }
+                    ],
+                    items: dataGridItems,
+                    ignoreLocalPageSize : true,
+                    multiselect: false,
+                    editMode: 'click|toolbar',
+                    editingTemplate: '<div style="margin-left: 0px; padding-top: 0px;">\
+                      <component data-component="SBIS3.CONTROLS/TextBox" style="display: inline-block; margin-top: 0px; width: 150px;">\
+                         <option name="text" bind="title"></option>\
+                         <option name="size" value="m"></option>\
+                      </component>\
+                   </div>',
+                    columns : dataGridColumns,
+                    elemClickHandler: function() {
+                        console.log('elemClickHandler->', arguments);
+                    }
+                });
+        });
+    });
+</script>
+</body>
+</html>

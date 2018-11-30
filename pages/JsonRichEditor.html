@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+    <title>RichEditor JsonML</title>
+    <script type="text/javascript">
+       window.wsConfig = {
+          WSRootPath: '/sbis3-ws/ws/',
+          wsRoot: '/sbis3-ws/ws/',
+          WSTheme: 'wi_scheme',
+          resourceRoot: '/',
+          nostyle: true,
+          globalConfigSupport: false
+       };
+       window.WSTheme = 'wi_scheme';
+    </script>
+    <script type="text/javascript" id="dev-style-enable">
+       (function () {
+          window.wsConfig.nostyle = false;
+       })();
+    </script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+    <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+    <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+    <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+    <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+    <style>
+        html, body {
+            font-family: 'EmojiFont','TensorFont Regular', 'TensorFont', sans-serif;
+            font-size: 14px!important;
+        }
+        .ws-hidden {
+            display: none;
+        }
+    </style>
+    <script type="text/javascript" id="ws-include-css"></script>
+    <link rel="stylesheet" type="text/css" href="../fonts/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../icons/index.css"/>
+    <link rel="stylesheet" type="text/css" href="../sbis3-ws/ws/css/themes/webfonts/fonts.css"/>
+    <link rel="stylesheet" type="text/css" href="../components/themes/online/online.css"/>
+</head>
+<body class="view-main">
+
+<br/>
+<br/>
+<div id="area" style="margin: 40px;">
+    Rich Editor with JsonML
+    <div id="richeditor" style="margin-top:10px"></div><br/>
+</div>
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+         require(['SBIS3.CONTROLS/RichEditor'], function(r) {
+            var json = [
+               ['p', 'обычно ', ['b', 'полужирно'], ' снова обычно'],
+               ['p', 'и ', ['i', ['u', 'вторая'], ' строка']]
+            ];
+            new r({
+               element: "richeditor",
+               json: json,
+               autoHeight: true
+            });
+         });
+      });
+   });
+</script>
+</body>
+</html>

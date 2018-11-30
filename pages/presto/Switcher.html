@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ws="ws-component">
+<head>
+   <title>Demo: Switcher</title>
+   <script type="text/javascript">
+      window.wsConfig = {
+         WSRootPath: '/sbis3-ws/ws/',
+         wsRoot: '/sbis3-ws/ws/',
+         WSTheme: 'wi_scheme',
+         resourceRoot: '/',
+         nostyle: true,
+         globalConfigSupport: false
+      };
+      window.WSTheme = 'wi_scheme';
+   </script>
+   <script type="text/javascript" id="dev-style-enable">
+      (function () {
+         window.wsConfig.nostyle = false;
+      })();
+   </script>
+   <script type="text/javascript" data-pack-name="contents" src="/contents.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-cookie-min.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/ext/jquery-notouch-min.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/require.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/ext/requirejs/config.js"></script>
+   <link rel="stylesheet" type="text/css" href="/sbis3-ws/ws/css/core.css"/>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/core.js"></script>
+   <script type="text/javascript" src="/sbis3-ws/ws/lib/Source.js"></script>
+   <script type="text/javascript" data-pack-name="ws" src="/sbis3-ws/ws/res/js/bootup.js"></script>
+   <style>
+      html, body {
+         font-family: 'TensorFont', 'TensorFont'!important;
+      }
+   </style>
+   <script type="text/javascript" id="ws-include-css"></script>
+   <script type="text/javascript" src="themeSwitcher.js"></script>
+</head>
+<body class="view-main">
+
+<div>
+   Обычный
+   <div id="Switcher" class="testBlock">1</div>
+   Задизабленный
+   <div id="Switcher2" class="testBlock">1</div>
+   Дабл
+   <div id="SwitcherDoubleOnline" class="testBlock">2</div>
+   Вертикальный
+   <div id="SwitcherDoubleOnline2" class="testBlock">3</div>
+   Задизабленный
+   <div id="SwitcherDoubleOnline3" class="testBlock">3</div>
+</div>
+
+<div>
+   Обычный
+   <div id="radio" class="">1</div>
+   Вертикальный
+   <div id="radio2" class="">1</div>
+   Задизабленный
+   <div id="radio3" class="">2</div>
+</div>
+
+<script type="text/javascript">
+   require(['Core/core-init'],function () {
+      $(document).ready(function () {
+
+         require(["SBIS3.CONTROLS/Switcher"], function (r) {
+            new r({
+               element: "Switcher",
+               caption: 'This is Switcher',
+               stateOn: 'On',
+               stateOff: 'Off'
+            })
+         });
+         require(["SBIS3.CONTROLS/Switcher"], function (r) {
+            new r({
+               enabled: false,
+               element: "Switcher2",
+               caption: 'This is Switcher',
+               stateOn: 'On',
+               stateOff: 'Off'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/Switcher/Double"], function (r) {
+            new r({
+               element: "SwitcherDoubleOnline",
+               caption: 'This is SwitcherDoubleOnline',
+               stateOn: 'On2',
+               stateOff: 'Off2'
+            })
+         });
+
+         require(["SBIS3.CONTROLS/Switcher/Double"], function (r) {
+            new r({
+               element: "SwitcherDoubleOnline2",
+               caption: 'This is SwitcherDoubleOnline2',
+               stateOn: 'On3',
+               stateOff: 'Off3',
+               'disposition':'vertical'
+            })
+         });
+          require(["SBIS3.CONTROLS/Switcher/Double"], function (r) {
+              new r({
+                  element: "SwitcherDoubleOnline3",
+                  stateOn: 'On3',
+                  stateOff: 'Off3',
+                  enabled: false,
+                  'disposition':'vertical'
+              })
+          });
+
+          require(["SBIS3.CONTROLS/Radio/Group"], function (r) {
+              new r({
+                  element: "radio",
+                  stateOn: 'On3',
+                  stateOff: 'Off3',
+                  idProperty: "id",
+                  displayProperty: "title",
+                  allowEmptySelection: true,
+                  items: [
+                      {
+                          id:1,
+                          title: 'Значение 1'
+                      },
+                      {
+                          id:2,
+                          title: 'Значение 2'
+                      }
+                  ]
+              })
+          });
+          require(["SBIS3.CONTROLS/Radio/Group"], function (r) {
+              new r({
+                  element: "radio2",
+                  className: "controls-ButtonGroup__vertical",
+                  stateOn: 'On3',
+                  stateOff: 'Off3',
+                  idProperty: "id",
+                  displayProperty: "title",
+                  selectedKey: 1,
+                  items: [
+                      {
+                          id:1,
+                          title: 'Значение 1'
+                      },
+                      {
+                          id:2,
+                          title: 'Значение 2'
+                      },
+                      {
+                          id:1,
+                          title: 'Значение 3'
+                      }
+                  ]
+              })
+          });
+          require(["SBIS3.CONTROLS/Radio/Group"], function (r) {
+              new r({
+                  enabled: false,
+                  element: "radio3",
+                  stateOn: 'On3',
+                  stateOff: 'Off3',
+                  idProperty: "id",
+                  displayProperty: "title",
+                  selectedKey: 2,
+                  items: [
+                      {
+                          id:1,
+                          title: 'Значение 1'
+                      },
+                      {
+                          id:2,
+                          title: 'Значение 2'
+                      }
+                  ]
+              })
+          });
+
+
+      })
+   });
+</script>
+</body>
+</html>
