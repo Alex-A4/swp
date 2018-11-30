@@ -17,7 +17,6 @@
 /application/*
 /package-lock.json
 /ws-data
-/cdn
 /typedef
 /themes/**/*.css
 /artifacts/*
