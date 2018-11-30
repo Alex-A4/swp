@@ -19,8 +19,8 @@ class Index extends Control {
         LocalStorage.readAll();
     }
 
-    public search():void{
-        LocalStorage.search(this.state);
+    public search(line:string):void{
+        LocalStorage.search(line);
     }
     
     protected _beforeMount() {
