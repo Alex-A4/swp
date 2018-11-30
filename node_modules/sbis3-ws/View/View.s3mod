@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui_module id="10efeac7-0f02-4c73-9474-0d1d0db077b6" name="View" package="WS" responsible="Зуев Д.В." version="1.00">
+
+  <description>View engine</description>
+
+  <depends/>
+
+  <load_after/>
+
+  <parameters/>
+
+  <resources/>
+
+  <preload/>
+
+</ui_module>

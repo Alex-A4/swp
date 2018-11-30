@@ -1,0 +1,199 @@
+@import "../../../css/themes/wi_scheme/index";
+
+@infoboxBGColor: #FFFFFF;
+@infoboxBorderColor: #BDBDBD;
+@infoboxErrorColor: #EF463A;
+@infoboxLiteColor: #F4F9FD;
+@infoboxHelpColor: #FFF9F3;
+@infoboxLinkColor: #0055BB;
+@infoboxShadowPosition: 0 0 12px;
+
+.ws-helper {
+   position: relative;
+}
+
+.ws-helper-img {
+   vertical-align: middle;
+   margin-top: -2px;
+}
+
+.ws-helper-img:hover {
+   color: #587AB0 !important;
+}
+
+.ws-helper-img-align-left {
+   margin-right: 2px;
+}
+
+.ws-helper-img-align-right {
+   margin-left: 2px;
+}
+
+.ws-info-box {
+   visibility: hidden;
+   position: absolute;
+   z-index: (@commonZIndex - 1);
+   background: @infoboxBGColor;
+   border: 1px solid @infoboxBorderColor;
+   max-width: 500px;
+   padding: 8px 30px 8px 12px;
+   box-sizing: border-box;
+   box-shadow: rgba(0, 0, 0, 0.4) @infoboxShadowPosition;
+
+   &.ws-infobox-type-lite {
+      background: @infoboxLiteColor;
+      .ws-infobox-triangle {
+         background: @infoboxLiteColor;
+      }
+   }
+   &.ws-infobox-type-help {
+      background: @infoboxHelpColor;
+      .ws-infobox-triangle {
+         background: @infoboxHelpColor;
+      }
+   }
+   &.ws-infobox-type-error {
+      border-color: @infoboxErrorColor;
+      box-shadow: rgba(239, 70, 58, 0.4) @infoboxShadowPosition;
+      .ws-infobox-triangle {
+         &.ws-infobox-triangle-top, &.ws-infobox-triangle-bottom, &.ws-infobox-triangle-vertical-left, &.ws-infobox-triangle-vertical-right {
+            border-color: @infoboxErrorColor;
+         }
+      }
+   }
+   &.ws-infobox-title-red {
+      .ws-infobox-title {
+         color: #EF463A;
+      }
+   }
+   &.ws-infobox-title-black {
+      .ws-infobox-title {
+         color: #000000;
+      }
+   }
+   &.ws-infobox-title-green {
+      .ws-infobox-title {
+         color: #72BE44;
+      }
+   }
+   &.ws-infobox-title-orange {
+      .ws-infobox-title {
+         color: #D94700;
+      }
+   }
+   &.ws-infobox-has-title {
+      padding-top: 0;
+      padding-right: 0;
+      .ws-infobox-content {
+         padding-right: 12px;
+      }
+      .ws-infobox-title {
+         display: block;
+      }
+   }
+   &.ws-infobox-full-width {
+      padding-right: 12px;
+   }
+   &.ws-infobox-zero-padding {
+      padding: 0;
+   }
+
+   .ws-infobox-triangle {
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      transform: rotate(45deg);
+      background: #fff;
+      &.ws-infobox-triangle-top {
+         top: -7px;
+         border-left: 1px solid @infoboxBorderColor;
+         border-top: 1px solid @infoboxBorderColor;
+      }
+      &.ws-infobox-triangle-bottom {
+         bottom: -7px;
+         border-right: 1px solid @infoboxBorderColor;
+         border-bottom: 1px solid @infoboxBorderColor;
+      }
+      &.ws-infobox-triangle-left {
+         left: 14px;
+      }
+      &.ws-infobox-triangle-right {
+         right: 14px;
+      }
+      &.ws-infobox-triangle-center {
+         left: ~"calc(50% - 6px)";
+      }
+
+      &.ws-infobox-triangle-vertical-left {
+         left: -7px;
+         border-left: 1px solid @infoboxBorderColor;
+         border-bottom: 1px solid @infoboxBorderColor;
+      }
+      &.ws-infobox-triangle-vertical-right {
+         right: -7px;
+         border-right: 1px solid @infoboxBorderColor;
+         border-top: 1px solid @infoboxBorderColor;
+      }
+      &.ws-infobox-triangle-vertical-top {
+         top: 11px;
+      }
+      &.ws-infobox-triangle-vertical-bottom {
+         bottom: 11px;
+      }
+      &.ws-infobox-triangle-vertical-middle {
+         top: ~"calc(50% - 6px)";
+      }
+
+   }
+
+   .ws-infobox-title {
+      height: 32px;
+      line-height: 32px;
+      font-family: 'TensorFont', sans-serif;
+      font-weight: bold;
+      font-size: 14px;
+      color: #313E78;
+      padding-right: 30px;
+      display: none;
+   }
+
+   .ws-infobox-content {
+      font-style: normal;
+      color: #000000;
+      font-family: @globalFontFamily;
+      font-size: 14px;
+      text-overflow: ellipsis;
+      overflow-x: hidden;
+
+      ul {
+         padding-left: 20px;
+      }
+
+      span.ws-validation-error-message {
+         color: @infoboxErrorColor;
+      }
+
+      a:not(.controls-Link-link) {
+         color: @infoboxLinkColor;
+         text-decoration: none;
+         &:hover {
+            text-decoration: underline;
+            color: #313E78;
+         }
+      }
+
+      p {
+         margin: 0; //grayTheme перебивает margin тега p глобально
+      }
+   }
+
+   .ws-infobox-close-button.icon-disabled {
+      position: absolute;
+      top: 4px;
+      right: 6px;
+      cursor: pointer;
+      &:hover {
+         color: #313E78 !important;
+      }
+   }
+}

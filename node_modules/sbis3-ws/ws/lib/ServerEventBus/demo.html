@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ServerEventBus demo</title>
+</head>
+<body>
+<script>
+    wsConfig = {
+        globalConfigSupport: false,
+        userConfigSupport: false,
+        wsRoot: '/ws/',
+        theme: 'wi_scheme'
+    }
+</script>
+<script src="/ws/ext/jquery-min.js"></script>
+<script src="/ws/ext/requirejs/require.js"></script>
+<script src="/ws/ext/requirejs/bundles.js"></script>
+<script src="/ws/ext/requirejs/config.js"></script>
+<script src="/ws/lib/core.js"></script>
+<script>
+    require(['Core/core-init'], function(cInit) {
+       cInit.addCallback(function() {
+          require(['Lib/ServerEvent/Bus'], function(ebc){
+             ebc.serverChannel('ВходПользователей').subscribe('onMessage', function(event, m){
+                console.log(m);
+             }).subscribe('onError', function(event, frame){
+                console.log(frame);
+             })
+          })
+       })
+    })
+</script>
+</body>
+</html>

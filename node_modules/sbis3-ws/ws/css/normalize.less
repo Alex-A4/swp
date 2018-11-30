@@ -1,0 +1,64 @@
+/* сброс стилей*/
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+
+html {
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-tap-highlight-color: rgba(0,0,0,0);
+  -webkit-print-color-adjust: exact;
+
+  //В мобильных браузерах для удобства чтения бразуер увеличивает размер шрифта, необходимо это блокировать
+  text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: 100%;
+}
+
+body {
+  text-decoration-skip-ink: none;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+table {
+  border-spacing: 0;
+}
+
+img {
+  border: none;
+}
+
+// На iPad, в сафари и хроме, в пустой textarea, курсор встает на 3px правее, чем нужно,
+// и при наличии в поле плейсхолдера (кастомного или нативного) он оказывается по центру его первого символа
+// Поэтому для пустого поля добавляем text-indent: -3px
+// https://stackoverflow.com/questions/6890149/remove-3-pixels-in-ios-webkit-textarea
+// :empty не получается использовать, т.к. он работает только если area пуста/не пуста изначально. Динамически не меняется
+// На всех area у нас есть атрибут required (для показа placeholder), соответственно можем использовать :invalid для проверки на пустоту
+.ws-is-mobile-safari, .ws-is-mobile-chrome-ios {
+  textarea:invalid {
+    text-indent: -3px;
+  }
+}
+
+//Скрытие иконки автозаполнения в полях ввода в браузере Safari на MacOS
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner {
+  padding: 0 !important;
+  border: 0 none !important;
+}

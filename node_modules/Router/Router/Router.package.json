@@ -1,0 +1,7 @@
+[
+   {
+      "include": ["Router/*"],
+      "exclude": ["Router/ServerRouting"],
+      "output": "spa-router.package.js"
+   }
+]

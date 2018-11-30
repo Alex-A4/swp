@@ -1,0 +1,47 @@
+.ws-LoadingIndicator__message__progress-yes {
+   display: block;
+   margin: 25px auto;
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+   width: 100%;
+   max-width: 289px;
+   text-align: center;
+}
+
+.ws-LoadingIndicator__message__progress-no {
+   width: auto;
+   margin-left: 40px;
+}
+/*40 = 32 (ширина индикатора) + 8 - отступ до текст, когда текста нет 8 не нужно*/
+.ws-LoadingIndicator__message__progress-no:empty {
+   margin-left: 32px;
+}
+
+.ws-LoadingIndicator__loadingContainer {
+   display: inline-block;
+   padding: 20px;
+   position: relative;
+   vertical-align: middle;
+}
+
+.ws-LoadingIndicator-hidden {
+   .ws-LoadingIndicator__window, &.ws-loading {
+      /* visibility устанавливается в inline стили, можем перебить только через !important.
+         visibility используется, т.к. в коде индикатора и окон есть завязки на css св-во display. */
+      visibility: hidden !important;
+   }
+}
+
+.ws-LoadingIndicator-overlay-hidden {
+   .ws-window-overlay {
+      background-color: transparent;
+   }
+}
+
+.ws-loadingimg{
+   float: left;
+   position: absolute;
+   top: 13px;
+   left: 20px;
+}

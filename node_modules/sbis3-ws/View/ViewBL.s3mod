@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bl_module id="363edced-e03f-46b3-a96c-9d3297cebdd9" name="ViewBL" responsible="Абрамов В.И." version="1.00">
+
+  <description/>
+
+  <depends>
+    <bl_module id="40834678-523e-4732-a1f0-37d4615ccc88" name="Js ws adaptor"/>
+  </depends>
+
+  <load_after/>
+
+  <parameters/>
+
+  <resources/>
+
+</bl_module>

@@ -1,0 +1,6 @@
+<a href="{{ _prettyhref || _href }}" title="{{ _options.title }}"
+   id="{{ _options.id }}"
+   class="router-Link"
+   on:click="clickHandler()">
+   <ws:partial template="{{ _options.content }}"/>
+</a>

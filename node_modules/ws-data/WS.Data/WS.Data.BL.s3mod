@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bl_module id="f5e3851a-12d1-4877-b5dc-8a40474b17ba" name="WS.Data.BL" package="WS" responsible="Мальцев А.А." version="1.00">
+
+  <description>WI.SBIS framework type system for BL</description>
+
+  <depends>
+    <bl_module id="40834678-523e-4732-a1f0-37d4615ccc88" name="Js ws adaptor"/>
+    <bl_module id="fd8755b6-7693-495c-b16d-7b7d8b9743e6" name="Data.BL"/>
+  </depends>
+
+  <load_after/>
+
+  <parameters/>
+
+  <resources/>
+
+  <preload/>
+
+</bl_module>

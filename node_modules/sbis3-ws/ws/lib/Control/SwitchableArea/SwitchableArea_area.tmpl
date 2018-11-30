@@ -1,0 +1,9 @@
+<div
+   class="ws-SwitchableArea__item{{defaultArea ? '' : ' ws-hidden'}}"
+   data-for="{{item.id}}"
+   data-name="items[{{index}}].content"
+>
+   <ws:if data="{{contentExistence && item.content}}">
+      <ws:partial template="{{item.content}}"/>
+   </ws:if>
+</div>

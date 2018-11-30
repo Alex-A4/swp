@@ -18,7 +18,6 @@
 /package-lock.json
 /ws-data
 /cdn
-/node_modules
 /typedef
 /themes/**/*.css
 /artifacts/*

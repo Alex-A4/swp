@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui_module id="e0ff8779-b7e5-4f88-a426-b5075c150286" name="Core" responsible="Мальцев А.А." version="1.00">
+
+  <description>Saby framework core</description>
+
+  <depends/>
+
+  <load_after/>
+
+  <parameters/>
+
+  <cluster_endpoints/>
+
+  <resources/>
+
+  <preload/>
+
+</ui_module>

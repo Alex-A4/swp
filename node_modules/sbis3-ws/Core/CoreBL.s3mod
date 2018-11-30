@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<bl_module id="58dad102-ede2-404c-9e9a-a0c0d22932b2" name="CoreBL" responsible="Мальцев А.А." version="1.00">
+
+  <description>Saby framework core</description>
+
+  <depends>
+    <bl_module id="40834678-523e-4732-a1f0-37d4615ccc88" name="Js ws adaptor"/>
+  </depends>
+
+  <load_after/>
+
+  <parameters/>
+
+  <resources/>
+
+</bl_module>

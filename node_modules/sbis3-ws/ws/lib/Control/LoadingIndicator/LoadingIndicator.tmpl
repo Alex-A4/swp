@@ -1,0 +1,39 @@
+<ws:template name="loadingIndicator">
+    <ws:if data="{{progressBar}}">
+        <span class="ws-LoadingIndicator__message ws-LoadingIndicator__message__progress-yes">{{message}}</span>
+        <div class="ws-progressbar-container"></div>
+    </ws:if>
+    <ws:else>
+        <div class="ws-loading">
+            <span class="ws-LoadingIndicator__loadingContainer">
+                <span class="ws-LoadingIndicator__message ws-LoadingIndicator__message__progress-no">{{message}}</span>
+                <div class="ws-loadingimg">
+                    <div if="{{isShowLoadingPicture}}">
+                        <img src="{{loadingPicture}}"/>
+                    </div>
+                </div>
+            </span>
+        </div>
+    </ws:else>
+</ws:template>
+
+<ws:if data="{{showInWindow}}">
+    <div>
+        <ws:partial 
+            template="loadingIndicator"
+            progressBar="{{progressBar}}" 
+            message="{{message}}" 
+            isShowLoadingPicture="{{isShowLoadingPicture}}" 
+            loadingPicture="{{loadingPicture}}"
+        />
+    </div>
+</ws:if>
+<ws:else>
+    <ws:partial 
+            template="loadingIndicator"
+            progressBar="{{progressBar}}" 
+            message="{{message}}" 
+            isShowLoadingPicture="{{isShowLoadingPicture}}" 
+            loadingPicture="{{loadingPicture}}"
+        />
+</ws:else>

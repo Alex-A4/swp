@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ui_module id="a857d050-c754-4d39-90ec-fca5e2ddf022" name="Router" package="WS" responsible="Zuev Dmitriy" version="1.00">
+
+  <description>Router for WaSaby</description>
+
+    <depends>
+      <bl_module id="e0ff8779-b7e5-4f88-a426-b5075c150286" name="Core"/>
+      <bl_module id="10efeac7-0f02-4c73-9474-0d1d0db077b6" name="View"/>
+      <bl_module id="0f5d26db-dd61-4957-9375-8861ad66f219" name="Vdom"/>
+    </depends>
+
+  <load_after/>
+
+  <parameters/>
+
+  <resources/>
+
+  <preload/>
+
+</ui_module>

@@ -1,0 +1,17 @@
+var markupGenerator = thelpers.getMarkupGenerator(isVdom);
+/*#DELETE IT START#*/
+if (typeof includedTemplates === "undefined") {
+   eval("var includedTemplates = undefined;");
+   includedTemplates = (this && this.includedTemplates) ? this.includedTemplates : {};
+}
+/*#DELETE IT END#*/
+try {
+   var out = markupGenerator.joinElements([/*#TEMPLATE_STRING#*/], key, defCollection);
+   if (defCollection.def) {
+      out = markupGenerator.chain(out, defCollection, attr);
+      defCollection = undefined;
+   }
+} catch (e) {
+   thelpers.templateError("/*#FILENAME#*/", e, data);
+}
+return out || markupGenerator.createText("");

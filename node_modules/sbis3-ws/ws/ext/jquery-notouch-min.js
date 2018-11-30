@@ -1,0 +1,2 @@
+/* jQuery noTouch. @author Глебский Роман Вадимович */
+(function(n){var t;if(!("ontouchstart"in window||"onmsgesturechange"in window&&"msMaxTouchPoints"in window.navigator&&window.navigator.msMaxTouchPoints)){var o=n.fn.on,e=n.fn.off,i=/(\s|^)(touchstart|touchmove|touchend)(?=(\s|$))/g,u=function(n){if("object"===typeof n[0])delete n[0].touchstart,delete n[0].touchmove,delete n[0].touchend;else if(n[0])n[0]=n[0].replace(i,"$1");return n};n.fn.on=function(){return o.apply(this,u(arguments))},n.fn.off=function(){return e.apply(this,u(arguments))}}})(jQuery);

@@ -1,0 +1,1 @@
+{func: (function() { var scope = Object.create(data); scope.viewController = viewController; var bindFn = /*#FUNC#*/.bind(scope); bindFn.toJSON = function () { return "TEMPLATEFUNCTOJSON="+/*#FUNCTOSTR#*/.toString();};return bindFn;})(),internal: /*#DIRTY#*/}

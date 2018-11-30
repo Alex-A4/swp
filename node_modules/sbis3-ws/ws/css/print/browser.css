@@ -1,0 +1,100 @@
+body{
+   margin: 0;
+   padding: 0;
+}
+
+.ws-browser{
+   width:100%;
+   border: 1px solid #555;
+   border-collapse: collapse;
+   font-family: Tahoma, serif;
+}
+
+.ws-browser-expander-container{
+   padding-right: 3px;
+   float:left;
+}
+
+.ws-browser-icon{
+   float:left;
+   width:16px;
+   height:16px;
+   background:transparent url('../../img/browser/tree_icons.gif') no-repeat
+}
+
+.ws-browser-icon.open{
+   background-position: 0 0;
+}
+
+.ws-browser-icon.close{
+   background-position: 0 -16px;
+}
+
+.ws-browser-icon.item{
+   background-position: 0 -32px;
+}
+
+.ws-browser-icon.plus{
+   background-position: 0 -48px;
+}
+.ws-browser-icon.plus:hover{
+   background-position: 0 -64px;
+}
+
+.ws-browser-icon.minus{
+   background-position: 0 -80px;
+}
+.ws-browser-icon.minus:hover{
+   background-position: 0 -96px;
+}
+
+.ws-browser-div-cut{
+   white-space: nowrap;
+   height:16px;
+   overflow: hidden;
+   -o-text-overflow: ellipsis;
+   text-overflow: ellipsis;
+}
+
+.ws-browser td div.ws-browser-cell-container{
+   line-height: 16px;
+}
+
+.ws-browser td div.ws-browser-cell-container{
+   line-height: 16px;
+   overflow-x: hidden;
+   overflow-y: hidden;
+   padding: 2px;
+}
+
+td{
+   border: 1px solid #555;
+}
+
+thead td{
+   font-weight: bold;
+   text-align: center;
+}
+
+thead td > span{
+   line-height: 20px;
+   height: 20px;
+}
+
+tr{
+   height:23px;
+}
+
+.ws-browser-type-numeric {
+   overflow: hidden;
+}
+
+.ws-browser-type-numeric,
+.ws-browser-type-money,
+.ws-browser-type-integer {
+   text-align: right;
+}
+
+.ws-hidden{
+   display:none;
+}

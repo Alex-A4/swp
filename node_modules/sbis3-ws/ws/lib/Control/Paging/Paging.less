@@ -1,0 +1,111 @@
+@import "../../../css/themes/wi_scheme/index";
+
+@pagingFontColor: #999999;
+@pagingActiveFontColor: #000;
+@pagingBorderBottomColor: #FF7033;
+
+.ws-browser-paging.ws-disabled .ws-paging-small, .ws-browser-paging.ws-disabled .ws-paging-small:hover{
+   color:#777;
+   background: none;
+   cursor: auto;
+}
+.ws-paging{
+   min-height: 27px;
+   .ws-paging-small{
+      display:inline-block;
+      font-size: @globalDefaultFontSize;
+      height: 20px;
+      padding: 0 9px;
+      line-height: 20px;
+      text-align: center;
+      color: @pagingFontColor;
+      vertical-align: bottom;
+      
+      &.ws-paging-active{
+         cursor: pointer;
+         &:not(.icon-16) {
+            &:hover{
+               border-bottom-color: #CCCCCC;
+            }
+            border-bottom: 3px solid transparent;
+            color: @pagingActiveFontColor;
+         }
+         border-color: transparent;
+         background-color: transparent;
+      }
+
+      &.ws-paging-prev,
+      &.ws-paging-next,
+      &.ws-paging-first,
+      &.ws-paging-end {
+         padding: 0 0px;
+         width: 16px;
+         &.ws-paging-active {
+            background-color: transparent;
+         }
+      }
+      &.ws-paging-next, 
+      &.ws-paging-end {
+         margin-right: 1px;
+      }
+
+      &.ws-paging-first {  
+         color: #ccc;
+         &:hover {
+            color: #ccc;
+         }
+         &.ws-paging-active {
+            color: #587AB0;
+            &:hover {
+               color: #313E78;
+            }
+         }
+      }
+
+      &.ws-paging-end {
+         padding-right: 6px;
+         color: #ccc;
+         &:hover {
+            color: #ccc;
+         }
+         &.ws-paging-active {
+            color: #587AB0;
+            &:hover {
+               color: #313E78;
+            }
+         }
+      }
+
+      &.ws-paging-prev {
+         color: #ccc;
+         &:hover {
+            color: #ccc;
+         }
+         &.ws-paging-active {
+            color: #587AB0;
+            &:hover {
+               color: #313E78;
+            }
+         }
+      }
+
+      &.ws-paging-next {
+         color: #ccc;
+         &:hover {
+            color: #ccc;
+         }
+         &.ws-paging-active {
+            color: #587AB0;
+            &:hover {
+               color: #313E78;
+            }
+         }
+      }
+
+      &.ws-paging-current{
+         color: @pagingActiveFontColor;
+         font-weight: normal;
+         border-bottom: 3px solid @pagingBorderBottomColor;
+      }
+   }
+}

@@ -1,0 +1,525 @@
+.ws-basic-style {
+   margin: 0;
+   padding: 0;
+   font-family: 'TensorFont', sans-serif;
+   font-size: 14px;
+   line-height: 18px;
+}
+
+.ws-fix-emoji .ws-basic-style {
+   font-family: 'EmojiFont', 'TensorFont';
+}
+
+.ws-basic-style > ul,
+.ws-basic-style div > ul,
+.ws-basic-style blockquote > ul,
+.ws-basic-style table td > ul,
+.ws-basic-style table tr > ul,
+.ws-basic-style .content-wrap > ul,
+.ws-basic-style > ol,
+.ws-basic-style div > ol,
+.ws-basic-style blockquote > ol,
+.ws-basic-style table td > ol,
+.ws-basic-style table tr > ol,
+.ws-basic-style .content-wrap > ol,
+.ws-basic-style > dl,
+.ws-basic-style table td > dl,
+.ws-basic-style table tr > dl,
+.ws-basic-style .content-wrap > dl {
+   margin: 6px 0 0 20px;
+   padding: 0 8px;
+   list-style-position: outside;
+   clear: both;
+}
+
+.ws-basic-style li,
+.ws-basic-style .content-wrap li {
+   margin-bottom: 6px;
+}
+
+.ws-basic-style > h1, .ws-basic-style > h2, .ws-basic-style > h3,
+.ws-basic-style > h4, .ws-basic-style > h5, .ws-basic-style > h6,
+.ws-basic-style .content-wrap > h1, .ws-basic-style .content-wrap > h2, .ws-basic-style .content-wrap > h3,
+.ws-basic-style .content-wrap > h4, .ws-basic-style .content-wrap > h5, .ws-basic-style .content-wrap > h6 {
+   margin: 6px 8px;
+   padding: 0;
+   font-weight: normal;
+}
+
+.ws-basic-style > h1,
+.ws-basic-style .content-wrap > h1 {
+   font-size: 18px;
+}
+
+.ws-basic-style > h2,
+.ws-basic-style .content-wrap > h2 {
+   font-size: 15px;
+}
+
+.ws-basic-style > h6,
+.ws-basic-style .content-wrap > h6 {
+   font-size: 12px;
+}
+
+.ws-basic-style > p, .ws-basic-style > pre, .ws-basic-style > div,
+.ws-basic-style .content-wrap > p, .ws-basic-style .content-wrap > pre, .ws-basic-style .content-wrap > div {
+   margin: 0 16px 6px 0; /* отступы у параграфов через padding родительского блока, 16px 6px  как в ws-editor-frame */
+}
+
+.ws-basic-style > pre {
+   white-space: pre-wrap;
+}
+
+.ws-basic-style img,
+.ws-basic-style table {
+   max-width: 100%;
+}
+
+.ws-basic-style img {
+   margin: 0 8px;
+}
+
+.ws-basic-style p img:first-child {
+   margin-left: 0;
+}
+/* Блок смайлов */
+img.ws-fre__smile {
+   width: 24px;
+   height: 18px;
+   margin: 0 0 -4px 0px;
+   outline: none;
+   background-image: url("/cdn/richeditor/26-01-2015/smiles.png");
+   text-align: center;
+   position: relative;
+}
+img.ws-fre__smile:after {
+   content: "\e6ba";
+   font-family: 'cbuc-icons' !important;
+   color: rgb(100, 100, 100);
+   position: absolute;
+   z-index: 2;
+   top: 0;
+   left: 0;
+   width: 100%;
+   height: 100%;
+   background-color: #fff;
+}
+img.ws-fre__smile.smileSmile {
+   background-position: 0 -2px;
+}
+img.ws-fre__smile.smileNerd {
+   background-position: 0 -26px;
+}
+img.ws-fre__smile.smileAngry {
+   background-position: 0 -50px;
+}
+img.ws-fre__smile.smileAnnoyed {
+   background-position: 0 -74px;
+}
+img.ws-fre__smile.smileBlind {
+   background-position: 0 -98px;
+}
+img.ws-fre__smile.smileCool {
+   background-position: 0 -122px;
+}
+img.ws-fre__smile.smileCry {
+   background-position: 0 -146px;
+}
+img.ws-fre__smile.smileDevil {
+   background-position: 0 -170px;
+}
+img.ws-fre__smile.smileDumb {
+   background-position: 0 -194px;
+}
+img.ws-fre__smile.smileInlove {
+   background-position: 0 -218px;
+}
+img.ws-fre__smile.smileKiss {
+   background-position: 0 -242px;
+}
+img.ws-fre__smile.smileLaugh {
+   background-position: 0 -266px;
+}
+img.ws-fre__smile.smileMoney {
+   background-position: 0 -290px;
+}
+img.ws-fre__smile.smileNeutral {
+   background-position: 0 -314px;
+}
+img.ws-fre__smile.smilePuzzled {
+   background-position: 0 -338px;
+}
+img.ws-fre__smile.smileRofl {
+   background-position: 0 -362px;
+}
+img.ws-fre__smile.smileSad {
+   background-position: 0 -386px;
+}
+img.ws-fre__smile.smileShocked {
+   background-position: 0 -410px;
+}
+img.ws-fre__smile.smileSnooze {
+   background-position: 0 -434px;
+}
+img.ws-fre__smile.smileTongue {
+   background-position: 0 -458px;
+}
+img.ws-fre__smile.smileWink {
+   background-position: 0 -482px;
+}
+img.ws-fre__smile.smileYawn {
+   background-position: 0 -506px;
+}
+
+.ws-basic-style table {
+   margin: auto;
+   border:1px solid #EAEAEA;
+   border-spacing: 0;
+   border-collapse: collapse;
+}
+
+.ws-basic-style td {
+   padding: 1px;
+   border:1px solid #EAEAEA;
+}
+
+
+.ws-basic-style a {
+   color: #313E78;
+   outline: none;
+   text-decoration: none;
+}
+.ws-basic-style a:hover {
+   text-decoration: underline;
+   color: #0055BB;
+}
+
+.ws-basic-style blockquote {
+   border-left: 1px #587AB0 solid;
+   padding-left: 8px;
+   padding-right: 0;
+   margin: 0 16px 6px 40px;
+   clear: both;
+   position: relative;
+}
+
+.ws-basic-style blockquote p {
+   margin: 0 0 6px;
+}
+
+.ws-basic-style .titleText {
+   font-size: 18px;
+   line-height: 23px;
+   color: #313E78;
+   font-weight: bold;
+}
+
+.ws-basic-style .subTitleText {
+   font-size: 15px;
+   line-height: 19px;
+   color: #313E78;
+   font-weight: bold;
+}
+/*Чтобы не обрезались смайлы*/
+.ws-basic-style span[style *= "font-size: 18px;"] {
+   line-height: 23px;
+}
+.ws-basic-style .selectedMainText {
+   font-weight: bold;
+}
+
+.ws-basic-style .additionalText {
+   font-size: 12px;
+   line-height: 15px;
+   color: #999999;
+}
+
+.ws-basic-style blockquote:before {
+   position: absolute;
+   content: url('img/blockquote.png');
+   margin-left: -32px;
+   height: 16px;
+   width: 24px;
+}
+
+.ws-basic-style blockquote:after {
+   content: '';
+   display: block;
+   height: 0;
+   line-height: 0;
+   clear: both;
+   visibility: hidden;
+}
+
+.ws-basic-style .ws-smile {
+   color: #587ab0 !important;
+   display: inline-block;
+   outline: none !important;
+   font-weight: normal !important;
+   font-style: normal !important;
+}
+
+.ws-is-desktop-platform .ws-basic-style .ws-smile {
+   font-size: 16px;
+   line-height: 16px;
+   padding: 0 2px;
+}
+
+.ws-basic-style .LinkDecorator img {
+   margin: 0;
+   min-width: 202px;
+   height: 78px;
+   background-image: url('img/link.png');
+   background-repeat: no-repeat;
+}
+.ws-basic-style .image-template-left {
+   float:left;
+   margin: 6px 8px 6px 0;
+}
+.ws-basic-style .image-template-right {
+   float:right;
+   margin: 6px 0 6px 8px;
+}
+.ws-basic-style p img.image-template-right:first-child {
+   margin-left: 8px;
+}
+.ws-basic-style .image-template-center {
+   text-align: center;
+}
+.ws-basic-style .without-margin {
+   margin-bottom: 0;
+}
+.ws-basic-style .LinkDecorator__link {
+   display: inline-block;
+   max-width: 100%;
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+   padding-bottom: 4px;
+}
+
+.ws-basic-style .LinkDecorator__decoratedLink {
+   display: block;
+   box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+   height: 48px;
+   min-width: 350px;
+   background-color: #F9F9F9;;
+}
+.ws-basic-style .LinkDecorator__wrap {
+   display: block;
+   height: 52px;
+   max-width:100%;
+   overflow: hidden;
+   padding-right: 2px;
+}
+.ws-basic-style .LinkDecorator__linkWrap {
+   display: inline-block;
+   line-height:0;
+   height: 48px;
+   background-color: #F9F9F9;
+   box-shadow: 0 2px 2px rgba(0,0,0,.5);
+   position:relative;
+   min-width: 162px; /* чтобы влезло в панель вебинара */
+   overflow: hidden;
+   max-width: 100%;
+}
+.ws-basic-style .LinkDecorator__image {
+   margin: 0;
+   max-width: 538px;
+   pointer-events: none;
+}
+.ws-basic-style .LinkDecorator__image:before {
+   display: none;
+}
+.ws-basic-style .LinkDecorator__linkWrap:after {
+   content: '';
+   position: absolute;
+   right: 0;
+   top: 0;
+   height: 100%;
+   width: 30px;
+   background: -moz-linear-gradient(left,rgba(249,249,249,0) 0,rgba(249,249,249,1) 100%);
+   background: -webkit-gradient(linear,left top,right top,color-stop(0,rgba(249,249,249,0)),color-stop(100%,rgba(249,249,249,1)));
+   background: -webkit-linear-gradient(left,rgba(249,249,249,0) 0,rgba(249,249,249,1) 100%);
+   background: -o-linear-gradient(left,rgba(249,249,249,0) 0,rgba(249,249,249,1) 100%);
+   background: -ms-linear-gradient(left,rgba(249,249,249,0) 0,rgba(249,249,249,1) 100%);
+   background: linear-gradient(to right,rgba(249,249,249,0) 0,rgba(249,249,249,1) 100%);
+   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr=argb(rgba(249,249,249,0)), endColorstr=argb(rgba(249,249,249,1)), GradientType=1);
+}
+.ws-basic-style code[class*="language-"] {
+   color: black;
+   text-shadow: 0 1px white;
+   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+   direction: ltr;
+   text-align: left;
+   white-space: pre;
+   word-spacing: normal;
+   word-break: normal;
+   word-wrap: normal;
+   line-height: 1.5;
+   -moz-tab-size: 4;
+   -o-tab-size: 4;
+   tab-size: 4;
+   -webkit-hyphens: none;
+   -moz-hyphens: none;
+   -ms-hyphens: none;
+   hyphens: none;
+   border: 1px solid #EAEAEA;
+}
+.ws-basic-style code[class*="language-"]::-moz-selection {
+   text-shadow: none;
+   background: #b3d4fc;
+}
+.ws-basic-style code[class*="language-"]::selection {
+   text-shadow: none;
+   background: #b3d4fc;
+}
+.ws-basic-style pre[class*="language-"] {
+   color: black;
+   text-shadow: 0 1px white;
+   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
+   direction: ltr;
+   text-align: left;
+   white-space: pre;
+   word-spacing: normal;
+   word-break: normal;
+   word-wrap: normal;
+   line-height: 1.5;
+   -moz-tab-size: 4;
+   -o-tab-size: 4;
+   tab-size: 4;
+   -webkit-hyphens: none;
+   -moz-hyphens: none;
+   -ms-hyphens: none;
+   hyphens: none;
+   border: 1px solid #EAEAEA;
+   padding: 1em;
+   margin: .5em 0;
+   overflow: auto;
+}
+.ws-basic-style pre[class*="language-"]::-moz-selection {
+   text-shadow: none;
+   background: #b3d4fc;
+}
+.ws-basic-style pre[class*="language-"]::selection {
+   text-shadow: none;
+   background: #b3d4fc;
+}
+.ws-basic-style:not(pre) > code[class*="language-"] {
+   padding: .1em;
+   border-radius: .3em;
+}
+.ws-basic-style .token.comment {
+   color: slategray;
+}
+.ws-basic-style .token.prolog {
+   color: slategray;
+}
+.ws-basic-style .token.doctype {
+   color: slategray;
+}
+.ws-basic-style .token.cdata {
+   color: slategray;
+}
+.ws-basic-style .token.punctuation {
+   color: #999;
+}
+.ws-basic-style .namespace {
+   opacity: .7;
+}
+.ws-basic-style .token.property {
+   color: #905;
+}
+.ws-basic-style .token.tag {
+   color: #905;
+}
+.ws-basic-style .token.boolean {
+   color: #905;
+}
+.ws-basic-style .token.number {
+   color: #905;
+}
+.ws-basic-style .token.constant {
+   color: #905;
+}
+.ws-basic-style .token.symbol {
+   color: #905;
+}
+.ws-basic-style .token.deleted {
+   color: #905;
+}
+.ws-basic-style .token.selector {
+   color: #690;
+}
+.ws-basic-style .token.attr-name {
+   color: #690;
+}
+.ws-basic-style .token.string {
+   color: #690;
+}
+.ws-basic-style .token.char {
+   color: #690;
+}
+.ws-basic-style .token.builtin {
+   color: #690;
+}
+.ws-basic-style .token.inserted {
+   color: #690;
+}
+.ws-basic-style .token.operator {
+   color: #a67f59;
+   background: rgba(255, 255, 255, 0.5);
+}
+.ws-basic-style .token.entity {
+   color: #a67f59;
+   background: rgba(255, 255, 255, 0.5);
+   cursor: help;
+}
+.ws-basic-style .token.url {
+   color: #a67f59;
+   background: rgba(255, 255, 255, 0.5);
+}
+.ws-basic-style .language-css .token.string {
+   color: #a67f59;
+   background: rgba(255, 255, 255, 0.5);
+}
+.ws-basic-style .style .token.string {
+   color: #a67f59;
+   background: rgba(255, 255, 255, 0.5);
+}
+.ws-basic-style .token.atrule {
+   color: #07a;
+}
+.ws-basic-style .token.attr-value {
+   color: #07a;
+}
+.ws-basic-style .token.keyword {
+   color: #07a;
+}
+.ws-basic-style .token.function {
+   color: #DD4A68;
+}
+.ws-basic-style .token.regex {
+   color: #e90;
+}
+.ws-basic-style .token.important {
+   color: #e90;
+   font-weight: bold;
+}
+.ws-basic-style .token.variable {
+   color: #e90;
+}
+.ws-basic-style .token.bold {
+   font-weight: bold;
+}
+.ws-basic-style .token.italic {
+   font-style: italic;
+}
+@media print {
+   .ws-basic-style code[class*="language-"] {
+      text-shadow: none;
+   }
+   .ws-basic-style pre[class*="language-"] {
+      text-shadow: none;
+   }
+}

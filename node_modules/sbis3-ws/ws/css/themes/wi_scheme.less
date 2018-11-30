@@ -1,0 +1,207 @@
+@import "wi_scheme/index";
+
+/** Глобально отключаем аутлайн */
+*{
+   outline: none;
+}
+
+.ws-color-gray {
+	color: #999999;
+}
+
+// TODO: Нельзя вынести в Label, т.к. люди вешают этот класс просто на div. Без контрола
+.ws-field-label label span {
+  font-size: @globalDefaultFontSize;
+  font-family: @globalFontFamily;
+  color: #999999;
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: middle;
+  height: 100%;
+  display: block;
+}
+
+.ws-Label{
+   >.ws-Label-content {
+      display: inline-block;
+   }
+
+   &.ws-Label-ws-control {
+      vertical-align: top;
+      > .ws-Label-title {
+         position: relative;
+         top: 3px;
+         vertical-align: top;
+      }
+   }
+   &.ws-Label-titleTop {
+      > .ws-Label-title {
+         display: block;
+         top: 0;
+         padding-bottom: 3px;
+      }
+   }
+
+   &.ws-Label-titleLeft {
+      > .ws-Label-title {
+         margin-right: 8px;
+      }
+   }
+
+   &.ws-Label-titleRight {
+      > .ws-Label-title {
+        margin-left: 8px;
+      }
+   }
+
+   > .ws-Label-title{
+      font-size: @globalDefaultFontSize;
+      font-family: @globalFontFamily;
+      color: #999999;
+      font-style: normal;
+      font-weight: normal;
+
+      > .ws-Label-icon {
+         vertical-align: sub;
+      }
+   }
+}
+
+.ws-ajax-loader-16 {
+  width: 16px;
+  height: 16px;
+  background: transparent url("../../img/themes/wi_scheme/ajax-loader-16x16-wheel.gif") 0 0 no-repeat;
+}
+
+.ws-inline-ajax-loader-16 {
+   display: inline-block;
+   line-height: 16px;
+   height: 16px;
+   background: transparent url("../../img/themes/wi_scheme/ajax-loader-16x16-wheel.gif") 0 0 no-repeat;
+   padding-left: 20px;
+   font-style: normal;
+}
+
+.ws-subtitle{
+   font-style: @globalFontFamily;
+   font-size: 17px;
+   color: #000;
+}
+
+.ws-ellipsis{
+   overflow: hidden;
+   text-overflow: ellipsis;
+   white-space: nowrap;
+}
+
+.ws-separator {
+   font-family: @globalFontFamily;
+   color: #313E78;
+   font-size: 18px;
+   height: 32px;
+   line-height: 32px;
+   width: 100%;
+   font-weight: bold;
+
+   &.ws-separator-marker {
+      &:before {
+         width: 8px;
+         color: #FF7033;
+         font-family: @globalFontFamily;
+         font-weight: normal;
+         font-style: normal;
+         content: '\e002';
+         float: left;
+         margin-left: 8px;
+      }
+      &.ws-separator-marker__expanded {
+         &:before {
+            content: '\e003';
+         }
+      }
+   }
+
+   &.ws-separator-line {
+      &:after {
+         content: '';
+         top: 15px;
+         height: 1px;
+         position: relative;
+         background-color: #CCCCCC;
+         display: block;
+         overflow: hidden;
+      }
+   }
+
+   >div,>span,>a {
+      margin: 0px 0 0 4px;
+      float: left;
+   }
+
+   >a {
+      font-family: @globalFontFamily;
+      color: #313E78;
+   }
+
+   >a:hover {
+      color: rgb(255, 112, 51);
+      text-decoration: none;
+   }
+}
+
+.ws-caption {
+  &,
+  & .ws-field,
+  & .ws-editAtPlace {
+    font: bold 18px @globalFontFamily;
+    text-decoration: none;
+    color: #000;
+  }
+
+  & .ws-editAtPlace .ws-tooltip-container {
+    line-height: 16px\9;
+  }
+}
+
+.ws-hover-bg {
+   background: @globalHoverColor;
+}
+
+.ws-standartLink{
+  font-size: @globalDefaultFontSize;
+  font-family: @globalFontFamily;
+  color: @globalDefaultLabelColor !important;
+  cursor: pointer;
+  text-decoration: underline;
+
+  &:hover{
+    color: @globalControlsHoverColor !important;
+  }
+  & .asLink {
+     text-decoration: underline !important;
+  }
+}
+.ws-minorLink{
+  font-size: @globalDefaultFontSize;
+  font-family: @globalFontFamily;
+  color: @globalEditAtPlaceBottomColor !important;
+  cursor: pointer;
+  text-decoration: none !important;
+
+  &:hover{
+    color: @globalHoverColor !important;
+    text-decoration: underline !important;
+  }
+}
+.ws-autoFillLink{
+  font-size: @globalDefaultFontSize;
+  font-family: @globalFontFamily;
+  color: @globalDefaultColor !important;
+  cursor: pointer;
+  text-decoration: none !important;
+
+  &:hover{
+    color: @globalDefaultColor !important;
+    text-decoration: underline !important;
+  }
+}

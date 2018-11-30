@@ -1,0 +1,1 @@
+require(['Core/core-min']);

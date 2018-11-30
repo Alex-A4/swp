@@ -1,0 +1,13 @@
+(function customForTemplate() {
+   var out = [];
+   data.viewController = viewController;
+   (function customForTemplateScope() {
+      var templateCount = 0,
+         contextInput = key+'_'+(forCounter++),
+         itCount = 0;
+      for(/*#START_FROM#*/;/*#CUSTOM_CONDITION#*/;/*#CUSTOM_ITERATOR#*/) {
+         /*#PROCESSED_BLOCK#*/
+      }
+   }).call(data);
+   return out;
+})(),

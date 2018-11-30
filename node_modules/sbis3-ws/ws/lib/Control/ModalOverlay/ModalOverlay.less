@@ -1,0 +1,13 @@
+.ws-window-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.ws-is-mobile-chrome-ios .ws-window-overlay, .ws-is-mobile-safari .ws-window-overlay {
+  top: -1000%;
+  height: 2000%;
+}

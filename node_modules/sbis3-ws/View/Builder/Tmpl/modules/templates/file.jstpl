@@ -1,0 +1,13 @@
+define('__EXTMODULE__!/*#MODULENAME#*/', /*#DEPS#*/, function(thelpers){
+   function debug() { debugger; }
+   var deps=Array.prototype.slice.call(arguments);
+   var depsLocal = {};
+   var includedTemplates = {};
+   /*#DEPSTOLOCALVAR#*/
+   /*#INCLUDEDFUNC#*/
+   /*#TEMPLATEFUNC#*/
+   var templateFunction = /*#FUNCTION#*/;
+   templateFunction.stable = true;
+   templateFunction.toJSON = function() {return {$serialized$: 'func', module: 'wml!/*#MODULENAME#*/'}};
+   return templateFunction;
+});
