@@ -1,0 +1,30 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-FilterDropdown {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  aling-items: center;
+}
+.controls-FilterDropdown__text {
+  color: #313e78;
+}
+.ws-is-no-touch .controls-FilterDropdown__text:hover {
+  text-decoration: underline;
+}
+.controls-FilterDropdown__text:active {
+  text-decoration: underline;
+}
+.controls-FilterDropdown__reset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-item-align: center;
+      align-self: center;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  width: 16px;
+  height: 16px;
+  font-family: 'cbuc-icons' !important;
+  cursor: pointer;
+}

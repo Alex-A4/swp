@@ -1,0 +1,49 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-operationsPanelV {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  overflow: hidden;
+  white-space: nowrap;
+  background-color: #e5ecf5;
+  position: relative;
+  height: 30px;
+}
+.controls-operationsPanelV__rightTemplate {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin: 0 8px 0 0;
+}
+.controls-operationsPanelV__actions {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  overflow: hidden;
+  margin: 0 12px;
+}
+.controls-operationsPanelV__item {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.controls-operationsPanelV__item_titleWithIcon {
+  padding-left: 6px;
+}

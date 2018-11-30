@@ -1,0 +1,167 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+/** Глобально отключаем аутлайн */
+* {
+  outline: none;
+}
+.ws-color-gray {
+  color: #999999;
+}
+.ws-field-label label span {
+  font-size: 14px;
+  font-family: 'TensorFont', sans-serif;
+  color: #999999;
+  font-style: normal;
+  font-weight: normal;
+  vertical-align: middle;
+  height: 100%;
+  display: block;
+}
+.ws-Label > .ws-Label-content {
+  display: inline-block;
+}
+.ws-Label.ws-Label-ws-control {
+  vertical-align: top;
+}
+.ws-Label.ws-Label-ws-control > .ws-Label-title {
+  position: relative;
+  top: 3px;
+  vertical-align: top;
+}
+.ws-Label.ws-Label-titleTop > .ws-Label-title {
+  display: block;
+  top: 0;
+  padding-bottom: 3px;
+}
+.ws-Label.ws-Label-titleLeft > .ws-Label-title {
+  margin-right: 8px;
+}
+.ws-Label.ws-Label-titleRight > .ws-Label-title {
+  margin-left: 8px;
+}
+.ws-Label > .ws-Label-title {
+  font-size: 14px;
+  font-family: 'TensorFont', sans-serif;
+  color: #999999;
+  font-style: normal;
+  font-weight: normal;
+}
+.ws-Label > .ws-Label-title > .ws-Label-icon {
+  vertical-align: sub;
+}
+.ws-ajax-loader-16 {
+  width: 16px;
+  height: 16px;
+  background: transparent url("../../img/themes/wi_scheme/ajax-loader-16x16-wheel.gif") 0 0 no-repeat;
+}
+.ws-inline-ajax-loader-16 {
+  display: inline-block;
+  line-height: 16px;
+  height: 16px;
+  background: transparent url("../../img/themes/wi_scheme/ajax-loader-16x16-wheel.gif") 0 0 no-repeat;
+  padding-left: 20px;
+  font-style: normal;
+}
+.ws-subtitle {
+  font-style: 'TensorFont', sans-serif;
+  font-size: 17px;
+  color: #000;
+}
+.ws-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.ws-separator {
+  font-family: 'TensorFont', sans-serif;
+  color: #313E78;
+  font-size: 18px;
+  height: 32px;
+  line-height: 32px;
+  width: 100%;
+  font-weight: bold;
+}
+.ws-separator.ws-separator-marker:before {
+  width: 8px;
+  color: #FF7033;
+  font-family: 'TensorFont', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  content: '\e002';
+  float: left;
+  margin-left: 8px;
+}
+.ws-separator.ws-separator-marker.ws-separator-marker__expanded:before {
+  content: '\e003';
+}
+.ws-separator.ws-separator-line:after {
+  content: '';
+  top: 15px;
+  height: 1px;
+  position: relative;
+  background-color: #CCCCCC;
+  display: block;
+  overflow: hidden;
+}
+.ws-separator > div,
+.ws-separator > span,
+.ws-separator > a {
+  margin: 0px 0 0 4px;
+  float: left;
+}
+.ws-separator > a {
+  font-family: 'TensorFont', sans-serif;
+  color: #313E78;
+}
+.ws-separator > a:hover {
+  color: #ff7033;
+  text-decoration: none;
+}
+.ws-caption,
+.ws-caption .ws-field,
+.ws-caption .ws-editAtPlace {
+  font: bold 18px 'TensorFont', sans-serif;
+  text-decoration: none;
+  color: #000;
+}
+.ws-caption .ws-editAtPlace .ws-tooltip-container {
+  line-height: 16px\9;
+}
+.ws-hover-bg {
+  background: #ff7033;
+}
+.ws-standartLink {
+  font-size: 14px;
+  font-family: 'TensorFont', sans-serif;
+  color: #999999 !important;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.ws-standartLink:hover {
+  color: #313E78 !important;
+}
+.ws-standartLink .asLink {
+  text-decoration: underline !important;
+}
+.ws-minorLink {
+  font-size: 14px;
+  font-family: 'TensorFont', sans-serif;
+  color: #CCCCCC !important;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+.ws-minorLink:hover {
+  color: #ff7033 !important;
+  text-decoration: underline !important;
+}
+.ws-autoFillLink {
+  font-size: 14px;
+  font-family: 'TensorFont', sans-serif;
+  color: #000000 !important;
+  cursor: pointer;
+  text-decoration: none !important;
+}
+.ws-autoFillLink:hover {
+  color: #000000 !important;
+  text-decoration: underline !important;
+}

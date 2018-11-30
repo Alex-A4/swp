@@ -1,0 +1,101 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.ws-browser-scrollbar {
+  position: absolute;
+  right: 0;
+  background-color: #cccccc;
+  overflow: hidden;
+  overflow-y: scroll;
+  width: 17px;
+}
+.ws-ajax-loader-16 {
+  position: absolute;
+}
+.ws-suggest-clear {
+  background: transparent url('resources/images/fieldLink-clear-sprite.png') no-repeat;
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  cursor: pointer;
+  display: none;
+}
+.ws-suggest-clear:hover {
+  background-position: 0 -16px;
+}
+.ws-suggest-container {
+  position: absolute;
+  font-size: 12px;
+  border: 1px solid #E4E4E4;
+  background: #fff;
+  border-radius: 2px;
+  bottom: auto !important;
+}
+.ws-suggest-container .ws-suggest-hasmore {
+  padding: 3px 3px 5px 8px;
+  font-size: 14px;
+  z-index: 10000;
+  font-family: 'TensorFont', sans-serif;
+}
+.ws-suggest-container .ws-suggest-hasmore .ws-suggest-hasmore-link {
+  color: #0055bb;
+  cursor: pointer;
+}
+.ws-suggest-container .ws-suggest-hasmore:hover .ws-suggest-hasmore-link {
+  color: #ff7033;
+  text-decoration: underline;
+}
+.ws-suggest-container.ws-suggest-withMaxHeight .ws-browser-data-container {
+  position: static !important;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser .ws-browser-selection-none tbody tr:hover .ws-browser-cell {
+  background-color: white !important;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser.ws-browser-hasZebra tbody tr.ws-browser-no-table-row-last > .ws-browser-cell {
+  border-bottom: 0 !important;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser tbody tr.ws-browser-table-row {
+  background-color: white;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser tbody tr.ws-browser-table-row.rE {
+  background-color: white;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser .ws-browser-item-over {
+  background-color: white;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser .ws-browser-item-over.rE {
+  background-color: white;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser-container .ws-browser-empty-scroller {
+  height: 0 !important;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser-selected {
+  background: white ! important;
+}
+.ws-suggest-container .ws-suggest-browser.ws-browser-selection-none tbody tr.ws-browser-table-row .ws-browser-cell:hover,
+.ws-suggest-container .ws-suggest-browser.ws-browser-selection-none tbody tr.ws-browser-table-row:hover .ws-browser-cell {
+  background-color: white ! important;
+}
+.ws-suggest-container .ws-suggest-browser.ws-browser-selection-none tbody tr.ws-browser-table-row.ws-browser-table-row.ws-browser-row-hover .ws-browser-cell,
+.ws-suggest-container .ws-suggest-browser.ws-browser-selection-none tbody tr.ws-browser-table-row.ws-browser-table-row:hover .ws-browser-cell {
+  background-color: white ! important;
+}
+.ws-suggest-container .ws-suggest-browser .ws-browser-empty,
+.ws-suggest-container .ws-suggest-browser .ws-browser-container-wrapper {
+  min-height: 0 !important;
+  border-top: none;
+}
+.ws-suggest-container .ws-suggest-browser .ws-suggest-history-separator {
+  color: #999999;
+  font-size: 14px;
+  margin-top: -2px !important;
+}
+.ws-suggest-container .ws-suggest-browser .ws-suggest-addMore {
+  margin: 0 0 0 10px;
+  width: auto !important;
+}
+.ws-suggest-container .ws-suggest-browser .ws-suggest-addMoreContainer {
+  height: 26px;
+}
+.ws-suggest-history-block .ws-browser-container-wrapper-zebra {
+  border-top-width: 0;
+}

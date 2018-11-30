@@ -1,0 +1,28 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-DigitButtons__ellipsis {
+  width: 24px;
+  color: #000;
+  background-color: #ffffff;
+  font-size: 14px;
+}
+.controls-DigitButtons__digit {
+  border-style: solid;
+  border-width: 0 0 3px 0;
+  min-width: 28px;
+  background-color: #ffffff;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #000;
+  font-size: 14px;
+}
+.ws-is-no-touch .controls-DigitButtons__digit:hover {
+  background-color: #F0F5FB;
+}
+.controls-DigitButtons__digit__unselected {
+  border-color: transparent;
+}
+.controls-DigitButtons__digit__selected {
+  border-color: #ff7033;
+}

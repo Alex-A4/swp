@@ -1,0 +1,1 @@
+/home/alexa4/JavaScript/Tensor/swp/File/ResourceGetter/PhotoCam/DialogAbstract.ts

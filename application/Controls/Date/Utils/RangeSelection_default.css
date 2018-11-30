@@ -1,0 +1,85 @@
+.controls-RangeSelection__selection-start-base,
+.controls-RangeSelection__selection-start-hovered,
+.controls-RangeSelection__selection-inner,
+.controls-RangeSelection__selection-end-base,
+.controls-RangeSelection__selection-end-hovered,
+.controls-RangeSelection__selection-start-base-hovered,
+.controls-RangeSelection__selected-start,
+.controls-RangeSelection__selected-inner,
+.controls-RangeSelection__selected-end {
+  outline: #8991A9 solid 1px;
+}
+.controls-RangeSelection__selection-start-base,
+.controls-RangeSelection__selection-start-hovered,
+.controls-RangeSelection__selection-end-base,
+.controls-RangeSelection__selection-end-hovered,
+.controls-RangeSelection__selection-start-base-hovered,
+.controls-RangeSelection__selected-start,
+.controls-RangeSelection__selected-end {
+  font-weight: bold;
+}
+.controls-RangeSelection__selected-start,
+.controls-RangeSelection__selected-inner,
+.controls-RangeSelection__selected-end,
+.controls-RangeSelection__selection-inner,
+.controls-RangeSelection__selected-start-end {
+  background-color: #F0F5FB;
+}
+.controls-RangeSelection__selected-start,
+.controls-RangeSelection__selected-start-hovered,
+.controls-RangeSelection__selection-start-base,
+.controls-RangeSelection__selection-start-base-hovered,
+.controls-RangeSelection__selected-start-end,
+.controls-RangeSelection__selected-start-end-hovered {
+  position: relative;
+}
+.controls-RangeSelection__selected-start:before,
+.controls-RangeSelection__selected-start-hovered:before,
+.controls-RangeSelection__selection-start-base:before,
+.controls-RangeSelection__selection-start-base-hovered:before,
+.controls-RangeSelection__selected-start-end:before,
+.controls-RangeSelection__selected-start-end-hovered:before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  background-color: #0055BB;
+  top: 0;
+  left: -1px;
+}
+.controls-RangeSelection__selected-end,
+.controls-RangeSelection__selected-end-hovered,
+.controls-RangeSelection__selection-end-base,
+.controls-RangeSelection__selected-start-end,
+.controls-RangeSelection__selected-start-end-hovered {
+  position: relative;
+}
+.controls-RangeSelection__selected-end:after,
+.controls-RangeSelection__selected-end-hovered:after,
+.controls-RangeSelection__selection-end-base:after,
+.controls-RangeSelection__selected-start-end:after,
+.controls-RangeSelection__selected-start-end-hovered:after {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 3px;
+  background-color: #0055BB;
+  top: 0;
+  right: -1px;
+}
+.controls-RangeSelection__selection-start-hovered,
+.controls-RangeSelection__selection-end-hovered,
+.controls-RangeSelection__selected-start-hovered,
+.controls-RangeSelection__selected-inner-hovered,
+.controls-RangeSelection__selected-start-end-hovered {
+  background-color: #E6ECFA;
+}
+.controls-RangeSelection__selection-start-base,
+.controls-RangeSelection__selection-end-base,
+.controls-RangeSelection__selection-start-base-hovered {
+  background-color: #E5ECFA;
+}
+.controls-RangeSelection__hovered {
+  background-color: #E6ECFA;
+  outline: #8991A9 solid 1px;
+}

@@ -1,0 +1,685 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.ws-Block {
+  position: relative;
+  border: 3px solid #eaeaea;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  /**
+    * TODO: pointer-events работает в ie начиная с 11 версии.
+    * Поэтому живем в ie10 без тени на блоках.
+    * Убрать body:not(.ws-is-ie10), когда откажемся от e10.
+    */
+  /*&Separator {
+      width: 100%;
+      height: @height_BlockSeparator;
+      background: @bg_BlockSeparator;
+   }*/
+}
+.ws-Block_style_1 {
+  background-color: #ffffff;
+}
+.ws-Block_style_2 {
+  background-color: #F8F8F8;
+}
+.ws-Block_style_3 {
+  background-color: #FBF9F7;
+}
+.ws-Block_style_4 {
+  background-color: #F7F4F0;
+}
+.ws-Block_style_5 {
+  background-color: #F4F9FD;
+}
+.ws-Block_style_6 {
+  background-color: #F0F5FB;
+}
+body:not(.ws-is-ie10) .ws-Block:after {
+  content: '';
+  position: absolute;
+  pointer-events: none;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  border: 0px solid transparent;
+  border-radius: 0px;
+  -webkit-box-shadow: transparent;
+          box-shadow: transparent;
+}
+.ws-BlockLayout {
+  overflow: hidden;
+  background-color: #eaeaea;
+}
+.ws-BlockLayout > .ws-BlockGroup {
+  margin-left: -3px;
+  margin-right: -3px;
+}
+.ws-BlockLayout > .ws-BlockGroup:first-of-type {
+  margin-top: -3px;
+}
+.ws-BlockLayout > .ws-BlockGroup:last-of-type {
+  margin-bottom: -3px;
+}
+.ws-BlockLayout_detached {
+  padding-top: 6px;
+}
+.ws-header_size_h2 {
+  display: inline-block;
+  font-size: 20px;
+  height: 24px;
+  line-height: 24px;
+  font-family: 'TensorFont', sans-serif;
+}
+.ws-header_size_h3 {
+  display: inline-block;
+  font-size: 18px;
+  height: 24px;
+  line-height: 24px;
+  font-family: 'TensorFont', sans-serif;
+}
+.ws-header_size_h6 {
+  display: inline-block;
+  font-size: 15px;
+  height: 24px;
+  line-height: 24px;
+  font-family: 'TensorFont', sans-serif;
+}
+.ws-header_size_h7 {
+  display: inline-block;
+  font-size: 14px;
+  height: 24px;
+  line-height: 24px;
+  font-family: 'TensorFont', sans-serif;
+}
+.ws-header_color_accent1 {
+  color: #313E78;
+}
+.ws-header_color_accent2 {
+  color: #D94700;
+}
+body:not(.ws-is-mobile-platform) .ws-header_color-hover_accent1:hover {
+  cursor: pointer;
+  color: #0055BB;
+}
+body:not(.ws-is-mobile-platform) .ws-header_color-hover_accent2:hover {
+  cursor: pointer;
+  color: #ff7033;
+}
+.ws-header_size_weight {
+  font-weight: 700;
+}
+.ws-backArrow_color_accent1:before {
+  content: url('/resources/Controls-theme/themes/default/img/BackArrowOrange.svg');
+}
+.ws-backArrow_color_accent2:before {
+  content: url('/resources/Controls-theme/themes/default/img/BackArrowBlue.svg');
+}
+.ws-forwardArrow:after {
+  content: url('/resources/Controls-theme/themes/default/img/ForwarArrow.svg');
+  padding-left: 10px;
+}
+.ws-backArrow_size_h6:before {
+  display: inline-block;
+  width: 9px;
+  height: 11px;
+}
+.ws-backArrow_size_h3:before {
+  display: inline-block;
+  width: 9px;
+  height: 12px;
+}
+.ws-backArrow_size_h2:before {
+  display: inline-block;
+  width: 10px;
+  height: 14px;
+}
+/**
+Каскады ниже норма. Связано с неправильной реализацией заголовков. Одни класс не должен менять вид разных контролов.
+Контролы должны вешать нужные на себя классы.
+На новых контролах будут сделаны одноуровневые селекторы, которые будут использоваться теми контролами, которые должны
+иметь вид заголовков.
+ */
+.ws-header,
+.controls-Link.ws-header {
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'TensorFont', sans-serif;
+  color: #D94700;
+  height: 32px;
+  line-height: 32px;
+}
+body.ws-is-desktop-platform .ws-header:hover,
+body.ws-is-desktop-platform .controls-Link.ws-header:hover {
+  color: #D94700;
+}
+.ws-bigHeader {
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 12px;
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'TensorFont', sans-serif;
+  color: #D94700;
+  height: 32px;
+  line-height: 32px;
+}
+body.ws-is-desktop-platform .ws-bigHeader:hover {
+  color: #D94700;
+}
+.ws-subheader,
+.controls-Link.ws-subheader {
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 12px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'TensorFont', sans-serif;
+  color: #313E78;
+  height: 32px;
+  line-height: 32px;
+}
+body.ws-is-desktop-platform .ws-subheader:hover,
+body.ws-is-desktop-platform .controls-Link.ws-subheader:hover {
+  color: #313E78;
+}
+.ws-bigSubheader,
+.controls-Link.ws-bigSubheader {
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'TensorFont', sans-serif;
+  color: #313E78;
+  height: 32px;
+  line-height: 32px;
+}
+body.ws-is-desktop-platform .ws-bigSubheader:hover,
+body.ws-is-desktop-platform .controls-Link.ws-bigSubheader:hover {
+  color: #313E78;
+}
+.ws-splitter.ws-linkHeader {
+  padding-right: 0;
+}
+.ws-splitter:before {
+  content: '|';
+  float: right;
+  margin: 0 0 0 8px;
+  color: #F4F4F4;
+}
+.ws-linkHeader,
+.controls-Link.ws-linkHeader {
+  display: inline-block;
+  padding-left: 8px;
+  padding-right: 12px;
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'TensorFont', sans-serif;
+  color: #D94700;
+  height: 32px;
+  line-height: 32px;
+  text-decoration: none;
+}
+body.ws-is-desktop-platform .ws-linkHeader:hover,
+body.ws-is-desktop-platform .controls-Link.ws-linkHeader:hover {
+  color: #D94700;
+}
+.ws-linkHeader .controls-ButtonBase__content,
+.controls-Link.ws-linkHeader .controls-ButtonBase__content {
+  height: auto;
+  width: auto;
+}
+.ws-linkHeader .controls-ButtonBase__content:after,
+.controls-Link.ws-linkHeader .controls-ButtonBase__content:after {
+  content: url('/resources/Controls-theme/themes/default/img/ForwarArrow.svg');
+  padding-left: 10px;
+}
+.ws-linkHeader:hover,
+.controls-Link.ws-linkHeader:hover {
+  color: #ff7033;
+}
+.ws-linkHeader:hover:after,
+.controls-Link.ws-linkHeader:hover:after {
+  color: #ff7033;
+}
+.ws-linkHeader-h6,
+.controls-Link.ws-linkHeader-h6 {
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  height: 24px;
+  line-height: 24px;
+  font-family: 'TensorFont', sans-serif;
+  color: #313E78;
+  font-weight: 700;
+}
+body:not(.ws-is-mobile-platform) .ws-linkHeader-h6:hover,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-linkHeader-h6:hover {
+  cursor: pointer;
+  color: #0055BB;
+}
+.ws-linkHeader-h6 .controls-ButtonBase__content,
+.controls-Link.ws-linkHeader-h6 .controls-ButtonBase__content {
+  height: auto;
+  width: auto;
+}
+.ws-linkHeader-h6 .controls-ButtonBase__content:after,
+.controls-Link.ws-linkHeader-h6 .controls-ButtonBase__content:after {
+  content: url('/resources/Controls-theme/themes/default/img/ForwarArrow.svg');
+  padding-left: 10px;
+}
+.ws-toggleHeader {
+  text-align: center;
+}
+.ws-toggleHeader .controls-Button__content:before {
+  display: inline-block;
+  content: '\E013';
+  font: 18px 'TensorFont', sans-serif;
+  color: #D94700;
+  width: 24px;
+  float: left;
+}
+.ws-toggleHeader .controls-Button__content:before:hover {
+  content: '\E013';
+  font: 18px 'TensorFont', sans-serif;
+  color: #ff7033;
+}
+.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Checked__checked .controls-Button__content:before {
+  content: '\E000';
+}
+.ws-toggleHeader.ws-disabled {
+  border: none;
+}
+.ws-toggleHeader,
+.ws-toggleHeader.controls-Checked__checked:not(.ws-disabled) {
+  display: inline-block;
+  padding-left: 0;
+  padding-right: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  font-family: 'TensorFont', sans-serif;
+  color: #313E78;
+  height: 24px;
+  line-height: 24px;
+  border: none;
+  background: none;
+}
+body.ws-is-desktop-platform .ws-toggleHeader:hover,
+body.ws-is-desktop-platform .ws-toggleHeader.controls-Checked__checked:not(.ws-disabled):hover {
+  color: #313E78;
+}
+.ws-toggleHeader.controls-Click__active:active,
+.ws-toggleHeader.controls-Checked__checked:not(.ws-disabled).controls-Click__active:active {
+  border: none;
+  background: none;
+}
+.ws-toggleHeader.controls-Click__active.controls-Link,
+.ws-toggleHeader.controls-Checked__checked:not(.ws-disabled).controls-Click__active.controls-Link {
+  border: none;
+  background: none;
+}
+.ws-toggleHeader:hover,
+.ws-toggleHeader.controls-Checked__checked:not(.ws-disabled):hover {
+  color: #ff7033;
+}
+.ws-toggleHeader:hover:before,
+.ws-toggleHeader.controls-Checked__checked:not(.ws-disabled):hover:before {
+  color: #ff7033;
+}
+.ws-toggleHeader .controls-Button__text,
+.ws-toggleHeader.controls-Checked__checked:not(.ws-disabled) .controls-Button__text {
+  display: inline-block;
+  margin: 0;
+}
+.controls-ToggleHeader__caption .ws-headerCounter {
+  display: inline-block;
+  font: 15px / 24px 'TensorFont', sans-serif;
+  color: #D94700;
+  margin-right: 4px;
+}
+.controls-ToggleHeader__caption:hover .ws-headerCounter {
+  color: #ff7033;
+}
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled).ws-subheader:hover .controls-Link-link,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled).ws-subheader:hover .controls-Link__text {
+  text-decoration: none;
+}
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-linkHeader:hover .controls-Link-link,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-header:hover .controls-Link-link,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-bigSubheader:hover .controls-Link-link,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-linkHeader-h6:hover .controls-Link-link,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-linkHeader:hover .controls-Link__text,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-header:hover .controls-Link__text,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-bigSubheader:hover .controls-Link__text,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-linkHeader-h6:hover .controls-Link__text {
+  text-decoration: none;
+}
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-linkHeader:not(.controls-Link__disabledHover):hover {
+  color: #ff7033;
+}
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-linkHeader-h6:not(.controls-Link__disabledHover):hover {
+  cursor: pointer;
+  color: #0055BB;
+}
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-header:not(.controls-Link__disabledHover):hover,
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-bigSubheader:not(.controls-Link__disabledHover):hover {
+  color: #ff7033;
+}
+.ws-is-desktop-platform .controls-Link:not(.ws-disabled):not(.controls-Click__active).ws-subheader:not(.controls-Link__disabledHover):hover {
+  color: #0055BB;
+}
+.ws-is-desktop-platform .controls-Button:not(.ws-disabled):not(.controls-Click__active):hover.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default {
+  border: none;
+  background: none;
+  font: 700 15px / 24px 'TensorFont', sans-serif;
+  color: #ff7033;
+}
+.ws-is-desktop-platform .controls-Button:not(.ws-disabled).ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default:hover,
+.ws-is-desktop-platform .controls-Button:not(.ws-disabled).ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Checked__checked:hover {
+  border: none;
+  background: none;
+  font: 700 15px / 24px 'TensorFont', sans-serif;
+}
+.ws-is-desktop-platform .controls-Button:not(.ws-disabled).ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default:hover.controls-Button,
+.ws-is-desktop-platform .controls-Button:not(.ws-disabled).ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Checked__checked:hover.controls-Button {
+  color: #ff7033;
+  border: none !important;
+}
+.controls-Link.ws-linkHeader:not(.ws-disabled):active,
+.controls-Link.ws-header:not(.ws-disabled):active,
+.controls-Link.ws-bigSubheader:not(.ws-disabled):active,
+.controls-Link.ws-linkHeader:not(.ws-disabled):active .controls-Button__text,
+.controls-Link.ws-header:not(.ws-disabled):active .controls-Button__text,
+.controls-Link.ws-bigSubheader:not(.ws-disabled):active .controls-Button__text,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-linkHeader:not(.ws-disabled):hover,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-header:not(.ws-disabled):hover,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-bigSubheader:not(.ws-disabled):hover,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-linkHeader:not(.ws-disabled):hover .controls-Button__text,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-header:not(.ws-disabled):hover .controls-Button__text,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-bigSubheader:not(.ws-disabled):hover .controls-Button__text {
+  text-decoration: none;
+  color: #ff7033;
+}
+.controls-Link.ws-linkHeader.ws-subheader:not(.ws-disabled):active,
+.controls-Link.ws-header.ws-subheader:not(.ws-disabled):active,
+.controls-Link.ws-bigSubheader.ws-subheader:not(.ws-disabled):active,
+.controls-Link.ws-linkHeader.ws-subheader:not(.ws-disabled):active .controls-Button__text,
+.controls-Link.ws-header.ws-subheader:not(.ws-disabled):active .controls-Button__text,
+.controls-Link.ws-bigSubheader.ws-subheader:not(.ws-disabled):active .controls-Button__text,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-linkHeader.ws-subheader:not(.ws-disabled):hover,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-header.ws-subheader:not(.ws-disabled):hover,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-bigSubheader.ws-subheader:not(.ws-disabled):hover,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-linkHeader.ws-subheader:not(.ws-disabled):hover .controls-Button__text,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-header.ws-subheader:not(.ws-disabled):hover .controls-Button__text,
+body:not(.ws-is-mobile-platform) .controls-Link.ws-bigSubheader.ws-subheader:not(.ws-disabled):hover .controls-Button__text {
+  text-decoration: none;
+  color: #0055BB;
+}
+.controls-Link.ws-linkHeader-h6 {
+  color: #313E78;
+  font-weight: 700;
+}
+.controls-Button.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default,
+.controls-Button.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Checked__checked:not(.ws-disabled) {
+  color: #313E78;
+}
+.controls-Button.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default,
+.controls-Button.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Checked__checked:not(.ws-disabled),
+.controls-Button.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Click__active,
+.controls-Button.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Checked__checked:not(.ws-disabled).controls-Click__active {
+  border: none;
+  background: none;
+  font: 700 15px / 24px 'TensorFont', sans-serif;
+}
+.controls-Button.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Click__active,
+.controls-Button.ws-toggleHeader.controls-ToggleButton__normal.controls-Button_size-default.controls-Checked__checked:not(.ws-disabled).controls-Click__active {
+  color: #ff7033;
+}
+.line-overflow-blur {
+  position: relative;
+  float: right;
+}
+.line-overflow-blur:before {
+  background: -webkit-gradient(linear, left top, right top, from(rgba(255, 255, 255, 0)), to(#ffffff));
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), #ffffff);
+  height: 30px;
+  width: 30px;
+  content: ' ';
+  display: block;
+  position: absolute;
+  top: -30px;
+  right: 0;
+}
+/* ATTENTION styles */
+.icon-attention {
+  color: #fec63f;
+}
+/* DONE styles */
+.icon-done {
+  color: #72be44;
+}
+/* ERROR styles */
+.icon-error {
+  color: #ef463a;
+}
+/* PRIMARY styles */
+.icon-primary {
+  color: #587ab0;
+  fill: #587ab0;
+}
+/* DISABLED styles */
+.icon-disabled {
+  color: #CCC;
+  fill: #CCC;
+}
+/* Для тех, кто поддерживает... */
+.icon-primary:disabled {
+  color: #CCC;
+}
+/* Цвет основного текста */
+.normaltext-color {
+  color: #000;
+  fill: #000;
+}
+.icon-hover {
+  color: #ff7033;
+}
+.gray-color {
+  color: #999;
+}
+.blue-color {
+  color: #0055BB;
+}
+.blue-dark-color {
+  color: #313E78;
+}
+.ws-is-desktop-platform .action-hover:not(.ws-disabled):hover {
+  color: #313E78;
+}
+.icon-small,
+.icon-medium,
+.icon-large,
+.icon-size,
+.icon-16,
+.icon-24,
+.icon-32,
+.icon-default {
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  display: inline-block;
+}
+.icon-small,
+.icon-16 {
+  font-size: 16px !important;
+  line-height: 16px !important;
+  width: 16px;
+  height: 16px;
+  font-family: 'cbuc-icons' !important;
+}
+.icon-medium,
+.icon-24 {
+  font-size: 24px !important;
+  line-height: 24px !important;
+  width: 24px;
+  height: 24px;
+  font-family: 'cbuc-icons24' !important;
+}
+.icon-large,
+.icon-32 {
+  font-size: 32px !important;
+  line-height: 32px !important;
+  width: 32px;
+  height: 32px;
+  font-family: 'cbuc-icons' !important;
+}
+.svg-icon-size-small,
+.svg-icon-size-16 {
+  width: 10px;
+  height: 10px;
+}
+.svg-icon-size-medium,
+.svg-icon-size-24 {
+  width: 12px;
+  height: 12px;
+}
+.svg-icon-size-large,
+.svg-icon-size-32 {
+  width: 17px;
+  height: 17px;
+}
+.ws-unSelectable {
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+.controls-LabelContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.controls-LabelContainer .controls-LabelContainer__label {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  margin-right: 8px;
+  white-space: nowrap;
+}
+.controls-LabelContainer .controls-LabelContainer__content {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  width: 100%;
+  min-width: 0;
+  display: block;
+  position: relative;
+}
+/**
+ ВНИМАНИЕ! WARNING! ACHTUNG! UWAGA!
+ Класс .asLink используется прикладными разработчиками, когда они хотят сделать что-то, похожее на ссылку по общему дизайну.
+ Это официальное решение, нельзя его ломать.
+ .asLink должен вести себя правильно в любом состоянии
+*/
+.asLink {
+  font-size: 14px;
+  background-color: transparent ! important;
+  font-family: 'TensorFont', sans-serif;
+  color: #313E78;
+  cursor: pointer;
+  text-decoration: none;
+}
+.asLink[disabled='disabled'] {
+  cursor: default;
+  color: #CCC;
+  text-decoration: none;
+}
+.ws-is-desktop-platform .asLink[disabled='disabled']:hover {
+  color: #CCC;
+  text-decoration: none;
+}
+.ws-is-desktop-platform .asLink:hover,
+.asLink:active {
+  text-decoration: underline;
+  color: #0055BB;
+}
+.ws-float-close.ws-float-close-right .controls-ButtonBase__content {
+  display: none;
+}
+.controls-ListView__withoutMarker .controls-ListView__item__selected:not(.controls-CompositeView__tileItem) .controls-DataGridView__td:first-child,
+.controls-ListView__withoutMarker .controls-ListView__item__multiSelected:not(.controls-CompositeView__tileItem) .controls-DataGridView__td:first-child,
+.controls-ListView__withoutMarker .controls-ListView__item__selected:not(.controls-CompositeView__tileItem) .controls-CompositeView__tileTitle,
+.controls-ListView__withoutMarker .controls-ListView__item__multiSelected:not(.controls-CompositeView__tileItem) .controls-CompositeView__tileTitle,
+.controls-ListView__withoutMarker .controls-ListView__item__selected:not(.controls-CompositeView__tileItem) .controls-ListView__item-title,
+.controls-ListView__withoutMarker .controls-ListView__item__multiSelected:not(.controls-CompositeView__tileItem) .controls-ListView__item-title,
+.controls-ListView__withoutMarker .controls-ListView__item__selected:not(.controls-CompositeView__tileItem):not(.controls-CompositeView__verticalItemActions),
+.controls-ListView__withoutMarker .controls-ListView__item__multiSelected:not(.controls-CompositeView__tileItem):not(.controls-CompositeView__verticalItemActions),
+.controls-ListView__withoutMarker .controls-ListView__item__selected:not(.controls-CompositeView__tileItem):not(.controls-ListView__item-type-node),
+.controls-ListView__withoutMarker .controls-ListView__item__multiSelected:not(.controls-CompositeView__tileItem):not(.controls-ListView__item-type-node) {
+  background-image: none !important;
+  border-left-color: transparent;
+}
+.controls-ListView__withoutMarker .controls-ListView__item__selected:not(.controls-CompositeView__tileItem).controls-ListView__item:not(.controls-ListView__hoveredItem),
+.controls-ListView__withoutMarker .controls-ListView__item__multiSelected:not(.controls-CompositeView__tileItem).controls-ListView__item:not(.controls-ListView__hoveredItem) {
+  border-left-color: transparent;
+}
+.ws-moneyDecorator__integer {
+  font-size: 14px;
+  color: #000;
+}
+.ws-moneyDecorator__integer__AccentResults {
+  font-size: 15px;
+  color: #313E78;
+  font-weight: bold;
+  line-height: 18px;
+}
+.ws-moneyDecorator__integer__NoAccentResults {
+  font-size: 15px;
+  color: #999999;
+  font-weight: bold;
+  line-height: 18px;
+}
+.ws-moneyDecorator__integer__Group {
+  font-size: 14px;
+  color: #CCC;
+}
+.ws-moneyDecorator__integer__BasicRegistry {
+  font-size: 14px;
+  color: #000;
+}
+.ws-moneyDecorator__integer__NoBasicRegistry {
+  font-size: 14px;
+  color: #999999;
+}
+.ws-moneyDecorator__integer__AccentRegistry {
+  font-size: 15px;
+  color: #313E78;
+  font-weight: bold;
+}
+.ws-moneyDecorator__integer__NoAccentRegistry {
+  font-size: 15px;
+  color: #999999;
+  font-weight: bold;
+}
+.ws-moneyDecorator__integer__Error {
+  font-weight: bold;
+  color: #ef463a;
+}
+.ws-moneyDecorator__nowrap {
+  white-space: nowrap;
+}
+.ws-moneyDecorator__fraction {
+  font-size: 12px;
+  color: #ccc;
+  line-height: normal;
+  font-weight: normal !important;
+}

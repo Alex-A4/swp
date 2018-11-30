@@ -1,0 +1,41 @@
+.controls-Stack {
+  overflow: hidden;
+  padding-left: 8px;
+  -webkit-box-sizing: content-box;
+          box-sizing: content-box;
+}
+.controls-Stack .controls-Popup__template {
+  width: 100%;
+  height: 100%;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  border-left: 1px solid #BDBDBD;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: 12px -8px 12px 12px rgba(0, 0, 0, 0.4);
+          box-shadow: 12px -8px 12px 12px rgba(0, 0, 0, 0.4);
+}
+.controls-Stack__waiting .controls-Popup__template {
+  will-change: transform;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}
+.controls-Stack__open .controls-Popup__template {
+  will-change: transform;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: translateX(0%);
+          transform: translateX(0%);
+}
+.controls-Stack__close .controls-Popup__template {
+  will-change: transform;
+  -webkit-transition: -webkit-transform 0.2s linear;
+  transition: -webkit-transform 0.2s linear;
+  transition: transform 0.2s linear;
+  transition: transform 0.2s linear, -webkit-transform 0.2s linear;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
+}

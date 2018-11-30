@@ -1,0 +1,8 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-ComboBox-InputRender {
+  width: 100%;
+}
+.controls-ComboBox-popup {
+  margin-top: -1px;
+}

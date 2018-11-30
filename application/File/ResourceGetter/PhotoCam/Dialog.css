@@ -1,0 +1,26 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.PhotoCamDialog {
+  min-width: 640px;
+  min-height: 360px;
+  position: relative;
+}
+.PhotoCamDialog .PhotoCamDialog__container {
+  background-color: black;
+}
+.PhotoCamDialog object.PhotoCamDialog_video {
+  height: 480px;
+  width: 640px;
+  display: block;
+}
+.PhotoCamDialog video {
+  display: block;
+}
+.PhotoCamDialog__title.ws-window-title {
+  text-align: right;
+  margin-right: 3.5rem !important;
+  float: right;
+}
+.PhotoCamDialog__photoButton {
+  margin-right: 8px;
+}

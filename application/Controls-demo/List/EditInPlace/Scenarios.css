@@ -1,0 +1,58 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.ControlsDemo-EipScenarios {
+  width: 900px;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.ControlsDemo-EipScenarios__list {
+  width: 100%;
+}
+.ControlsDemo-EipScenarios__title {
+  font-size: 16px;
+  color: #999999;
+  margin-left: auto;
+  padding: 10px 0;
+}
+.ControlsDemo-EipScenarios__editorWrapper {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.ControlsDemo-EipScenarios__money {
+  width: 100%;
+}
+.ControlsDemo-EipScenarios__headerCaption {
+  margin-right: 15px;
+}
+.ControlsDemo-EipScenarios__result {
+  font-weight: bold;
+  font-size: 15px;
+}
+.ControlsDemo-EipScenarios__comment {
+  color: #999;
+  margin-left: 4px;
+}
+.ControlsDemo-EipScenarios__categoryNumber {
+  margin-right: 4px;
+}
+.ControlsDemo-EipScenarios__tableFooter {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  width: 100%;
+  padding: 0 4px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}

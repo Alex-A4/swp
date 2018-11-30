@@ -1,0 +1,104 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.ws-browser-paging.ws-disabled .ws-paging-small,
+.ws-browser-paging.ws-disabled .ws-paging-small:hover {
+  color: #777;
+  background: none;
+  cursor: auto;
+}
+.ws-paging {
+  min-height: 27px;
+}
+.ws-paging .ws-paging-small {
+  display: inline-block;
+  font-size: 14px;
+  height: 20px;
+  padding: 0 9px;
+  line-height: 20px;
+  text-align: center;
+  color: #999999;
+  vertical-align: bottom;
+}
+.ws-paging .ws-paging-small.ws-paging-active {
+  cursor: pointer;
+  border-color: transparent;
+  background-color: transparent;
+}
+.ws-paging .ws-paging-small.ws-paging-active:not(.icon-16) {
+  border-bottom: 3px solid transparent;
+  color: #000;
+}
+.ws-paging .ws-paging-small.ws-paging-active:not(.icon-16):hover {
+  border-bottom-color: #CCCCCC;
+}
+.ws-paging .ws-paging-small.ws-paging-prev,
+.ws-paging .ws-paging-small.ws-paging-next,
+.ws-paging .ws-paging-small.ws-paging-first,
+.ws-paging .ws-paging-small.ws-paging-end {
+  padding: 0 0px;
+  width: 16px;
+}
+.ws-paging .ws-paging-small.ws-paging-prev.ws-paging-active,
+.ws-paging .ws-paging-small.ws-paging-next.ws-paging-active,
+.ws-paging .ws-paging-small.ws-paging-first.ws-paging-active,
+.ws-paging .ws-paging-small.ws-paging-end.ws-paging-active {
+  background-color: transparent;
+}
+.ws-paging .ws-paging-small.ws-paging-next,
+.ws-paging .ws-paging-small.ws-paging-end {
+  margin-right: 1px;
+}
+.ws-paging .ws-paging-small.ws-paging-first {
+  color: #ccc;
+}
+.ws-paging .ws-paging-small.ws-paging-first:hover {
+  color: #ccc;
+}
+.ws-paging .ws-paging-small.ws-paging-first.ws-paging-active {
+  color: #587AB0;
+}
+.ws-paging .ws-paging-small.ws-paging-first.ws-paging-active:hover {
+  color: #313E78;
+}
+.ws-paging .ws-paging-small.ws-paging-end {
+  padding-right: 6px;
+  color: #ccc;
+}
+.ws-paging .ws-paging-small.ws-paging-end:hover {
+  color: #ccc;
+}
+.ws-paging .ws-paging-small.ws-paging-end.ws-paging-active {
+  color: #587AB0;
+}
+.ws-paging .ws-paging-small.ws-paging-end.ws-paging-active:hover {
+  color: #313E78;
+}
+.ws-paging .ws-paging-small.ws-paging-prev {
+  color: #ccc;
+}
+.ws-paging .ws-paging-small.ws-paging-prev:hover {
+  color: #ccc;
+}
+.ws-paging .ws-paging-small.ws-paging-prev.ws-paging-active {
+  color: #587AB0;
+}
+.ws-paging .ws-paging-small.ws-paging-prev.ws-paging-active:hover {
+  color: #313E78;
+}
+.ws-paging .ws-paging-small.ws-paging-next {
+  color: #ccc;
+}
+.ws-paging .ws-paging-small.ws-paging-next:hover {
+  color: #ccc;
+}
+.ws-paging .ws-paging-small.ws-paging-next.ws-paging-active {
+  color: #587AB0;
+}
+.ws-paging .ws-paging-small.ws-paging-next.ws-paging-active:hover {
+  color: #313E78;
+}
+.ws-paging .ws-paging-small.ws-paging-current {
+  color: #000;
+  font-weight: normal;
+  border-bottom: 3px solid #FF7033;
+}

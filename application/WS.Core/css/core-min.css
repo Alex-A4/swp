@@ -1,0 +1,136 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+/* сброс стилей*/
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+html {
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-print-color-adjust: exact;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  text-decoration-skip-ink: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+table {
+  border-spacing: 0;
+}
+img {
+  border: none;
+}
+.ws-is-mobile-safari textarea:invalid,
+.ws-is-mobile-chrome-ios textarea:invalid {
+  text-indent: -3px;
+}
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner {
+  padding: 0 !important;
+  border: 0 none !important;
+}
+/* сброс стилей*/
+.ws-hidden {
+  display: none !important;
+}
+.ws-invisible {
+  visibility: hidden !important;
+}
+.ws-absolute {
+  position: absolute !important;
+}
+.ws-fixed {
+  position: fixed;
+}
+.ws-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body {
+  font-family: 'TensorFont', sans-serif;
+  font-size: 14px;
+  text-decoration-skip-ink: none;
+}
+.ws-component > option,
+.ws-component > options,
+.ws-component > opt,
+.ws-component > opts {
+  display: none;
+}
+component {
+  display: block;
+  position: static;
+}
+component > option,
+component > options,
+component > opt,
+component > opts {
+  display: none;
+}
+.ws-standartLink .asLink {
+  text-decoration: underline !important;
+}
+.ws-Label > .ws-Label-content {
+  display: inline-block;
+}
+.ws-Label.ws-Label-ws-control {
+  vertical-align: top;
+}
+.ws-Label.ws-Label-ws-control > .ws-Label-title {
+  position: relative;
+  top: 3px;
+  vertical-align: top;
+}
+.ws-Label.ws-Label-titleTop > .ws-Label-title {
+  display: block;
+  top: 0;
+  padding-bottom: 3px;
+}
+.ws-Label.ws-Label-titleLeft > .ws-Label-title {
+  margin-right: 8px;
+}
+.ws-Label.ws-Label-titleRight > .ws-Label-title {
+  margin-left: 8px;
+}
+.ws-Label > .ws-Label-title {
+  font-size: 14px;
+  font-family: 'TensorFont', sans-serif;
+  color: #999999;
+  font-style: normal;
+  font-weight: normal;
+}
+.ws-Label > .ws-Label-title > .ws-Label-icon {
+  vertical-align: sub;
+}
+.clearfix {
+  display: inline-block;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+html > body .clearfix {
+  display: block;
+}

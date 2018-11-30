@@ -1,0 +1,77 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.ws-sticky-header__wrapper {
+  overflow-y: visible;
+  max-height: 100%;
+}
+.ws-sticky-header__header-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  height: 0;
+  z-index: 900;
+}
+/* во всплывающей панели важно, чтобы она была прижата к правому краю и у неё была ширина (FloatArea выставляет ширину) */
+.ws-sticky-header__header-container.ws-sticky-header__float-area_header-container {
+  left: auto;
+}
+.ws-sticky-header__scrollable-container.ws-float-area-stack-scroll-wrapper {
+  width: auto;
+}
+.ws-sticky-header__block.ws-sticky-header__fixed,
+.ws-sticky-header__table-header-copy {
+  position: relative;
+  /* FixMe: надо изначально нормально верстать, без position:absolute */
+  z-index: 2;
+}
+.ws-sticky-header__block.ws-sticky-header__fixed.ws-sticky-header__shifted,
+.ws-sticky-header__table-header-copy.ws-sticky-header__shifted {
+  z-index: 1;
+}
+.ws-sticky-header__block.ws-sticky-header__fixed {
+  background-color: #fff;
+}
+.ws-sticky-header__table-header-copy {
+  height: auto;
+  background-color: #fff;
+}
+.ws-sticky-header__shifted-under {
+  z-index: 2;
+}
+.ws-sticky-header__scrollable-container {
+  overflow-y: scroll;
+  overflow-x: hidden;
+  height: 100%;
+  width: 100%;
+}
+.ws-sticky-header__gradient {
+  position: absolute;
+  display: none;
+  height: 8px;
+  background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.15)), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0));
+}
+.ws-sticky-header__wrapper.ws-sticky-header__wrapper-scrolled > .ws-sticky-header__header-container > .ws-sticky-header__gradient {
+  display: block;
+}
+.ws-sticky-header__block-copy {
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  -ms-flex-shrink: 0;
+  flex-shrink: 0;
+}
+.ws-is-mobile-safari .ws-sticky-header__tr-copy {
+  visibility: hidden;
+}
+.ws-is-mobile-android .ws-sticky-header__block.ws-sticky-header__fixed:before,
+.ws-is-mobile-android .ws-sticky-header__table-header-copy:before {
+  content: '';
+  position: absolute;
+  background-color: #fff;
+  height: 6px;
+  top: -3px;
+  left: 0;
+  right: 0;
+  z-index: -1;
+}

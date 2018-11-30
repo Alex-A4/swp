@@ -1,0 +1,156 @@
+@-webkit-keyframes itemActionsSwipeOpen {
+  0% {
+    -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@keyframes itemActionsSwipeOpen {
+  0% {
+    -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0);
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@-webkit-keyframes itemActionsSwipeClose {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0);
+  }
+}
+@keyframes itemActionsSwipeClose {
+  0% {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+  100% {
+    -webkit-transform: translate(100%, 0);
+            transform: translate(100%, 0);
+  }
+}
+.controls-itemActionsV_swipe_animationContainer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+  height: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: transparent;
+  z-index: 99;
+}
+.controls-itemActionsV_swipe {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 100%;
+  padding: 0 6px 0 12px;
+  overflow: hidden;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background-color: transparent;
+  background-image: -webkit-linear-gradient(left, transparent, rgba(0, 0, 0, 0.12) 6px, #F4F9FD 6px, #F4F9FD 100%);
+  background-image: -moz-linear-gradient(left, transparent, rgba(0, 0, 0, 0.12) 6px, #F4F9FD 6px, #F4F9FD 100%);
+  background-image: -ms-linear-gradient(left, transparent, rgba(0, 0, 0, 0.12) 6px, #F4F9FD 6px, #F4F9FD 100%);
+  background-image: -o-linear-gradient(left, transparent, rgba(0, 0, 0, 0.12) 6px, #F4F9FD 6px, #F4F9FD 100%);
+  background-image: linear-gradient(to right, transparent, rgba(0, 0, 0, 0.12) 6px, #F4F9FD 6px, #F4F9FD 100%);
+}
+.controls-itemActionsV_swipe_open {
+  -webkit-animation: itemActionsSwipeOpen 0.35s 0ms ease;
+          animation: itemActionsSwipeOpen 0.35s 0ms ease;
+}
+.controls-itemActionsV_swipe_close {
+  -webkit-animation: itemActionsSwipeClose 0.35s 0ms ease;
+          animation: itemActionsSwipeClose 0.35s 0ms ease;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+.controls-itemActionsV__action_padding_swipe {
+  padding: 6px;
+}
+.controls-itemActionsV__action_icon_swipe.icon-primary {
+  color: #313E78;
+}
+.controls-itemActionsV__action_icon_swipe.controls-itemActionsV__action_icon_small {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  font-family: 'cbuc-icons24';
+}
+.controls-itemActionsV__action_icon_swipe.controls-itemActionsV__action_icon_big {
+  font-size: 32px;
+  width: 32px;
+  height: 32px;
+  font-family: 'cbuc-icons24';
+}
+.controls-itemActionsV__action_title_swipe {
+  color: #313E78;
+  font-size: 12px;
+  max-width: 120px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  min-height: 16px;
+}
+.controls-itemActionsV__separator {
+  background: #EBF1F6;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: block;
+}
+.controls-itemActionsV__separator_vertical {
+  width: 1px;
+  height: calc(100% - 2 * 3px);
+  margin: 3px 0;
+}
+.controls-itemActionsV__separator_horizontal {
+  width: calc(100% - 3px);
+  height: 1px;
+  margin: 0 3px;
+}
+.controls-itemActionsV__separator_horizontal_first {
+  margin: 0 3px 0 0;
+}
+.controls-itemActionsV__separator_horizontal_second {
+  margin: 0 0 0 3px;
+}
+.controls-itemActionsV_row {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-itemActionsV_row,
+.controls-itemActionsV_column {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  height: 100%;
+}
+.controls-itemActionsV_column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.controls-itemActionsV_column_full {
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+.controls-itemActionsV__action_title_lonely {
+  height: 24px;
+  line-height: 24px;
+}

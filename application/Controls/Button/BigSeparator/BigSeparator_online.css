@@ -1,0 +1,19 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-BigSeparator {
+  display: inline-block;
+  cursor: pointer;
+}
+.controls-BigSeparator__icon {
+  font-size: 26px;
+  width: 26px;
+  height: 26px;
+  font-family: 'cbuc-icons';
+  color: #8991A9;
+}
+.controls-BigSeparator__icon:active {
+  color: #313E78;
+}
+.ws-is-no-touch .controls-BigSeparator__icon:hover {
+  color: #313E78;
+}

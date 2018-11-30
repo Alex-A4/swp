@@ -1,0 +1,145 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-FilterButton {
+  height: 24px;
+  display: inline-block;
+}
+.controls-FilterButton__icon_state_default {
+  color: #587ab0;
+  cursor: pointer;
+}
+.ws-is-no-touch .controls-FilterButton__icon_state_default:hover {
+  color: #313E78;
+}
+.controls-FilterButton__icon_state_default:active {
+  color: #313E78;
+}
+.controls-FilterButton__icon_state_disabled {
+  color: #CCC;
+}
+.controls-FilterButton__spaceTemplate_left {
+  -webkit-box-ordinal-group: 0;
+      -ms-flex-order: -1;
+          order: -1;
+  margin-right: 4px;
+}
+.controls-FilterButton__spaceTemplate_right {
+  margin-left: 4px;
+}
+.controls-FilterButton__icon_left {
+  -webkit-box-ordinal-group: -1;
+      -ms-flex-order: -2;
+          order: -2;
+  margin-right: 4px;
+}
+.controls-FilterButton__icon_right {
+  margin-left: 4px;
+}
+.controls-FilterButton__wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  max-width: 100%;
+  height: 100%;
+}
+.controls-FilterButton__wrapper:before {
+  content: "\200b";
+  -webkit-box-ordinal-group: -2;
+      -ms-flex-order: -3;
+          order: -3;
+}
+.controls-FilterButton__text-wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  min-width: 0;
+}
+.controls-FilterButton__text-wrapper_state_default:hover {
+  cursor: pointer;
+}
+.controls-FilterButton__text-wrapper_state_default:hover .controls-FilterButton__text {
+  color: #313E78;
+  text-decoration: underline;
+}
+.controls-FilterButton__text-wrapper_state_default:hover .controls-FilterButton__arrow {
+  color: #313E78;
+}
+.controls-FilterButton__text {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+}
+.controls-FilterButton__text_state_default {
+  color: #0055bb;
+}
+.controls-FilterButton__text_state_disabled {
+  color: #ccc;
+}
+.controls-FilterButton__arrow_state_default {
+  color: #587ab0;
+}
+.controls-FilterButton__arrow_state_disabled {
+  color: #CCC;
+}
+.controls-FilterButton__clear {
+  color: #ccc;
+  cursor: pointer;
+}
+.controls-FilterButton__icon {
+  font-size: 24px;
+  width: 24px;
+  height: 24px;
+  font-family: 'cbuc-icons24';
+}
+.controls-FilterButton__clear,
+.controls-FilterButton__arrow {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px;
+  width: 16px;
+  height: 16px;
+  font-family: 'cbuc-icons';
+}
+.controls-FilterButton__clear,
+.controls-FilterButton__arrow,
+.controls-FilterButton__icon {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.controls-FilterButton-popup-orientation-left {
+  margin-top: -11px;
+  margin-left: 9px;
+}
+.controls-FilterButton-popup-orientation-right {
+  margin-top: -11px;
+  margin-left: -9px;
+}
+/* ****************Для совместимости со старой панелью ****************/
+.controls-FilterButton {
+  position: relative;
+}
+.controls-FilterButton__oldTemplate {
+  position: absolute;
+  top: 0;
+  width: 1px;
+  height: 1px;
+  visibility: hidden;
+}
+.controls-FilterButton__oldTemplate_left {
+  left: 0;
+}
+.controls-FilterButton__oldTemplate_right {
+  right: 0;
+}
+/********************************************************************/

@@ -1,0 +1,60 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-GroupRadio_enabled {
+  cursor: pointer;
+}
+.controls-RadioGroup_defaultItem_horizontal {
+  padding-left: 12px;
+}
+.controls-RadioGroup_defaultItem_vertical {
+  padding-top: 8px;
+}
+.controls-RadioItem__wrapper {
+  height: 24px;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.controls-RadioItem__wrapper:before {
+  content: '\200b';
+}
+.controls-RadioItem__caption {
+  padding-left: 6px;
+}
+.controls-RadioItem__caption_selected_disabled,
+.controls-RadioItem__caption_selected_enabled {
+  color: 14px;
+}
+.controls-RadioItem__caption_unselected_disabled {
+  color: #CCC;
+}
+.controls-RadioItem__caption_unselected_enabled {
+  color: #999;
+}
+.controls-RadioGroup__wrapper_horizontal {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.controls-RadioGroup__wrapper_vertical {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.ws-is-no-touch .controls-RadioItem__wrapper:hover .controls-SwitchCircle__borderCircle_enabled {
+  fill: #FF7033;
+}
+.ws-is-no-touch .controls-RadioItem__wrapper:hover .controls-RadioItem__caption_unselected_enabled {
+  text-decoration: underline;
+}

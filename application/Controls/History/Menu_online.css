@@ -1,0 +1,37 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-DropdownList__row_pinned {
+  font-weight: bold;
+}
+.controls-DropdownList__row_pin {
+  position: absolute;
+  display: none;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  right: 12px;
+  width: 16px;
+  height: 32px;
+  font-size: 16px;
+  font-family: 'cbuc-icons';
+  color: #CCCCCC;
+}
+.controls-DropdownList__row_pin.controls-DropdownList__row_pin_swiped {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.ws-is-no-touch .controls-DropdownList__row:hover .controls-DropdownList__row_pin {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.ws-is-no-touch .controls-DropdownList__row_pin:hover {
+  color: #313E78;
+}
+.controls-DropdownList__row_unpin {
+  font-weight: normal;
+}
+.controls-DropdownList__row_history {
+  padding-right: 32px;
+}

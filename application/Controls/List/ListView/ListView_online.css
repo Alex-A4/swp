@@ -1,0 +1,150 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-ListView__itemV {
+  cursor: pointer;
+  position: relative;
+}
+.controls-ListView__itemV_marker {
+  position: absolute;
+  width: 3px;
+  background-color: #ff7033;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.controls-ListView__checkbox .controls-Checkbox__caption {
+  display: none;
+}
+.controls-ListView__checkbox {
+  float: left;
+  margin: 3px 0 0 0;
+}
+.controls-ListView__itemContent_withCheckboxes {
+  padding: 6px 12px 6px 24px;
+}
+.controls-ListView__itemContent_withoutCheckboxes {
+  padding: 6px 12px 6px 12px;
+}
+.controls-ListView__itemContent {
+  z-index: 1;
+}
+.controls-itemActionsV {
+  z-index: 1;
+}
+.controls-ListView__item_active {
+  background-color: #F0F5FB;
+}
+.controls-ListView__item_editing {
+  background-color: #f3f3f3;
+}
+.controls-ListView__item_editing > .controls-itemActionsV {
+  display: inline-block;
+}
+.controls-ListView__item_dragging {
+  opacity: 0.6;
+}
+.ws-is-no-touch:not(.ws-is-mobile-platform) .controls-ListView__item_showActions:hover > .controls-itemActionsV {
+  display: inline-block;
+}
+.ws-is-no-touch:not(.ws-is-mobile-platform) .controls-ListView__item_highlightOnHover_default:hover {
+  background-color: #F0F5FB;
+}
+.ws-is-no-touch:not(.ws-is-mobile-platform) .controls-ListView__item_highlightOnHover_editing:hover {
+  background-color: #f3f3f3;
+}
+.controls-ListView__groupContent {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.controls-ListView__groupSeparator-left,
+.controls-ListView__groupSeparator-right {
+  height: 12px;
+  margin-bottom: 12px;
+  border-bottom: 1px solid #eaeaea;
+  width: 100%;
+  font-size: 16px;
+}
+.controls-ListView__groupContent-text {
+  display: inline-block;
+  padding: 0 12px;
+  color: #999;
+  font-size: 12px;
+  white-space: nowrap;
+  text-align: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+.controls-ListView__groupExpander {
+  cursor: pointer;
+}
+.controls-ListView__groupExpander:before {
+  width: 16px;
+  font-size: 16px;
+  padding: 0 6px 0 0;
+  content: '\e000';
+}
+.controls-ListView__groupExpander:hover {
+  color: #313E78;
+}
+.controls-ListView__groupExpander_collapsed:before {
+  content: '\e013';
+}
+.controls-ListView__groupHidden {
+  display: none;
+}
+.controls-ListView__groupContent-rightTemplate {
+  padding-left: 12px;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.controls-ListView_master {
+  padding-right: 3px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.controls-ListView__item__marked_master {
+  background-color: #ffffff;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  bottom: 0;
+  z-index: 1;
+}
+.controls-ListView__item__marked_master:before {
+  content: '';
+  z-index: 2;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  border-width: 1px 0 1px 0;
+  border-style: solid;
+  border-color: #c2d0de transparent #9cb3ca transparent;
+  -webkit-box-shadow: -4px 0 8px rgba(0, 0, 0, 0.15);
+          box-shadow: -4px 0 8px rgba(0, 0, 0, 0.15);
+  width: calc(100% + 3px);
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  pointer-events: none;
+  height: 100%;
+}
+.controls-ListView__item__marked_master:after {
+  content: '';
+  z-index: 1;
+  height: 100%;
+  top: 0;
+  width: 3px;
+  position: absolute;
+  right: -3px;
+  background-color: #ffffff;
+}
+.ws-is-no-touch:not(.ws-is-mobile-platform) .controls-ListView__item_master:hover {
+  background-color: #ffffff;
+}

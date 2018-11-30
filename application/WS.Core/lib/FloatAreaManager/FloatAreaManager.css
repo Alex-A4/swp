@@ -1,0 +1,5 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.ws-float-area-body-disable-vscroll {
+  overflow-y: hidden !important;
+}

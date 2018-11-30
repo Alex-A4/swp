@@ -1,0 +1,580 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+/* сброс стилей*/
+* {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+html {
+  min-width: 100%;
+  min-height: 100%;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  -webkit-print-color-adjust: exact;
+  text-size-adjust: none;
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: none;
+  -ms-text-size-adjust: 100%;
+}
+body {
+  text-decoration-skip-ink: none;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+table {
+  border-spacing: 0;
+}
+img {
+  border: none;
+}
+.ws-is-mobile-safari textarea:invalid,
+.ws-is-mobile-chrome-ios textarea:invalid {
+  text-indent: -3px;
+}
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+button::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner,
+input[type="submit"]::-moz-focus-inner,
+input[type="reset"]::-moz-focus-inner {
+  padding: 0 !important;
+  border: 0 none !important;
+}
+/* сброс стилей*/
+.ws-hidden {
+  display: none !important;
+}
+.ws-invisible {
+  visibility: hidden !important;
+}
+.ws-absolute {
+  position: absolute !important;
+}
+.ws-fixed {
+  position: fixed;
+}
+.ws-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+body {
+  font-family: 'TensorFont', sans-serif;
+  font-size: 14px;
+  text-decoration-skip-ink: none;
+}
+.ws-component > option,
+.ws-component > options,
+.ws-component > opt,
+.ws-component > opts {
+  display: none;
+}
+component {
+  display: block;
+  position: static;
+}
+component > option,
+component > options,
+component > opt,
+component > opts {
+  display: none;
+}
+.ws-standartLink .asLink {
+  text-decoration: underline !important;
+}
+.ws-Label > .ws-Label-content {
+  display: inline-block;
+}
+.ws-Label.ws-Label-ws-control {
+  vertical-align: top;
+}
+.ws-Label.ws-Label-ws-control > .ws-Label-title {
+  position: relative;
+  top: 3px;
+  vertical-align: top;
+}
+.ws-Label.ws-Label-titleTop > .ws-Label-title {
+  display: block;
+  top: 0;
+  padding-bottom: 3px;
+}
+.ws-Label.ws-Label-titleLeft > .ws-Label-title {
+  margin-right: 8px;
+}
+.ws-Label.ws-Label-titleRight > .ws-Label-title {
+  margin-left: 8px;
+}
+.ws-Label > .ws-Label-title {
+  font-size: 14px;
+  font-family: 'TensorFont', sans-serif;
+  color: #999999;
+  font-style: normal;
+  font-weight: normal;
+}
+.ws-Label > .ws-Label-title > .ws-Label-icon {
+  vertical-align: sub;
+}
+.clearfix {
+  display: inline-block;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+html > body .clearfix {
+  display: block;
+}
+body.ws-body-no-scroll {
+  overflow-y: hidden;
+  height: 100%;
+}
+@media print {
+  body.ws-body-no-scroll {
+    height: auto;
+  }
+}
+.ws-body-scrolling-content {
+  height: 100%;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  position: relative;
+}
+.ws-access-hidden {
+  display: none !important;
+}
+.ws-nowrap {
+  white-space: nowrap;
+}
+.ws-has-focus {
+  outline: 0;
+}
+.ws-has-focus > .value-visible {
+  background: #6098BD;
+  color: #FFF;
+}
+.ws-has-focus > input:checked + label {
+  outline: 1px dotted #a9a9a9;
+}
+.ws-no-select {
+  -webkit-user-select: none !important;
+  -khtml-user-select: none !important;
+  -moz-user-select: -moz-none !important;
+  -o-user-select: none !important;
+  -ms-user-select: none !important;
+      user-select: none !important;
+}
+.ws-no-select::selection {
+  background: none;
+}
+.ws-text-container pre {
+  white-space: pre-wrap;
+  font: inherit;
+}
+.ws-disabled .ws-select span {
+  background-color: #ECE9D8;
+  color: gray;
+}
+.ws-disabled .select-button {
+  background-color: #B6B7B2;
+}
+.ws-disabled > .btn.classic:hover,
+.btn.classic.fakeButton:disabled {
+  cursor: auto;
+}
+.ws-select .ws-field {
+  padding: 0;
+  height: 14px;
+}
+.ws-select span {
+  cursor: pointer;
+  display: block;
+  float: left;
+  overflow: hidden;
+  padding: 2px;
+  white-space: nowrap;
+}
+.ws-select .select-button {
+  height: 14px;
+  width: 14px;
+  float: right;
+  cursor: pointer;
+  text-align: center;
+  background-color: #7F9DB9;
+  color: #fff;
+}
+.ws-select-open .select-button {
+  background-position: 0 -14px;
+}
+.ws-selector-content {
+  border: 1px solid #7F9DB9;
+  position: absolute;
+  z-index: 10000;
+  display: none;
+  background: #FFF;
+}
+.ws-master-div {
+  margin: 0;
+  padding: 0;
+}
+.ws-rotate-left {
+  -o-transform: rotate(-90deg);
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+  -o-transform-origin: top left;
+  -ms-transform-origin: top left;
+  -moz-transform-origin: top left;
+  -webkit-transform-origin: top left;
+  transform-origin: top left;
+  position: absolute;
+}
+.ws-rotate-left-top-right {
+  -o-transform-origin: top right;
+  -ms-transform-origin: top right;
+  -moz-transform-origin: top right;
+  -webkit-transform-origin: top right;
+  transform-origin: top right;
+}
+.ws-rotate-right {
+  -o-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+  -o-transform-origin: bottom left;
+  -ms-transform-origin: bottom left;
+  -moz-transform-origin: bottom left;
+  -webkit-transform-origin: bottom left;
+  transform-origin: bottom left;
+  position: absolute;
+}
+.ws-rotate-half-turn {
+  -o-transform: rotate(180deg);
+  -ms-transform: rotate(180deg);
+  -moz-transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+  -o-transform-origin: bottom right;
+  -ms-transform-origin: bottom right;
+  -moz-transform-origin: bottom right;
+  -webkit-transform-origin: bottom right;
+  transform-origin: bottom right;
+  position: absolute;
+}
+.ws-validation-error > .ws-field,
+.ws-validation-error > .ws-field.ws-field-label {
+  border: 1px solid #FF6A6A !important;
+}
+/* Свёрстанный в Genie абсолютный менеджер раскладки имеет такой класс. position:relative нужен, чтобы не отваливалось позиционирование внутри */
+.ws-AbsoluteLayout {
+  position: relative;
+}
+.ws-no-focus {
+  outline: none;
+}
+/* valign for text */
+.ws-text-valign-bottom .ws-field-label .input-field {
+  vertical-align: bottom;
+}
+.ws-text-valign-top .ws-field-label .input-field {
+  vertical-align: top;
+}
+.ws-text-valign-center .ws-field-label .input-field {
+  vertical-align: middle;
+}
+.ws-text-valign-top span span,
+.ws-text-valign-center span span,
+.ws-text-valign-bottom span span {
+  display: table;
+}
+.ws-text-valign-top span,
+.ws-text-valign-center span,
+.ws-text-valign-bottom span {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+}
+.ws-text-valign-top pre,
+.ws-text-valign-center pre,
+.ws-text-valign-bottom pre {
+  display: table-cell;
+}
+.ws-text-valign-top pre {
+  vertical-align: top;
+}
+.ws-text-valign-center pre {
+  vertical-align: middle;
+}
+.ws-text-valign-bottom pre {
+  vertical-align: bottom;
+}
+.ws-link {
+  text-decoration: none;
+}
+.ws-link:hover {
+  text-decoration: underline;
+}
+.ws-html-chunk {
+  overflow: auto;
+}
+@-moz-document url-prefix() {
+  .ws-field-button .ws-button,
+  .ws-field-button:hover .ws-button,
+  .ws-field-button-text {
+    padding-bottom: 1px;
+  }
+}
+.btn {
+  margin: 0;
+  padding: 0;
+  outline: none;
+}
+.ws-area-autoheight {
+  /*это правило нужно для приоритета height: auto при одновременном наличии классов ws-area и ws-area-autoheight*/
+  height: auto;
+}
+.ws-area-autoheight {
+  height: auto;
+  position: relative;
+}
+/*h-Box из Web-Genie*/
+.ws-hbox {
+  overflow: hidden;
+}
+.ws-float-left {
+  float: left;
+}
+/**/
+/* ie 8 filters */
+@media \0screen {
+  .ws-rotate-left,
+  .ws-rotate-right,
+  .ws-rotate-half-turn {
+    zoom: 1;
+    background-color: white;
+  }
+  .ws-rotate-left {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  }
+  .ws-rotate-right {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  }
+  .ws-rotate-half-turn {
+    filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  }
+  .ws-browser .ws-browser-cell div img {
+    vertical-align: -4px;
+  }
+}
+.readonly input {
+  background-color: #ECE9D8;
+}
+.readonly textarea {
+  background-color: #ECE9D8;
+}
+span.ws-errorMessage {
+  color: #DC143C;
+  display: block;
+  white-space: nowrap;
+}
+.ws-tooltip-container,
+.ws-dropdown-placeholder {
+  color: #AAAAAA !important;
+}
+/* <DivTable Layout styles> */
+.dt_layout {
+  position: relative;
+  width: 100%;
+  /*overflow:hidden;*/
+  border-collapse: collapse;
+  margin: 0;
+  padding: 0;
+}
+.ws-grid {
+  overflow: hidden;
+}
+.td_grid {
+  vertical-align: top;
+  margin: 0;
+  padding: 0;
+}
+.dt_container {
+  margin: 10px;
+  padding: 10px;
+}
+.dt_cell {
+  position: absolute;
+  overflow: hidden;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+}
+.dt_cell_empty {
+  font-size: 0;
+}
+.dt_relativecell {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+}
+.dt_alignTable {
+  width: 100%;
+  height: 100%;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
+}
+.dt_alignTable .alignContentCell {
+  padding: 0;
+  margin: 0;
+}
+.dt_alignTable .dt_alignHBorder {
+  width: 50%;
+  padding: 0;
+  margin: 0;
+}
+.dt_alignTable .dt_alignHBorderFull {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+}
+.dt_withBorder > .dt_layout_table,
+.dt_withBorder > div > .dt_layout_table {
+  border-collapse: collapse;
+}
+.dt_withBorder > .dt_layout_table > tbody > tr > .td_grid > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > .dt_layout_table > tr > .td_grid > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tbody > tr > .td_grid > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tr > .td_grid > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > .dt_cell > .dt_cell_border {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: solid 1px #ccc;
+  z-index: -1;
+}
+.dt_withBorder > .dt_layout_table > tbody > tr > .td_grid.dt_noleftborder > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > .dt_layout_table > tr > .td_grid.dt_noleftborder > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tbody > tr > .td_grid.dt_noleftborder > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tr > .td_grid.dt_noleftborder > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > .dt_cell.dt_noleftborder > .dt_cell_border {
+  border-left: none;
+}
+.dt_withBorder > .dt_layout_table > tbody > tr > .td_grid.dt_notopborder > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > .dt_layout_table > tr > .td_grid.dt_notopborder > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tbody > tr > .td_grid.dt_notopborder > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tr > .td_grid.dt_notopborder > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > .dt_cell.dt_notopborder > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tr > .dt_layout_table_center_firstRow > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tbody > tr > .dt_layout_table_center_firstRow > .dt_relativecell > .dt_cell_border {
+  border-top: none;
+}
+.dt_withBorder > div > .dt_layout_table > tr > .dt_layout_table_center_lastRow > .dt_relativecell > .dt_cell_border,
+.dt_withBorder > div > .dt_layout_table > tbody > tr > .dt_layout_table_center_lastRow > .dt_relativecell > .dt_cell_border {
+  border-bottom: none;
+}
+.dt_containerWithBorder {
+  border: solid 1px #ccc;
+}
+noindex:-o-prefocus {
+  height: auto!important;
+}
+.wrapper {
+  z-index: 0;
+}
+input::-ms-clear {
+  /*ie10 имеет свой крестик*/
+  display: none;
+}
+.ws-float-left {
+  float: left;
+}
+[data-component="SBIS3.Presto.Core.DataContainer"] {
+  overflow: hidden;
+}
+[data-component="SBIS3.Staff.Cadres.ListCadresDocs"] {
+  margin-top: 0;
+  clear: both;
+}
+a[href^="tel:"] {
+  text-decoration: none;
+}
+.ws-is-mobile-android #contentArea {
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+.ws-float-close {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  -ms-align-items: center;
+  -webkit-box-align: center;
+          align-items: center;
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  -ms-flex-pack: center;
+  -webkit-box-pack: center;
+          justify-content: center;
+  position: absolute;
+  top: 6px;
+  width: 35px;
+  height: 26px;
+  line-height: 26px;
+  cursor: pointer;
+  background-color: transparent;
+  border-width: 1px 0 1px 1px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.12);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 2px 0 0 2px;
+  font-size: 23px;
+  font-family: 'cbuc-icons';
+  text-decoration: none;
+}
+.ws-float-close:hover {
+  text-decoration: none;
+}
+.ws-float-close:before {
+  content: "\e66c";
+  font-weight: normal;
+  color: #587ab0;
+}
+body:not(.ws-is-mobile-platform) .ws-float-close:hover,
+body:not(.ws-is-mobile-platform) .ws-float-close:active {
+  background-color: transparent;
+  border-color: rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+          box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+body:not(.ws-is-mobile-platform) .ws-float-close:hover:before,
+body:not(.ws-is-mobile-platform) .ws-float-close:active:before {
+  color: #313E78;
+}
+body:not(.ws-is-mobile-platform) .ws-float-close:active {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+.ws-float-close-right {
+  right: 0;
+}
+.ws-float-close-left {
+  left: 0;
+}

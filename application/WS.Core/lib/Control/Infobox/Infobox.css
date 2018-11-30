@@ -1,0 +1,172 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.ws-helper {
+  position: relative;
+}
+.ws-helper-img {
+  vertical-align: middle;
+  margin-top: -2px;
+}
+.ws-helper-img:hover {
+  color: #587AB0 !important;
+}
+.ws-helper-img-align-left {
+  margin-right: 2px;
+}
+.ws-helper-img-align-right {
+  margin-left: 2px;
+}
+.ws-info-box {
+  visibility: hidden;
+  position: absolute;
+  z-index: 29999;
+  background: #FFFFFF;
+  border: 1px solid #BDBDBD;
+  max-width: 500px;
+  padding: 8px 30px 8px 12px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px;
+          box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px;
+}
+.ws-info-box.ws-infobox-type-lite {
+  background: #F4F9FD;
+}
+.ws-info-box.ws-infobox-type-lite .ws-infobox-triangle {
+  background: #F4F9FD;
+}
+.ws-info-box.ws-infobox-type-help {
+  background: #FFF9F3;
+}
+.ws-info-box.ws-infobox-type-help .ws-infobox-triangle {
+  background: #FFF9F3;
+}
+.ws-info-box.ws-infobox-type-error {
+  border-color: #EF463A;
+  -webkit-box-shadow: rgba(239, 70, 58, 0.4) 0 0 12px;
+          box-shadow: rgba(239, 70, 58, 0.4) 0 0 12px;
+}
+.ws-info-box.ws-infobox-type-error .ws-infobox-triangle.ws-infobox-triangle-top,
+.ws-info-box.ws-infobox-type-error .ws-infobox-triangle.ws-infobox-triangle-bottom,
+.ws-info-box.ws-infobox-type-error .ws-infobox-triangle.ws-infobox-triangle-vertical-left,
+.ws-info-box.ws-infobox-type-error .ws-infobox-triangle.ws-infobox-triangle-vertical-right {
+  border-color: #EF463A;
+}
+.ws-info-box.ws-infobox-title-red .ws-infobox-title {
+  color: #EF463A;
+}
+.ws-info-box.ws-infobox-title-black .ws-infobox-title {
+  color: #000000;
+}
+.ws-info-box.ws-infobox-title-green .ws-infobox-title {
+  color: #72BE44;
+}
+.ws-info-box.ws-infobox-title-orange .ws-infobox-title {
+  color: #D94700;
+}
+.ws-info-box.ws-infobox-has-title {
+  padding-top: 0;
+  padding-right: 0;
+}
+.ws-info-box.ws-infobox-has-title .ws-infobox-content {
+  padding-right: 12px;
+}
+.ws-info-box.ws-infobox-has-title .ws-infobox-title {
+  display: block;
+}
+.ws-info-box.ws-infobox-full-width {
+  padding-right: 12px;
+}
+.ws-info-box.ws-infobox-zero-padding {
+  padding: 0;
+}
+.ws-info-box .ws-infobox-triangle {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  background: #fff;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-top {
+  top: -7px;
+  border-left: 1px solid #BDBDBD;
+  border-top: 1px solid #BDBDBD;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-bottom {
+  bottom: -7px;
+  border-right: 1px solid #BDBDBD;
+  border-bottom: 1px solid #BDBDBD;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-left {
+  left: 14px;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-right {
+  right: 14px;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-center {
+  left: calc(50% - 6px);
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-vertical-left {
+  left: -7px;
+  border-left: 1px solid #BDBDBD;
+  border-bottom: 1px solid #BDBDBD;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-vertical-right {
+  right: -7px;
+  border-right: 1px solid #BDBDBD;
+  border-top: 1px solid #BDBDBD;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-vertical-top {
+  top: 11px;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-vertical-bottom {
+  bottom: 11px;
+}
+.ws-info-box .ws-infobox-triangle.ws-infobox-triangle-vertical-middle {
+  top: calc(50% - 6px);
+}
+.ws-info-box .ws-infobox-title {
+  height: 32px;
+  line-height: 32px;
+  font-family: 'TensorFont', sans-serif;
+  font-weight: bold;
+  font-size: 14px;
+  color: #313E78;
+  padding-right: 30px;
+  display: none;
+}
+.ws-info-box .ws-infobox-content {
+  font-style: normal;
+  color: #000000;
+  font-family: 'TensorFont', sans-serif;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+}
+.ws-info-box .ws-infobox-content ul {
+  padding-left: 20px;
+}
+.ws-info-box .ws-infobox-content span.ws-validation-error-message {
+  color: #EF463A;
+}
+.ws-info-box .ws-infobox-content a:not(.controls-Link-link) {
+  color: #0055BB;
+  text-decoration: none;
+}
+.ws-info-box .ws-infobox-content a:not(.controls-Link-link):hover {
+  text-decoration: underline;
+  color: #313E78;
+}
+.ws-info-box .ws-infobox-content p {
+  margin: 0;
+}
+.ws-info-box .ws-infobox-close-button.icon-disabled {
+  position: absolute;
+  top: 4px;
+  right: 6px;
+  cursor: pointer;
+}
+.ws-info-box .ws-infobox-close-button.icon-disabled:hover {
+  color: #313E78 !important;
+}

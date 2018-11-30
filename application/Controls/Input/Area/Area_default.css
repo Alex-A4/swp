@@ -1,0 +1,83 @@
+.controls-InputArea {
+  width: 200px;
+}
+.controls-InputArea__field {
+  width: 100%;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+.controls-InputArea__fieldPadding {
+  padding-right: 4px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+  padding-left: 0;
+}
+.controls-InputArea__field_size_l {
+  line-height: 23px;
+}
+.controls-InputArea__field_size_m {
+  line-height: 18px;
+}
+.controls-InputArea__field_size_default {
+  line-height: 18px;
+}
+.controls-InputArea__realField {
+  resize: none;
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  top: 0;
+  height: 100%;
+}
+.controls-InputArea__realField_scroll-hidden {
+  overflow-y: hidden;
+}
+.controls-InputArea__realField_scroll-scroll {
+  overflow-y: scroll;
+}
+/*Демка с растягиванием фейковой area с помощью float: https://jsfiddle.net/85y2oj2s/1/*/
+.controls-InputArea__fakeField {
+  float: left;
+  visibility: hidden;
+  overflow-y: auto;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+/*На тач устройствах fakeArea периодически перехватывает на себя фокус
+   Временная правка, необходимо уточнить почему так происходит
+   TODO Задача: https://online.sbis.ru/opendoc.html?guid=fa61e193-b2b2-45f3-a8e6-e4a649557f14
+*/
+.ws-is-touch .controls-fakeTextArea__firstWrapper {
+  z-index: -1;
+}
+.controls-fakeTextArea__firstWrapper {
+  vertical-align: bottom;
+  display: inline-block;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.controls-fakeTextArea__secondWrapper {
+  width: 100%;
+}
+.controls-fakeTextArea__secondWrapper_size_default {
+  height: 18px;
+}
+.controls-fakeTextArea__secondWrapper_size_m {
+  height: 18px;
+}
+.controls-fakeTextArea__secondWrapper_size_l {
+  height: 23px;
+}
+.controls-InputArea__clear {
+  clear: both;
+}
+.controls-InputArea.controls-Text-InputRender_state_disabled_singleLine {
+  border-color: transparent;
+}
+.ws-is-mobile-safari .controls-InputArea__realField,
+.ws-is-mobile-chrome-ios .controls-InputArea__realField {
+  margin-left: -3px;
+  width: calc(100% + 6px);
+  text-indent: 0 !important;
+}

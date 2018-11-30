@@ -1,0 +1,1 @@
+/home/alexa4/JavaScript/Tensor/swp/Controls/Button/interface/IClick.js

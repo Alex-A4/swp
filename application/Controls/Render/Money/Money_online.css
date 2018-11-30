@@ -1,0 +1,38 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.moneyControl__integer_default {
+  font-size: 14px;
+  color: #000000;
+}
+.moneyControl__integer_AccentResults {
+  font-size: 15px;
+  color: #313E78;
+}
+.moneyControl__integer_NoAccentResults {
+  font-size: 15px;
+  color: #999999;
+}
+.moneyControl__integer_Group {
+  font-size: 14px;
+  color: #CCCCCC;
+}
+.moneyControl__integer_BasicRegistry {
+  font-size: 14px;
+  color: #000000;
+}
+.moneyControl__integer_NoBasicRegistry {
+  font-size: 14px;
+  color: #999999;
+}
+.moneyControl__integer_AccentRegistry {
+  font-size: 15px;
+  color: #313E78;
+}
+.moneyControl__integer_NoAccentRegistry {
+  font-size: 15px;
+  color: #999999;
+}
+.moneyControl__fraction {
+  font-size: 12px;
+  color: #CCCCCC;
+}

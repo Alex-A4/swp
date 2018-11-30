@@ -1,0 +1,20 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-DateRangeLinkLite {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.controls-DateRangeLinkLite__view {
+  -webkit-box-flex: 1;
+      -ms-flex-positive: 1;
+          flex-grow: 1;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+}
+.controls-DateRangeLinkLite__picker-normal {
+  margin-top: -5px;
+}
+.controls-DateRangeLinkLite__picker-years-only {
+  margin-top: -38px;
+}

@@ -1,0 +1,66 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Search__afterFieldWrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+}
+.controls-Search-InputRender {
+  border-radius: 10px;
+  padding: 0 5px 0 12px;
+  border-color: transparent;
+  border-width: 1px;
+}
+.controls-Search-InputRender_style_default {
+  background: #F2F2F2;
+}
+.controls-Search-InputRender_style_header {
+  background: #FFFFFF;
+}
+.controls-Search-InputRender_state_default:hover {
+  border-color: #DFDFDF;
+}
+.controls-Search-InputRender_state_disabled {
+  border-color: transparent;
+}
+.controls-Search-InputRender_state_active {
+  border-color: #DFDFDF;
+}
+.controls-Search__search_state_disabled {
+  cursor: default;
+  color: #CCC;
+}
+.controls-Search__search,
+.controls-Search__reset {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 16px !important;
+  line-height: 16px !important;
+  width: 16px;
+  height: 16px;
+  font-family: 'cbuc-icons' !important;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  height: 100%;
+  padding: 0 2px;
+}
+.controls-Search__search_state_default {
+  cursor: pointer;
+  color: #587ab0;
+}
+.controls-Search__reset {
+  cursor: pointer;
+  color: #8991A9;
+}
+.ws-is-no-touch .controls-Search__search_state_default:hover {
+  color: #313E78;
+}
+.controls-Search__search_state_default:active {
+  color: #313E78;
+}

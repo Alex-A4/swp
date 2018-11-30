@@ -1,0 +1,44 @@
+.controls-LabelV {
+  padding: 0 8px 0 0;
+  height: 24px;
+}
+.controls-LabelV__caption {
+  height: 100%;
+}
+.controls-LabelV__caption_required:after {
+  content: ' *';
+}
+.controls-LabelV_enabled {
+  color: #8991A9;
+}
+.controls-LabelV_enabled:after {
+  color: #ef463a;
+}
+.controls-LabelV_disabled {
+  color: #ccc;
+}
+.ws-is-no-touch .controls-Label_underline-hovered:hover {
+  text-decoration: underline;
+}
+.ws-is-no-touch .controls-Label_underline_color-hovered:hover {
+  color: #313E78;
+}
+.controls-Label_underline-hovered:active {
+  text-decoration: underline;
+}
+.controls-Label_underline_color-hovered:active {
+  color: #313E78;
+}
+.controls-Label_underline_color-hovered,
+.controls-Label_underline-hovered {
+  cursor: pointer;
+  display: inline-block;
+}
+.controls-Label_underline_color-hovered,
+.controls-Label_underline-hovered {
+  padding: 0 !important;
+  height: auto !important;
+}
+.controls-Label_underline_color-hovered {
+  text-decoration: underline;
+}

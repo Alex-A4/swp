@@ -1,0 +1,292 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-InputRender {
+  caret-color: #000;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  cursor: auto;
+  line-height: normal;
+  display: inline-block;
+  position: relative;
+  max-width: 100%;
+  border-style: solid;
+}
+.controls-InputRender_whiteSpace_normal {
+  white-space: normal;
+}
+.controls-InputRender_whiteSpace_nowrap {
+  white-space: nowrap;
+}
+.controls-Text-InputRender {
+  background-color: #ffffff;
+  border-width: 1px;
+  color: #000;
+}
+.controls-InputRender__wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.controls-InputRender__wrapper:before {
+  content: '\200b';
+  width: 0;
+  display: inline-block;
+  visibility: hidden;
+}
+.controls-InputRender__wrapper_singleLine {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-InputRender__wrapper_multiLine {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.controls-InputRender__fieldWrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  position: relative;
+  height: 100%;
+  width: 100%;
+  min-width: 0;
+}
+.controls-InputRender__fieldWrapper_singleLine {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-InputRender__fieldWrapper_singleLine:before {
+  content: '\200b';
+  width: 0;
+  display: inline-block;
+  visibility: hidden;
+}
+.controls-InputRender__fieldWrapper_multiLine {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.controls-InputRender__field {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  text-overflow: ellipsis;
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  color: inherit;
+  text-align: inherit;
+}
+.controls-InputRender__field::-webkit-contacts-auto-fill-button {
+  display: none;
+}
+.controls-InputRender__field::-ms-clear {
+  display: none;
+}
+.controls-InputRender__field::-ms-reveal {
+  display: none;
+}
+.controls-InputRender__field_readOnly {
+  overflow: hidden;
+}
+.controls-InputRender__field:focus {
+  text-overflow: clip;
+}
+/**
+ * В нативном автодополнении при наведении на одно из значений, оно подставляется в поле ввода.
+ * В этой ситуации нам нужно скрыть наш placeholder. Для этого мы будем смотреть на видимость нативного placeholder.
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/:placeholder-shown
+ */
+.controls-InputRender__placeholder {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  cursor: text;
+  color: #ccc;
+  font: inherit;
+  display: none;
+  padding-left: 1px;
+}
+/**
+ * Из-за того что textarea в Controls.Input.Area не лежит на одном уровне с placeholder, мы не можем управлять видимостью
+ * placeholder через css. На сайте нет браузерного автодополнения в Area, поэтому показываем placeholder всегда.
+ * Придумать решение для Area, потому что теоритически автодополнение в Area может быть.
+ * https://online.sbis.ru/opendoc.html?guid=c069c84a-010e-405e-aa67-3c717583c8de
+ */
+.controls-InputArea .controls-InputRender__placeholder {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.controls-InputRender__content:placeholder-shown + .controls-InputRender__placeholder {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+/**
+ * placeholder-shown не поддерживается в IE.
+ * На поле весит аттрибут required и когда значение в поле нет будет применяться псевдоэлемент invalid.
+ */
+.controls-InputRender__content_ie:invalid + .controls-InputRender__placeholder {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+/**
+ * При построении браузер может автоматически подставить значение в поле и placeholder-shown не работает пока
+ * пользователь не начнет работать с полем.
+ * https://developer.mozilla.org/en-US/docs/Web/CSS/:-webkit-autofill
+ */
+.controls-InputRender__content:-webkit-autofill + .controls-InputRender__placeholder {
+  display: none;
+}
+.controls-InputRender__placeholder_simple {
+  pointer-events: none;
+}
+.controls-InputRender__placeholder_singleLine {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-InputRender__placeholder_multiLine {
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.controls-InputRender__placeholder__overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  display: inline-block;
+  width: 100%;
+}
+.controls-InputRender__tagStyle {
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  border-style: solid;
+  border-width: 0 8px 8px 0;
+  border-top-color: transparent;
+  border-left-color: transparent;
+  border-bottom-color: transparent;
+  width: 8px;
+  height: 8px;
+  cursor: pointer;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.controls-InputRender__tagStyle-success {
+  border-right-color: #72BE44;
+}
+.controls-InputRender__tagStyle-primary {
+  border-right-color: #FF7033;
+}
+.controls-InputRender__tagStyle-danger {
+  border-right-color: #EF463A;
+}
+.controls-InputRender__tagStyle-info {
+  border-right-color: #CCC;
+}
+.controls-InputRender__tagStyle-warning {
+  border-right-color: #FEC63F;
+}
+.controls-InputRender__tagStyle-secondary {
+  border-right-color: #587AB0;
+}
+.controls-Text-InputRender_state_default {
+  border-color: #eaeaea #eaeaea #ccc #eaeaea;
+}
+.controls-Text-InputRender_state_default:hover {
+  border-color: #eaeaea #eaeaea #AAB0C1 #eaeaea;
+}
+.controls-Text-InputRender_state_active {
+  border-color: #eaeaea #eaeaea #AAB0C1 #eaeaea;
+}
+.controls-Text-InputRender_state_active:focus {
+  text-overflow: clip;
+}
+.controls-Text-InputRender_state_disabled {
+  background-color: transparent;
+}
+.controls-Text-InputRender_state_disabled_singleLine {
+  border-color: transparent transparent #e4e4e4 transparent;
+}
+.controls-Text-InputRender_state_disabled_multiLine {
+  border-color: transparent;
+}
+.controls-Text-InputRender_state_error {
+  background-color: #fadadd;
+  border-color: #ef463a;
+}
+.controls-InputRender_size_default_singleLine {
+  height: 24px;
+  font-size: 14px;
+}
+.controls-InputRender_size_m_singleLine {
+  height: 24px;
+  font-size: 14px;
+}
+.controls-InputRender_size_l_singleLine {
+  height: 24px;
+  font-size: 18px;
+}
+.controls-InputRender_size_default_multiLine {
+  height: auto;
+  font-size: 14px;
+  line-height: 18px;
+}
+.controls-InputRender_size_m_multiLine {
+  height: auto;
+  font-size: 14px;
+  line-height: 18px;
+}
+.controls-InputRender_size_l_multiLine {
+  height: auto;
+  font-size: 18px;
+  line-height: 23px;
+}
+/*
+   Проблемы, если везде задавать padding с двух сторон:
+   1) В TextArea появится отступ у скролла.
+   2) В NumberTextBox появится отступ у стрелок.
+   3) В FieldLink отступ 4px заложен в иконку.
+
+   https://jsfiddle.net/ze4p2fsq/1/
+ */
+.controls-Text-InputRender_paddingBoth {
+  padding: 0 4px;
+}
+.controls-Text-InputRender_paddingLeft {
+  padding-left: 4px;
+}
+.controls-Text-InputRender_style_header {
+  font-size: 18px;
+  font-weight: bold;
+  color: #313E78;
+}
+.controls-Text-InputRender_style_accentHeader {
+  font-size: 18px;
+  font-weight: bold;
+  color: #D94700;
+}
+.controls-InputRender__field_textAlign_right {
+  text-align: right;
+}

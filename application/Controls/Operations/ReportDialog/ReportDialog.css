@@ -1,0 +1,24 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-ReportDialog__title {
+  font-size: 18px;
+  color: #313E78;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+.controls-ReportDialog__message {
+  color: #999;
+  margin-bottom: 8px;
+}
+.controls-ReportDialog__error {
+  color: #EF463A;
+  margin-bottom: 4px;
+}
+.controls-ReportDialog__closeButtonContainer {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}

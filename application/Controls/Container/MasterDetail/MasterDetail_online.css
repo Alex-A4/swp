@@ -1,0 +1,24 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-MasterDetail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.controls-MasterDetail_master {
+  position: relative;
+  background-color: #f8f8f8;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  width: 27%;
+}
+.controls-MasterDetail_master:after {
+  content: '';
+  z-index: 0;
+  width: 3px;
+  background-color: #eaeaea;
+  height: 100%;
+  position: absolute;
+  right: 0;
+  top: 0;
+}

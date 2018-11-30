@@ -1,0 +1,114 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-TreeGrid__row-expander_size_s {
+  padding: 4px;
+}
+.controls-TreeGrid__row-expander_size_m {
+  padding: 4px 10px 4px 4px;
+}
+.controls-TreeGrid__row-expander_size_l {
+  padding: 4px 14px 4px 8px;
+}
+.controls-TreeGrid__row-expander_size_xl {
+  padding: 4px 18px 4px 12px;
+}
+.controls-TreeGrid__row-expander_size_default,
+.controls-TreeGrid__row-expanderPadding {
+  padding: 4px;
+}
+.controls-TreeGrid__row-expander,
+.controls-TreeGrid__row-expanderPadding {
+  line-height: 1;
+  display: inline-block;
+  position: relative;
+  min-height: 16px;
+  min-width: 16px;
+}
+.controls-TreeGridView__dragTargetNode {
+  border-top: 2px solid #0055BB;
+  border-bottom: 2px solid #0055BB;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+.controls-TreeGridView__dragTargetNode_first {
+  border-left: 2px solid #0055BB;
+}
+.controls-TreeGridView__dragTargetNode_last {
+  border-right: 2px solid #0055BB;
+}
+.controls-TreeGrid__row-expanderPadding {
+  visibility: hidden;
+}
+.controls-TreeGrid__row-expander_node:hover:before,
+.controls-TreeGrid__row-expander_hiddenNode:hover:before {
+  color: #0055BB;
+}
+.controls-TreeGrid__row-expander_node:before,
+.controls-TreeGrid__row-expander_hiddenNode:before {
+  font-family: 'cbuc-icons';
+  font-size: 16px;
+  color: #313E78;
+}
+.controls-TreeGrid__row-expander:before {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  cursor: pointer;
+  overflow: hidden;
+  text-align: center;
+  position: absolute;
+}
+.controls-TreeGrid__row-expander_node_collapsed:before {
+  content: '\e96e';
+}
+.controls-TreeGrid__row-expander_node_expanded:before {
+  content: '\e96d';
+}
+.controls-TreeGrid__row-expander_hiddenNode_collapsed:before {
+  content: '\e9c2';
+}
+.controls-TreeGrid__row-expander_hiddenNode_expanded:before {
+  content: '\e9c1';
+}
+.controls-TreeGrid__row {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.controls-TreeGrid__row-levelPadding {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  display: inline-block;
+}
+.controls-TreeGrid__nodeFooterContent {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.controls-TreeGrid__nodeFooterHasMore {
+  padding: 6px 0 3px 0;
+}
+.controls-TreeGrid__row-levelPadding_size_default {
+  width: 24px;
+}
+.controls-TreeGrid__row-levelPadding_size_s {
+  width: 24px;
+}
+.controls-TreeGrid__row-levelPadding_size_m {
+  width: 30px;
+}
+.controls-TreeGrid__row-levelPadding_size_l {
+  width: 38px;
+}
+.controls-TreeGrid__row-levelPadding_size_xl {
+  width: 46px;
+}

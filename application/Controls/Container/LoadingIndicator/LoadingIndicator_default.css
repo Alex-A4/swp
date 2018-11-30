@@ -1,0 +1,168 @@
+/*---| WaitIndicator Rules: |---------*/
+.controls-loading-indicator {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: transparent;
+  cursor: default !important;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -o-user-select: none;
+  user-select: none;
+}
+.controls-loading-indicator_local,
+.controls-loading-indicator_content {
+  z-index: 1;
+}
+.controls-loading-indicator_global {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1000000;
+  /*16777271 2147483647*/
+}
+.controls-loading-indicator_local {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+.controls-loading-indicator_overlay-none {
+  background-color: transparent;
+  pointer-events: none;
+  cursor: auto !important;
+}
+.controls-loading-indicator_overlay-dark {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.controls-loading-indicator_sided {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+}
+.controls-loading-indicator_sided-left {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+.controls-loading-indicator_sided-right {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+.controls-loading-indicator_sided-top {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.controls-loading-indicator_sided-bottom {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: column-reverse;
+          flex-direction: column-reverse;
+}
+.controls-loading-indicator_scroll.controls-loading-indicator_sided-left {
+  background-image: -webkit-linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: -moz-linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: -o-linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: linear-gradient(90deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+}
+.controls-loading-indicator_scroll.controls-loading-indicator_sided-right {
+  background-image: -webkit-linear-gradient(270deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: -moz-linear-gradient(270deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: -o-linear-gradient(270deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: linear-gradient(270deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+}
+.controls-loading-indicator_scroll.controls-loading-indicator_sided-top {
+  background-image: -webkit-linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: -moz-linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: -o-linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: linear-gradient(180deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+}
+.controls-loading-indicator_scroll.controls-loading-indicator_sided-bottom {
+  background-image: -webkit-linear-gradient(0deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: -moz-linear-gradient(0deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: -o-linear-gradient(0deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+  background-image: linear-gradient(0deg, #ffffff, rgba(255, 255, 255, 0) 48px);
+}
+.controls-loading-indicator_scroll.controls-loading-indicator_sided-left.controls-loading-indicator_mod-gray {
+  background-image: -webkit-linear-gradient(90deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: -moz-linear-gradient(90deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: -o-linear-gradient(90deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: linear-gradient(90deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+}
+.controls-loading-indicator_scroll.controls-loading-indicator_sided-right.controls-loading-indicator_mod-gray {
+  background-image: -webkit-linear-gradient(270deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: -moz-linear-gradient(270deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: -o-linear-gradient(270deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: linear-gradient(270deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+}
+.controls-loading-indicator_scroll.controls-loading-indicator_sided-top.controls-loading-indicator_mod-gray {
+  background-image: -webkit-linear-gradient(180deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: -moz-linear-gradient(180deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: -o-linear-gradient(180deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: linear-gradient(180deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+}
+.controls-loading-indicator_scroll.controls-loading-indicator_sided-bottom.controls-loading-indicator_mod-gray {
+  background-image: -webkit-linear-gradient(0deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: -moz-linear-gradient(0deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: -o-linear-gradient(0deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+  background-image: linear-gradient(0deg, #eaeaea, rgba(234, 234, 234, 0) 48px);
+}
+.controls-loading-indicator-in {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  width: 48px;
+  height: 48px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #ffffff url('/cdn/img/common/1.0.0/ajax-loader-indicator.gif') 50% 50% no-repeat;
+  background-size: 32px;
+  cursor: default !important;
+  pointer-events: auto;
+  font-family: 'TensorFont Обычный', 'TensorFont Regular', 'TensorFont', sans-serif;
+  font-size: 14px;
+  line-height: 18px;
+  color: #000;
+}
+.controls-loading-indicator_text .controls-loading-indicator-in {
+  min-width: 88px;
+  width: auto;
+  padding: 15px 8px 0 48px;
+  background-position: 8px 50%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.controls-loading-indicator_small .controls-loading-indicator-in {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  background-image: url('/resources/Controls-theme/themes/default/img/ajax-loader-16x16-wheel.gif');
+  background-size: 16px;
+}
+.controls-loading-indicator_small.controls-loading-indicator_sided-left .controls-loading-indicator-in {
+  margin-left: 6px;
+}
+.controls-loading-indicator_small.controls-loading-indicator_sided-right .controls-loading-indicator-in {
+  margin-right: 6px;
+}
+.controls-loading-indicator_small.controls-loading-indicator_sided-top .controls-loading-indicator-in {
+  margin-top: 6px;
+}
+.controls-loading-indicator_small.controls-loading-indicator_sided-bottom .controls-loading-indicator-in {
+  margin-bottom: 6px;
+}

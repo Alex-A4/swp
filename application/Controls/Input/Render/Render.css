@@ -1,0 +1,206 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Render {
+  position: relative;
+  display: inline-block;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  height: 24px;
+  padding: 0 4px;
+}
+.controls-Render__wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
+}
+.controls-Render__baseline {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+.controls-Render__placeholder {
+  color: #CCC;
+}
+.controls-Render__placeholder_overflow {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.controls-Render_size_l {
+  height: 24px;
+}
+.controls-Render_size_m {
+  height: 24px;
+}
+.controls-Render_size_s {
+  height: 24px;
+}
+.controls-Render_fontStyle_primary {
+  color: #D94700;
+}
+.controls-Render_fontStyle_default {
+  color: #000;
+}
+.controls-Render_fontStyle_primary_size_l {
+  font-size: 18px;
+  font-weight: bold;
+}
+.controls-Render_fontStyle_default_size_l {
+  font-size: 14px;
+  font-weight: normal;
+}
+.controls-Render_fontStyle_primary_size_m {
+  font-size: 18px;
+  font-weight: bold;
+}
+.controls-Render_fontStyle_default_size_m {
+  font-size: 14px;
+  font-weight: normal;
+}
+.controls-Render_fontStyle_primary_size_s {
+  font-size: 18px;
+  font-weight: bold;
+}
+.controls-Render_fontStyle_default_size_s {
+  font-size: 14px;
+  font-weight: normal;
+}
+.controls-Render_style {
+  border-style: solid;
+  border-width: 1px;
+}
+.controls-Render_style_warning {
+  border-color: #FEC63F;
+  background: #FFF;
+}
+.controls-Render_style_success {
+  border-color: #72BE44;
+  background: #FFF;
+}
+.controls-Render_style_primary {
+  border-color: #FF7033;
+  background: #FFF;
+}
+.controls-Render_style_invalid {
+  border-color: #EF463A;
+  background: #FADADD;
+}
+.controls-Render_style_danger {
+  border-color: #EF463A;
+  background: #FFF;
+}
+.controls-Render_style_info {
+  border-color: #EAEAEA #EAEAEA #CCC #EAEAEA;
+  background: #FFF;
+}
+.controls-Render_style_warning:hover {
+  border-color: #FEC63F;
+  background: #FFF;
+}
+.controls-Render_style_success:hover {
+  border-color: #72BE44;
+  background: #FFF;
+}
+.controls-Render_style_primary:hover {
+  border-color: #FF7033;
+  background: #FFF;
+}
+.controls-Render_style_invalid:hover {
+  border-color: #EF463A;
+  background: #FADADD;
+}
+.controls-Render_style_danger:hover {
+  border-color: #EF463A;
+  background: #FFF;
+}
+.controls-Render_style_info:hover {
+  border-color: #EAEAEA #EAEAEA #AAB0C1 #EAEAEA;
+  background: #FFF;
+}
+.controls-Render_style_warning_active {
+  border-color: #FEC63F;
+  background: #FFF;
+}
+.controls-Render_style_success_active {
+  border-color: #72BE44;
+  background: #FFF;
+}
+.controls-Render_style_primary_active {
+  border-color: #FF7033;
+  background: #FFF;
+}
+.controls-Render_style_invalid_active {
+  border-color: #EF463A;
+  background: #FADADD;
+}
+.controls-Render_style_danger_active {
+  border-color: #EF463A;
+  background: #FFF;
+}
+.controls-Render_style_info_active {
+  border-color: #EAEAEA #EAEAEA #AAB0C1 #EAEAEA;
+  background: #FFF;
+}
+.controls-Render_style_warning_readOnly {
+  border-color: #FEC63F;
+  background: #FFF;
+}
+.controls-Render_style_success_readOnly {
+  border-color: #72BE44;
+  background: #FFF;
+}
+.controls-Render_style_primary_readOnly {
+  border-color: #FF7033;
+  background: #FFF;
+}
+.controls-Render_style_invalid_readOnly {
+  border-color: #EF463A;
+  background: #FADADD;
+}
+.controls-Render_style_danger_readOnly {
+  border-color: #EF463A;
+  background: #FFF;
+}
+.controls-Render_style_info_readOnly {
+  border-color: transparent transparent #E4E4E4 transparent;
+  background: #FFF;
+}
+.controls-Render__tagStyle {
+  top: 0;
+  right: 0;
+  position: absolute;
+  width: 8px;
+  height: 8px;
+}
+.controls-Render__tagStyle_secondary {
+  fill: #587AB0;
+}
+.controls-Render__tagStyle_warning {
+  fill: #FEC63F;
+}
+.controls-Render__tagStyle_primary {
+  fill: #FF7033;
+}
+.controls-Render__tagStyle_success {
+  fill: #72BE44;
+}
+.controls-Render__tagStyle_danger {
+  fill: #EF463A;
+}
+.controls-Render__tagStyle_info {
+  fill: #CCC;
+}
+.controls-Render_textAlign_left {
+  text-align: left;
+}
+.controls-Render_textAlign_right {
+  text-align: right;
+}

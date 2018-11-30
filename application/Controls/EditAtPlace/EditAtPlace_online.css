@@ -1,0 +1,59 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-EditAtPlaceV {
+  position: relative;
+  display: inline-block;
+}
+.controls-EditAtPlaceV__Toolbar {
+  display: inline-block;
+}
+.controls-EditAtPlaceV__withToolbar {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  min-height: 32px;
+}
+.controls-EditAtPlaceV_isEditing_style_withBackground {
+  background-color: #f3f3f3;
+  border-radius: 4px;
+}
+.controls-EditAtPlaceV__Toolbar__Button {
+  margin-left: 12px;
+}
+.controls-EditAtPlaceV__editorWrapper {
+  min-width: 0;
+}
+.controls-EditAtPlaceV__Text {
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 5px;
+  width: 100%;
+}
+.controls-EditAtPlaceV__Text:before {
+  content: '\200b';
+  width: 0;
+  display: inline-block;
+  visibility: hidden;
+}
+.controls-EditAtPlaceV__Text_enabled {
+  border-top: 1px solid transparent;
+  border-bottom: 1px dashed #868686;
+}
+.controls-EditAtPlaceV__Text_withoutBorder {
+  border-bottom: 1px  dashed transparent;
+}
+.controls-EditAtPlaceV__Text_style_accentHeader {
+  font-size: 18px;
+  font-weight: bold;
+  color: #D94700;
+}
+.ws-is-no-touch .controls-EditAtPlaceV__Text_enabled:hover {
+  border-bottom-color: transparent;
+}

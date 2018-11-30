@@ -1,0 +1,48 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.DropArea_overlay {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  border: 4px dashed #fff;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: white;
+  padding-top: 3px;
+}
+.DropArea_overlay .title {
+  font-size: 28px;
+}
+.DropArea_overlay .subtitle {
+  font-size: 16px;
+}
+.DropArea_overlay.DropArea_overlay_size_1 .title {
+  font-size: 10px;
+}
+.DropArea_overlay.DropArea_overlay_size_1 .subtitle {
+  display: none;
+}
+.DropArea_overlay.DropArea_overlay_size_2 .title {
+  font-size: 14px;
+}
+.DropArea_overlay.DropArea_overlay_size_2 .subtitle {
+  font-size: 12px;
+}
+.DropArea_overlay.DropArea_overlay_size_3 .title {
+  font-size: 16px;
+}
+.DropArea_overlay.DropArea_overlay_size_3 .subtitle {
+  font-size: 14px;
+}
+.DropArea_overlay.DropArea_overlay_size_4 .title {
+  font-size: 20px;
+}
+.DropArea_overlay.DropArea_overlay_size_4 .subtitle {
+  font-size: 14px;
+}
+.DropArea_overlay.DropArea_overlay_size_5 .title {
+  font-size: 24px;
+}
+.DropArea_overlay.DropArea_overlay_size_5 .subtitle {
+  font-size: 15px;
+}

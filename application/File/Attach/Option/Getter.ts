@@ -1,0 +1,1 @@
+/home/alexa4/JavaScript/Tensor/swp/File/Attach/Option/Getter.ts

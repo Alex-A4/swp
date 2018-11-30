@@ -1,0 +1,53 @@
+/*Ёмкость списка без прокрутки - 16 пресетов*/
+/*#0055BB*/
+.controls-Dropdown {
+  display: inline-block;
+}
+.controls-Dropdown__wrapper {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 24px;
+}
+.controls-Dropdown__wrapper:before {
+  content: "\200b";
+}
+.controls-Dropdown__text {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.controls-Dropdown__text_enabled:hover {
+  cursor: pointer;
+}
+.controls-Dropdown__text_enabled:hover .controls-Dropdown__text {
+  text-decoration: underline;
+}
+.controls-Dropdown__defaultItem {
+  color: #0055BB;
+}
+.controls-Dropdown__defaultItem:hover {
+  color: #313E78;
+}
+.controls-Dropdown__emptyItem {
+  color: #CCCCCC;
+}
+.controls-Dropdown__icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+}
+.controls-DropdownList__margin {
+  margin-top: -8px;
+  margin-left: -13px;
+}
+.controls-DropdownList__margin-head {
+  margin-top: -6px;
+  margin-left: -13px;
+}
