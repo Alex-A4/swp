@@ -2,7 +2,17 @@
   "cache": "%cd%/builder-ui/builder-json-cache",
   "output": "%cd%/application",
   "logs": "%cd%/builder-ui/logs",
-  "mode": "release",
+   "typescript": true,
+  "less": true,
+  "contents": true,
+  "deprecatedWebPageTemplates": true,
+  "htmlWml": true,
+  "themes": true,
+
+  "minimize": false,
+  "wml": false,
+  "сustomPack": false,
+  "dependenciesGraph": false,
   "modules": [
     {
       "name": "Controls",
@@ -14,6 +24,10 @@
     },
     {
       "name": "Controls-theme",
+      "path": "%cd%/Controls-theme"
+    },
+    {
+      "name": "Controls-demo",
       "path": "%cd%/Controls-theme"
     },
     {
