@@ -1,0 +1,13 @@
+<Controls.Application>
+	<div>
+		<div on:click = "add()">Добавить</div>
+		<div on:click = "remove()">Удалить</div>
+		<div on:click = "readAll()">Прочитать все</div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<div></div>
+		<Controls.Input.Text name = "stroka" bind:value = "state"/>
+		<div on:click = "search()">Поиск</div>
+	</div>
+</Controls.Application>

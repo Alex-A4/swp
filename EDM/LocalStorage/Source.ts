@@ -47,6 +47,8 @@ const LocalStorageWorker = {
             if (pref[i].description.indexOf(line) !== -1)
                 temp.push(pref[i]);
         }
+
+        alert(JSON.stringify(temp));
         return temp;
     },
 
