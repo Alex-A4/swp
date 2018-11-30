@@ -7,19 +7,12 @@ class Index extends Control {
 
     public _template:Function = template;
     
-    public add():void{
-        LocalStorage.addDocument({
-            id: '1243',
-            title: 'Prodam GARAGE',
-            description: 'Hochy prodat garage pod samagon',
-            date: '10.11.2018',
-            time: '15:32',
-            author: 'Dima'
-        });
+    public add(document: Document):void{
+        LocalStorage.addDocument(document);
     }
 
-    public remove():void{
-        LocalStorage.removeDocument('1243');
+    public remove(id: string):void{
+        LocalStorage.removeDocument(id);
     }
 
     public readAll():void{
