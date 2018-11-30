@@ -54,11 +54,15 @@ const LocalStorageWorker = {
 
     //Используется в _beforeMount для инициализации
     initIfNotExist() {
-        let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
-        if (pref === null) {
-            pref = [];
-            localStorage.setItem('documentData', JSON.stringify(pref));
+        if (localStorage) {
+            let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+
+            if (pref === null) {
+                pref = [];
+                localStorage.setItem('documentData', JSON.stringify(pref));
+            }
         }
+        
     }
 
  }
