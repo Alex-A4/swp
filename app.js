@@ -1,12 +1,14 @@
-
 let DBWorker = require('./DBWorker');
 var root = process.cwd(),
    rootFixed = root.replace('\\', '/'),
    baseRequire = require,
    fs = require('fs'),
-   path = require('path');
+   path = require('path'),
+   WebSocket = require('ws');
 
-var global = (function() {
+
+
+var global = (function () {
    return this || (0, eval)('this');
 })();
 
@@ -16,8 +18,8 @@ global.requirejs = requirejs;
 
 // Configuring requirejs
 var createConfig = require(path.join(root, 'node_modules', 'sbis3-ws', 'ws', 'ext', 'requirejs', 'config.js'));
-var config = createConfig(path.join(root,'application'),
-   path.join(root, 'application','WS.Core'),
+var config = createConfig(path.join(root, 'application'),
+   path.join(root, 'application', 'WS.Core'),
    path.join(root, 'application'),
    { lite: true });
 requirejs.config(config);
@@ -44,67 +46,90 @@ console.log('path rjs');
 global.require = global.requirejs = require = requirejs;
 
 console.log('start init');
-require(['Core/core-init'], function(){
+require(['Core/core-init'], function () {
    console.log('core init success');
-}, function(err){
+}, function (err) {
    console.log(err);
    console.log('core init failed');
 });
 
 
+wss = new WebSocket.Server({ port: 8080 });
+
+let websockets = [];
+
+wss.on('connection', (ws) => {
+   websockets.push(ws);
+   ws.on('close', function () {
+      delete websockets[ws];
+   });
+})
+
+function sendAll(method, ...args) {
+   websockets.forEach((ws) => {
+      ws.send(JSON.stringify({ method: method, args: args }));
+   });
+}
 app.get("/api/list", (req, res) => {
    console.log(111111);
    DBWorker.list()
-   .then((list) => res.send(list))
-   .catch((err) => res.status(500) && res.send(err));
+      .then((list) => res.send(list))
+      .catch((err) => res.status(500) && res.send(err));
 });
 
 app.get("/api/read", (req, res) => {
    DBWorker.read(req.query.id)
-   .then((item) => res.send(item))
-   .catch((err) => res.status(500) && res.send(err));
+      .then((item) => res.send(item))
+      .catch((err) => res.status(500) && res.send(err));
 });
 
 app.post("/api/delete", function (req, res) {
    DBWorker.delete(req.query.id)
-   .then((status) => res.sendStatus(status))
-   .catch((err) => res.status(500) && res.send(err));
+      .then((status) => res.sendStatus(status) && sendAll('delete', req.query.id))
+      .catch((err) => res.status(500) && res.send(err));
 });
 
 app.post("/api/create", function (req, res) {
    DBWorker.create(JSON.parse(req.query.document))
-   .then((status) => res.sendStatus(status))
-   .catch((err) => res.status(500) && res.send(err));
+      .then((status) => res.sendStatus(status) && sendAll('create', req.query.document))
+      .catch((err) => res.status(500) && res.send(err));
 });
 
 app.post("/api/update", function (req, res) {
    DBWorker.update(req.query.id, JSON.parse(req.query.document))
-   .then((status) => res.sendStatus(status))
-   .catch((err) => res.status(500) && res.send(err));
+      .then((status) => res.sendStatus(status) && sendAll('update', req.query.document, req.query.id))
+      .catch((err) => res.status(500) && res.send(err));
 });
 
-app.get('/', function(req, res) {
+app.post("/api/sync",function (req, res) {
+     console.log(JSON.parse(req.query.documents))
+    DBWorker.sync(JSON.parse(req.query.documents))
+    .then((status) => res.sendStatus(status))
+    .catch((err) => res.status(500) && res.send(err));
+} );
+
+app.get('/', function (req, res) {
    var cmp = 'EDM/Index';
    init(req, res, cmp);
 });
 
 /*server side render*/
-app.get('/:moduleName/*', function(req, res){
+app.get('/:moduleName/*', function (req, res) {
    var originalUrl = req.originalUrl;
 
    var path = req.originalUrl.split('/');
-   var cmp = path?path[1]:'Index';
+   var cmp = path ? path[1] : 'Index';
    cmp += '/Index';
 
    init(req, res, cmp);
 });
 
 function init(req, res, cmp) {
-   req.compatible=false;
+   req.compatible = false;
    if (!process.domain) {
       process.domain = {
-         enter: function(){},
-         exit: function(){}
+         enter: function () { },
+         exit: function () { }
       };
    }
    process.domain.req = req;
@@ -113,8 +138,8 @@ function init(req, res, cmp) {
 
    try {
       require(cmp);
-   } catch(e){
-      res.writeHead(200, {'Content-Type': 'text/html'});
+   } catch (e) {
+      res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(e.message);
       return;
    }
@@ -127,12 +152,12 @@ function init(req, res, cmp) {
    });
 
    if (html.addCallback) {
-      html.addCallback(function(htmlres){
-         res.writeHead(200, {'Content-Type': 'text/html'});
+      html.addCallback(function (htmlres) {
+         res.writeHead(200, { 'Content-Type': 'text/html' });
          res.end(htmlres);
       });
    } else {
-      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(html);
    }
 }

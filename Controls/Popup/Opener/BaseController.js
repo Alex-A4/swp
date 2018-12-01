@@ -165,7 +165,7 @@ define('Controls/Popup/Opener/BaseController',
          _getPopupSizes: function(config, container) {
             var sizes = _private.getContentSizes(container);
             return {
-               width: config.popupOptions.maxWidth || sizes.width,
+               width: config.popupOptions.maxWidth,
                height: config.popupOptions.maxHeight || sizes.height,
                margins: _private.getMargins(config, container)
             };
