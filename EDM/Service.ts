@@ -17,10 +17,7 @@ class Service{
     }
 
     public post(methodName : string, query: any){
-
         let URL = `${this.serviceURL}/${methodName}?${this.parseSearchParams(query)}`;
-
-        alert(URL);
         return new Promise((resolve, reject) =>  {
             fetch(URL, {method : 'POST', headers: { "Content-Type": "application/json" }})
                 .then((response : Response) => response.status)

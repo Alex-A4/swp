@@ -6,7 +6,6 @@ import 'css!theme?EDM/Index';
 import * as EventBus from 'Core/EventBus';
 import Socket from './Socket';
 import Service from './Service';
-import './Synchronizer';
 
 class Index extends Control {
 
@@ -20,15 +19,29 @@ class Index extends Control {
     public items: Array<Document>;
     public allItems: Array<Document>;
     public countPage: number;
-  
+
+    public add(document: Document): void {
+        var t = 0;
+        if (this.allItems.length == 0) {
+           // this.page = 0;
+            t = 1;
+        }
+        LocalStorage.addDocument(document);
+        /*if (t == 1) {
+            this.changeCurrentPage(0);
+        }*/
+    }
+
     public remove(event, id: string): void {
         LocalStorage.removeDocument(id);
         this.getFreshData();
     }
 
     public update(event, id: string, document: Document) {
+        document.sync = true;
         LocalStorage.update(id, document);
         this.getFreshData();
+    }
 
     public readAll(): void {
         LocalStorage.readAll();
@@ -37,10 +50,15 @@ class Index extends Control {
     public changeCurrentPage(indx: number): void {
         this.page = indx;
         if (this.allItems.length % this.sizePage == 0) {
-            this.countPage = this.allItems.length / this.sizePage;
+            this.countPage = Math.floor(this.allItems.length / this.sizePage);
         } else {
             this.countPage = Math.floor(this.allItems.length / this.sizePage) + 1;
         }
+        /*if (this.allItems.length == 0) {
+            this.items = [];
+            this.countPage = 0;
+            return;
+        }*/
         this.items = [];
         /* this.allItems ..... -> .... this.items = []*/
         let first: number = indx * this.sizePage;
@@ -56,9 +74,10 @@ class Index extends Control {
     }
 
     private getFreshData() {
-        this.items = LocalStorage.readAll();
+        this.allItems = LocalStorage.readAll();
         this.changeCurrentPage(this.page);
         this._forceUpdate();
+        this._children.relhoc._forceUpdate();
     }
 
     public search(): void {
@@ -74,9 +93,11 @@ class Index extends Control {
 
         this.remove = this.remove.bind(this);
         this.update = this.update.bind(this);
+        this.getFreshData = this.getFreshData.bind(this);
 
         EventBus.channel('docChannel').subscribe('remove', this.remove);
         EventBus.channel('docChannel').subscribe('update', this.update);
+        EventBus.channel('docChannel').subscribe('refresh', this.getFreshData);
 
         this.allItems = LocalStorage.readAll();
         this.changeCurrentPage(this.page);
@@ -89,7 +110,7 @@ class Index extends Control {
     }
 
     protected _afterMount(): void {
-        Socket.startListen('ws://localhost:8080');
+        Socket.startListen(`wss://${location.hostname}:8888`);
     }
 
     private addButtonClickHandler(e: Event, data: Object): void {
@@ -104,7 +125,7 @@ class Index extends Control {
         LocalStorage.removeDocument(data.id);
         let len = this.allItems.length;
         if (len % this.sizePage == 0) {
-            this.page--;
+            this.page--; // WOOOOORK
         }
         this.changeCurrentPage(this.page);
         this._forceUpdate();
