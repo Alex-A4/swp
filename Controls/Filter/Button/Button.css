@@ -1,6 +1,3 @@
-/*
-   Templates
- */
 /*Ёмкость списка без прокрутки - 16 пресетов*/
 /*#0055BB*/
 .controls-FilterButton {
@@ -8,7 +5,7 @@
   display: inline-block;
 }
 .controls-FilterButton__icon_state_default {
-  color: #587AB0;
+  color: #587ab0;
   cursor: pointer;
 }
 .ws-is-no-touch .controls-FilterButton__icon_state_default:hover {
@@ -63,21 +60,14 @@
           align-items: center;
   min-width: 0;
 }
-.ws-is-no-touch .controls-FilterButton__text-wrapper_state_default:hover {
+.controls-FilterButton__text-wrapper_state_default:hover {
   cursor: pointer;
 }
-.ws-is-no-touch .controls-FilterButton__text-wrapper_state_default:hover .controls-FilterButton__text {
+.controls-FilterButton__text-wrapper_state_default:hover .controls-FilterButton__text {
   color: #313E78;
   text-decoration: underline;
 }
-.ws-is-no-touch .controls-FilterButton__text-wrapper_state_default:hover .controls-FilterButton__arrow {
-  color: #313E78;
-}
-.controls-FilterButton__text-wrapper_state_default:active .controls-FilterButton__text {
-  color: #313E78;
-  text-decoration: underline;
-}
-.controls-FilterButton__text-wrapper_state_default:active .controls-FilterButton__arrow {
+.controls-FilterButton__text-wrapper_state_default:hover .controls-FilterButton__arrow {
   color: #313E78;
 }
 .controls-FilterButton__text {
@@ -87,19 +77,19 @@
   font-size: 14px;
 }
 .controls-FilterButton__text_state_default {
-  color: #0055BB;
+  color: #0055bb;
 }
 .controls-FilterButton__text_state_disabled {
-  color: #CCC;
+  color: #ccc;
 }
 .controls-FilterButton__arrow_state_default {
-  color: #587AB0;
+  color: #587ab0;
 }
 .controls-FilterButton__arrow_state_disabled {
   color: #CCC;
 }
 .controls-FilterButton__clear {
-  color: #CCC;
+  color: #ccc;
   cursor: pointer;
 }
 .controls-FilterButton__icon {
@@ -116,14 +106,6 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-.controls-FilterButton__arrow {
-  font-size: 16px;
-  width: 16px;
-  height: 16px;
-  font-family: 'cbuc-icons';
-}
-.controls-FilterButton__clear {
   font-size: 16px;
   width: 16px;
   height: 16px;
@@ -134,6 +116,14 @@
 .controls-FilterButton__icon {
   -ms-flex-negative: 0;
       flex-shrink: 0;
+}
+.controls-FilterButton-popup-orientation-left {
+  margin-top: -11px;
+  margin-left: 9px;
+}
+.controls-FilterButton-popup-orientation-right {
+  margin-top: -11px;
+  margin-left: -9px;
 }
 /* ****************Для совместимости со старой панелью ****************/
 .controls-FilterButton {

@@ -78,7 +78,8 @@ fs.writeFile(path.join(root, 'builderCfg.json'), gultConfig, function(){
          }
       });
 
-      fs.symlinkSync(path.join(root, 'cdn'), path.join(root, 'application', 'cdn'));
+      copyRecursiveSync(path.join(root, 'cdn'), path.join(root, 'application', 'cdn'));
+
       var alljson = {links: {}, nodes: {}};
       var contents = { buildMode: '', modules: {} };
       var bundles = {};

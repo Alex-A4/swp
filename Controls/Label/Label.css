@@ -1,6 +1,3 @@
-/*
-   Templates
- */
 /*Ёмкость списка без прокрутки - 16 пресетов*/
 /*#0055BB*/
 .controls-LabelV {
@@ -13,11 +10,11 @@
 .controls-LabelV__caption_required:after {
   content: ' *';
 }
-.controls-LabelV__caption_required_enabled:after {
-  color: #ef463a;
-}
 .controls-LabelV_enabled {
   color: #8991A9;
+}
+.controls-LabelV_enabled:after {
+  color: #ef463a;
 }
 .controls-LabelV_disabled {
   color: #ccc;

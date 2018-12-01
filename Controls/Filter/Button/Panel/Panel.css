@@ -1,6 +1,3 @@
-/*
-   Templates
- */
 /*Ёмкость списка без прокрутки - 16 пресетов*/
 /*#0055BB*/
 .controls-PanelFilter__width-m {
@@ -78,14 +75,6 @@
 }
 .controls-FilterPanel__filterButton {
   margin-right: 4px;
-}
-.controls-FilterButton-popup-orientation-left {
-  margin-top: -11px;
-  margin-left: 9px;
-}
-.controls-FilterButton-popup-orientation-right {
-  margin-top: -11px;
-  margin-left: -9px;
 }
 .controls-HistoryList__horizontal {
   width: 50%;

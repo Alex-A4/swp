@@ -85,6 +85,47 @@ app.post("/api/update", function (req, res) {
 
 
 
+
+app.get('/', function(req, res, path) {
+   req.compatible=false;
+   if (!process.domain) {
+      process.domain = {
+         enter: function(){},
+         exit: function(){}
+      };
+   }
+   process.domain.req = req;
+
+   var tpl = require('wml!Controls/Application/Route');
+  
+   var cmp = 'EDM/Index';
+
+   try {
+      require(cmp);
+   } catch(e){
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.end('');
+      return;
+   }
+   var html = tpl({
+      lite: true,
+      wsRoot: '/WS.Core/',
+      resourceRoot: '/',
+      application: cmp,
+      appRoot: '/'
+   });
+
+   if (html.addCallback) {
+      html.addCallback(function(htmlres){
+         res.writeHead(200, {'Content-Type': 'text/html'});
+         res.end(htmlres);
+      });
+   } else {
+      res.writeHead(200, {'Content-Type': 'text/html'});
+      res.end(html);
+   }
+});
+
 /*server side render*/
 app.get('/:moduleName/*', function(req, res){
 console.log(1);
@@ -129,7 +170,3 @@ console.log(1);
       res.end(html);
    }
 });
-
-
-
-

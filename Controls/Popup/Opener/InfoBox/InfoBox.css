@@ -1,13 +1,7 @@
-/*
-   Templates
- */
 /*Ёмкость списка без прокрутки - 16 пресетов*/
 /*#0055BB*/
 .controls-InfoBox {
-  padding-top: 8px;
-  padding-right: 12px;
-  padding-bottom: 8px;
-  padding-left: 12px;
+  padding: 8px 12px 8px 12px;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   max-width: 500px;
@@ -104,7 +98,7 @@
   top: 4px;
   right: 6px;
   cursor: pointer;
-  color: #CCC;
+  color: #CCCCCC;
 }
 .controls-InfoBox__closeButton:hover {
   color: #313E78;
@@ -113,15 +107,15 @@
   margin-right: 18px;
 }
 .controls-InfoBox_floatElement {
-  width: 16px;
-  height: 16px;
+  width: 18px;
+  height: 18px;
   float: right;
 }
 .controls-InfoBox-style-default {
   background: #FFFFFF;
   border-color: #BDBDBD;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px 0;
-          box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px;
+          box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px;
 }
 .controls-InfoBox-style-default.controls-InfoBox__popup:before {
   background: #FFFFFF;
@@ -130,8 +124,8 @@
 .controls-InfoBox-style-lite {
   background: #F4F9FD;
   border-color: #BDBDBD;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px 0;
-          box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px;
+          box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px;
 }
 .controls-InfoBox-style-lite.controls-InfoBox__popup:before {
   background: #F4F9FD;
@@ -140,8 +134,8 @@
 .controls-InfoBox-style-help {
   background: #FFF9F3;
   border-color: #BDBDBD;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px 0;
-          box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px 0;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px;
+          box-shadow: rgba(0, 0, 0, 0.4) 0 0 12px;
 }
 .controls-InfoBox-style-help.controls-InfoBox__popup:before {
   background: #FFF9F3;
@@ -150,8 +144,8 @@
 .controls-InfoBox-style-error {
   background: #FFFFFF;
   border-color: #EF463A;
-  -webkit-box-shadow: rgba(239, 70, 58, 0.4) 0 0 12px 0;
-          box-shadow: rgba(239, 70, 58, 0.4) 0 0 12px 0;
+  -webkit-box-shadow: rgba(239, 70, 58, 0.4) 0 0 12px;
+          box-shadow: rgba(239, 70, 58, 0.4) 0 0 12px;
 }
 .controls-InfoBox-style-error.controls-InfoBox__popup:before {
   background: #FFFFFF;

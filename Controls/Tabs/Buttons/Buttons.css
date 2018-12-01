@@ -1,6 +1,3 @@
-/*
-   Templates
- */
 /*Ёмкость списка без прокрутки - 16 пресетов*/
 /*#0055BB*/
 .controls-Tabs {
@@ -13,8 +10,8 @@
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -ms-flex-negative: 9999999;
-      flex-shrink: 9999999;
+  -ms-flex-negative: 1;
+      flex-shrink: 1;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   -webkit-box-align: baseline;
@@ -81,11 +78,6 @@
   height: 1px;
   background: #F0F0F0;
 }
-.controls-Tabs__item_canShrink {
-  -ms-flex-negative: 1;
-      flex-shrink: 1;
-  min-width: 0;
-}
 .controls-Tabs__itemSeparator {
   pointer-events: none;
   position: absolute;
@@ -128,18 +120,18 @@
   margin-left: 0;
 }
 /* style = default */
-.controls-Tabs_style_primary__item_state_selected {
+.controls-Tabs_style_default__item_state_selected {
   color: #D94700;
 }
-.controls-Tabs_style_primary__item_state_selected:after {
+.controls-Tabs_style_default__item_state_selected:after {
   height: 2px;
   background: #D94700;
 }
 /* style = additional */
-.controls-Tabs_style_secondary__item_state_selected {
+.controls-Tabs_style_additional__item_state_selected {
   color: #0055BB;
 }
-.controls-Tabs_style_secondary__item_state_selected:after {
+.controls-Tabs_style_additional__item_state_selected:after {
   height: 2px;
   background: #0055BB;
 }
