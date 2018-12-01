@@ -29,7 +29,10 @@ const LocalStorageWorker = {
 
     //Читает и возвращает все записи
     readAll(){
-        let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+    let pref: Array<Document> = [];
+    if (typeof localStorage !== 'undefined') {
+         pref = JSON.parse(localStorage.getItem('documentData'));
+    }
         return pref;
     },
 
@@ -54,7 +57,7 @@ const LocalStorageWorker = {
 
     //Используется в _beforeMount для инициализации
     initIfNotExist() {
-        if (localStorage) {
+        if (typeof localStorage !== 'undefined') {
             let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
 
             if (pref === null) {

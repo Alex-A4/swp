@@ -1,3 +1,5 @@
+
+let DBWorker = require('./DBWorker');
 var root = process.cwd(),
    rootFixed = root.replace('\\', '/'),
    baseRequire = require,
@@ -50,23 +52,25 @@ require(['Core/core-init'], function(){
 });
 
 
-app.get('/', function(req, res) {
+app.get('/', function(req, res, path) {
+   req.compatible=false;
+   if (!process.domain) {
+      process.domain = {
+         enter: function(){},
+         exit: function(){}
+      };
+   }
+   process.domain.req = req;
+
+   var tpl = require('wml!Controls/Application/Route');
+  
    var cmp = 'EDM/Index';
    init(req, res, cmp);
 });
 
 /*server side render*/
 app.get('/:moduleName/*', function(req, res){
-   var originalUrl = req.originalUrl;
 
-   var path = req.originalUrl.split('/');
-   var cmp = path?path[1]:'Index';
-   cmp += '/Index';
-
-   init(req, res, cmp);
-});
-
-function init(req, res, cmp) {
    req.compatible=false;
    if (!process.domain) {
       process.domain = {
