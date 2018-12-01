@@ -1,5 +1,6 @@
 <Controls.Application theme='{{myTheme}}' bodyClass="theme_{{myTheme}}" viewport="width=480">
-<div>
+<EDM.ReloadHoc name="relhoc" temp="{{items}}">
+   <div>
 	<div class="navbar">
 		<div class="search">
 			<Controls.Input.Text class="search-field" name = "search_field" placeholder="Type something..." bind:value = "searchValue"/>
@@ -21,4 +22,5 @@
 </Controls.Popup.Opener.Stack>
 
 </div>
+</EDM.ReloadHoc>
 </Controls.Application>
