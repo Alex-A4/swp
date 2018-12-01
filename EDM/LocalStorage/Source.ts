@@ -56,11 +56,12 @@ const LocalStorageWorker = {
     
                 if (pref[i].description.toLowerCase.indexOf(line.toLowerCase) !== -1)
                     temp.push(pref[i]);
-         }
+            }
 
 
         console.log(JSON.stringify(temp));
         return temp;
+        }
     },
 
     //Используется в _beforeMount для инициализации
@@ -112,10 +113,28 @@ const LocalStorageWorker = {
     },
 
     //Слияние входного массива с localStorage
-    merge(array: Array<Document>) {
+    merge(arr: Array<Document>) {
         if (typeof localStorage !== 'undefined') {
             let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
             
+            for (let i = 0, len = pref.length; i < len; i++) {
+                let j, newLen = arr.length;
+
+                //Ищем соответствие id для обновления записи
+                for (j = 0; j < newLen; j++) {
+                    if (arr[j].id === pref[i].id) {
+                        pref[i] = arr[j];
+                        //Удаляем элемент из массива
+                        arr.splice(j,1);
+                        break;
+                    }
+                }
+            }
+
+            //По окончании цикла в arr должны остаться только новые элементы, которые добавляем в конец pref
+            pref = pref.concat(arr);
+
+            localStorage.setItem('documentData', JSON.stringify(pref));
         }
     }
  }
