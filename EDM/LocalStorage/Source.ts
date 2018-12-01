@@ -117,6 +117,7 @@ const LocalStorageWorker = {
             let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
             for (let i = 0, len = pref.length; i < len; i++) {
                 let j, newLen = arr.length;
+
                 //Ищем соответствие id для обновления записи
                 for (j = 0; j < newLen; j++) {
                     if (pref[i] !== null && arr[j] !== null)
@@ -126,6 +127,10 @@ const LocalStorageWorker = {
                             arr.splice(j, 1);
                             break;
                         }
+                }
+                
+                if (j === newLen) {
+                    pref.splice(i,1);
                 }
             }
             //По окончании цикла в arr должны остаться только новые элементы, которые добавляем в конец pref
