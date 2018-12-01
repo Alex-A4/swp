@@ -20,8 +20,6 @@ class Index extends Control {
     public items: Array<Document>;
     public allItems: Array<Document>;
     public countPage: number;
-<<<<<<< HEAD
-
 
     public add(document: Document): void {
         var t = 0;
@@ -35,11 +33,7 @@ class Index extends Control {
         }*/
     }
 
-    public remove(id: string): void {
-=======
-  
     public remove(event, id: string): void {
->>>>>>> dd685073283d80d2f4fab64e7d491be925a11077
         LocalStorage.removeDocument(id);
         this.getFreshData();
     }
@@ -47,6 +41,7 @@ class Index extends Control {
     public update(event, id: string, document: Document) {
         LocalStorage.update(id, document);
         this.getFreshData();
+    }
 
     public readAll(): void {
         LocalStorage.readAll();
