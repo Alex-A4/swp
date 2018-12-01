@@ -1,4 +1,3 @@
-
 let DBWorker = require('./DBWorker');
 var root = process.cwd(),
    rootFixed = root.replace('\\', '/'),
@@ -52,6 +51,37 @@ require(['Core/core-init'], function(){
 });
 
 
+app.get("/api/list", (req, res) => {
+   console.log(111111);
+   DBWorker.list()
+   .then((list) => res.send(list))
+   .catch((err) => res.status(500) && res.send(err));
+});
+
+app.get("/api/read", (req, res) => {
+   DBWorker.read(req.query.id)
+   .then((item) => res.send(item))
+   .catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/delete", function (req, res) {
+   DBWorker.delete(req.query.id)
+   .then((status) => res.sendStatus(status))
+   .catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/create", function (req, res) {
+   DBWorker.create(JSON.parse(req.query.document))
+   .then((status) => res.sendStatus(status))
+   .catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/update", function (req, res) {
+   DBWorker.update(req.query.id, JSON.parse(req.query.document))
+   .then((status) => res.sendStatus(status))
+   .catch((err) => res.status(500) && res.send(err));
+});
+
 app.get('/', function(req, res) {
    var cmp = 'EDM/Index';
    init(req, res, cmp);
@@ -84,7 +114,7 @@ function init(req, res, cmp) {
       require(cmp);
    } catch(e){
       res.writeHead(200, {'Content-Type': 'text/html'});
-      res.end('');
+      res.end(e.message);
       return;
    }
    var html = tpl({
@@ -105,35 +135,3 @@ function init(req, res, cmp) {
       res.end(html);
    }
 }
-
-
-app.get("/api/list", (req, res) => {
-console.log(111111);
-DBWorker.list()
-.then((list) => res.send(list))
-.catch((err) => res.status(500) && res.send(err));
-});
-
-app.get("/api/read", (req, res) => {
-DBWorker.read(req.query.id)
-.then((item) => res.send(item))
-.catch((err) => res.status(500) && res.send(err));
-});
-
-app.post("/api/delete", function (req, res) {
-DBWorker.delete(req.query.id)
-.then((status) => res.sendStatus(status))
-.catch((err) => res.status(500) && res.send(err));
-});
-
-app.post("/api/create", function (req, res) {
-DBWorker.create(JSON.parse(req.query.document))
-.then((status) => res.sendStatus(status))
-.catch((err) => res.status(500) && res.send(err));
-});
-
-app.post("/api/update", function (req, res) {
-DBWorker.update(req.query.id, JSON.parse(req.query.document))
-.then((status) => res.sendStatus(status))
-.catch((err) => res.status(500) && res.send(err));
-});
