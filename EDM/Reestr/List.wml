@@ -1,0 +1,24 @@
+<div>
+	<ws:for data="item in items">
+	<div class="main-row-container" on:click="rowClickHandler()">
+		<div class="close">
+			<img class="cross transition" src="/EDM/Reestr/cross.png" alt="delete" on:click="deleteHander()"/>
+		</div>
+		<div class="row">
+			<div class="row-top">
+				<div class="row-top-leftcontent">
+					<div class="row-title">{{item.title}}</div>
+					<div class="row-author">{{item.author}}</div>
+				</div>
+				<div class="row-top-rightcontent">
+					<div class="row-date">{{item.date}}</div>
+					<div class="row-time">{{item.time}}</div>
+				</div>
+			</div>
+			<div class="row-bottom">
+				<div class="row-description">{{item.description}}</div>
+			</div>
+		</div>
+	</div>
+</ws:for>
+</div>
