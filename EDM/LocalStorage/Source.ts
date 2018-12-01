@@ -45,10 +45,10 @@ const LocalStorageWorker = {
         //Ищем совпадения указанной строки в title и description
         //Если совпадения есть, то добавляем объект в temp
         for (let i = 0, len = pref.length; i < len; i++) {
-            if (pref[i].title.indexOf(line) !== -1)
+            if (pref[i].title.toLowerCase.indexOf(line.toLowerCase) !== -1)
                 temp.push(pref[i]);
     
-            if (pref[i].description.indexOf(line) !== -1)
+            if (pref[i].description.toLowerCase.indexOf(line.toLowerCase) !== -1)
                 temp.push(pref[i]);
         }
 
