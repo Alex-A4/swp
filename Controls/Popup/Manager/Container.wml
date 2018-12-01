@@ -17,7 +17,6 @@
                 right: {{item.position.right === undefined ? 'auto' : item.position.right + 'px'}};
                 top: {{item.position.top === undefined ? 'auto': item.position.top + 'px'}};
                 bottom: {{item.position.bottom === undefined ? 'auto': item.position.bottom + 'px'}};
-                width: {{item.position.width === undefined ? 'auto': item.position.width + 'px'}};
                 height: {{item.position.height === undefined ? 'auto': item.position.height + 'px'}};"
                                        scope="{{item.popupOptions}}"
          />
