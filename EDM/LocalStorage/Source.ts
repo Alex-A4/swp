@@ -56,11 +56,11 @@ const LocalStorageWorker = {
     
                 if (pref[i].description.toLowerCase.indexOf(line.toLowerCase) !== -1)
                     temp.push(pref[i]);
-         }
+            }
 
-
-        console.log(JSON.stringify(temp));
-        return temp;
+           return temp;
+       } else 
+            return [];
     },
 
     //Используется в _beforeMount для инициализации
