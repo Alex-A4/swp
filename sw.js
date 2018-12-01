@@ -47,18 +47,18 @@ self.addEventListener('fetch', (event) => {
    return  caches.keys().then(function(names) {
       for (let name of names)
           caches.delete(name);
-          return fetch(fetchRequest);
+          return fetch(event.request);
     });
 
   } else if (event.request.url.indexOf('/api/') > -1) {
-    return fetch(fetchRequest);
+    return fetch(event.request);
   }
     event.respondWith(
         caches.match(event.request)
           .then(function(response) {
-            /*if (response) {
+            if (response) {
               return response;
-            }*/
+            }
 
             var fetchRequest = event.request.clone();
             return fetch(fetchRequest).then(
