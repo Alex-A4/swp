@@ -27,6 +27,9 @@ class Index extends Control {
 
     protected _beforeMount() {
         LocalStorage.initIfNotExist();
+        
+        this.items = LocalStorage.readAll();
+      
         if (detection.isMobilePlatform) {
             this.myTheme = "mobile";
         } else {
@@ -43,6 +46,12 @@ class Index extends Control {
          templateOptions: {
             readOnly: false,
             item: data
+         },
+         eventHandlers: {
+            onResult: () => {
+                this.items = LocalStorage.readAll();
+                this._forceUpdate();
+            }
          }
       });
    }

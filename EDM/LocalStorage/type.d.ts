@@ -5,4 +5,5 @@ type Document = {
     date:string;
     time:string;
     author:string;
+    sync:boolean;
  }

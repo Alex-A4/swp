@@ -73,6 +73,15 @@
                                     <ws:partial template="{{ i }}"/>
                                  </ws:for>
                               </ws:if>
+                              <script>
+                                    navigator.serviceWorker.register(
+                                       '/sw.js'
+                                       ).then(function(registration) {
+                                          console.log('ServiceWorker registration', registration);
+                                       }).catch(function(err) {
+                                          throw new Error('ServiceWorker error: ' + err);
+                                    });
+                              </script>
                               <script key="bundles" type="text/javascript"
                                       src="{{wsRoot}}ext/requirejs/bundles.js"></script>
                               <script key="require" type="text/javascript"

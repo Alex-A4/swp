@@ -9,6 +9,7 @@ const LocalStorageWorker = {
             if (pref[i].id === document.id)
             return;
         }
+        document.sync = false;
         pref.push(document);
         localStorage.setItem('documentData', JSON.stringify(pref));
     },
@@ -29,7 +30,10 @@ const LocalStorageWorker = {
 
     //Читает и возвращает все записи
     readAll(){
-        let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+    let pref: Array<Document> = [];
+    if (typeof localStorage !== 'undefined') {
+         pref = JSON.parse(localStorage.getItem('documentData'));
+    }
         return pref;
     },
 
@@ -41,10 +45,10 @@ const LocalStorageWorker = {
         //Ищем совпадения указанной строки в title и description
         //Если совпадения есть, то добавляем объект в temp
         for (let i = 0, len = pref.length; i < len; i++) {
-            if (pref[i].title.indexOf(line) !== -1)
+            if (pref[i].title.toLowerCase.indexOf(line.toLowerCase) !== -1)
                 temp.push(pref[i]);
     
-            if (pref[i].description.indexOf(line) !== -1)
+            if (pref[i].description.toLowerCase.indexOf(line.toLowerCase) !== -1)
                 temp.push(pref[i]);
         }
 
@@ -54,7 +58,7 @@ const LocalStorageWorker = {
 
     //Используется в _beforeMount для инициализации
     initIfNotExist() {
-        if (localStorage) {
+        if (typeof localStorage !== 'undefined') {
             let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
 
             if (pref === null) {
@@ -63,6 +67,38 @@ const LocalStorageWorker = {
             }
         }
         
+    },
+
+    //Обновляет указанную запись в localStorage по id
+    update(id:string, document:Document) {
+        let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+
+        for (let i = 0, len = pref.length; i < len; i++) {
+            if (pref[i].id === id) {
+                pref[i] = document;
+                localStorage.setItem('documentData',JSON.stringify(pref));
+                return;
+            }
+        }
+        
+        //Если запись не была обновлена, то добавляем ее
+        pref.push(document);
+        localStorage.setItem('documentData',JSON.stringify(pref));
+    },
+
+    //Фильтрация записей по указанному полю и значению
+    //Возвращает список записей, удовлетворяющих условию фильтра
+    filter(field:string, value:string) {
+        let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+
+        let temp: Array<Document> = [];
+
+        for (let i = 0, len = pref.length; i < len; i++) {
+            if (pref[i][field] === value)
+                temp.push(pref[i]);
+        }
+
+        return temp;
     }
 
  }

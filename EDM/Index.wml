@@ -5,6 +5,8 @@
 		<div on:click = "remove()">Удалить</div>
 		<div on:click = "readAll()">Прочитать все</div>
 
+		<EDM.Reestr.List items="{{items}}"/>
+
 
 		<div></div>
 		<div></div>
