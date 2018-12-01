@@ -1,49 +1,24 @@
-/*
-   Templates
- */
 /*Ёмкость списка без прокрутки - 16 пресетов*/
 /*#0055BB*/
+.controls-FastFilter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
 .controls-FastFilter__iconReset {
   font-size: 16px !important;
   line-height: 16px !important;
   width: 16px;
   height: 16px;
   font-family: 'cbuc-icons' !important;
-  color: #CCC;
-  cursor: pointer;
-}
-.controls-FastFilter__iconReset:active {
-  color: #CCC;
-}
-.ws-is-no-touch .controls-FastFilter__iconReset:hover {
-  color: #CCC;
+  color: #CCCCCC;
 }
 .controls-FastFilter__iconArrow {
-  font-size: 16px !important;
-  line-height: 16px !important;
+  height: 9px;
   width: 16px;
-  height: 16px;
-  font-family: 'cbuc-icons' !important;
-}
-.controls-FastFilter__iconArrow_state_enabled {
-  color: #587AB0;
-}
-.controls-FastFilter__iconArrow_state_readOnly {
-  color: #CCC;
-}
-.controls-FastFilter__text_state_enabled {
-  color: #0055BB;
-}
-.controls-FastFilter__text_state_readOnly {
-  color: #CCC;
-}
-.controls-FastFilter {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: 24px;
 }
 .controls-FastFilter__wrapper {
+  margin: 0;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -52,7 +27,7 @@
           align-items: center;
   overflow: hidden;
 }
-.controls-FastFilter__wrapper_state_enabled {
+.controls-FastFilter__wrapper_enabled {
   cursor: pointer;
 }
 .controls-FastFilter__block {
@@ -60,25 +35,24 @@
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -webkit-box-align: baseline;
+      -ms-flex-align: baseline;
+          align-items: baseline;
   min-width: 0;
 }
-.ws-is-no-touch .controls-FastFilter__block:hover .controls-FastFilter__text_state_enabled {
+.controls-FastFilter__iconArrow_enabled {
+  fill: #587ab0;
+}
+.controls-FastFilter__block:hover .controls-FastFilter__iconArrow_enabled {
+  fill: #313E78;
+}
+.controls-FastFilter__text_enabled {
+  color: #0055BB;
+}
+.controls-FastFilter__text_enabled:hover {
   cursor: pointer;
   color: #313E78;
   text-decoration: underline;
-}
-.ws-is-no-touch .controls-FastFilter__block:hover .controls-FastFilter__iconArrow_state_enabled {
-  color: #313E78;
-}
-.controls-FastFilter__block:active .controls-FastFilter__text_state_enabled {
-  color: #313E78;
-  text-decoration: underline;
-}
-.controls-FastFilter__block:active .controls-FastFilter__iconArrow_state_enabled {
-  color: #313E78;
 }
 .controls-FastFilter-popup {
   margin-top: -8px;

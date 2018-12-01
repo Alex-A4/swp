@@ -16,48 +16,48 @@
   height: 100%;
 }
 .controls-BackButton_style-default_size-l:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlue.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlue.svg');
 }
 .controls-BackButton_style-default_size-m:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlue.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlue.svg');
 }
 .controls-BackButton_style-default_size-s:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlueSmall.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlueSmall.svg');
 }
 .controls-BackButton_style-default:before {
   background-repeat: no-repeat;
   content: '';
 }
 .controls-BackButton_style-primary_size-l:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrange.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrange.svg');
 }
 .controls-BackButton_style-primary_size-m:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrange.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrange.svg');
 }
 .controls-BackButton_style-primary_size-s:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrangeSmall.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrangeSmall.svg');
 }
 .controls-BackButton_style-primary:before {
   background-repeat: no-repeat;
   content: '';
 }
 .controls-BackButton__wrapper:active .controls-BackButton_style-primary_size-l:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrange.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrange.svg');
 }
 .controls-BackButton__wrapper:active .controls-BackButton_style-primary_size-m:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrange.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrange.svg');
 }
 .controls-BackButton__wrapper:active .controls-BackButton_style-primary_size-s:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrangeSmall.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrangeSmall.svg');
 }
 .controls-BackButton__wrapper:active .controls-BackButton_style-default_size-l:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlue.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlue.svg');
 }
 .controls-BackButton__wrapper:active .controls-BackButton_style-default_size-m:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlue.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlue.svg');
 }
 .controls-BackButton__wrapper:active .controls-BackButton_style-default_size-s:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlueSmall.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlueSmall.svg');
 }
 .controls-BackButton__wrapper:active .controls-BackButton__caption_style-default {
   color: #ff7033;
@@ -66,22 +66,22 @@
   color: #0055BB;
 }
 .ws-is-no-touch .controls-BackButton__wrapper:hover .controls-BackButton_style-primary_size-l:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrange.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrange.svg');
 }
 .ws-is-no-touch .controls-BackButton__wrapper:hover .controls-BackButton_style-primary_size-m:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrange.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrange.svg');
 }
 .ws-is-no-touch .controls-BackButton__wrapper:hover .controls-BackButton_style-primary_size-s:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowOrangeSmall.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowOrangeSmall.svg');
 }
 .ws-is-no-touch .controls-BackButton__wrapper:hover .controls-BackButton_style-default_size-l:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlue.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlue.svg');
 }
 .ws-is-no-touch .controls-BackButton__wrapper:hover .controls-BackButton_style-default_size-m:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlue.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlue.svg');
 }
 .ws-is-no-touch .controls-BackButton__wrapper:hover .controls-BackButton_style-default_size-s:before {
-  background-image: url('../../../Controls-theme/themes/default/img/BackArrowBlueSmall.svg');
+  background-image: url('/resources/Controls-theme/themes/default/img/BackArrowBlueSmall.svg');
 }
 .ws-is-no-touch .controls-BackButton__wrapper:hover .controls-BackButton__caption_style-default {
   color: #ff7033;
