@@ -20,7 +20,7 @@ class Index extends Control {
     public items: Array<Document>;
     public allItems: Array<Document>;
     public countPage: number;
-
+  
     public remove(event, id: string): void {
         LocalStorage.removeDocument(id);
         this.getFreshData();
@@ -29,7 +29,6 @@ class Index extends Control {
     public update(event, id: string, document: Document) {
         LocalStorage.update(id, document);
         this.getFreshData();
-    }
 
     public readAll(): void {
         LocalStorage.readAll();
@@ -103,7 +102,13 @@ class Index extends Control {
 
     private deleteRowClickHandler(e: Event, data: Document): void {
         LocalStorage.removeDocument(data.id);
-        new Service(location.origin).post('api/delete', {id: data.id});
+        let len = this.allItems.length;
+        if (len % this.sizePage == 0) {
+            this.page--;
+        }
+        this.changeCurrentPage(this.page);
+        this._forceUpdate();
+        new Service(location.origin).post('api/delete', {id: data.id})
     }
 
     private openWindow(item, readonly, datetime) {

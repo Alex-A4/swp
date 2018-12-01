@@ -52,13 +52,14 @@ self.addEventListener('fetch', (event) => {
 
   } else if (event.request.url.indexOf('/api/') > -1) {
     return fetch(event.request);
-  } else {
-     event.respondWith(
+
+  }
+    event.respondWith(
         caches.match(event.request)
-           .then(function (response) {
-                 /*if (response) {
-                   return response;
-                 }*/
+          .then(function(response) {
+            if (response) {
+              return response;
+            }
 
                  var fetchRequest = event.request.clone();
                  return fetch(fetchRequest).then(

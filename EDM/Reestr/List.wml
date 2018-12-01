@@ -1,9 +1,6 @@
 <div>
 	<ws:for data="item in _options.items">
 	<div class="main-row-container" on:click="rowClickHandler(item)">
-		<div class="close" on:click="deleteHandler(item)">
-			<img class="cross transition" src="/EDM/Reestr/cross.png" alt="delete" />
-		</div>
 		<div class="row">
 			<div class="row-top">
 				<div class="row-top-leftcontent">
@@ -11,12 +8,16 @@
 					<div class="row-author">{{item.author}}</div>
 				</div>
 				<div class="row-top-rightcontent">
-					<div class="row-date">{{item.date}}</div>
-					<div class="row-time">{{item.time}}</div>
+					<div on:click="deleteHandler(item)" class="close">&#10006;</div>
 				</div>
 			</div>
 			<div class="row-bottom">
-				<div class="row-description">{{item.description}}</div>
+				<div class="row-bottom-leftcontent">
+					<div class="row-description">{{item.description}}</div>
+				</div>
+				<div class="row-bottom-rightcontent">
+					<div class="row-author">{{item.date}} {{item.time}}</div>
+				</div>
 			</div>
 		</div>
 	</div>

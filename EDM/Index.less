@@ -19,11 +19,53 @@
      width: 100%;
  }
 
- .search-field{
-	width: 15rem;
+ .search-field {
+    min-width: 130px;
+    max-width: 100%;
 	margin-left: 24px;
 }
-.navbar{
-	margin-bottom: 8px;
+
+.navbar {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #e6e6e6;
+    background: #fafafa;
 }
+
+.theme_mobile .navbar {
+    padding: 0;
+    border-bottom: 0;
+    background: transparent;
+}
+
+.search {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.theme_mobile .search-field {
+    flex-grow: 1;
+    align-self: center;
+}
+
+
+.theme_mobile .controls-BaseButton__content {
+    width: 100%;
+    min-width: 100px;
+ }
+
+.theme_desktop .controls-BaseButton__content {
+    width: 120px;
+ }
+
+ .controls-LabelV_enabled {
+     margin: 10px;
+ }
+
+ .controls-InputRender_size_default_singleLine {
+    margin: 0 2px;
+ }
 

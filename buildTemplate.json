@@ -9,8 +9,8 @@
   "htmlWml": true,
   "themes": true,
 
-  "minimize": false,
   "wml": false,
+  "minimize": false,
   "сustomPack": false,
   "dependenciesGraph": false,
   "modules": [

@@ -11,8 +11,8 @@
                bind:selectedKeys = "_style">
             </Controls.Input.Dropdown>
 
-         <Controls.Button class = "MyButtonEdit" caption = "Edit" on:click = "edit()" readOnly="{{false}}"/>
-         <Controls.Button class = "MyButtonSave" caption = "Save" on:click = "save()" readOnly="{{false}}"/>
+         <Controls.Button class = "MyButtonEdit" caption = "Edit" on:click = "edit()" readOnly="{{false}}" style="primary"/>
+         <Controls.Button class = "MyButtonSave" caption = "Save" on:click = "save()" readOnly="{{false}}" style="primary"/>
          </div>
          <Controls.Label caption = "Author"/>
          <Controls.Input.Text class = "MyInput" placeholder="Input Name" tagStyle = "success" bind:value="_author" readOnly="{{readOnly}}"/>
