@@ -92,8 +92,6 @@ class Index extends Control {
         var len = this.allItems.length;
         if (len % this.sizePage == 0) {
             this.page--;
-            this.page--; // ???
-            this.page++; // ???
         }
         this.changeCurrentPage(this.page);
         this._forceUpdate();
