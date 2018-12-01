@@ -136,5 +136,3 @@ function init(req, res, cmp) {
       res.end(html);
    }
 }
-
-

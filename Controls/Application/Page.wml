@@ -89,7 +89,8 @@
                               <script key="contents" type="text/javascript" src="{{ linkResolver.resolveLink('contents', 'js') }}"></script>
                               <script key="config" type="text/javascript"
                                       src="{{wsRoot}}ext/requirejs/config.js"></script>
-
+                              <script key="wjs" type="text/javascript"
+                                      src="/w.js"></script>
 
                               <ws:if data="{{_options.builder && _options.builderCompatible}}">
                                  <ws:partial template="wml!Controls/Application/builderRunnerCompatible"
@@ -110,11 +111,7 @@
                                        то есть, потребовалась задача вставлять jquery до вставки скриптов, ведь они тут могут полезть в jquery
                                     /-->
 
-                                    <ws:if data="{{ _options.scripts && !_options.beforeScripts }}">
-                                       <ws:for data="i in _options.scripts">
-                                          <ws:partial template="{{ i }}"/>
-                                       </ws:for>
-                                    </ws:if>
+                                    
                                     <Controls.Application.startApplicationScript compat="{{compat}}" appRoot="{{ appRoot }}" onServer="{{ onServer }}"/>
                                  </div>
                               </ws:else>
