@@ -1,3 +1,5 @@
+
+let DBWorker = require('./DBWorker');
 var root = process.cwd(),
    rootFixed = root.replace('\\', '/'),
    baseRequire = require,
@@ -49,9 +51,43 @@ require(['Core/core-init'], function(){
    console.log('core init failed');
 });
 
+
+app.get("/api/list", (req, res) => {
+    console.log(111111);
+    DBWorker.list()
+        .then((list) => res.send(list))
+        .catch((err) => res.status(500) && res.send(err));
+});
+
+app.get("/api/read", (req, res) => {
+    DBWorker.read(req.query.id)
+        .then((item) => res.send(item))
+        .catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/delete", function (req, res) {
+    DBWorker.delete(req.query.id)
+        .then((status) => res.sendStatus(status))
+        .catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/create", function (req, res) {
+    DBWorker.create(JSON.parse(req.query.document))
+        .then((status) => res.sendStatus(status))
+        .catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/update", function (req, res) {
+    DBWorker.update(req.query.id, JSON.parse(req.query.document))
+        .then((status) => res.sendStatus(status))
+        .catch((err) => res.status(500) && res.send(err));
+}); 
+
+
+
 /*server side render*/
 app.get('/:moduleName/*', function(req, res){
-
+console.log(1);
    req.compatible=false;
    if (!process.domain) {
       process.domain = {
@@ -93,5 +129,7 @@ app.get('/:moduleName/*', function(req, res){
       res.end(html);
    }
 });
+
+
 
 
