@@ -1,7 +1,7 @@
 <Controls.Application theme='{{myTheme}}' bodyClass="theme_{{myTheme}}" viewport="width=480">
 
 <EDM.ReloadHoc name="relhoc" temp="{{items}}">
-   <div>
+
 <div class="main-container">
 	<div class="navbar">
 		<div class="search">
