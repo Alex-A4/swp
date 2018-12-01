@@ -9,11 +9,10 @@
   "htmlWml": true,
   "themes": true,
 
-
-  "minimize": true,
-  "wml": true,
+  "wml": false,
+  "minimize": false,
   "сustomPack": false,
-  "dependenciesGraph": true,
+  "dependenciesGraph": false,
   "modules": [
     {
       "name": "Controls",
