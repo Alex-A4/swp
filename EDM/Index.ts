@@ -3,7 +3,10 @@ import template = require('wml!EDM/Index');
 import LocalStorage from 'EDM/LocalStorage/Source';
 import detection = require('Core/detection');
 import 'css!theme?EDM/Index';
-import * as debounce from 'Core/helpers/Function/debounce'
+import * as EventBus from 'Core/EventBus';
+import Socket from './Socket';
+import Service from './Service';
+import './Synchronizer';
 
 class Index extends Control {
 
@@ -17,6 +20,7 @@ class Index extends Control {
     public items: Array<Document>;
     public allItems: Array<Document>;
     public countPage: number;
+<<<<<<< HEAD
 
 
     public add(document: Document): void {
@@ -32,8 +36,17 @@ class Index extends Control {
     }
 
     public remove(id: string): void {
+=======
+  
+    public remove(event, id: string): void {
+>>>>>>> dd685073283d80d2f4fab64e7d491be925a11077
         LocalStorage.removeDocument(id);
+        this.getFreshData();
     }
+
+    public update(event, id: string, document: Document) {
+        LocalStorage.update(id, document);
+        this.getFreshData();
 
     public readAll(): void {
         LocalStorage.readAll();
@@ -65,6 +78,12 @@ class Index extends Control {
         this.changeCurrentPage(i);
     }
 
+    private getFreshData() {
+        this.items = LocalStorage.readAll();
+        this.changeCurrentPage(this.page);
+        this._forceUpdate();
+    }
+
     public search(): void {
         if (this.searchValue) {
             this.items = LocalStorage.search(this.searchValue);
@@ -73,10 +92,15 @@ class Index extends Control {
         }
     }
 
-    protected _beforeMount() {
+    protected _beforeMount(): void {
         LocalStorage.initIfNotExist();
 
-        // this.items = LocalStorage.readAll();
+        this.remove = this.remove.bind(this);
+        this.update = this.update.bind(this);
+
+        EventBus.channel('docChannel').subscribe('remove', this.remove);
+        EventBus.channel('docChannel').subscribe('update', this.update);
+
         this.allItems = LocalStorage.readAll();
         this.changeCurrentPage(this.page);
 
@@ -87,27 +111,27 @@ class Index extends Control {
         }
     }
 
-    _closeHandler(): void {
-        this._children.StackPanel._forceUpdate();
+    protected _afterMount(): void {
+        Socket.startListen('ws://localhost:8080');
     }
 
-    addButtonClickHandler(e: Event, data: Object): void {
+    private addButtonClickHandler(e: Event, data: Object): void {
         this.openWindow(data, false, false);
     }
 
-    rowClickHandler(e: Event, item: Document) {
+    private rowClickHandler(e: Event, item: Document): void {
         this.openWindow(item, true, true);
     }
 
-    deleteRowClickHandler(e: Event, data: Document) {
+    private deleteRowClickHandler(e: Event, data: Document): void {
         LocalStorage.removeDocument(data.id);
-        this.allItems = LocalStorage.readAll();
-        var len = this.allItems.length;
+        let len = this.allItems.length;
         if (len % this.sizePage == 0) {
             this.page--; // WOOOOORK
         }
         this.changeCurrentPage(this.page);
         this._forceUpdate();
+        new Service(location.origin).post('api/delete', {id: data.id})
     }
 
     private openWindow(item, readonly, datetime) {
@@ -119,10 +143,7 @@ class Index extends Control {
             },
             eventHandlers: {
                 onResult: () => {
-                    //this.items = LocalStorage.readAll();
-                    this.allItems = LocalStorage.readAll();
-                    this.changeCurrentPage(this.page);
-                    this._forceUpdate();
+                    this.getFreshData();
                 }
             }
         });

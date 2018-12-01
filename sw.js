@@ -52,6 +52,7 @@ self.addEventListener('fetch', (event) => {
 
   } else if (event.request.url.indexOf('/api/') > -1) {
     return fetch(event.request);
+
   }
     event.respondWith(
         caches.match(event.request)
@@ -60,23 +61,24 @@ self.addEventListener('fetch', (event) => {
               return response;
             }
 
-            var fetchRequest = event.request.clone();
-            return fetch(fetchRequest).then(
-                function(response) {
+                 var fetchRequest = event.request.clone();
+                 return fetch(fetchRequest).then(
+                    function (response) {
 
-                  var responseToCache = response.clone();
+                       var responseToCache = response.clone();
 
-                  caches.open(CACHE)
-                    .then(function(cache) {
-                      cache.put(event.request, responseToCache);
-                    });
+                       caches.open(CACHE)
+                          .then(function (cache) {
+                             cache.put(event.request, responseToCache);
+                          });
 
-                  return response;
-                }
-            );
-          }
-        )
-    );
+                       return response;
+                    }
+                 );
+              }
+           )
+     );
+  }
 });
 
 

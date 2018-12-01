@@ -6,19 +6,19 @@ class Service{
     }
 
     public get(methodName : string, query : Object) {
-        let URL = `http://${this.serviceURL}/${methodName}?${this.parseSearchParams(query)}`;
-        
+        let URL = `${this.serviceURL}/${methodName}?${this.parseSearchParams(query)}`;
+
         return new Promise((resolve, reject) =>  {
             fetch(URL)
                 .then((response : Response) => response.json())
-                .then((responseResult : string) => resolve(JSON.parse(responseResult)))
+                .then((responseResult : string) => resolve(responseResult))
                 .catch((err : Error) => reject(err))
         });
     }
 
     public post(methodName : string, query: any){
 
-        let URL = `http://${this.serviceURL}/${methodName}?${this.parseSearchParams(query)}`;
+        let URL = `${this.serviceURL}/${methodName}?${this.parseSearchParams(query)}`;
 
         alert(URL);
         return new Promise((resolve, reject) =>  {
