@@ -90,11 +90,8 @@ class Index extends Control {
         LocalStorage.removeDocument(data.id);
         this.allItems = LocalStorage.readAll();
         var len = this.allItems.length;
-        if (len % this.sizePage == 0) {
+        if (len % this.sizePage == 0) 
             this.page--;
-            this.page--; // ???
-            this.page++; // ???
-        }
         this.changeCurrentPage(this.page);
         this._forceUpdate();
     }
