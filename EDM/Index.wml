@@ -1,26 +1,18 @@
-<Controls.Application>
-	<div>
-      <Controls.Button on:click = "myHDClick()" caption = "Add new"/>
-
-		<div on:click = "remove()">Удалить</div>
-		<div on:click = "readAll()">Прочитать все</div>
-
-		<EDM.Reestr.List items="{{items}}"/>
-
-
-		<div></div>
-		<div></div>
-		<div></div>
-		<div></div>
-
-      <Controls.Popup.Opener.Stack name='StackPanel'>
-         <ws:popupOptions template='EDM/Document'>
-				<ws:eventHandlers onClose="_closeHandler()"/>
-         </ws:popupOptions>
-
-      </Controls.Popup.Opener.Stack>
-
-		<Controls.Input.Text name = "stroka" bind:value = "state"/>
-				<div on:click = "search()">Поиск</div>
+<Controls.Application theme='{{myTheme}}' bodyClass="theme_{{myTheme}}" viewport="width=480">
+<div>
+	<div class="navbar">
+		<Controls.Button on:click = "addButtonClickHandler({})" caption = "Add new"/>
+		<Controls.Input.Text class="search-field" name = "search_field" bind:value = "searchValue"/>
+		<Controls.Button on:click="search()" class="search-btn" caption="Search"/>
 	</div>
+
+   <EDM.Reestr.List items="{{items}}" on:rowClick="rowClickHandler()" on:deleteRowClick="deleteRowClickHandler()"/>
+	<Controls.Popup.Opener.Stack name='StackPanel'>
+	<ws:popupOptions template='EDM/Document'>
+	<ws:eventHandlers onClose="_closeHandler()"/>
+</ws:popupOptions>
+
+</Controls.Popup.Opener.Stack>
+
+</div>
 </Controls.Application>
