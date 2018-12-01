@@ -99,6 +99,22 @@ const DataBaseWorker = {
         });
     },
 
+    sync(documents){
+        return new Promise((resolve, reject) => {
+            MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
+                collection = client.db('Database').collection('Documents');
+                collection.insertMany(documents, (err) => {
+                    if (err) {
+                        reject(err);
+                    } else {
+                        resolve(200);
+                    }
+                    client.close();
+                });
+            });
+        });
+    }
+
 
 
 
