@@ -1,9 +1,11 @@
 <Controls.Application theme='{{myTheme}}' bodyClass="theme_{{myTheme}}" viewport="width=480">
 <div>
 	<div class="navbar">
-		<Controls.Button on:click = "addButtonClickHandler({})" caption = "Add new"/>
-		<Controls.Input.Text class="search-field" name = "search_field" bind:value = "searchValue"/>
-		<Controls.Button on:click="search()" class="search-btn" caption="Search"/>
+		<div class="search">
+			<Controls.Input.Text class="search-field" name = "search_field" placeholder="Type something..." bind:value = "searchValue"/>
+			<Controls.Button on:click="search()" class="search-btn" caption="Search" style="primary"/>
+		</div>
+		<Controls.Button on:click = "addButtonClickHandler({})" caption = "Add"/>
 	</div>
 
    <EDM.Reestr.List items="{{items}}" on:rowClick="rowClickHandler()" on:deleteRowClick="deleteRowClickHandler()"/>
