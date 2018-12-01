@@ -1,1 +1,0 @@
-/home/alexa4/JavaScript/Tensor/swp/SBIS3.CONTROLS/RichEditor/Components/RichTextArea.js

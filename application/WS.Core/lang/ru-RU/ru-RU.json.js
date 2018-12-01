@@ -1,1 +1,0 @@
-define('WS.Core/lang/ru-RU/ru-RU.json',[],function(){return {"plural#Выбрано записей: $count$d$. Всего : $recordsCount$d$":"Выбрана $count$d$ запись. Всего : $recordsCount$d$|Выбраны $count$d$ записи. Всего : $recordsCount$d$|Выбрано $count$d$ записей. Всего : $recordsCount$d$"};});
