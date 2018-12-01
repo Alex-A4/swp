@@ -51,21 +51,50 @@
     align-self: center;
 }
 
+.controls-LabelV__caption {
+    padding: 10px 5px 0 0;
+}
 
-.theme_mobile .controls-BaseButton__content {
-    width: 100%;
-    min-width: 100px;
- }
+.theme_mobile .controls-Button_viewMode-button {
+    min-width: 110px;
+}
+
+.theme_mobile .controls-LabelV__caption {
+    padding: 0;
+}
 
 .theme_desktop .controls-BaseButton__content {
     width: 120px;
- }
-
- .controls-LabelV_enabled {
-     margin: 10px;
  }
 
  .controls-InputRender_size_default_singleLine {
     margin: 0 2px;
  }
 
+ .controls-Button__close_default_l,
+ .controls-Button__close_default_m {
+    border-color: transparent;
+    border-radius: 5px 0 0 5px;
+ }
+
+ .ws-is-chrome .controls-Button__close__icon_default_l, 
+ .ws-is-chrome .controls-Button__close__icon_default_l:hover {
+    border-color: transparent;
+ }
+
+ .ws-is-no-touch .controls-Button__close_default_l:hover,
+ .ws-is-no-touch .controls-Button__close_default_m:hover, {
+    border-color: transparent;
+ }
+
+ .controls-Button__close__icon_default_l,
+ .controls-Button__close__icon_primary_l,
+ .controls-Button__close__icon_default_m,
+ .controls-Button__close__icon_primary_m {
+     color: #ffffff;
+ }
+
+ .controls-Button__close_default_l, 
+ .controls-Button__close_primary_l {
+    height: 35px;
+ }
