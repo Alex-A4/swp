@@ -6,10 +6,13 @@ const LocalStorageWorker = {
     addDocument(document: Document) {
         if (typeof localStorage !== 'undefined') {
             let pref :Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+            
             for (let i = 0, len = pref.length; i < len; i++) {
-                if (pref[i].id === document.id)
-                return;
+                if (pref[i] !== null)
+                    if (pref[i].id === document.id)
+                    return;
             }
+                
             document.sync = false;
             pref.push(document);
             localStorage.setItem('documentData', JSON.stringify(pref));
@@ -23,10 +26,11 @@ const LocalStorageWorker = {
         
             //Ищем совпадения по id и удаляем найденный объект
             for (let i = 0, len = pref.length; i < len; i++) {
-                if (pref[i].id === id) {
-                    pref.splice(i,1);
-                    break;
-             }
+                if (pref[i] !== null)
+                    if (pref[i].id === id) {
+                        pref.splice(i,1);
+                        break;
+                    }
             }
             localStorage.setItem('documentData', JSON.stringify(pref));
         }
@@ -51,6 +55,9 @@ const LocalStorageWorker = {
             //Ищем совпадения указанной строки в title и description
             //Если совпадения есть, то добавляем объект в temp
             for (let i = 0, len = pref.length; i < len; i++) {
+                if (pref[i] === null)
+                    continue;
+
                 if (pref[i].title.toLowerCase.indexOf(line.toLowerCase) !== -1)
                     temp.push(pref[i]);
     
@@ -81,11 +88,12 @@ const LocalStorageWorker = {
             let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
 
             for (let i = 0, len = pref.length; i < len; i++) {
-                if (pref[i].id === id) {
-                    pref[i] = document;
-                    localStorage.setItem('documentData',JSON.stringify(pref));
-                    return;
-                }
+                if (pref[i] !== null)
+                    if (pref[i].id === id) {
+                        pref[i] = document;
+                        localStorage.setItem('documentData',JSON.stringify(pref));
+                        return;
+                    }
             }
         
             //Если запись не была обновлена, то добавляем ее
@@ -103,8 +111,9 @@ const LocalStorageWorker = {
             let temp: Array<Document> = [];
 
             for (let i = 0, len = pref.length; i < len; i++) {
-                if (pref[i][field] === value)
-                    temp.push(pref[i]);
+                if (pref[i] !== null)
+                    if (pref[i][field] === value)
+                        temp.push(pref[i]);
             }
 
             return temp;
@@ -121,12 +130,13 @@ const LocalStorageWorker = {
 
                 //Ищем соответствие id для обновления записи
                 for (j = 0; j < newLen; j++) {
-                    if (arr[j].id === pref[i].id) {
-                        pref[i] = arr[j];
-                        //Удаляем элемент из массива
-                        arr.splice(j,1);
-                        break;
-                    }
+                    if (pref[i] !== null && arr[j] !== null)
+                      if (arr[j].id === pref[i].id) {
+                            pref[i] = arr[j];
+                            //Удаляем элемент из массива
+                            arr.splice(j,1);
+                            break;
+                        }
                 }
             }
 
