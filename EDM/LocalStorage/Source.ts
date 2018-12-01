@@ -51,7 +51,7 @@ const LocalStorageWorker = {
                 temp.push(pref[i]);
         }
 
-        alert(JSON.stringify(temp));
+        console.log(JSON.stringify(temp));
         return temp;
     },
 
