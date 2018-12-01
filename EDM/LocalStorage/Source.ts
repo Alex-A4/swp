@@ -96,7 +96,7 @@ const LocalStorageWorker = {
 
     //Фильтрация записей по указанному полю и значению
     //Возвращает список записей, удовлетворяющих условию фильтра
-    filter(field:string, value:string) {
+    filter(field:string, value:boolean) {
         if (typeof localStorage !== 'undefined') {
             let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
 
