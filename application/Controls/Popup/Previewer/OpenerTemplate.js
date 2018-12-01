@@ -1,1 +1,0 @@
-/home/alexa4/JavaScript/Tensor/swp/Controls/Popup/Previewer/OpenerTemplate.js
