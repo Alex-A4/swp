@@ -110,7 +110,7 @@ class Index extends Control {
     }
 
     protected _afterMount(): void {
-        Socket.startListen(`wss://${location.hostname}:8888`);
+        Socket.startListen(location.origin.replace(/^http/, 'ws'));
     }
 
     private addButtonClickHandler(e: Event, data: Object): void {
