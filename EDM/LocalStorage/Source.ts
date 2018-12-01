@@ -83,7 +83,6 @@ const LocalStorageWorker = {
         
         //Если запись не была обновлена, то добавляем ее
         pref.push(document);
-
         localStorage.setItem('documentData',JSON.stringify(pref));
     }
 
