@@ -34,9 +34,9 @@ class Index extends Control {
 
     protected _beforeMount() {
         LocalStorage.initIfNotExist();
-        
+
         this.items = LocalStorage.readAll();
-      
+
         if (detection.isMobilePlatform) {
             this.myTheme = "mobile";
         } else {
@@ -48,16 +48,28 @@ class Index extends Control {
        this._children.StackPanel._forceUpdate();
     }
 
-   myHDClick(e: Event, data:Object): void {
+   addButtonClickHandler(e: Event, data:Object): void {
+      this.openWindow(data, false);
+   }
+
+   rowClickHandler(e: Event, item: Document) {
+       this.openWindow(item, true);
+   }
+   deleteRowClickHandler (e:Event, data:Document){
+       LocalStorage.removeDocument(data.id);
+      this.items = LocalStorage.readAll();
+   }
+
+   private openWindow(item, readonly) {
       this._children.StackPanel.open({
          templateOptions: {
-            readOnly: false,
-            item: data
+            readOnly: readonly,
+            item: item
          },
          eventHandlers: {
             onResult: () => {
-                this.items = LocalStorage.readAll();
-                this._forceUpdate();
+               this.items = LocalStorage.readAll();
+               this._forceUpdate();
             }
          }
       });
