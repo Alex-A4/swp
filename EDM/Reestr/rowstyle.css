@@ -74,4 +74,5 @@ h2{
 .cross{
 	cursor: pointer;
 	margin-right: 12px;
+	margin-left: auto;
 }
