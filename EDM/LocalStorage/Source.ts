@@ -58,9 +58,9 @@ const LocalStorageWorker = {
                     temp.push(pref[i]);
          }
 
-            alert(JSON.stringify(temp));
-            return temp;
-        } else return [];
+
+        console.log(JSON.stringify(temp));
+        return temp;
     },
 
     //Используется в _beforeMount для инициализации
