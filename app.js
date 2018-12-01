@@ -72,7 +72,7 @@ app.post("/api/delete", function (req, res) {
 });
 
 app.post("/api/create", function (req, res) {
-    DBWorker.create(JSON.parse(req.query.document))
+    DBWorker.create(JSON.parse(req.query.documents))
         .then((status) => res.sendStatus(status))
         .catch((err) => res.status(500) && res.send(err));
 });
@@ -83,7 +83,12 @@ app.post("/api/update", function (req, res) {
         .catch((err) => res.status(500) && res.send(err));
 }); 
 
-
+app.post("/api/sync",function (req, res) {
+     console.log(JSON.parse(req.query.documents))
+    DBWorker.sync(JSON.parse(req.query.documents))
+    .then((status) => res.sendStatus(status))
+    .catch((err) => res.status(500) && res.send(err));
+} );
 
 
 app.get('/', function(req, res, path) {
