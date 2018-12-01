@@ -1,6 +1,8 @@
 <Controls.Application theme='{{myTheme}}' bodyClass="theme_{{myTheme}}" viewport="width=480">
+
 <EDM.ReloadHoc name="relhoc" temp="{{items}}">
    <div>
+<div class="main-container">
 	<div class="navbar">
 		<div class="search">
 			<Controls.Input.Text class="search-field" name = "search_field" placeholder="Type something..." bind:value = "searchValue"/>
@@ -8,12 +10,9 @@
 		</div>
 		<Controls.Button on:click = "addButtonClickHandler({})" caption = "Add"/>
 	</div>
-
-   <EDM.Reestr.List items="{{items}}" on:rowClick="rowClickHandler()" on:deleteRowClick="deleteRowClickHandler()"/>
-	<ws:for data="i in countPage">
-	      <Controls.Button on:click = "changeCurrentPageHdl(i)" caption="{{i+1}}"; />
-    </ws:for>
-
+	<Controls.Container.Scroll attr:class="scroll-container">
+		<EDM.Reestr.List attr:class="list-container" items="{{items}}" on:rowClick="rowClickHandler()" on:deleteRowClick="deleteRowClickHandler()"/>
+	</Controls.Container.Scroll>
 	<Controls.Popup.Opener.Stack name='StackPanel'>
 	<ws:popupOptions template='EDM/Document'>
 	<ws:eventHandlers onClose="_closeHandler()"/>
@@ -21,6 +20,13 @@
 
 </Controls.Popup.Opener.Stack>
 
+	<div class="pagination">
+		<ws:for data="i in countPage">
+			<div class="pagination-button">
+				<Controls.Button on:click = "changeCurrentPageHdl(i)" caption="{{i+1}}"; />
+			</div>
+		</ws:for>
+	</div>
 </div>
 </EDM.ReloadHoc>
 </Controls.Application>

@@ -20,6 +20,18 @@ class Index extends Control {
     public allItems: Array<Document>;
     public countPage: number;
 
+    public add(document: Document): void {
+        var t = 0;
+        if (this.allItems.length == 0) {
+           // this.page = 0;
+            t = 1;
+        }
+        LocalStorage.addDocument(document);
+        /*if (t == 1) {
+            this.changeCurrentPage(0);
+        }*/
+    }
+
     public remove(event, id: string): void {
         LocalStorage.removeDocument(id);
         this.getFreshData();
@@ -38,10 +50,15 @@ class Index extends Control {
     public changeCurrentPage(indx: number): void {
         this.page = indx;
         if (this.allItems.length % this.sizePage == 0) {
-            this.countPage = this.allItems.length / this.sizePage;
+            this.countPage = Math.floor(this.allItems.length / this.sizePage);
         } else {
             this.countPage = Math.floor(this.allItems.length / this.sizePage) + 1;
         }
+        /*if (this.allItems.length == 0) {
+            this.items = [];
+            this.countPage = 0;
+            return;
+        }*/
         this.items = [];
         /* this.allItems ..... -> .... this.items = []*/
         let first: number = indx * this.sizePage;
@@ -108,7 +125,7 @@ class Index extends Control {
         LocalStorage.removeDocument(data.id);
         let len = this.allItems.length;
         if (len % this.sizePage == 0) {
-            this.page--;
+            this.page--; // WOOOOORK
         }
         this.changeCurrentPage(this.page);
         this._forceUpdate();
