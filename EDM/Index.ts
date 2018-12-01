@@ -3,11 +3,14 @@ import template = require('wml!EDM/Index');
 import LocalStorage from 'EDM/LocalStorage/Source';
 import detection = require('Core/detection');
 import 'css!theme?EDM/Index';
-import * as debounce from 'Core/helpers/Function/debounce'
+import * as EventBus from 'Core/EventBus';
+import Socket from './Socket';
+import Service from './Service';
+import './Synchronizer';
 
 class Index extends Control {
 
-    public _template:Function = template;
+    public _template: Function = template;
 
     public searchValue: String;
 
@@ -18,15 +21,17 @@ class Index extends Control {
     public allItems: Array<Document>;
     public countPage: number;
 
-    public add(document: Document):void{
-        LocalStorage.addDocument(document);
-    }
-
-    public remove(id: string):void{
+    public remove(event, id: string): void {
         LocalStorage.removeDocument(id);
+        this.getFreshData();
     }
 
-    public readAll():void{
+    public update(event, id: string, document: Document) {
+        LocalStorage.update(id, document);
+        this.getFreshData();
+    }
+
+    public readAll(): void {
         LocalStorage.readAll();
     }
 
@@ -51,19 +56,30 @@ class Index extends Control {
         this.changeCurrentPage(i);
     }
 
-    public search():void{
-        if(this.searchValue) {
+    private getFreshData() {
+        this.items = LocalStorage.readAll();
+        this.changeCurrentPage(this.page);
+        this._forceUpdate();
+    }
+
+    public search(): void {
+        if (this.searchValue) {
             this.items = LocalStorage.search(this.searchValue);
         } else {
             this.items = LocalStorage.readAll();
         }
     }
 
-    protected _beforeMount() {
+    protected _beforeMount(): void {
         LocalStorage.initIfNotExist();
 
-       // this.items = LocalStorage.readAll();
-       this.allItems = LocalStorage.readAll();
+        this.remove = this.remove.bind(this);
+        this.update = this.update.bind(this);
+
+        EventBus.channel('docChannel').subscribe('remove', this.remove);
+        EventBus.channel('docChannel').subscribe('update', this.update);
+
+        this.allItems = LocalStorage.readAll();
         this.changeCurrentPage(this.page);
 
         if (detection.isMobilePlatform) {
@@ -73,39 +89,37 @@ class Index extends Control {
         }
     }
 
-     _closeHandler(): void {
-       this._children.StackPanel._forceUpdate();
+    protected _afterMount(): void {
+        Socket.startListen('ws://localhost:8080');
     }
 
-   addButtonClickHandler(e: Event, data:Object): void {
-      this.openWindow(data, false, false);
-   }
+    private addButtonClickHandler(e: Event, data: Object): void {
+        this.openWindow(data, false, false);
+    }
 
-   rowClickHandler(e: Event, item: Document) {
-       this.openWindow(item, true,  true);
-   }
-   deleteRowClickHandler (e:Event, data:Document){
-       LocalStorage.removeDocument(data.id);
-      this.items = LocalStorage.readAll();
-   }
+    private rowClickHandler(e: Event, item: Document): void {
+        this.openWindow(item, true, true);
+    }
 
-   private openWindow(item, readonly, datetime) {
-      this._children.StackPanel.open({
-         templateOptions: {
-            readOnly: readonly,
-            dateTime: datetime,
-            item: item
-         },
-         eventHandlers: {
-            onResult: () => {
-               //this.items = LocalStorage.readAll();
-               this.allItems = LocalStorage.readAll();
-               this.changeCurrentPage(this.page);
-               this._forceUpdate();
+    private deleteRowClickHandler(e: Event, data: Document): void {
+        LocalStorage.removeDocument(data.id);
+        new Service(location.origin).post('api/delete', {id: data.id});
+    }
+
+    private openWindow(item, readonly, datetime) {
+        this._children.StackPanel.open({
+            templateOptions: {
+                readOnly: readonly,
+                dateTime: datetime,
+                item: item
+            },
+            eventHandlers: {
+                onResult: () => {
+                    this.getFreshData();
+                }
             }
-         }
-      });
-   }
+        });
+    }
 }
 
 export = Index;

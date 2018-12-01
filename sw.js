@@ -47,36 +47,37 @@ self.addEventListener('fetch', (event) => {
    return  caches.keys().then(function(names) {
       for (let name of names)
           caches.delete(name);
-          return fetch(fetchRequest);
+          return fetch(event.request);
     });
 
   } else if (event.request.url.indexOf('/api/') > -1) {
-    return fetch(fetchRequest);
-  }
-    event.respondWith(
+    return fetch(event.request);
+  } else {
+     event.respondWith(
         caches.match(event.request)
-          .then(function(response) {
-            /*if (response) {
-              return response;
-            }*/
+           .then(function (response) {
+                 /*if (response) {
+                   return response;
+                 }*/
 
-            var fetchRequest = event.request.clone();
-            return fetch(fetchRequest).then(
-                function(response) {
+                 var fetchRequest = event.request.clone();
+                 return fetch(fetchRequest).then(
+                    function (response) {
 
-                  var responseToCache = response.clone();
+                       var responseToCache = response.clone();
 
-                  caches.open(CACHE)
-                    .then(function(cache) {
-                      cache.put(event.request, responseToCache);
-                    });
+                       caches.open(CACHE)
+                          .then(function (cache) {
+                             cache.put(event.request, responseToCache);
+                          });
 
-                  return response;
-                }
-            );
-          }
-        )
-    );
+                       return response;
+                    }
+                 );
+              }
+           )
+     );
+  }
 });
 
 

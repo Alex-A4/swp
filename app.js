@@ -71,7 +71,6 @@ function sendAll(method, ...args) {
    });
 }
 app.get("/api/list", (req, res) => {
-   console.log(111111);
    DBWorker.list()
       .then((list) => res.send(list))
       .catch((err) => res.status(500) && res.send(err));
@@ -89,20 +88,13 @@ app.post("/api/delete", function (req, res) {
       .catch((err) => res.status(500) && res.send(err));
 });
 
-app.post("/api/create", function (req, res) {
-   DBWorker.create(JSON.parse(req.query.document))
-      .then((status) => res.sendStatus(status) && sendAll('create', req.query.document))
-      .catch((err) => res.status(500) && res.send(err));
-});
-
 app.post("/api/update", function (req, res) {
    DBWorker.update(req.query.id, JSON.parse(req.query.document))
-      .then((status) => res.sendStatus(status) && sendAll('update', req.query.document, req.query.id))
+      .then((status) => res.sendStatus(status) && sendAll('update', req.query.id, req.query.document))
       .catch((err) => res.status(500) && res.send(err));
 });
 
 app.post("/api/sync",function (req, res) {
-     console.log(JSON.parse(req.query.documents))
     DBWorker.sync(JSON.parse(req.query.documents))
     .then((status) => res.sendStatus(status))
     .catch((err) => res.status(500) && res.send(err));
