@@ -11,6 +11,13 @@ class Index extends Control {
 
     public searchValue: String;
 
+    public page: number = 0;
+    public sizePage: number = 5;
+
+    public items: Array<Document>;
+    public allItems: Array<Document>;
+    public countPage: number;
+
     public add(document: Document):void{
         LocalStorage.addDocument(document);
     }
@@ -21,6 +28,27 @@ class Index extends Control {
 
     public readAll():void{
         LocalStorage.readAll();
+    }
+
+    public changeCurrentPage(indx: number): void {
+        this.page = indx;
+        if (this.allItems.length % this.sizePage == 0) {
+            this.countPage = this.allItems.length / this.sizePage;
+        } else {
+            this.countPage = Math.floor(this.allItems.length / this.sizePage) + 1;
+        }
+        this.items = [];
+        /* this.allItems ..... -> .... this.items = []*/
+        let first: number = indx * this.sizePage;
+        let last: number = first + this.sizePage - 1;
+        for (let i = first; i <= last; i++) {
+            if (i < this.allItems.length)
+                this.items.push(this.allItems[i]);
+        }
+    }
+
+    public changeCurrentPageHdl(event, i): void {
+        this.changeCurrentPage(i);
     }
 
     public search():void{
@@ -34,7 +62,9 @@ class Index extends Control {
     protected _beforeMount() {
         LocalStorage.initIfNotExist();
 
-        this.items = LocalStorage.readAll();
+       // this.items = LocalStorage.readAll();
+       this.allItems = LocalStorage.readAll();
+        this.changeCurrentPage(this.page);
 
         if (detection.isMobilePlatform) {
             this.myTheme = "mobile";
@@ -67,7 +97,9 @@ class Index extends Control {
          },
          eventHandlers: {
             onResult: () => {
-               this.items = LocalStorage.readAll();
+               //this.items = LocalStorage.readAll();
+               this.allItems = LocalStorage.readAll();
+               this.changeCurrentPage(this.page);
                this._forceUpdate();
             }
          }
