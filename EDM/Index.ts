@@ -82,9 +82,11 @@ class Index extends Control {
 
     public search(): void {
         if (this.searchValue) {
-            this.items = LocalStorage.search(this.searchValue);
+            this.allItems = LocalStorage.search(this.searchValue);
+            this.changeCurrentPage(this.page);
         } else {
-            this.items = LocalStorage.readAll();
+            this.allItems = LocalStorage.readAll();
+            this.changeCurrentPage(this.page);
         }
     }
 
