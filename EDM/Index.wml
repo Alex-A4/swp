@@ -1,13 +1,12 @@
 <Controls.Application theme='{{myTheme}}' bodyClass="theme_{{myTheme}}" viewport="width=480">
 <div>
 	<div class="navbar">
-		<Controls.Button on:click = "myHDClick()" caption = "Add new"/>
+		<Controls.Button on:click = "addButtonClickHandler({})" caption = "Add new"/>
 		<Controls.Input.Text class="search-field" name = "search_field" bind:value = "searchValue"/>
 		<Controls.Button on:click="search()" class="search-btn" caption="Search"/>
 	</div>
-	
-	<EDM.Reestr.List items="{{items}}"/>
 
+   <EDM.Reestr.List items="{{items}}" on:rowClick="rowClickHandler()" on:deleteRowClick="deleteRowClickHandler()"/>
 	<Controls.Popup.Opener.Stack name='StackPanel'>
 	<ws:popupOptions template='EDM/Document'>
 	<ws:eventHandlers onClose="_closeHandler()"/>

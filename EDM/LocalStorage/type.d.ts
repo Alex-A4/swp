@@ -6,4 +6,5 @@ type Document = {
     time:string;
     author:string;
     sync:boolean;
+    style:string;
  }

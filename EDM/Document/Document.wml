@@ -1,20 +1,33 @@
 <Controls.Popup.Templates.Stack.StackTemplate>
    <ws:contentArea>
       <div class ='MyPanel'>
-         <Controls.Button class = "MyButtonSave" caption = "Save" on:click = "save()"/>
-         <Controls.Button class = "MyButtonEdit" caption = "Edit" on:click = "edit()"/>
+         <div>
+            <Controls.Input.Dropdown
+               source="{{_memorySource}}"
+               keyProperty="id"
+               placeholder="select"
+               displayProperty="title"
+               readOnly="{{false}}"
+               bind:selectedKeys = "_style">
+            </Controls.Input.Dropdown>
+
+         <Controls.Button class = "MyButtonEdit" caption = "Edit" on:click = "edit()" readOnly="{{false}}"/>
+         <Controls.Button class = "MyButtonSave" caption = "Save" on:click = "save()" readOnly="{{false}}"/>
+         </div>
          <Controls.Label caption = "Author"/>
          <Controls.Input.Text class = "MyInput" placeholder="Input Name" tagStyle = "success" bind:value="_author" readOnly="{{readOnly}}"/>
          <Controls.Label caption = "Title"/>
-         <Controls.Input.Text class = "MyInput" placeholder="Input a title" tagStyle  = "danger"  bind:value="_title"  readOnly="{{readOnly}}"/>
+         <Controls.Input.Text class = "MyInput" placeholder="Input a title" tagStyle  = "success"  bind:value="_title"  readOnly="{{readOnly}}"/>
          <Controls.Label caption = "Text"/>
-         <Controls.Input.Text class="MyInput" placeholder="Input an article" tagStyle = "info"  bind:value="_description"  readOnly="{{readOnly}}"/>
+         <Controls.Input.Text class="MyInput" placeholder="Input an article" tagStyle = "success"  bind:value="_description"  readOnly="{{readOnly}}"/>
+
          <ws:if data="{{dateTime}}">
             <Controls.Label caption = "Date"/>
             <Controls.Input.Text bind:value = "_date" class = "MyInput"  readOnly="true"/>
             <Controls.Label caption = "Time"/>
             <Controls.Input.Text bind:value = "_time" class = "MyInput"  readOnly="true"/>
          </ws:if>
+
       </div>
    </ws:contentArea>
 </Controls.Popup.Templates.Stack.StackTemplate>

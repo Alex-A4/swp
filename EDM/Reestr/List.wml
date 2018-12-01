@@ -1,8 +1,8 @@
 <div>
 	<ws:for data="item in _options.items">
-	<div class="main-row-container" on:click="rowClickHandler()">
-		<div class="close">
-			<img class="cross transition" src="/EDM/Reestr/cross.png" alt="delete" on:click="deleteHander()"/>
+	<div class="main-row-container" on:click="rowClickHandler(item)">
+		<div class="close" on:click="deleteHandler(item)">
+			<img class="cross transition" src="/EDM/Reestr/cross.png" alt="delete" />
 		</div>
 		<div class="row">
 			<div class="row-top">
