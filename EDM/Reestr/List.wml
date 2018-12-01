@@ -1,5 +1,5 @@
 <div>
-	<ws:for data="item in items">
+	<ws:for data="item in _options.items">
 	<div class="main-row-container" on:click="rowClickHandler()">
 		<div class="close">
 			<img class="cross transition" src="/EDM/Reestr/cross.png" alt="delete" on:click="deleteHander()"/>

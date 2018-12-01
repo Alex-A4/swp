@@ -13,11 +13,6 @@ class List extends Control {
 	public deleteHandler(): void{
 		alert("Кнопка удаления нажата");
 	}
-
-	_beforeMount() : void{
-		if(typeof localStorage !== 'undefined')
-			this.items = JSON.parse(localStorage.getItem('documentData'));
-	}
 }
 
 
