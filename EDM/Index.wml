@@ -7,6 +7,12 @@
 	</div>
 
    <EDM.Reestr.List items="{{items}}" on:rowClick="rowClickHandler()" on:deleteRowClick="deleteRowClickHandler()"/>
+	<ws:for data="i in countPage">
+         <div on:click = "changeCurrentPageHdl(i)">
+                {{i}}
+       </div>
+    </ws:for>
+	 
 	<Controls.Popup.Opener.Stack name='StackPanel'>
 	<ws:popupOptions template='EDM/Document'>
 	<ws:eventHandlers onClose="_closeHandler()"/>
