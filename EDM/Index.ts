@@ -24,7 +24,7 @@ class Index extends Control {
     }
 
     public search():void{
-        if(this.searchValue) {https://github.com/Alex-A4/swp/pull/4/conflict?name=EDM%252FLocalStorage%252FSource.ts&ancestor_oid=ce11b4367993fcc0dd791f20fd351db22b078f6a&base_oid=95bf135029cdb3d8dc4989b50d4edc49e491e3e8&head_oid=92c8c749525b0f1303142011f3dfa63082e04acd
+        if(this.searchValue) {
             this.items = LocalStorage.search(this.searchValue);
         } else {
             this.items = LocalStorage.readAll();
