@@ -6,7 +6,7 @@ import * as debounce from 'Core/helpers/Function/debounce'
 class Index extends Control {
 
     public _template:Function = template;
-    
+
     public add(document: Document):void{
         LocalStorage.addDocument(document);
     }
@@ -22,10 +22,23 @@ class Index extends Control {
     public search(line:string):void{
         LocalStorage.search(line);
     }
-    
+
     protected _beforeMount() {
         LocalStorage.initIfNotExist();
     }
+
+     _closeHandler(): void {
+       this._children.StackPanel._forceUpdate();
+    }
+
+   myHDClick(e: Event, data:Object): void {
+      this._children.StackPanel.open({
+         templateOptions: {
+            readOnly: false,
+            item: data
+         }
+      });
+   }
 }
 
 export = Index;

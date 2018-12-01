@@ -1,0 +1,20 @@
+<Controls.Popup.Templates.Stack.StackTemplate>
+   <ws:contentArea>
+      <div class ='MyPanel'>
+         <Controls.Button class = "MyButtonSave" caption = "Save" on:click = "save()"/>
+         <Controls.Button class = "MyButtonEdit" caption = "Edit" on:click = "edit()"/>
+         <Controls.Label caption = "Author"/>
+         <Controls.Input.Text class = "MyInput" placeholder="Input Name" tagStyle = "success" bind:value="_author" readOnly="{{readOnly}}"/>
+         <Controls.Label caption = "Title"/>
+         <Controls.Input.Text class = "MyInput" placeholder="Input a title" tagStyle  = "danger"  bind:value="_title"  readOnly="{{readOnly}}"/>
+         <Controls.Label caption = "Text"/>
+         <Controls.Input.Text class="MyInput" placeholder="Input an article" tagStyle = "info"  bind:value="_description"  readOnly="{{readOnly}}"/>
+         <ws:if data="{{dateTime}}">
+            <Controls.Label caption = "Date"/>
+            <Controls.Input.Text bind:value = "_date" class = "MyInput"  readOnly="true"/>
+            <Controls.Label caption = "Time"/>
+            <Controls.Input.Text bind:value = "_time" class = "MyInput"  readOnly="true"/>
+         </ws:if>
+      </div>
+   </ws:contentArea>
+</Controls.Popup.Templates.Stack.StackTemplate>
