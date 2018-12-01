@@ -1,7 +1,7 @@
 import Service from './Service';
 import * as EventBus from 'Core/EventBus';
+import Synchronize from './Synchronizer';
 
-let Channel = EventBus.channel('syncChannel');
 let DocChannel = EventBus.channel('docChannel');
 let socket;
 
@@ -11,12 +11,12 @@ const SocketWorker = {
         socket = new WebSocket(url);
 
         socket.onopen = () => {
-            Channel.notify('connected');
+            Synchronize();
         };
 
         socket.onclose = (event) => {
             setTimeout(() => {
-                SocketWorker.startListen("ws://localhost:777", recconectTime * 2)
+                SocketWorker.startListen(url, recconectTime * 2)
             }, recconectTime * 2);
         };
 
@@ -25,10 +25,10 @@ const SocketWorker = {
 
             switch(data.method){
                 case 'update':
-                    DocChannel.notify('update', JSON.parse(data.args[0]), data.args[1]);
+                    DocChannel.notify('update', data.args[0], JSON.parse(data.args[1]));
                     break;
                 case 'delete':
-                    DocChannel.notify('delete', JSON.parse(data.args[0]));
+                    DocChannel.notify('remove', JSON.parse(data.args[0]));
                     break;
             }
         };

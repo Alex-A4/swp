@@ -6,7 +6,6 @@ import 'css!theme?EDM/Index';
 import * as EventBus from 'Core/EventBus';
 import Socket from './Socket';
 import Service from './Service';
-import './Synchronizer';
 
 class Index extends Control {
 
@@ -39,6 +38,7 @@ class Index extends Control {
     }
 
     public update(event, id: string, document: Document) {
+        document.sync = true;
         LocalStorage.update(id, document);
         this.getFreshData();
     }
@@ -74,9 +74,10 @@ class Index extends Control {
     }
 
     private getFreshData() {
-        this.items = LocalStorage.readAll();
+        this.allItems = LocalStorage.readAll();
         this.changeCurrentPage(this.page);
         this._forceUpdate();
+        this._children.relhoc._forceUpdate();
     }
 
     public search(): void {
@@ -92,9 +93,11 @@ class Index extends Control {
 
         this.remove = this.remove.bind(this);
         this.update = this.update.bind(this);
+        this.getFreshData = this.getFreshData.bind(this);
 
         EventBus.channel('docChannel').subscribe('remove', this.remove);
         EventBus.channel('docChannel').subscribe('update', this.update);
+        EventBus.channel('docChannel').subscribe('refresh', this.getFreshData);
 
         this.allItems = LocalStorage.readAll();
         this.changeCurrentPage(this.page);
