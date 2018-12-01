@@ -66,9 +66,24 @@ const LocalStorageWorker = {
             }
         }
         
-    }
+    },
 
- }
+ filter(field:string, value:string) {
+    if (typeof localStorage !== 'undefined') {
+    let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+    
+    let temp: Array<Document> = [];
+    
+    for (let i = 0, len = pref.length; i < len; i++) {
+    if (pref[i][field] === value)
+    temp.push(pref[i]);
+    }
+    
+    return temp;
+    } else return [];
+    }
+}
+
 // Пример объекта
 // {
 //     id: '1243',
