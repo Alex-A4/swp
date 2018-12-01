@@ -9,6 +9,7 @@ const LocalStorageWorker = {
             if (pref[i].id === document.id)
             return;
         }
+        document.sync = false;
         pref.push(document);
         localStorage.setItem('documentData', JSON.stringify(pref));
     },
@@ -66,6 +67,24 @@ const LocalStorageWorker = {
             }
         }
         
+    },
+
+    //Обновляет указанную запись в localStorage по id
+    update(id:string, document:Document) {
+        let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+
+        for (let i = 0, len = pref.length; i < len; i++) {
+            if (pref[i].id === id) {
+                pref[i] = document;
+                localStorage.setItem('documentData',JSON.stringify(pref));
+                return;
+            }
+        }
+        
+        //Если запись не была обновлена, то добавляем ее
+        pref.push(document);
+
+        localStorage.setItem('documentData',JSON.stringify(pref));
     }
 
  }
