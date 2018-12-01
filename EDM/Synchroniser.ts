@@ -22,9 +22,14 @@ const Synchroniser = {
     sync() {
         this.service.get("/api/list")
             .then((list) => {
-                localStorage.merge(list));
-            }
+                Source.merge(list);
+        this.service.post("/api/sync", { documents: JSON.stringify(Source.filter('sync', false))})
+        
+            });
     },
+
+    
+    
 
 }
 
