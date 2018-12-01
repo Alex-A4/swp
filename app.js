@@ -49,9 +49,8 @@ require(['Core/core-init'], function(){
    console.log('core init failed');
 });
 
-/*server side render*/
-app.get('/:moduleName/*', function(req, res){
 
+app.get('/', function(req, res, path) {
    req.compatible=false;
    if (!process.domain) {
       process.domain = {
@@ -62,11 +61,8 @@ app.get('/:moduleName/*', function(req, res){
    process.domain.req = req;
 
    var tpl = require('wml!Controls/Application/Route');
-   var originalUrl = req.originalUrl;
-
-   var path = req.originalUrl.split('/');
-   var cmp = path?path[1]:'Index';
-   cmp += '/Index';
+  
+   var cmp = 'EDM/Index';
 
    try {
       require(cmp);
@@ -92,6 +88,9 @@ app.get('/:moduleName/*', function(req, res){
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.end(html);
    }
+
+
+
 });
 
 
