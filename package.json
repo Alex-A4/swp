@@ -5,6 +5,9 @@
       "type": "git",
       "url": "git@git.sbis.ru:root/sbis3-controls"
    },
+   "engines": {
+      "node": "10.x"
+   },
    "files": [
       "Controls/*",
       "File/*",
