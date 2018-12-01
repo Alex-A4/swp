@@ -1,3 +1,5 @@
+
+let DBWorker = require('./DBWorker');
 var root = process.cwd(),
    rootFixed = root.replace('\\', '/'),
    baseRequire = require,
@@ -63,31 +65,7 @@ app.get('/', function(req, res, path) {
    var tpl = require('wml!Controls/Application/Route');
   
    var cmp = 'EDM/Index';
-
-   try {
-      require(cmp);
-   } catch(e){
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.end('');
-      return;
-   }
-   var html = tpl({
-      lite: true,
-      wsRoot: '/WS.Core/',
-      resourceRoot: '/',
-      application: cmp,
-      appRoot: '/'
-   });
-
-   if (html.addCallback) {
-      html.addCallback(function(htmlres){
-         res.writeHead(200, {'Content-Type': 'text/html'});
-         res.end(htmlres);
-      });
-   } else {
-      res.writeHead(200, {'Content-Type': 'text/html'});
-      res.end(html);
-   }
+   init(req, res, cmp);
 });
 
 /*server side render*/
@@ -103,11 +81,6 @@ app.get('/:moduleName/*', function(req, res){
    process.domain.req = req;
 
    var tpl = require('wml!Controls/Application/Route');
-   var originalUrl = req.originalUrl;
-
-   var path = req.originalUrl.split('/');
-   var cmp = path?path[1]:'Index';
-   cmp += '/Index';
 
    try {
       require(cmp);
@@ -133,4 +106,5 @@ app.get('/:moduleName/*', function(req, res){
       res.writeHead(200, {'Content-Type': 'text/html'});
       res.end(html);
    }
-});
+}
+

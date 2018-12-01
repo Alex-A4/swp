@@ -1,4 +1,4 @@
-<Controls.Application>
+<Controls.Application theme='{{myTheme}}' bodyClass="theme_{{myTheme}}" viewport="width=480">
 <div>
 	<div class="navbar">
 		<Controls.Button on:click = "myHDClick()" caption = "Add new"/>
