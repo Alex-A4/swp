@@ -1,6 +1,6 @@
 import * as Control from 'Core/Control';
 
-import 'css!EDM/Reestr/rowstyle';
+import 'css!theme?EDM/Reestr/rowstyle';
 
 import template = require('wml!EDM/Reestr/List');
 
