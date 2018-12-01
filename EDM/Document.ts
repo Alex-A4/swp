@@ -46,6 +46,8 @@ class Document extends Control {
          time: this._time,
          description: this._description
       });
+      
+      this._notify('sendResult', []);
       this._notify('close', [], {bubbling: true});
    }
 

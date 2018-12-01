@@ -25,6 +25,7 @@ class Index extends Control {
 
     protected _beforeMount() {
         LocalStorage.initIfNotExist();
+        this.items = LocalStorage.readAll();
     }
 
      _closeHandler(): void {
@@ -36,6 +37,12 @@ class Index extends Control {
          templateOptions: {
             readOnly: false,
             item: data
+         },
+         eventHandlers: {
+            onResult: () => {
+                this.items = LocalStorage.readAll();
+                this._forceUpdate();
+            }
          }
       });
    }
