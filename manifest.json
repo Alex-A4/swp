@@ -1,0 +1,15 @@
+{
+  "name": "OfflineNote",
+  "short_name": "OfflineNote",
+  "lang": "ru-RU",
+  "start_url": "/",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "32x32",
+      "type": "png"
+    }
+  ]
+}
