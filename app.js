@@ -52,25 +52,23 @@ require(['Core/core-init'], function(){
 });
 
 
-app.get('/', function(req, res, path) {
-   req.compatible=false;
-   if (!process.domain) {
-      process.domain = {
-         enter: function(){},
-         exit: function(){}
-      };
-   }
-   process.domain.req = req;
-
-   var tpl = require('wml!Controls/Application/Route');
-  
+app.get('/', function(req, res) {
    var cmp = 'EDM/Index';
    init(req, res, cmp);
 });
 
 /*server side render*/
 app.get('/:moduleName/*', function(req, res){
+   var originalUrl = req.originalUrl;
 
+   var path = req.originalUrl.split('/');
+   var cmp = path?path[1]:'Index';
+   cmp += '/Index';
+
+   init(req, res, cmp);
+});
+
+function init(req, res, cmp) {
    req.compatible=false;
    if (!process.domain) {
       process.domain = {
@@ -108,3 +106,34 @@ app.get('/:moduleName/*', function(req, res){
    }
 }
 
+
+app.get("/api/list", (req, res) => {
+console.log(111111);
+DBWorker.list()
+.then((list) => res.send(list))
+.catch((err) => res.status(500) && res.send(err));
+});
+
+app.get("/api/read", (req, res) => {
+DBWorker.read(req.query.id)
+.then((item) => res.send(item))
+.catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/delete", function (req, res) {
+DBWorker.delete(req.query.id)
+.then((status) => res.sendStatus(status))
+.catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/create", function (req, res) {
+DBWorker.create(JSON.parse(req.query.document))
+.then((status) => res.sendStatus(status))
+.catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/update", function (req, res) {
+DBWorker.update(req.query.id, JSON.parse(req.query.document))
+.then((status) => res.sendStatus(status))
+.catch((err) => res.status(500) && res.send(err));
+});
