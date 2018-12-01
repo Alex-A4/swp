@@ -1,13 +1,24 @@
 <Controls.Application>
 	<div>
-		<div on:click = "add()">Добавить</div>
+      <Controls.Button on:click = "myHDClick()" caption = "Add new"/>
+
 		<div on:click = "remove()">Удалить</div>
 		<div on:click = "readAll()">Прочитать все</div>
+
+
 		<div></div>
 		<div></div>
 		<div></div>
 		<div></div>
+
+      <Controls.Popup.Opener.Stack name='StackPanel'>
+         <ws:popupOptions template='EDM/Document'>
+				<ws:eventHandlers onClose="_closeHandler()"/>
+         </ws:popupOptions>
+
+      </Controls.Popup.Opener.Stack>
+
 		<Controls.Input.Text name = "stroka" bind:value = "state"/>
-		<div on:click = "search()">Поиск</div>
+				<div on:click = "search()">Поиск</div>
 	</div>
 </Controls.Application>
