@@ -15,7 +15,7 @@ const LocalStorageWorker = {
             
             document.sync = false;
             if (document !== null)
-                pref.push(document);
+                pref = [document].concat(pref);
             localStorage.setItem('documentData', JSON.stringify(pref));
         }
     },
@@ -99,7 +99,7 @@ const LocalStorageWorker = {
         
             //Если запись не была обновлена, то добавляем ее
             if (document !== null)
-                pref.push(document);
+                pref = [document].concat(pref);
             localStorage.setItem('documentData',JSON.stringify(pref));
         }
     },
