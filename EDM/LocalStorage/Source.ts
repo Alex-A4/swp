@@ -59,11 +59,13 @@ const LocalStorageWorker = {
                 if (pref[i] === null)
                     continue;
 
-                if (pref[i].title.toLowerCase().indexOf(line.toLowerCase()) !== -1)
-                    temp.push(pref[i]);
+                if (pref[i].title !== null)
+                    if (pref[i].title.toLowerCase().indexOf(line.toLowerCase()) !== -1)
+                        temp.push(pref[i]);
     
-                if (pref[i].description.toLowerCase().indexOf(line.toLowerCase()) !== -1)
-                    temp.push(pref[i]);
+                if (pref[i].description !== null)
+                    if (pref[i].description.toLowerCase().indexOf(line.toLowerCase()) !== -1)
+                        temp.push(pref[i]);
             }
 
            return temp;
