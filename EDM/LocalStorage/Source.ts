@@ -129,7 +129,7 @@ const LocalStorageWorker = {
                 }
             }
             //По окончании цикла в arr должны остаться только новые элементы, которые добавляем в конец pref
-            pref = pref.concat(arr);
+            pref = arr.concat(pref);
             localStorage.setItem('documentData', JSON.stringify(pref));
         }
     }
