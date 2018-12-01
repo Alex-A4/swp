@@ -7,7 +7,7 @@ import * as debounce from 'Core/helpers/Function/debounce'
 
 class Index extends Control {
 
-    public _template:Function = template;
+    public _template: Function = template;
 
     public searchValue: String;
 
@@ -18,15 +18,16 @@ class Index extends Control {
     public allItems: Array<Document>;
     public countPage: number;
 
-    public add(document: Document):void{
+
+    public add(document: Document): void {
         LocalStorage.addDocument(document);
     }
 
-    public remove(id: string):void{
+    public remove(id: string): void {
         LocalStorage.removeDocument(id);
     }
 
-    public readAll():void{
+    public readAll(): void {
         LocalStorage.readAll();
     }
 
@@ -51,8 +52,8 @@ class Index extends Control {
         this.changeCurrentPage(i);
     }
 
-    public search():void{
-        if(this.searchValue) {
+    public search(): void {
+        if (this.searchValue) {
             this.items = LocalStorage.search(this.searchValue);
         } else {
             this.items = LocalStorage.readAll();
@@ -62,8 +63,8 @@ class Index extends Control {
     protected _beforeMount() {
         LocalStorage.initIfNotExist();
 
-       // this.items = LocalStorage.readAll();
-       this.allItems = LocalStorage.readAll();
+        // this.items = LocalStorage.readAll();
+        this.allItems = LocalStorage.readAll();
         this.changeCurrentPage(this.page);
 
         if (detection.isMobilePlatform) {
@@ -73,39 +74,46 @@ class Index extends Control {
         }
     }
 
-     _closeHandler(): void {
-       this._children.StackPanel._forceUpdate();
+    _closeHandler(): void {
+        this._children.StackPanel._forceUpdate();
     }
 
-   addButtonClickHandler(e: Event, data:Object): void {
-      this.openWindow(data, false, false);
-   }
+    addButtonClickHandler(e: Event, data: Object): void {
+        this.openWindow(data, false, false);
+    }
 
-   rowClickHandler(e: Event, item: Document) {
-       this.openWindow(item, true,  true);
-   }
-   deleteRowClickHandler (e:Event, data:Document){
-       LocalStorage.removeDocument(data.id);
-      this.items = LocalStorage.readAll();
-   }
+    rowClickHandler(e: Event, item: Document) {
+        this.openWindow(item, true, true);
+    }
 
-   private openWindow(item, readonly, datetime) {
-      this._children.StackPanel.open({
-         templateOptions: {
-            readOnly: readonly,
-            dateTime: datetime,
-            item: item
-         },
-         eventHandlers: {
-            onResult: () => {
-               //this.items = LocalStorage.readAll();
-               this.allItems = LocalStorage.readAll();
-               this.changeCurrentPage(this.page);
-               this._forceUpdate();
+    deleteRowClickHandler(e: Event, data: Document) {
+        LocalStorage.removeDocument(data.id);
+        this.allItems = LocalStorage.readAll();
+        var len = this.allItems.length;
+        if (len % this.sizePage == 0) {
+            this.page--;
+        }
+        this.changeCurrentPage(this.page);
+        this._forceUpdate();
+    }
+
+    private openWindow(item, readonly, datetime) {
+        this._children.StackPanel.open({
+            templateOptions: {
+                readOnly: readonly,
+                dateTime: datetime,
+                item: item
+            },
+            eventHandlers: {
+                onResult: () => {
+                    //this.items = LocalStorage.readAll();
+                    this.allItems = LocalStorage.readAll();
+                    this.changeCurrentPage(this.page);
+                    this._forceUpdate();
+                }
             }
-         }
-      });
-   }
+        });
+    }
 }
 
 export = Index;
