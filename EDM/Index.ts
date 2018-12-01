@@ -48,21 +48,22 @@ class Index extends Control {
     }
 
    addButtonClickHandler(e: Event, data:Object): void {
-      this.openWindow(data, false);
+      this.openWindow(data, false, false);
    }
 
    rowClickHandler(e: Event, item: Document) {
-       this.openWindow(item, true);
+       this.openWindow(item, true,  true);
    }
    deleteRowClickHandler (e:Event, data:Document){
        LocalStorage.removeDocument(data.id);
       this.items = LocalStorage.readAll();
    }
 
-   private openWindow(item, readonly) {
+   private openWindow(item, readonly, datetime) {
       this._children.StackPanel.open({
          templateOptions: {
             readOnly: readonly,
+            dateTime: datetime,
             item: item
          },
          eventHandlers: {

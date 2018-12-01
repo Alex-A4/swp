@@ -1,6 +1,6 @@
 import * as Control from "Core/Control";
 import template = require('wml!EDM/Document/Document');
-import createGUID = require("Core/helpers/createGUID");
+import createGUID = require('Core/helpers/createGUID');
 import LocalStorage from 'EDM/LocalStorage/Source';
 import * as Memory from  'WS.Data/Source/Memory';
 import 'css!EDM/Document/DocumentStyles'
@@ -17,10 +17,11 @@ class Document extends Control {
    private _items: Object={};
    public _memorySource: Memory;
    readOnly: Boolean = true;
-   dateTime: Boolean = true;
+   dateTime: Boolean;
 
-   _beforeMount(options:Object): void {
-      this.dateTime = false;
+
+   _beforeMount(options: Object): void {
+      this.dateTime = true;
       this._memorySource = new Memory({
          idProperty: 'title',
          data: [
@@ -29,38 +30,45 @@ class Document extends Control {
             { id: '3', title: 'cats' }
          ]
       });
-      this._id = options.item ? options.item.id : createGUID();
-      this._author = options.item ? options.item.author : "";
-      this._title = options.item ? options.item.title : "";
-      this._description = options.item ? options.item.description: "";
+      this._id = options.item.id ? options.item.id : createGUID();
+      this._author = options.item.author ? options.item.author : "";
+      this._title = options.item.title ? options.item.title : "";
+      this._description = options.item.description ? options.item.description: "";
       this.readOnly = options.readOnly ? options.readOnly : false;
-      this._style = options.item ? options.item.style : "1";
-      this.dateTime = true;
+      this.dateTime = options.dateTime;
+      this._style = options.item.style ? options.item.style : "1";
 
       var date =  new Date();
+      var day  = date.getDate();
       var month = 1 + date.getMonth();
-      var minute =  date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-      this._date = options.item ? options.item.date : date.getDate() + "." + month + "." + date.getFullYear();
-      this._time = options.item ? options.item.time : date.getHours() + ":" + minute;
+      var year = date.getFullYear();
+      var minutes =  date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+      var hours = date.getHours();
+
+
+      this._date = options.item ? options.item.date : day + "." + month + "." + year;
+      this._time = options.item ? options.item.time : hours + ":" + minutes;
    }
 
    public save(): void {
 
       var date =  new Date();
+      var day  = date.getDate();
       var month = 1 + date.getMonth();
-      var minute =  date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
-      this._date = date.getDate() + "." + month + "." + date.getFullYear();
-      this._time = date.getHours() + ":" + minute;
-
-      LocalStorage.update(this._id, {
-         id: this._id,
-         author: this._author,
-         title: this._title,
-         date: this._date,
-         time: this._time,
-         description: this._description,
-         style: this._style
-      });
+      var year = date.getFullYear();
+      var minutes =  date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes();
+      var hours = date.getHours();
+      this._date = day + "." + month + "." + year;
+      this._time = hours+ ":" + minutes;
+         LocalStorage.update(this._id, {
+            id: this._id,
+            author: this._author,
+            title: this._title,
+            date: this._date,
+            time: this._time,
+            description: this._description,
+            style: this._style
+         });
 
       this._notify('sendResult', []);
       this._notify('close', [], {bubbling: true});
