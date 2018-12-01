@@ -9,8 +9,8 @@
   "htmlWml": true,
   "themes": true,
 
-  "minimize": false,
-  "wml": false,
+  "minimize": true,
+  "wml": true,
   "сustomPack": false,
   "dependenciesGraph": false,
   "modules": [
@@ -28,7 +28,7 @@
     },
     {
       "name": "Controls-demo",
-      "path": "%cd%/Controls-theme"
+      "path": "%cd%/Controls-demo"
     },
     {
       "name": "Core",
