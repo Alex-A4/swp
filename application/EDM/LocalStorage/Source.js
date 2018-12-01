@@ -51,10 +51,12 @@ define('EDM/LocalStorage/Source', [
         },
         //Используется в _beforeMount для инициализации
         initIfNotExist: function () {
-            var pref = JSON.parse(localStorage.getItem('documentData'));
-            if (pref === null) {
-                pref = [];
-                localStorage.setItem('documentData', JSON.stringify(pref));
+            if (localStorage) {
+                var pref = JSON.parse(localStorage.getItem('documentData'));
+                if (pref === null) {
+                    pref = [];
+                    localStorage.setItem('documentData', JSON.stringify(pref));
+                }
             }
         }
     };    // Пример объекта
