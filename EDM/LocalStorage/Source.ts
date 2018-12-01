@@ -84,6 +84,21 @@ const LocalStorageWorker = {
         //Если запись не была обновлена, то добавляем ее
         pref.push(document);
         localStorage.setItem('documentData',JSON.stringify(pref));
+    },
+
+    //Фильтрация записей по указанному полю и значению
+    //Возвращает список записей, удовлетворяющих условию фильтра
+    filter(field:string, value:string) {
+        let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+
+        let temp: Array<Document> = [];
+
+        for (let i = 0, len = pref.length; i < len; i++) {
+            if (pref[i][field] === value)
+                temp.push(pref[i]);
+        }
+
+        return temp;
     }
 
  }
