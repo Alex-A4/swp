@@ -139,7 +139,7 @@ fs.writeFile(path.join(root, 'builderCfg.json'), gultConfig, function(){
       });
          
       fs.copyFileSync(path.join(root, 'sw.js'), path.join(root, 'application', 'sw.js'));
-          /*    */
+      fs.copyFileSync(path.join(root, 'manifest.json'), path.join(root, 'application', 'manifest.json'));
    });
 
 });

@@ -1,6 +1,19 @@
 <head key="1_1_">
    <meta name="viewport" content="{{_options.viewport || 'width=1024'}}"/>
    <meta charset="utf-8"/>
+
+   <link rel="manifest" href="manifest.json">
+
+   <meta name="mobile-web-app-capable" content="yes">
+   <meta name="apple-mobile-web-app-capable" content="yes">
+   <meta name="application-name" content="OfflineNote">
+   <meta name="apple-mobile-web-app-title" content="OfflineNote">
+   <meta name="msapplication-starturl" content="/">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+   <link rel="icon" type="png" sizes="32x32" href="/favicon.ico">
+   <link rel="apple-touch-icon" type="png" sizes="32x32" href="/favicon.ico">
+
    <script key="ws-config">
       window.wsConfig = {
          wsRoot: '{{_options.wsRoot}}',
