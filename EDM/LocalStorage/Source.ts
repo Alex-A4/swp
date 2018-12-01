@@ -109,6 +109,14 @@ const LocalStorageWorker = {
 
             return temp;
         } else return [];
+    },
+
+    //Слияние входного массива с localStorage
+    merge(array: Array<Document>) {
+        if (typeof localStorage !== 'undefined') {
+            let pref: Array<Document> = JSON.parse(localStorage.getItem('documentData'));
+            
+        }
     }
  }
 // Пример объекта
