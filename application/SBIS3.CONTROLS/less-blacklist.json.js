@@ -1,1 +1,0 @@
-define('SBIS3.CONTROLS/less-blacklist.json',[],function(){return ["theme.less","header.less","mixins.less","typography.less","general.less","flex.less","defaults.less","theme-fixme.less","variables.less","sizes.less","colors.less"];});

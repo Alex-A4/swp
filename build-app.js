@@ -130,6 +130,15 @@ fs.writeFile(path.join(root, 'builderCfg.json'), gultConfig, function(){
       fs.writeFileSync(path.join(root, 'application', 'resources', 'module-dependencies.json'),
          JSON.stringify(alljson, '', 3).replace(/ws\/core/ig, 'WS.Core/core').replace(/resources\//i, ''));
 
+      const childAnother = spawn('node', [path.join(root, 'pack.js')]);  
+
+      childAnother.on('exit', function (code, signal) {
+         console.log('child process exited with ' +
+            `code ${code} and signal ${signal}`);
+      });
+         
+      fs.copyFileSync(path.join(root, 'sw.js'), path.join(root, 'application', 'sw.js'));
+          /*    */
    });
 
 });

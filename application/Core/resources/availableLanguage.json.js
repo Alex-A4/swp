@@ -1,1 +1,0 @@
-define('Core/resources/availableLanguage.json',[],function(){return {"ru-RU":"Русский (Россия)","en-US":"English (USA)"};});

@@ -1,6 +1,3 @@
-/*
-   Templates
- */
 /*Ёмкость списка без прокрутки - 16 пресетов*/
 /*#0055BB*/
 .controls-Button_viewMode-toggledLink,
@@ -9,7 +6,7 @@
   border-width: 1px;
   border-radius: 2px;
 }
-.controls-Button_viewMode-toolButton_toggle_on {
+.controls-Button_viewMode-quickButton_toggle_on {
   border-color: #587ab0;
 }
 .controls-Button_viewMode-toggledLink {
@@ -27,7 +24,7 @@
   border-color: #CCCCCC;
   background: transparent;
 }
-.controls-Button_viewMode-toolButton_toggle_on {
+.controls-Button_viewMode-quickButton_toggle_on {
   -webkit-box-shadow: none;
           box-shadow: none;
 }
@@ -69,28 +66,28 @@
       -ms-flex-pack: center;
           justify-content: center;
 }
-.controls-Button_viewMode-toolButton_iconStyle-success_toggle_on {
+.controls-Button_viewMode-quickButton_iconStyle-success_toggle_on {
   border-color: #72BE44;
 }
-.controls-Button_viewMode-toolButton_iconStyle-warning_toggle_on {
+.controls-Button_viewMode-quickButton_iconStyle-warning_toggle_on {
   border-color: #FEC63F;
 }
-.controls-Button_viewMode-toolButton_iconStyle-danger_toggle_on {
+.controls-Button_viewMode-quickButton_iconStyle-danger_toggle_on {
   border-color: #EF463A;
 }
-.controls-Button_viewMode-toolButton_iconStyle-info_toggle_on {
+.controls-Button_viewMode-quickButton_iconStyle-info_toggle_on {
   border-color: #CCC;
 }
-.controls-Button_viewMode-toolButton_iconStyle-primary_toggle_on {
+.controls-Button_viewMode-quickButton_iconStyle-primary_toggle_on {
   border-color: #FF7033;
 }
-.controls-Button_viewMode-toolButton_iconStyle-secondary_toggle_on {
+.controls-Button_viewMode-quickButton_iconStyle-secondary_toggle_on {
   border-color: #587ab0;
 }
 .controls-Button_viewMode-toggledLink:active .controls-Button__icon-secondary_toggle_on {
   color: #313E78;
 }
-.controls-Button__icon-secondary_iconStyle-secondary_viewMode-toolButton_toggle_on {
+.controls-Button__icon-secondary_iconStyle-secondary_viewMode-quickButton_toggle_on {
   color: #313E78;
 }
 .controls-Button__icon-secondary_iconStyle-secondary_viewMode-toggledLink_toggle_on {

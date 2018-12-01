@@ -1,21 +1,10 @@
-/*
-   Templates
- */
 /*Ёмкость списка без прокрутки - 16 пресетов*/
 /*#0055BB*/
 .ws-Block {
   position: relative;
-  border-style: solid;
-  border-width: 3px;
+  border: 3px solid #eaeaea;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  /**
-    * There is space left between blocks on mobile devices when using borders (due to native render).
-    * The color of the blocks borders and the space background is different.
-    * There is no problem when using" outline" size one pixel larger than "border-width".
-    * To abandon the "border" is impossible because "outline" is not included in the width value in the calculations.
-    * The solution is only used on mobile devices because property outline-offset not support in ie browser.
-    */
   /**
     * TODO: pointer-events работает в ie начиная с 11 версии.
     * Поэтому живем в ie10 без тени на блоках.
@@ -44,14 +33,6 @@
 }
 .ws-Block_style_6 {
   background-color: #F0F5FB;
-}
-.ws-is-mobile-platform .ws-Block {
-  border-color: transparent;
-  outline: 4px solid #eaeaea;
-  outline-offset: -3px;
-}
-.ws-is-desktop-platform .ws-Block {
-  border-color: #eaeaea;
 }
 body:not(.ws-is-ie10) .ws-Block:after {
   content: '';

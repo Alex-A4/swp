@@ -28,7 +28,7 @@
     },
     {
       "name": "Controls-demo",
-      "path": "%cd%/Controls-theme"
+      "path": "%cd%/Controls-demo"
     },
     {
       "name": "Core",
