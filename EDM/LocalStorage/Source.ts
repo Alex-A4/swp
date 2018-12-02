@@ -122,11 +122,14 @@ const LocalStorageWorker = {
                 //Ищем соответствие id для обновления записи
                 for (j = 0; j < newLen; j++) {
                     if (pref[i] !== null && arr[j] !== null)
-                        if (arr[j].id === pref[i].id) {
+                        if (arr[j].id === pref[i].id && pref[i].sync !== false) {
                             pref[i] = arr[j];
                             //Удаляем элемент из массива
                             arr.splice(j, 1);
                             break;
+                        } else if (arr[j].id === pref[i].id && pref[i].sync === false) {
+                            new Service(location.origin).post('api/update', {id: pref[i].id, document: pref[i]});
+                            pref[i].sync = true;            
                         }
                 }
                 
