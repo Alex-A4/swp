@@ -18,7 +18,7 @@
             <Controls.Input.Text bind:value = "_time" class = "MyInput"  readOnly="true"/>
          </ws:if>
          <div>
-         <select>
+         <select class="select controls-InputRender controls-Text-InputRender controls-InputRender_size_default_singleLine controls-Text-InputRender_state_default controls-InputRender_size_default_singleLine">
             <option>default</option>
             <option>cats</option>
             <option>cars</option>

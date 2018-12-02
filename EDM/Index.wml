@@ -19,7 +19,6 @@
 </ws:popupOptions>
 
 </Controls.Popup.Opener.Stack>
-
 	<div class="pagination">
 		<ws:for data="i in countPage">
 			<div class="pagination-button">
