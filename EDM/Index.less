@@ -10,7 +10,7 @@
      color: @color_Button-Vdom-text_default_active;
      border-color: @border-color_Button_active;
  }
- 
+
  body.theme_mobile {
      font-size: @size_text_m;
  }
@@ -57,7 +57,7 @@
 }
 
 .theme_mobile .controls-Button_viewMode-button {
-    min-width: 110px; 
+    min-width: 110px;
 }
 
 .theme_mobile .controls-LabelV__caption {
@@ -78,7 +78,7 @@
     border-radius: 5px 0 0 5px;
  }
 
- .ws-is-chrome .controls-Button__close__icon_default_l, 
+ .ws-is-chrome .controls-Button__close__icon_default_l,
  .ws-is-chrome .controls-Button__close__icon_default_l:hover {
     border-color: transparent;
  }
@@ -95,7 +95,7 @@
      color: #ffffff;
  }
 
- .controls-Button__close_default_l, 
+ .controls-Button__close_default_l,
  .controls-Button__close_primary_l {
     height: 35px;
  }
@@ -113,15 +113,24 @@
 
  }
 
-.pagination{
-    display: inline-flex;
-    flex-shrink: 0;
-    margin-left: 2%;
-    margin-bottom: 12px;
+.bottom_bar{
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border-top: 1px solid #e6e6e6;
+  background: #fafafa;
+}
+.theme-mobile .bottom_bar{
+  justify-content: space-around;
+  border-top: 0;
+  background: transparent;
 }
 
 .pagination-button{
-    margin-right: 3px;
+    margin-right: 2px;
 }
 
 .scroll-container{

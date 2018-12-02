@@ -13,18 +13,33 @@
 	<Controls.Container.Scroll attr:class="scroll-container">
 		<EDM.Reestr.List attr:class="list-container" items="{{items}}" on:rowClick="rowClickHandler()" on:deleteRowClick="deleteRowClickHandler()"/>
 	</Controls.Container.Scroll>
+
 	<Controls.Popup.Opener.Stack name='StackPanel'>
 	<ws:popupOptions template='EDM/Document'>
 	<ws:eventHandlers onClose="_closeHandler()"/>
 </ws:popupOptions>
 
 </Controls.Popup.Opener.Stack>
-	<div class="pagination">
-		<ws:for data="i in countPage">
+	<div class="bottom_bar">
 			<div class="pagination-button">
-				<Controls.Button on:click = "changeCurrentPageHdl(i)" caption="{{i+1}}"; />
-			</div>
-		</ws:for>
+		<ws:if data="{{page===0}}">
+			<Controls.Button on:click = "changeCurrentPageHdl(page)" caption="{{page+1}}" style="primary" />
+				<Controls.Button on:click = "changeCurrentPageHdl(page+1)" caption="{{page+2}}"; />
+				<Controls.Button on:click = "changeCurrentPageHdl(page+2)" caption="{{page+3}}"; />
+		</ws:if>
+		<ws:else>
+			<ws:if data="{{page===countPage-1}}">
+				<Controls.Button on:click = "changeCurrentPageHdl(page-2)" caption="{{page-1}}"; />
+				<Controls.Button on:click = "changeCurrentPageHdl(page-1)" caption="{{page}}"; />
+				<Controls.Button on:click = "changeCurrentPageHdl(page)" caption="{{page+1}}" style="primary"  />
+			</ws:if>
+			<ws:else>
+					<Controls.Button on:click = "changeCurrentPageHdl(page-1)" caption="{{page}}"; />
+					<Controls.Button on:click = "changeCurrentPageHdl(page)" caption="{{page+1}}" style="primary"  />
+					<Controls.Button on:click = "changeCurrentPageHdl(page+1)" caption="{{page+2}}"; />
+			</ws:else>
+		</ws:else>
+	</div>
 	</div>
 </div>
 </EDM.ReloadHoc>

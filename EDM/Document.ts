@@ -2,7 +2,6 @@ import * as Control from "Core/Control";
 import template = require('wml!EDM/Document/Document');
 import createGUID = require('Core/helpers/createGUID');
 import LocalStorage from 'EDM/LocalStorage/Source';
-import * as Memory from 'WS.Data/Source/Memory';
 import 'css!EDM/Document/DocumentStyles'
 import Service from './Service';
 
@@ -14,37 +13,31 @@ class Document extends Control {
     private _description: String = "";
     private _date: String = "";
     private _time: String = "";
-    private _style: String = "1";
+    private _style: String = "_default";
     private _items: Object = {};
-    public _memorySource: Memory;
+    private picture: String = "";
+    public selectedItem: String;
     readOnly: Boolean = true;
     dateTime: Boolean;
 
-
     _beforeMount(options: Object): void {
         this.dateTime = true;
-        this._memorySource = new Memory({
-            idProperty: 'title',
-            data: [
-                {id: '1', title: 'default'},
-                {id: '2', title: 'cars'},
-                {id: '3', title: 'cats'}
-            ]
-        });
         this._id = options.item.id ? options.item.id : createGUID();
         this._author = options.item.author ? options.item.author : "";
         this._title = options.item.title ? options.item.title : "";
         this._description = options.item.description ? options.item.description : "";
         this.readOnly = options.readOnly ? options.readOnly : false;
         this.dateTime = options.dateTime;
-        this._style = options.item.style ? options.item.style : "1";
+        this._style = options.item.style ? options.item.style : "_default";
 
         let date = this.getCurrentDateAndTime();
 
         this._date = date.date;
         this._time = date.time;
     }
-
+   _changeValue(e:Event):void{
+       this._style = e.target.value;
+   }
     private save(): void {
         let date = this.getCurrentDateAndTime(),
             newDoc;
