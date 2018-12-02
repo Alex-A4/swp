@@ -47,12 +47,14 @@ const DataBaseWorker = {
             let collection = client.db('Database').collection('Documents');
 
             collection.findOne({ id: idNew }, function(err, item) {
+               
+               client.close();
                if (err) {
                   reject(err);
                } else {
                   resolve(JSON.stringify(item));
                }
-               client.close();
+               
             });
          });
       });
@@ -87,8 +89,11 @@ const DataBaseWorker = {
                   console.log('HAS ITEM');
                   
                   MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
+                     console.log('CONNECTED');
+                     console.log(err);
                      let collection = client.db('Database').collection('Documents');
                      collection.findOneAndUpdate({ id: idNew }, { $set: documentNew }, (err) => {
+                        console.log('UPDATED');
                         if (err) {
                            reject(err);
                         } else {

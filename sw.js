@@ -15,7 +15,7 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('fetch', (event) => {
    if (event.request.url.indexOf('clearcache') > -1) {
-      event.respondWith(return caches.keys().then(function(names) {
+      event.respondWith(caches.keys().then(function(names) {
          for (let name of names) {
             caches.delete(name);
          }
