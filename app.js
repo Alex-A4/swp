@@ -114,16 +114,21 @@ app.post("/api/create", function (req, res) {
 
 app.post("/api/update", function (req, res) {
    DBWorker.update(req.query.id.replace(/"/g, ''), JSON.parse(req.query.document))
-      .then((status) => res.sendStatus(status) && sendAll('update', req.query.id.replace(/"/g, ''), req.query.document))
-      .catch((err) => res.status(500) && res.send(err));
+       .then((status) => {
+             sendAll('update', req.query.id.replace(/"/g, ''), req.query.document);
+	    res.sendStatus(status);})
+      .catch((err) => { res.status(500); res.send(err); });
 });
 
 app.post("/api/sync",function (req, res) {
      console.log(JSON.parse(req.query.documents))
     DBWorker.sync(JSON.parse(req.query.documents))
-    .then((status) => res.sendStatus(status))
-    .catch((err) => res.status(500) && res.send(err));
+    .then((status) => {
+		res.sendStatus(status);
+	})
+    .catch((err) => {res.status(500); res.send(err);});
 } );
+
 
 app.get('/', function (req, res) {
    var cmp = 'EDM/Index';
