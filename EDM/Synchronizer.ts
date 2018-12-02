@@ -10,13 +10,14 @@ function Synchronize() {
             let diff = Source.filter('sync', false);
             diff = diff.map((item) => {delete item.sync; return item});
             if (diff.length) {
-                service.post('api/sync', {documents: diff})
+                diff.forEach((oneItem) => {
+                    service.post('api/update', {id: oneItem.id, document: oneItem})
                     .then(() => {
-                        diff.forEach((item) => {
-                            item.sync = true;
-                            Source.update(item.id, item);
-                        });
+                        oneItem.sync = true;
+                        Source.update(oneItem.id, oneItem);
                     });
+                });
+                
             } else {
                 EventBus.channel('docChannel').notify('refresh');
             }
