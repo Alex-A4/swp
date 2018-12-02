@@ -131,6 +131,8 @@ const LocalStorageWorker = {
                 
                 if (j === newLen) {
                     pref.splice(i,1);
+                    i--;
+                    len--;
                 }
             }
             //По окончании цикла в arr должны остаться только новые элементы, которые добавляем в конец pref
