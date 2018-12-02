@@ -1,4 +1,5 @@
 /// <amd-module name="EDM/LocalStorage/Source";
+import Service from 'EDM/Service';
 
 const LocalStorageWorker = {
 
@@ -130,9 +131,14 @@ const LocalStorageWorker = {
                 }
                 
                 if (j === newLen) {
-                    pref.splice(i,1);
-                    i--;
-                    len--;
+                    if (pref[i].sync === false) {
+                        new Service(location.origin).post('api/update', {id: pref[i].id, document: pref[i]});
+                        pref[i].sync = true;
+                    }else {
+                        pref.splice(i,1);
+                        i--;
+                        len--;
+                    }
                 }
             }
             //По окончании цикла в arr должны остаться только новые элементы, которые добавляем в конец pref
