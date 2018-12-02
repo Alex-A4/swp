@@ -97,8 +97,13 @@ app.get("/api/read", (req, res) => {
 
 app.post("/api/delete", function (req, res) {
    DBWorker.delete(req.query.id.replace(/"/g, ''))
-      .then((status) => res.sendStatus(status) && sendAll('delete', '"'+req.query.id.replace(/"/g, '')+'"', {}))
-      .catch((err) => res.status(500) && res.send(err));
+      .then((status) => {
+           sendAll('delete', '"'+req.query.id.replace(/"/g, '')+'"', {});
+   	   res.sendStatus(status);
+      }).catch((err) => {
+		res.status(500);
+                res.send(err);
+      });
 });
 
 app.post("/api/create", function (req, res) {
