@@ -15,14 +15,14 @@ self.addEventListener('install', (event) => {
 
 self.addEventListener('fetch', (event) => {
    if (event.request.url.indexOf('clearcache') > -1) {
-      return caches.keys().then(function(names) {
+      event.respondWith(return caches.keys().then(function(names) {
          for (let name of names) {
             caches.delete(name);
          }
-         return fetch(event.request);
-      });
+         return;
+      }));
    } if (event.request.url.indexOf('/api/') > -1) {
-      return fetch(event.request);
+      return;
    } else {
    event.respondWith(
       caches.match(event.request)

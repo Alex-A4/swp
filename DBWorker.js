@@ -59,6 +59,7 @@ const DataBaseWorker = {
    },
 
    delete(idNew) {
+      idNew = idNew.replace(/"/g, '');
       return new Promise((resolve, reject) => {
          MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
             let collection = client.db('Database').collection('Documents');
@@ -74,13 +75,17 @@ const DataBaseWorker = {
       });
    },
    update(idNew, documentNew) {
+      idNew = idNew.replace(/"/g, '');
+
       console.log('START UPDATE');
       return new Promise((resolve, reject) => {
          DataBaseWorker.read(idNew)
             .then((item) => {
 		
-      console.log('READED DBW');
-               if (item) {
+               console.log('READED DBW');
+               if (item && item !== "null") {
+                  console.log('HAS ITEM');
+                  
                   MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
                      let collection = client.db('Database').collection('Documents');
                      collection.findOneAndUpdate({ id: idNew }, { $set: documentNew }, (err) => {
@@ -94,7 +99,7 @@ const DataBaseWorker = {
                   });
                } else {
                        
-      console.log('TRY CREATE');
+                  console.log('TRY CREATE');
                   DataBaseWorker.create(documentNew)
                      .then(() => resolve(200))
                      .catch(err => reject(err));
