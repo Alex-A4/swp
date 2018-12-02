@@ -74,9 +74,12 @@ const DataBaseWorker = {
       });
    },
    update(idNew, documentNew) {
+      console.log('START UPDATE');
       return new Promise((resolve, reject) => {
          DataBaseWorker.read(idNew)
             .then((item) => {
+		
+      console.log('READED DBW');
                if (item) {
                   MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
                      let collection = client.db('Database').collection('Documents');
@@ -90,6 +93,8 @@ const DataBaseWorker = {
                      });
                   });
                } else {
+                       
+      console.log('TRY CREATE');
                   DataBaseWorker.create(documentNew)
                      .then(() => resolve(200))
                      .catch(err => reject(err));
