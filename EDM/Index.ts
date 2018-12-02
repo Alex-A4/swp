@@ -124,6 +124,7 @@ class Index extends Control {
 
     private deleteRowClickHandler(e: Event, data: Document): void {
         LocalStorage.removeDocument(data.id);
+        this.allItems = LocalStorage.readAll();
         let len = this.allItems.length;
         if (len % this.sizePage == 0) {
             this.page--; // WOOOOORK
