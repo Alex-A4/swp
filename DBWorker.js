@@ -8,17 +8,22 @@ let url = `mongodb+srv://kotalesya:${password}@cluster0-koo1j.mongodb.net/test?r
 
 const DataBaseWorker = {
    create(document) {
+      console.log('START CREATE');
+      console.log(document);
+
       return new Promise((resolve, reject) => {
          MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
             let collection = client.db('Database').collection('Documents');
             console.log(document);
             collection.insertOne(document, (err) => {
+		console.log('INSERT DONE');
+		console.log(err);
+               client.close();
                if (err) {
                   reject(err);
                } else {
                   resolve(200);
                }
-               client.close();
             });
          });
       });
@@ -30,12 +35,12 @@ const DataBaseWorker = {
          MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
             let collection = client.db('Database').collection('Documents');
             collection.find().toArray(function(err, list) {
+               client.close();
                if (err) {
                   reject(err);
                } else {
                   resolve(JSON.stringify(list));
                }
-               client.close();
             });
          });
       });
@@ -66,12 +71,12 @@ const DataBaseWorker = {
          MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
             let collection = client.db('Database').collection('Documents');
             collection.deleteOne({ id: idNew }, (err, results) => {
+               client.close();
                if (err) {
                   reject(err);
                } else {
                   resolve(200);
                }
-               client.close();
             });
          });
       });
@@ -94,19 +99,22 @@ const DataBaseWorker = {
                      let collection = client.db('Database').collection('Documents');
                      collection.findOneAndUpdate({ id: idNew }, { $set: documentNew }, (err) => {
                         console.log('UPDATED');
+                        client.close();
                         if (err) {
                            reject(err);
                         } else {
                            resolve(200);
                         }
-                        client.close();
                      });
                   });
                } else {
                        
                   console.log('TRY CREATE');
                   DataBaseWorker.create(documentNew)
-                     .then(() => resolve(200))
+                     .then(() => {
+				console.log('NOW WILL RESOLVE');			
+				resolve(200);
+			})
                      .catch(err => reject(err));
                }
             })
@@ -119,12 +127,12 @@ const DataBaseWorker = {
          MongoClient.connect(url, { useNewUrlParser: true }, (err, client) => {
             let collection = client.db('Database').collection('Documents');
             collection.insertMany(documents, (err) => {
+               client.close();
                if (err) {
                   reject(err);
                } else {
                   resolve(200);
                }
-               client.close();
             });
          });
       });
