@@ -18,12 +18,52 @@
 }
 
 .controls-StackTemplate__content-area {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  flex-grow: 1;
+  flex-shrink: 1;
+  overflow: hidden;
+  background: #fafafa;
+}
+.controls-StackTemplate__content-area_default {
    display: flex;
    height: 100%;
    flex-direction: column;
    flex-grow: 1;
    flex-shrink: 1;
-   background: url('/EDM/Document/src/cat.png') no-repeat bottom right;
+   overflow: hidden;
+   background: #fafafa;
+}
+.controls-StackTemplate__content-area_kotiki {
+   display: flex;
+   height: 100%;
+   flex-direction: column;
+   flex-grow: 1;
+   flex-shrink: 1;
+   background: @border-picture_kotiki #fafafa no-repeat bottom right;
+   background-size: 70%;
+   overflow: hidden;
+}
+
+.controls-StackTemplate__content-area_monky {
+   display: flex;
+   height: 100%;
+   flex-direction: column;
+   flex-grow: 1;
+   flex-shrink: 1;
+   background: @background_monky #fafafa no-repeat bottom right;
+   background-size: 70%;
+   overflow: hidden;
+}
+
+.controls-StackTemplate__content-area_car {
+   display: flex;
+   height: 100%;
+   flex-direction: column;
+   flex-grow: 1;
+   flex-shrink: 1;
+   background: @background_car #fafafa no-repeat bottom right;
    background-size: 70%;
    overflow: hidden;
 }

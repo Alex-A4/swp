@@ -92,7 +92,6 @@ class Index extends Control {
 
     protected _beforeMount(): void {
         LocalStorage.initIfNotExist();
-
         this.remove = this.remove.bind(this);
         this.update = this.update.bind(this);
         this.getFreshData = this.getFreshData.bind(this);

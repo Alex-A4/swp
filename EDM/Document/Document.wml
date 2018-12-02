@@ -1,7 +1,10 @@
-<Controls.Popup.Templates.Stack.StackTemplate>
+<Controls.Popup.Templates.Stack.StackTemplate picture="{{_style}}">
    <ws:contentArea>
-      <div class ='MyPanelDiv'>
-         <div>
+      <Controls.Container.Scroll attr:class="scroll-container">
+   <div class ='MyPanelDiv'>
+
+
+      <div>
          <Controls.Button class = "MyButtonEdit" caption = "Edit" on:click = "edit()" readOnly="{{false}}" style="primary"/>
          <Controls.Button class = "MyButtonSave" caption = "Save" on:click = "save()" readOnly="{{false}}" style="primary"/>
          </div>
@@ -17,13 +20,27 @@
             <Controls.Label class="MyLabel" caption = "Time:"/>
             <Controls.Input.Text bind:value = "_time" class = "MyInput"  readOnly="true"/>
          </ws:if>
-         <div>
-         <select class="select controls-InputRender controls-Text-InputRender controls-InputRender_size_default_singleLine controls-Text-InputRender_state_default controls-InputRender_size_default_singleLine">
-            <option>default</option>
-            <option>cats</option>
-            <option>cars</option>
-         </select>
-         </div>
+         <ws:else>
+            <Controls.Label class="MyLabel" caption = "Picture:"/>
+            <ws:if data="{{readOnly}}">
+                     <select name="comboBox" on:change="_changeValue()" disabled = "true" class="select controls-InputRender controls-Text-InputRender controls-InputRender_size_default_singleLine controls-Text-InputRender_state_default controls-InputRender_size_default_singleLine">
+                                 <option value="_default">default</option>
+                                 <option value="_kotiki">cats</option>
+                                 <option value="_car">cars</option>
+                                 <option value="_monky">monkey</option>
+                     </select>
+            </ws:if>
+            <ws:else>
+                  <select name="comboBox" on:change="_changeValue()" class="select controls-InputRender controls-Text-InputRender controls-InputRender_size_default_singleLine controls-Text-InputRender_state_default controls-InputRender_size_default_singleLine">
+                     <option value="_default">default</option>
+                     <option value="_kotiki">cat</option>
+                     <option value="_car">car</option>
+                     <option value="_monky">monkeys</option>
+                  </select>
+             </ws:else>
+         </ws:else>
       </div>
+      </Controls.Container.Scroll>
+
    </ws:contentArea>
 </Controls.Popup.Templates.Stack.StackTemplate>
