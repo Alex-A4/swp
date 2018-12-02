@@ -1,4 +1,7 @@
 let DBWorker = require('./DBWorker');
+
+const https = require('https');
+
 var root = process.cwd(),
    rootFixed = root.replace('\\', '/'),
    baseRequire = require,
@@ -27,7 +30,7 @@ requirejs.config(config);
 
 var express = require('express'),
    http = require('http'),
-   https = require('https'),
+   //https = require('https'),
    spawn = require('child_process').spawn,
    app = express();
 
@@ -54,8 +57,17 @@ require(['Core/core-init'], function () {
 });
 
 
-wss = new WebSocket.Server({ port: 8080 });
 
+const wss = new WebSocket.Server({server});
+
+/*wss.on('connection', function connection(ws) {
+    ws.send('Hello');   
+    ws.on('message', (data) => ws.send('Receive: ' + data));
+});
+
+
+wss = new WebSocket.Server({httpsServer: app, port: 8888 });
+*/
 let websockets = [];
 
 wss.on('connection', (ws) => {
@@ -71,30 +83,38 @@ function sendAll(method, ...args) {
    });
 }
 app.get("/api/list", (req, res) => {
+   console.log(111111);
    DBWorker.list()
       .then((list) => res.send(list))
       .catch((err) => res.status(500) && res.send(err));
 });
 
 app.get("/api/read", (req, res) => {
-   DBWorker.read(req.query.id)
+   DBWorker.read(req.query.id.replace(/"/g, ''))
       .then((item) => res.send(item))
       .catch((err) => res.status(500) && res.send(err));
 });
 
 app.post("/api/delete", function (req, res) {
-   DBWorker.delete(req.query.id)
-      .then((status) => res.sendStatus(status) && sendAll('delete', req.query.id))
+   DBWorker.delete(req.query.id.replace(/"/g, ''))
+      .then((status) => res.sendStatus(status) && sendAll('delete', '"'+req.query.id.replace(/"/g, '')+'"', {}))
+      .catch((err) => res.status(500) && res.send(err));
+});
+
+app.post("/api/create", function (req, res) {
+   DBWorker.create(JSON.parse(req.query.document))
+      .then((status) => res.sendStatus(status) && sendAll('create', '', req.query.document))
       .catch((err) => res.status(500) && res.send(err));
 });
 
 app.post("/api/update", function (req, res) {
-   DBWorker.update(req.query.id, JSON.parse(req.query.document))
-      .then((status) => res.sendStatus(status) && sendAll('update', req.query.id, req.query.document))
+   DBWorker.update(req.query.id.replace(/"/g, ''), JSON.parse(req.query.document))
+      .then((status) => res.sendStatus(status) && sendAll('update', req.query.id.replace(/"/g, ''), req.query.document))
       .catch((err) => res.status(500) && res.send(err));
 });
 
 app.post("/api/sync",function (req, res) {
+     console.log(JSON.parse(req.query.documents))
     DBWorker.sync(JSON.parse(req.query.documents))
     .then((status) => res.sendStatus(status))
     .catch((err) => res.status(500) && res.send(err));
